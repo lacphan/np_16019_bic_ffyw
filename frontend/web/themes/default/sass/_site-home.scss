@@ -1,0 +1,336 @@
+.home-content {
+  .home-intro {
+    overflow: hidden;
+    background: url("../images/intro-bg.jpg") center no-repeat;
+    @include respond-to-custom-size(null, $mobile-break-point) {
+      background: url("../images/mobile-intro-bg.jpg") center repeat-y;
+    }
+    background-size: cover;
+    padding: 20px 0 0 0;
+    position: relative;
+    min-height: 408px;
+    .head-line {
+      text-align: center;
+      margin: 31px 0 14px 0;
+      font-size: 59px;
+      span {
+      }
+      .font-size-68 {
+        font-size: 68px;
+      }
+
+    }
+    @include respond-to-custom-size(null, $mobile-break-point) {
+      padding: 30px 0 0 0;
+      .head-line-3 {
+        font-size: 116px;
+      }
+    }
+    @include respond-to-custom-size(null, 480px) {
+      padding: 30px 0 0 0;
+      .head-line-1, .head-line-2, .head-line-3 {
+        display: block;
+        font-size: 40px;
+      }
+    }
+    .intro {
+      position: relative;
+      z-index: 3;
+      font-size: 20px;
+      width: 64%;
+      text-align: center;
+      line-height: 24px;
+      padding: 2px 33px;
+      letter-spacing: 0.6px;
+      p {
+        margin-bottom: 6px;
+      }
+      small {
+        font-size: 15px;
+      }
+      @include respond-to-custom-size(null, $mobile-break-point) {
+        position: static;
+        width: 100%;
+        font-size: 23px;
+        line-height: 26px;
+        padding: 8px 15px 2px 15px;
+        .font-size-25 {
+          font-size: 29px;
+        }
+      }
+    }
+    .subscribe-form {
+      padding: 13px 0 0 0;
+      position: relative;
+      &-inner {
+        width: 100%;
+        max-width: 401px;
+        margin: auto;
+      }
+      .form-group {
+        width: 201px;
+        float: left;
+        padding-top: 10px;
+        margin-right: 12px;
+        .control-label {
+          display: none;
+        }
+        .form-control {
+          border: 1px solid #dfdfe0;
+          border-radius: 0;
+          height: 30px;
+          background-color: #fff;
+          font-size: 12px;
+          color: #636567;
+          padding: 0 7px;
+          font-weight: 600;
+          @include place-holder() {
+            font-style: italic;
+          }
+        }
+      }
+      button {
+        border: 0;
+        float: left;
+        background: url("../images/enternow.png") center no-repeat;
+        background-size: cover;
+        width: 182px;
+        height: 47px;
+        color: transparent;
+        position: relative;
+        &:focus {
+          outline: none;
+        }
+      }
+      .form-arrow {
+        position: absolute;
+        right: 9px;
+        bottom: 25px;
+        z-index: 1;
+        width: 88px;
+        height: 64px;
+        background: url('../images/arrow-sketch.png') center no-repeat;
+        background-size: cover;
+      }
+      @include respond-to-custom-size(null, $mobile-break-point) {
+        .form-group {
+          float: none;
+          margin: auto;
+          width: 312px;
+          .form-control {
+            height: 50px;
+            text-align: center;
+            font-size: 18px;
+          }
+        }
+        button {
+          float: none;
+          margin: 10px auto auto;
+          width: 360px;
+          height: 93px;
+        }
+      }
+      @include respond-to-custom-size(null, 480px) {
+        .form-group {
+          float: none;
+          margin: auto;
+          width: 260px;
+          .form-control {
+            height: 50px;
+            text-align: center;
+            font-size: 18px;
+          }
+        }
+        button {
+          float: none;
+          margin: 10px auto auto;
+          width: 182px;
+          height: 47px;
+        }
+        .form-arrow {
+          right: 0;
+          bottom: 11px;
+          z-index: 1;
+          width: 48px;
+          height: 34px;
+        }
+      }
+    }
+    .intro-link {
+      font-size: 9.5px;
+      a {
+        color: $color2;
+        text-decoration: underline;
+      }
+      @include respond-to-custom-size(null, $mobile-break-point) {
+        display: none;
+      }
+    }
+    .hand-writing {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 40%;
+      z-index: 1;
+      text-align: right;
+      &-mb {
+        display: none;
+      }
+      @include respond-to-custom-size(null, $mobile-break-point) {
+        position: static;
+        width: auto;
+        img {
+          width: 100%;
+        }
+        &-mb {
+          display: block;
+        }
+        &-dk {
+          display: none;
+        }
+      }
+      @include respond-to-custom-size(null, 480px) {
+        margin-left: 0;
+      }
+    }
+    .sun {
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      bottom: 0;
+      width: 85px;
+      height: 135px;
+      background: url("../images/sun.png") center no-repeat;
+      background-size: cover;
+    }
+  }
+}
+
+.home-gallery {
+  padding: 7px 0 0 0;
+  background: #fff;
+  &-row {
+    margin: 0 3px;
+  }
+  &-item {
+    padding: 0 3px;
+    width: 20%;
+    float: left;
+    margin-bottom: 6px;
+    &-inner {
+      position: relative;
+    }
+    &-image {
+      min-height: 126px;
+      img {
+        display: none;
+      }
+    }
+    &-title {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      min-height: 30px;
+      background: rgba(248, 164, 33, 0.7);
+      padding: 10px;
+      font-size: 12px;
+      font-family: $font5;
+    }
+  }
+  .see-all-btn {
+    display: block;
+    min-height: 126px;
+    background-color: #1890f3;
+    background-image: url("../images/see-all.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 124px 24px;
+  }
+  @include respond-to-custom-size(null, $mobile-break-point) {
+    padding: 0;
+    &-row {
+      margin: 0;
+    }
+    &-item {
+      display: none;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      &-image {
+
+        img {
+          display: block;
+        }
+        background: none !important;
+      }
+
+      &:first-child, &.item-see-all {
+        display: block;
+      }
+      &-title {
+        position: absolute;
+        padding: 17px 35px;
+        font-size: 51px;
+        font-family: $font5;
+      }
+    }
+    .see-all-btn {
+      background-color: #7c428d;
+      background-image: url("../images/see-all.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 329px 60px;
+      height: 162px;
+    }
+  }
+  @include respond-to-custom-size(null,480px) {
+    &-item {
+
+      &-title {
+        position: absolute;
+        padding: 10px ;
+        font-size: 24px;
+        font-family: $font5;
+      }
+    }
+    .see-all-btn {
+      background-color: #7c428d;
+      background-size: 124px 24px;
+    }
+  }
+}
+.home-text-block {
+  font-size: 10px;
+  padding: 10px 0 23px 0;
+  text-align: justify;
+  line-height: 12px;
+  a {
+    text-decoration: underline;
+  }
+  @include respond-to-custom-size(null,$mobile-break-point) {
+    text-align: center;
+    font-size: 20px;
+    padding: 26px 0 30px 0;
+    line-height: 24px;
+  }
+}
+.home-instruction {
+  padding-bottom: 15px;
+  &-row {
+    margin: 0 -4px;
+  }
+  &-item {
+    padding: 0 4px;
+    margin-bottom: 15px;
+    img {
+      height: 166px;
+    }
+  }
+  @include respond-to-custom-size(null,$mobile-break-point) {
+    &-item {
+      img {
+        height: auto;
+      }
+    }
+  }
+}

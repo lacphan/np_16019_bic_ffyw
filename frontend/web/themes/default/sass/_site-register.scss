@@ -1,0 +1,100 @@
+.registration-content {
+  background: url("../images/registration-bg.jpg") center no-repeat;
+  padding: 43px 0 0 0;
+  background-size: cover;
+  &-row {
+    margin: 0 -10px;
+  }
+  .image-heading {
+    padding: 0 10px;
+    padding-top: 19px;
+    @include respond-to-custom-size(1024px) {
+      width: 27%;
+    }
+  }
+  .intro-heading {
+    padding: 0 10px;
+    font-size: 19px;
+    @include respond-to-custom-size(1024px) {
+      width: 73%;
+      padding-left: 0;
+      &-inner {
+        padding-right: 10px;
+      }
+    }
+    @include respond-to-custom-size(null, 1024px) {
+      &-inner {
+        padding: 0 10px;
+      }
+    }
+    .intro-inner {
+      h3 {
+        margin-top: 0;
+      }
+    }
+  }
+  .register-form {
+    padding: 12px 52px;
+    color: #636567;
+    font-size: 12px;
+    .form-title {
+      color: #7c428d;
+      margin-bottom: 6px;
+    }
+    .require-hint {
+      margin-bottom: 17px;
+    }
+    .form-group {
+      width: 229px;
+      display: inline-block;
+      margin-right: 17px;
+      vertical-align: top;
+      margin-bottom: 11px;
+      .form-control {
+        border-radius: 0;
+        height: 31px;
+      }
+    }
+    .form-check-box {
+
+      input[type='checkbox'] {
+        display: none;
+      }
+      .control-label {
+        position: relative;
+        padding: 0;
+        padding-left: 38px;
+        &:before {
+          content: "";
+          left: 0;
+          top: 0;
+          width: 32px;
+          height: 32px;
+          display: block;
+          position: absolute;
+          border: 1px solid #aaabaf;
+          background-color: #fff;
+        }
+
+      }
+
+      input[type='checkbox']:checked + .control-label {
+        &:after {
+          content: "\f00c";
+          position: absolute;
+          width: 14px;
+          height: 14px;
+          left: 3px;
+          top: 3px;
+          font-size: 19px;
+          font: normal normal normal 14px/1 FontAwesome;
+          font-size: inherit;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+      }
+
+    }
+  }
+}

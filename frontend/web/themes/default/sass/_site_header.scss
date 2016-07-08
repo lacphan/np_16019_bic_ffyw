@@ -1,0 +1,227 @@
+.site-header {
+  position: relative;
+  z-index: 1000;
+  .header-inner {
+    position: relative;
+    background-color: $color3;
+    min-height: 30px;
+    margin-top: 70px;
+    @include respond-to-custom-size(null,$mobile-break-point) {
+      margin-top: 0;
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+    @include respond-to-custom-size(null,480px) {
+      margin-top: 0;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+  }
+  .header-main-content {
+    position: relative;
+    padding-left: 180px;
+  }
+  .main-logo {
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 180px;
+    height: 136px;
+    bottom: 0;
+    margin: auto;
+    a {
+      display: inline-block;
+      &:hover,&:focus {
+        text-decoration: none;
+      }
+    }
+    @include respond-to-custom-size(null,1024px) {
+      float: left;
+      padding: 10px 0;
+    }
+    @include respond-to-custom-size(480px,$mobile-break-point) {
+      width: 267px;
+      height: 201px;
+      top: 130px;
+    }
+    @include respond-to-custom-size(null,480px) {
+      top: 70px;
+    }
+  }
+  .site-title {
+    font-size: 22px;
+    font-family: $font1;
+    margin: 7px 0 0;
+    text-decoration: none;
+    color: $color1;
+  }
+  @include horizontal-resp-nav-menu('.main-navigation');
+  .main-navigation {
+    float: right;
+    .navbar-header {
+      float: none;
+    }
+    .navbar-toggle {
+      float: right;
+    }
+    ul {
+      float: none;
+    }
+    .navbar-nav > li {
+      float: left;
+      display: inline-block;
+      font-size: 12px;
+      font-family: $font1;
+      font-weight: 600;
+      padding: 7px 0;
+
+      &.facebook-btn {
+        float: left;
+        padding: 3px 16px;
+        a {
+          border-left: 0;
+          padding: 0;
+          display: block;
+          width: 22px;
+          height: 22px;
+          background: url("../images/facebook-icon.png") center no-repeat;
+          background-size: cover;
+
+        }
+      }
+      &.language-switch {
+        float: left;
+        a {
+          border-left: 0;
+          @include respond-to-custom-size(1200px) {
+            padding-right: 100px;
+            padding-left: 37px;
+          }
+        }
+
+      }
+      a {
+        color: $color1;
+        padding: 1px 43px;
+      }
+      &:hover, &.active ,&.current-menu-item {
+        a {
+          color: $color2;
+        }
+      }
+      @include respond-to-custom-size(1024px) {
+        & + li {
+          a {
+            border-left: 1px solid $color2;
+          }
+
+        }
+      }
+      @include respond-to-custom-size(null,1024px) {
+        float: none;
+        &.facebook-btn {
+          float: none;
+          padding-right: 10px;
+          a {
+            display: inline-block;
+          }
+        }
+        &.language-switch {
+          float: none;
+        }
+      }
+
+    }
+    @include respond-to-custom-size(null,1024px) {
+
+      .navbar-toggle {
+        display: block;
+      }
+      text-align: right;
+      float: right;
+      .navbar-nav > li {
+        display: block;
+        a {
+          font-size: 18px;
+          padding-right: 10px;
+        }
+        + li {
+          border: 0;
+        }
+      }
+    }
+  }
+  .navbar-toggle {
+    border-radius: 0;
+    border: 0;
+    margin: 0;
+    padding: 12px 0 0 0;
+    .icon-bar {
+      background-color: #000;
+      width: 73px;
+      height: 10px;
+      border-radius: 5px;
+      & + .icon-bar {
+        margin-top: 7px;
+      }
+      @include respond-to-custom-size(null,480px) {
+        width: 53px;
+        height: 6px;
+        & + .icon-bar {
+          margin-top: 6px;
+        }
+      }
+    }
+  }
+  &.logged-header {
+    border-bottom: 1px solid #eeeeee;
+    .main-logo {
+      float: left;
+      text-align: left;
+      width: 180px;
+      padding-top: 10px;
+      padding-bottom: 14px;
+      @include respond-to-custom-size(null,1024px) {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      img {
+        max-width: 66px;
+        vertical-align: top;
+        display: inline-block;
+      }
+      .site-title {
+        font-size: 17px;
+        margin-top: 24px;
+        margin-left: 12px;
+        letter-spacing: 0.5px;
+        display: inline-block;
+      }
+    }
+    .main-navigation {
+      @include respond-to-custom-size(1024px) {
+        margin-top: 32px;
+      }
+      margin-bottom: 16px;
+      float: right;
+      .navbar-nav > li {
+        a {
+          padding: 3px 17px;
+        }
+        & + li {
+          border-left: 0;
+        }
+        &:last-child {
+          @include respond-to-custom-size(1024px) {
+            border-left: 1px solid #dedede;
+          }
+        }
+      }
+    }
+  }
+  #site-navigation {
+    float: left;
+  }
+
+}

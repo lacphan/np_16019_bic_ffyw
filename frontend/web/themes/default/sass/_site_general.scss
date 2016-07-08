@@ -1,0 +1,130 @@
+// Only use font if using internal font, other wise, put it there for auto-complete
+
+//@import "compass";
+
+@import "devices";
+@import "functions";
+@import "horizontal-resp-nav-menu";
+
+$mobile-break-point: 992px;
+
+$color1: #19998c;
+$color2: #000;
+$color3: #f8a421;
+$color4: #dedede;
+$color5: #1abc9c;
+$color6: #e8ebf0;
+$color7: #00b7d6;
+$color8: #000;
+
+$font1: 'Open Sans', sans-serif;
+$font2: 'KGSecondChancesSketch';
+$font3: 'KGSecondChancesSolid';
+$font4: 'Lemonade ICG';
+$font5: 'Lemonade ICG Bold';
+html {
+
+}
+body { font-family: $font1; color: $color2; background-color: $color1}
+a { color: $color2; text-decoration: none; }
+a:hover { color: $color2;}
+a:focus { outline: none; }
+
+h1, h2, h3, h4, h5, h6 {
+
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.font-1 {
+  font-family: $font1;
+}
+.font-2 {
+  font-family: $font2;
+}
+.font-3 {
+  font-family: $font3;
+}
+.font-4 {
+  font-family: $font4;
+}
+.font-5 {
+  font-family: $font5;
+}
+.color-1 {
+  color: $color1;
+}
+.color-2 {
+  color: $color2;
+}
+.color-3 {
+  color: $color3;
+}
+.color-4 {
+  color: $color4;
+}
+.font-size-25 {
+  font-size: 25px;
+}
+.global-btn {
+  display: inline-block;
+  padding: 0 16px;
+  position: relative;
+  &:before {
+    content: "";
+    width: 13px;
+    height: 37px;
+    background: url("../images/global-btn.png") 0 center no-repeat;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
+  &:after {
+    content: "";
+    width: 13px;
+    height: 37px;
+    background: url("../images/global-btn.png") right 0 center no-repeat;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+  }
+  &-inner {
+    background-color: $color3;
+    padding: 5px 20px;
+    border-radius: 10px;
+    font-family: $font5;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    border: 0;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+.site-content {
+  background-color: #f8f8f8;
+  padding-top: 50px;
+  padding-bottom: 68px;
+}
+.a-center {
+  text-align: center;
+}
+.a-right {
+  text-align: right;
+}
+.show-on-desktop {
+  @include respond-to-custom-size(null,$mobile-break-point) {
+    display: none;
+  }
+}
+.show-on-mobile {
+  @include respond-to-custom-size($mobile-break-point) {
+    display: none;
+  }
+}
