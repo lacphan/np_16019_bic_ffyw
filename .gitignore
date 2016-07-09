@@ -39,12 +39,3 @@ robot.txt
 cgi-bin/
 
 #local file
-backend/config/main-local.php
-backend/config/params-local.php
-common/config/main-local.php
-common/config/params-local.php
-environment.php
-frontend/config/main-local.php
-frontend/config/params-local.php
-frontend/web/index-test.php
-frontend/web/index.php
