@@ -1,0 +1,20 @@
+.page-logo {
+  a {
+    text-decoration: none;
+  }
+}
+.logo-text {
+  font-size: 20px;
+  font-weight: 600;
+  display: block;
+  margin-top: 10px;
+  color: #fff;
+  &:hover {
+    text-decoration: none;
+  }
+}
+.page-sidebar-closed {
+  .logo-text {
+    display: none;
+  }
+}

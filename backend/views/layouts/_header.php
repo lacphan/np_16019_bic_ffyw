@@ -16,12 +16,11 @@ use yii\helpers\Html;
         <!-- BEGIN LOGO -->
         <div class="page-logo">
             <a href="<?= Yii::$app->urlManager->baseUrl; ?>">
-<!--                <img src="--><?//= Yii::$app->urlManager->baseUrl . '/images/bic/logo-text.png'?><!--" alt="logo-text" class="logo-text" />-->
+                <span class="logo-text">BIC FFYW</span>
             </a>
 
             <div class="menu-toggler sidebar-toggler">
-<!--                <img src="--><?//= Yii::$app->urlManager->baseUrl . '/images/bic/logo-icon.png'?><!--" alt="logo-icon" class="logo-text" />-->
-            </div>
+          </div>
         </div>
         <div class="page-header-title">
 

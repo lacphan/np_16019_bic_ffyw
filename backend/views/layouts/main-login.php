@@ -48,7 +48,7 @@ $this->beginPage() ?><!DOCTYPE html>
 <!-- BEGIN LOGO -->
 <div class="logo">
 
-    <img src="<?= Yii::$app->urlManager->baseUrl . '/assets-enpii/pages/img/logo-big.png'?>" alt=""/>
+    <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/bic-logo.png'?>" alt=""/>
 </div>
 <!-- END LOGO -->
 <!-- BEGIN LOGIN -->
