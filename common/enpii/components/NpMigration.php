@@ -31,7 +31,7 @@ class NpMigration extends Migration
 
     public function commonCreateTable($tableName, $params, $options = null)
     {
-        $this->createTable($tableName, array_merge($params, $this->commonField), $options);
+        $this->createTable($tableName, array_merge($params, $this->commonFields), $options);
         $this->commonCreateIndex($tableName, 'created_at');
         $this->commonCreateIndex($tableName, 'updated_at');
         $this->commonCreateIndex($tableName, 'published_at');

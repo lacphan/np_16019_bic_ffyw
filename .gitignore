@@ -36,6 +36,12 @@ phpunit.phar
 #robot file
 robot.txt
 
+#prepros file
+prepros.cfg
+
+#css map
+.css.map
+
 cgi-bin/
 
 #local file

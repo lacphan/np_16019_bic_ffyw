@@ -69,8 +69,11 @@ img {
 }
 .global-btn {
   display: inline-block;
+  cursor: pointer;
   padding: 0 16px;
   position: relative;
+  font-size: 19px;
+  color: #000;
   &:before {
     content: "";
     width: 13px;

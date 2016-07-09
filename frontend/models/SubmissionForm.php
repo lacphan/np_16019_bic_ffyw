@@ -8,14 +8,11 @@ use himiklab\yii2\recaptcha\ReCaptchaValidator;
 /**
  * Signup form
  */
-class SignupForm extends Model
+class SubmissionForm extends Model
 {
     public $email;
     public $password;
     public $dateOfBirth;
-    public $birthDate;
-    public $birthMonth;
-    public $birthYear;
     public $province;
     public $phoneNumber;
     public $parentFirstName;
@@ -32,18 +29,16 @@ class SignupForm extends Model
     {
         return [
 
-            [['province','parentFirstName','parentLastName','phoneNumber','childFirstName','childLastInitial','age','uploadFile'],'required'],
+            [['childFirstName','childLastInitial','age','uploadFile'],'required'],
             ['verificationCode', ReCaptchaValidator::className(), 'secret' => '6LddpCQTAAAAAPU27Z1X3nwsVnNed-9aDrk5moSA'],
-            [['birthDate','birthMonth','birthYear'],'required', 'message' => 'Require']
         ];
     }
 
     /**
      * Signs user up.
-     *
      * @return User|null the saved model or null if saving fails
      */
-    public function signup()
+    public function submission()
     {
         if ($this->validate()) {
             $user = new User();

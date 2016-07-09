@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use common\models\User;
+use frontend\models\SubmissionForm;
 use Yii;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
@@ -159,6 +160,24 @@ class SiteController extends Controller
         }
 
         return $this->render('signup', [
+            'model' => $model,
+        ]);
+    }
+
+    /**
+     * Signs user up.
+     *
+     * @return mixed
+     */
+    public function actionSubmission()
+    {
+        $model = new SubmissionForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->submission()) {
+            }
+        }
+
+        return $this->render('submission', [
             'model' => $model,
         ]);
     }

@@ -35,6 +35,9 @@
   }
   .register-form {
     padding: 12px 52px;
+    @include respond-to-custom-size(null,480px) {
+      padding: 12px 15px;
+    }
     color: #636567;
     font-size: 12px;
     .form-title {
@@ -53,17 +56,31 @@
       .form-control {
         border-radius: 0;
         height: 31px;
+        color: #636567;
+        font-size: 12px;
+        border: 1px solid #a4a5a9;
+        @include place-holder() {
+          color: #636567;
+        }
       }
     }
     .form-check-box {
-
+      vertical-align: top;
+      margin-bottom: 17px;
+      a ,a:hover{
+        color: $color1;
+        text-decoration: underline;
+      }
       input[type='checkbox'] {
         display: none;
       }
-      .control-label {
+      label {
         position: relative;
         padding: 0;
         padding-left: 38px;
+        display: block;
+        padding-top: 8px;
+        padding-bottom: 8px;
         &:before {
           content: "";
           left: 0;
@@ -78,7 +95,7 @@
 
       }
 
-      input[type='checkbox']:checked + .control-label {
+      input[type='checkbox']:checked + label {
         &:after {
           content: "\f00c";
           position: absolute;
@@ -88,13 +105,113 @@
           top: 3px;
           font-size: 19px;
           font: normal normal normal 14px/1 FontAwesome;
-          font-size: inherit;
           text-rendering: auto;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
+          font-size: 26px;
+          color: $color1;
         }
       }
 
+    }
+    .required {
+      label {
+        &:before {
+          content: "*";
+        }
+      }
+    }
+    label {
+      font-size: 12px;
+      font-weight: 400;
+      padding-top: 8px;
+      color: #636567;
+    }
+    .form-date-time {
+      display: inline-block;
+      margin-right: 17px;
+      vertical-align: top;
+      margin-bottom: 11px;
+      .control-label {
+        margin-right: 7px;
+      }
+      .date-time-item {
+        display: inline-block;
+        @include respond-to-custom-size(null,480px) {
+          display: block;
+        }
+      }
+    }
+    .form-upload {
+      margin-bottom: 17px;
+      &-inner {
+        border: 1px solid #a4a5a9;
+        padding: 9px 15px;
+        background-color: #fff;
+        max-width: 508px;
+        min-height: 61px;
+      }
+      .input-instruction {
+        display: inline-block;
+        margin-right: 32px;
+      }
+      .input-btn {
+        vertical-align: top;
+        .global-btn-inner {
+          width: 110px;
+          height: 36px;
+          font-size: 19px;
+          text-align: center;
+          position: relative;
+          padding: 6px 0;
+          input[type=file] {
+            width: 143px;
+            height: 37px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 10;
+          }
+        }
+
+      }
+
+    }
+    .form-recaptcha {
+      margin: 25px 0 25px 0;
+      @include respond-to-custom-size(null,480px) {
+        .g-recaptcha {
+          transform: scaleX(0.8);
+          position: relative;
+          left: -22px;
+        }
+      }
+    }
+    .small-input {
+      width: 74px;
+      height: 31px;
+      color: #636567;
+      border: 1px solid #a4a5a9;
+      font-size: 12px;
+      padding: 6px 12px;
+      margin-right: 8px;
+      @include respond-to-custom-size(null,480px) {
+        display: block;
+        margin-top: 3px;
+      }
+      @include place-holder() {
+        color: #636567;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    .btn-submit {
+      .global-btn-inner {
+        padding: 5px 26px;
+      }
     }
   }
 }
