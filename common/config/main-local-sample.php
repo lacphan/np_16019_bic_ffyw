@@ -10,11 +10,11 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=127.0.0.1;dbname=np_16018_tongshu',
+            'dsn' => 'mysql:host=127.0.0.1;dbname=np_16019_bic_ffyw',
             'username' => 'root',
             'password' => 'mysql',
             'charset' => 'utf8',
-            'tablePrefix' => 'tongshu_'
+            'tablePrefix' => 'bic_ffyw_'
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',

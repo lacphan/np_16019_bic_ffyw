@@ -14,13 +14,13 @@ $config = [
 
         ],
         'urlManager' => [
-            'class' => 'yii\web\urlManager',
+            'class' => 'yii\web\UrlManager',
             'baseUrl' => '/backend',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
         ],
         'urlManagerFrontEnd' => [
-            'class' => 'yii\web\urlManager',
+            'class' => 'yii\web\UrlManager',
             'baseUrl' => '',
             'enablePrettyUrl' => true,
             'showScriptName' => false,

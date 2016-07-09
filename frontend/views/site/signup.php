@@ -64,7 +64,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <div class="form-row">
                     <?= $form->field($model, 'password',['options' => ['class' => 'form-check-box']])->checkbox(
-                        ['template' => '<div class="form-check-box">{input}<label class="control-label">{label}</label></div>']
+                        ['template' => '<div class="form-check-box">{input}<div class="control-label">{label}</div></div>']
                     )->label('I have read and agree to the official rules') ?>
 
                 </div>
