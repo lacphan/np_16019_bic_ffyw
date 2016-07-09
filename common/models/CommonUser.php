@@ -181,26 +181,11 @@ class CommonUser extends \common\models\base\BaseUser implements IdentityInterfa
     {
         $this->password_reset_token = null;
     }
-    
-    public function getFullName() {
-        return $this->first_name . ' ' . $this->last_name;
+
+    public static function hasLoginBE()
+    {
+        $hasLogin = Yii::$app->session->setName('_backendID');
+        return $hasLogin;
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     * get building relation
-     */
-    public function getBuilding() {
-        return $this->hasOne(CommonBuilding::className(), ['id' => 'building_id']);
-    }
-
-   
-    public function getUserMainRoleName() {
-        $roles = Yii::$app->authManager->getRolesByUser($this->id);
-        $roleNames = array_values(array_keys($roles));
-        if($roleNames) {
-            return $roleNames[0];
-        }
-        return '';
-    }
 }

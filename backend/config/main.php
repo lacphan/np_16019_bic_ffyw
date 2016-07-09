@@ -20,7 +20,7 @@ return [
 
         'user' => [
             'class' => 'common\enpii\components\NpWebUser',
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'backend\models\User',
             'enableAutoLogin' => false,
             'authTimeout' => 300,
             'identityCookie' => [
@@ -28,7 +28,7 @@ return [
             ]
         ],
         'log' => [
-            'traceLevel' => YII_DEBUG ? 10 : 0,
+            'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',

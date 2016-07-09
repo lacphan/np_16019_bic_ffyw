@@ -13,11 +13,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <!-- BEGIN LOGIN -->
 <div class="content">
-    <table class="table-login">
-        <tr>
-            <td>
-                
-           
     <!-- BEGIN LOGIN FORM -->
     <?php $form = ActiveForm::begin([
         'id' => 'login-form',
@@ -25,15 +20,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'class' => 'login-form'
         ],
     ]); ?>
-    <div class="form-logo">
-        <img src="<?= Yii::$app->urlManager->baseUrl . '/img/kelle/login-logo.png'?>">
-    </div>
-    <h4 class="form-title"><?= Yii::t('app','Enter your details below:') ?></h4>
-
+    <h3 class="form-title"><?= Html::encode($this->title) ?></h3>
     <div class="form-group">
         <?= $form->field($model,
             'username',
             [
+                'template' => "{label}\n<i class='fa fa-user'></i>\n{input}\n{hint}\n{error}",
                 'options'=>
                     [
                         'tag'=>'div',
@@ -53,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $form->field($model,
             'password',
             [
-
+                'template' => "{label}\n<i class='fa fa-lock'></i>\n{input}\n{hint}\n{error}",
                 'options'=>
                     [
                         'tag'=>'div',
@@ -69,23 +61,22 @@ $this->params['breadcrumbs'][] = $this->title;
         ?>
     </div>
     <div class="form-actions">
+        <?= $form->field($model, 'rememberMe',
+            [
+                'template' => '',
+                'options'=>
+                    [
+                        'tag'=>'label',
+                        'class'=>'checkbox'
+                    ]
+            ])->checkbox(['template' => '{input}{label}{error}']) ?>
 
-        <?= Html::submitButton('Login <i class="m-icon-swapright m-icon-white"></i>', ['class' => 'btn blue', 'name' => 'login-button']) ?>
+        <?= Html::submitButton('Login <i class="m-icon-swapright m-icon-white"></i>', ['class' => 'btn blue pull-right', 'name' => 'login-button']) ?>
 
     </div>
 
-    <div class="forgot-password">
-       <a href="javascript:void()" id="forget-password">
-                Forgot password ?
-       </a>
-    </div>
 
     <?php ActiveForm::end(); ?>
-         
-    <!-- END LOGIN FORM -->
 
-            </td>
-        </tr>
-    </table>
 </div>
 <!-- END LOGIN -->

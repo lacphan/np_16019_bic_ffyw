@@ -14,15 +14,4 @@ class m160310_045911_insert_user extends Migration
     {
 
     }
-
-    /*
-    // Use safeUp/safeDown to run migration code within a transaction
-    public function safeUp()
-    {
-    }
-
-    public function safeDown()
-    {
-    }
-    */
 }

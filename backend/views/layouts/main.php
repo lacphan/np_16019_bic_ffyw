@@ -9,9 +9,9 @@ use backend\assets\BootstrapPluginAsset;
 use yii\helpers\Html;
 use common\widgets\Alert;
 
+BootstrapPluginAsset::register($this);
 AppAsset::register($this);
 FontsAsset::register($this);
-BootstrapPluginAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -22,6 +22,7 @@ BootstrapPluginAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    
     <?php $this->head() ?>
 </head>
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">

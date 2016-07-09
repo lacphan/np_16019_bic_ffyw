@@ -16,15 +16,15 @@ use yii\helpers\Html;
         <!-- BEGIN LOGO -->
         <div class="page-logo">
             <a href="<?= Yii::$app->urlManager->baseUrl; ?>">
-                <img src="<?= Yii::$app->urlManager->baseUrl . '/img/kelle/logo-text.png'?>" alt="logo-text" class="logo-text" />
+<!--                <img src="--><?//= Yii::$app->urlManager->baseUrl . '/images/bic/logo-text.png'?><!--" alt="logo-text" class="logo-text" />-->
             </a>
 
             <div class="menu-toggler sidebar-toggler">
-                <img src="<?= Yii::$app->urlManager->baseUrl . '/img/kelle/logo-icon.png'?>" alt="logo-icon" class="logo-text" />
+<!--                <img src="--><?//= Yii::$app->urlManager->baseUrl . '/images/bic/logo-icon.png'?><!--" alt="logo-icon" class="logo-text" />-->
             </div>
         </div>
         <div class="page-header-title">
-            <h1><?= Html::encode($this->title) ?></h1>
+
         </div>
         <!-- END LOGO -->
         <!-- BEGIN RESPONSIVE MENU TOGGLER -->

@@ -7,7 +7,6 @@
 
 namespace backend\controllers;
 
-use common\enpii\components\NpController;
 use yii\filters\AccessControl;
 use backend\models\LoginForm;
 use yii\filters\VerbFilter;
@@ -18,11 +17,13 @@ use yii;
  * For handling some basic actions
  * index, error, login, logout
  */
-class SiteController extends NpController
+class SiteController extends BackendController
 {
     /**
      * @inheritdoc
      */
+
+    
     public function behaviors()
     {
         return [
@@ -36,7 +37,6 @@ class SiteController extends NpController
                     [
                         'actions' => ['logout', 'index'],
                         'allow' => true,
-                        'roles' => ['@'],
                     ],
 
                 ],
@@ -65,13 +65,18 @@ class SiteController extends NpController
     public function actionIndex()
     {
         if (!\Yii::$app->user->isGuest) {
-            return $this->redirect(Yii::$app->urlManager->createUrl('page/dashboard'));
+            return $this->showDashboard();
         } else {
             $this->layout = 'main-login';
             return $this->redirect(Yii::$app->urlManager->createUrl('site/login'));
         }
-
     }
+
+    public function showDashboard()
+    {
+        return $this->render('dashboard');
+    }
+
 
     public function actionLogin()
     {
@@ -89,7 +94,7 @@ class SiteController extends NpController
             ]);
         }
     }
-    
+
     public function actionLogout()
     {
         Yii::$app->user->logout();
