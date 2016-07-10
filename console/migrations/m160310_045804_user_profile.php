@@ -20,7 +20,8 @@ class m160310_045804_user_profile extends Migration
             'province' => $this->string(255),
             'post_code' => $this->string(255),
             'phone_number' => $this->string(32),
-            'receive_information' => $this->string(32),
+            'united' => $this->string(32),
+            'date_of_birth' => $this->dateTime(),
 
         ], $tableOptions);
         $this->addForeignKey('FK_User_UserProfile_ID', '{{%user}}', 'profile_id', '{{%user_profile}}', 'id', 'CASCADE', 'CASCADE');

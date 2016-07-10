@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\enpii\components\NpItemDataSub;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -15,7 +16,7 @@ class CommonUser extends \common\models\base\BaseUser implements IdentityInterfa
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
-  
+    use NpItemDataSub;
     /**
      * @inheritdoc
      */
@@ -186,6 +187,10 @@ class CommonUser extends \common\models\base\BaseUser implements IdentityInterfa
     {
         $hasLogin = Yii::$app->session->setName('_backendID');
         return $hasLogin;
+    }
+    public function getProfile()
+    {
+        return $this->hasOne(CommonUserProfile::className(), ['id' => 'profile_id']);
     }
 
 }

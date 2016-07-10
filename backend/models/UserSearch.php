@@ -8,7 +8,6 @@ use yii\data\ActiveDataProvider;
 
 /**
  * UserSearch represents the model behind the search form about `app\models\User`.
- * @property string $userType
  * @property integer $sortBy
  * @property integer $filterBuilding
  * @property integer $postPerPage

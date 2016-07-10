@@ -22,24 +22,26 @@ $this->title = <?= $generator->generateString(Inflector::pluralize(Inflector::ca
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-index">
-    <div class="page-head">
-        <div class="container">
-            <div class="page-title">
-                <h1><?= "<?= " ?>Html::encode($this->title) ?></h1>
-            </div>
-        </div>
+    <div class="page-bar">
+        <?= "<?= " ?> Breadcrumbs::widget([
+        'itemTemplate' => "<li>{link}<i class='fa fa-circle'></i></li>\n",
+        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        'options' => [
+            'class' => 'page-breadcrumb'
+        ]
+        ]) ?>
     </div>
-    <div class="portlet">
+    <h3 class="page-title">
+        <?= "<?= " ?>Html::encode($this->title) ?>
+    </h3>
+    <div class="portlet light bordered">
                    <?php if (!empty($generator->searchModelClass)): ?>
                 <?= "    <?php " . ($generator->indexWidgetType === 'grid' ? "// " : "") ?>echo $this->render('_search', ['model' => $searchModel]); ?>
             <?php endif; ?>
-            <?= "<?= " ?> Breadcrumbs::widget([
-            'itemTemplate' => "<li>{link}<i class='fa fa-circle'></i></li>\n",
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ]) ?>
+
             <div class="row">
                 <div class="col-md-12">
-                    <div class="portlet light">
+                    <div class="portlet">
                         <div class="portlet-title">
                             <div class="caption">
                                 <span class="caption-subject font-green-sharp bold uppercase">

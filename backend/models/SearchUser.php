@@ -1,0 +1,114 @@
+<?php
+
+namespace backend\models;
+
+use Yii;
+use yii\base\Model;
+use yii\data\ActiveDataProvider;
+use common\enpii\components\widget\datepicker\DateRangePicker;
+use backend\models\User;
+
+/**
+ * SearchUser represents the model behind the search form about `backend\models\User`.
+ */
+class SearchUser extends User
+{
+    /**
+    * @var $globalSearch
+    */
+    public $globalSearch;
+
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            [['id', 'profile_id', 'parent_id', 'level', 'status', 'building_id', 'creator_id', 'is_deleted', 'is_enabled', 'ordering_weight'], 'integer'],
+            [['username', 'email', 'first_name', 'last_name', 'password_hash', 'password_reset_token', 'auth_key', 'created_at', 'updated_at', 'published_at', 'params'], 'safe'],
+            [['globalSearch'],'safe'],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function scenarios()
+    {
+        // bypass scenarios() implementation in the parent class
+        return Model::scenarios();
+    }
+
+    /**
+     * Creates data provider instance with search query applied
+     *
+     * @param array $params
+     *
+     * @return ActiveDataProvider
+     */
+    public function search($params)
+    {
+        $query = User::find();
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+        $this->load($params);
+
+        if (!$this->validate()) {
+            // uncomment the following line if you do not want to return any records when validation fails
+            // $query->where('0=1');
+            return $dataProvider;
+        }
+
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'profile_id' => $this->profile_id,
+            'parent_id' => $this->parent_id,
+            'level' => $this->level,
+            'status' => $this->status,
+            'building_id' => $this->building_id,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'published_at' => $this->published_at,
+            'creator_id' => $this->creator_id,
+            'is_deleted' => $this->is_deleted,
+            'is_enabled' => $this->is_enabled,
+            'ordering_weight' => $this->ordering_weight,
+        ]);
+
+        $query->andFilterWhere(['like', 'username', $this->username])
+            ->andFilterWhere(['like', 'email', $this->email])
+            ->andFilterWhere(['like', 'first_name', $this->first_name])
+            ->andFilterWhere(['like', 'last_name', $this->last_name])
+            ->andFilterWhere(['like', 'password_hash', $this->password_hash])
+            ->andFilterWhere(['like', 'password_reset_token', $this->password_reset_token])
+            ->andFilterWhere(['like', 'auth_key', $this->auth_key])
+            ->andFilterWhere(['like', 'params', $this->params]);
+
+        $query->orFilterWhere(['like','id', $this->globalSearch]);
+        $query->orFilterWhere(['like','username', $this->globalSearch]);
+        $query->orFilterWhere(['like','email', $this->globalSearch]);
+        $query->orFilterWhere(['like','first_name', $this->globalSearch]);
+        $query->orFilterWhere(['like','last_name', $this->globalSearch]);
+        $query->orFilterWhere(['like','profile_id', $this->globalSearch]);
+        $query->orFilterWhere(['like','parent_id', $this->globalSearch]);
+        $query->orFilterWhere(['like','level', $this->globalSearch]);
+        $query->orFilterWhere(['like','password_hash', $this->globalSearch]);
+        $query->orFilterWhere(['like','password_reset_token', $this->globalSearch]);
+        $query->orFilterWhere(['like','auth_key', $this->globalSearch]);
+        $query->orFilterWhere(['like','status', $this->globalSearch]);
+        $query->orFilterWhere(['like','building_id', $this->globalSearch]);
+        $query->orFilterWhere(['like','created_at', $this->globalSearch]);
+        $query->orFilterWhere(['like','updated_at', $this->globalSearch]);
+        $query->orFilterWhere(['like','published_at', $this->globalSearch]);
+        $query->orFilterWhere(['like','creator_id', $this->globalSearch]);
+        $query->orFilterWhere(['like','is_deleted', $this->globalSearch]);
+        $query->orFilterWhere(['like','is_enabled', $this->globalSearch]);
+        $query->orFilterWhere(['like','ordering_weight', $this->globalSearch]);
+        $query->orFilterWhere(['like','params', $this->globalSearch]);
+        
+        return $dataProvider;
+    }
+}

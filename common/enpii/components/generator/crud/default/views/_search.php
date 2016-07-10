@@ -27,8 +27,7 @@ use yii\widgets\ActiveForm;
 
         <?= '<?=' ?> $form->field($model, 'globalSearch', [
             'options' => [
-                'tag' => 'div',
-                'class' => 'input-wrap'
+                'tag' => false,
             ],
         ])->textInput([
             'placeholder' => Yii::t('app', 'Search...'),

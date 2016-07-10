@@ -9,6 +9,18 @@ use Yii;
  */
 class CommonUserProfile extends \common\models\base\BaseUserProfile
 {
+
+    public $age;
+
+    public function rules()
+    {
+        return [
+            [['date_of_birth'], 'safe'],
+            [['age'], 'integer'],
+            [['address', 'city', 'street', 'province', 'post_code'], 'string', 'max' => 255],
+            [['phone_number', 'united'], 'string', 'max' => 32]
+        ];
+    }
     /**
      * @return \yii\db\ActiveQuery
      */

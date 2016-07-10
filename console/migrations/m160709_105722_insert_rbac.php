@@ -10,28 +10,10 @@ class m160709_105722_insert_rbac extends Migration
         $auth = Yii::$app->authManager;
 
         // add "create" permission
-        $index = $auth->createPermission('user/index');
-        $index->description = 'Create a User';
-        $auth->add($index);
+        $permission = $auth->createPermission('backend-login');
+        $permission->description = 'Login to backend';
+        $auth->add($permission);
 
-        $view = $auth->createPermission('user/view');
-        $view->description = 'View a User';
-        $auth->add($view);
-
-        // add "create" permission
-        $create = $auth->createPermission('user/create');
-        $create->description = 'Create a User';
-        $auth->add($create);
-
-        // add "update" permission
-        $update = $auth->createPermission('user/update');
-        $update->description = 'Update User';
-        $auth->add($update);
-
-        // add "delete" permission
-        $delete = $auth->createPermission('user/delete');
-        $delete->description = 'delete user';
-        $auth->add($delete);
 
         // add "author" role and give this role the  permission
         $standard = $auth->createRole('standard-member');
@@ -40,11 +22,8 @@ class m160709_105722_insert_rbac extends Migration
         $admin = $auth->createRole('administrator');
         $auth->add($admin);
 
-        $auth->addChild($admin, $view);
-        $auth->addChild($admin, $index);
-        $auth->addChild($admin, $create);
-        $auth->addChild($admin, $update);
-        $auth->addChild($admin, $delete);
+
+        $auth->addChild($admin, $permission);
 
         // add "admin" role and give this role the "updatePost" permission
         // as well as the permissions of the "author" role
@@ -59,16 +38,6 @@ class m160709_105722_insert_rbac extends Migration
         //Create Rule
         $rule = new NpAuthorRule();
         $auth->add($rule);
-        $updateOwnPost = $auth->createPermission('updateOwnPost');
-        $updateOwnPost->description = 'Update own post';
-        $updateOwnPost->ruleName = $rule->name;
-        $auth->add($updateOwnPost);
-
-        // "updateOwnPost" will be used from "updatePost"
-        $auth->addChild($updateOwnPost, $update);
-
-        // allow "author" to update their own posts
-        $auth->addChild($standard, $updateOwnPost);
     }
 
     public function down()

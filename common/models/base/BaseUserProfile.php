@@ -8,16 +8,16 @@ use Yii;
  * This is the model class for table "{{%user_profile}}".
  *
  * @property integer $id
- * @property string $united
+ * @property string $address
+ * @property string $city
  * @property string $street
  * @property string $province
  * @property string $post_code
- * @property string $age
- * @property string $city
  * @property string $phone_number
- * @property string $receive_information
+ * @property string $united
+ * @property string $date_of_birth
  *
- * @property User[] $users
+ * @property BaseUser[] $users
  */
 class BaseUserProfile extends \common\enpii\components\NpActiveRecord
 {
@@ -35,8 +35,9 @@ class BaseUserProfile extends \common\enpii\components\NpActiveRecord
     public function rules()
     {
         return [
-            [['united', 'street', 'province', 'post_code', 'age', 'city'], 'string', 'max' => 255],
-            [['phone_number', 'receive_information'], 'string', 'max' => 32]
+            [['date_of_birth'], 'safe'],
+            [['address', 'city', 'street', 'province', 'post_code'], 'string', 'max' => 255],
+            [['phone_number', 'united'], 'string', 'max' => 32]
         ];
     }
 
@@ -47,14 +48,14 @@ class BaseUserProfile extends \common\enpii\components\NpActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'united' => Yii::t('app', 'United'),
+            'address' => Yii::t('app', 'Address'),
+            'city' => Yii::t('app', 'City'),
             'street' => Yii::t('app', 'Street'),
             'province' => Yii::t('app', 'Province'),
             'post_code' => Yii::t('app', 'Post Code'),
-            'age' => Yii::t('app', 'Age'),
-            'city' => Yii::t('app', 'City'),
             'phone_number' => Yii::t('app', 'Phone Number'),
-            'receive_information' => Yii::t('app', 'Receive Information'),
+            'united' => Yii::t('app', 'United'),
+            'date_of_birth' => Yii::t('app', 'Date Of Birth'),
         ];
     }
 

@@ -23,12 +23,17 @@ use yii\widgets\ActiveForm;
 /* @var $model <?= ltrim($generator->modelClass, '\\') ?> */
 /* @var $form yii\widgets\ActiveForm */
 ?>
+<?= "<?php" ?> if(Yii::$app->session->hasFlash('success')): ?>
+    <div class="alert alert-block alert-success fade in">
+        <?= "<?= " ?>Yii::$app->session->getFlash('success') ?>
+    </div>
+<?= "<?php" ?> endif;?>
 <div class="row">
     <div class="col-md-12">
-        <div class="portlet box red">
+        <div class="portlet light bordered">
             <div class="portlet-title">
-                <div class="caption">
-                    <i class="fa fa-gift"></i>
+                <div class="caption font-green-sharp bold uppercase">
+                    <?= "<?= " ?>Html::encode($this->title) ?>
                 </div>
             </div>
             <div class="portlet-body form">

@@ -29,7 +29,7 @@ use Yii;
  * @property integer $ordering_weight
  * @property string $params
  *
- * @property UserProfile $profile
+ * @property BaseUserProfile $profile
  */
 class BaseUser extends \common\enpii\components\NpActiveRecord
 {

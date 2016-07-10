@@ -35,25 +35,7 @@
                     <span class="title">Dashboard</span>
                 </a>
             </li>
-            <?php if(array_key_exists('admin',$userRole)):?>
-            <li class="nav-item  <?= Yii::$app->controller->id == 'building' ? 'active': ''?>">
-                <a href="<?= Yii::$app->urlManager->createUrl(['building'])?>" class="nav-link ">
-                    <i class="menu-icon menu-icon-building"></i>
-                    <span class="title">Building</span>
-                </a>
-            </li>
-            <li class="nav-item  <?= Yii::$app->controller->id == 'facility' ? 'active': ''?>">
-                <a href="<?= Yii::$app->urlManager->createUrl(['facility'])?>" class="nav-link ">
-                    <i class="menu-icon menu-icon-facility"></i>
-                    <span class="title">Facilities and Tasks</span>
-                </a>
-            </li>
-            <li class="nav-item  <?= Yii::$app->controller->id == 'notification' ? 'active': ''?>">
-                <a href="<?= Yii::$app->urlManager->createUrl(['notification'])?>" class="nav-link ">
-                    <i class="menu-icon menu-icon-notification"></i>
-                    <span class="title">Notifications</span>
-                </a>
-            </li>
+            <?php if(Yii::$app->user->can('administrator')):?>
             <li class="nav-item <?= Yii::$app->controller->id == 'user' ? 'active': ''?>">
                 <a href="<?= Yii::$app->urlManager->createUrl(['user'])?>" class="nav-link ">
                     <i class="menu-icon menu-icon-user"></i>

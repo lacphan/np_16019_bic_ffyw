@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+
 /* @var $this yii\web\View */
 /* @var $model backend\models\User */
 
@@ -11,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h3 class="page-title"><?= Html::encode($this->title) ?></h3>
 
     <p>
         <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -39,6 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'password_reset_token',
             'auth_key',
             'status',
+            'building_id',
             'created_at',
             'updated_at',
             'published_at',
@@ -49,6 +51,5 @@ $this->params['breadcrumbs'][] = $this->title;
             'params:ntext',
         ],
     ]) ?>
-
 
 </div>
