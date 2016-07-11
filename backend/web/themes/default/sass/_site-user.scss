@@ -1,0 +1,12 @@
+.change-password-wrapper {
+  position: relative;
+  #password-update-button {
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    height: 40px;
+    width: 80px;
+    border: 0;
+    background-color: #d3d7dd;
+  }
+}

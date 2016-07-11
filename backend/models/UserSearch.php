@@ -53,15 +53,11 @@ class UserSearch extends User
      */
     public function search($params)
     {
-        $query = User::find()->join('LEFT JOIN','{{%auth_assignment}}','{{%auth_assignment}}.user_id = id');
+        $query = User::find();
         $this->load(Yii::$app->request->post());
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort' => [
-                'defaultOrder' => [
-                    'username' => $this->sortByAlphabetChecker()
-                ]
-            ],
+
             'pagination' => [
                 'pageSize' => $this->postPerPage,
             ],
@@ -83,28 +79,14 @@ class UserSearch extends User
             'updated_at' => $this->updated_at,
             'published_at' => $this->published_at,
             'creator_id' => $this->creator_id,
-            'is_deleted' => $this->is_deleted,
+            'is_deleted' => 1,
             'is_enabled' => $this->is_enabled,
             'ordering_weight' => $this->ordering_weight,
             'building_id' => $this->building_id
         ]);
 
-        $query->andFilterWhere($this->sortByRoleChecker());
         return $dataProvider;
     }
 
-    public function sortByRoleChecker() {
-        if(key_exists($this->sortBy,Yii::$app->authManager->getRoles())) {
-            return ['{{%auth_assignment}}.item_name' => $this->sortBy];
-        }
-        return ['<>','{{%auth_assignment}}.item_name' ,'admin'];
-    }
-    
-    public function sortByAlphabetChecker() {
 
-        if( $this->sortBy == SORT_ASC || $this->sortBy == SORT_DESC) {
-            return intval($this->sortBy);
-        }
-        return '';
-    }
 }

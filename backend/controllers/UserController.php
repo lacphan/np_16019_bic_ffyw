@@ -7,7 +7,7 @@ use backend\models\User;
 use backend\models\SearchUser;
 use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 use backend\models\UserProfile;
 use common\enpii\components\NpController;
 
@@ -18,14 +18,24 @@ class UserController extends NpController
 {
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
+        $behaviors['access'] = [
+            'class' => AccessControl::className(),
+            'rules' => [
+                [
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function () {
+                        if (Yii::$app->user->can('backend-login')) {
+                            return true;
+                        }
+                        else{
+                            return false;
+                        }
+                    }
                 ],
             ],
         ];
+        return $behaviors;
     }
 
     /**
@@ -90,6 +100,7 @@ class UserController extends NpController
                     $auth->assign($authorRole, $model->id);
                 }
             }
+            Yii::$app->session->setFlash('success',Yii::t('app', 'Account has been created.'));
             return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -108,6 +119,7 @@ class UserController extends NpController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model->scenario = 'update';
         $model->userRoles = ArrayHelper::map(Yii::$app->authManager->getRolesByUser($model->id), 'name', 'name');
         $oldRoles = array_values($model->userRoles);
         $profile = $model->profile;
@@ -115,9 +127,18 @@ class UserController extends NpController
             $profile = new UserProfile();
         }
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $profile->load(Yii::$app->request->post()) && $profile->validate()) {
+
+            $model->username = $model->email;
+
             if ($model->isUpdatePassword) {
                 $model->setPassword($model->passwordUpdate);
             }
+
+            $model->save();
+
+            $profile->setAge($profile->age);
+            $profile->save();
+            
             $auth = Yii::$app->authManager;
             if (is_array($model->userRoles)) {
                 $deleteRoles = array_diff($oldRoles, $model->userRoles);
@@ -129,11 +150,12 @@ class UserController extends NpController
                 }
                 foreach ($model->userRoles as $role => $name) {
                     $authorRole = $auth->getRole($name);
-                    if(array_key_exists($name,Yii::$app->authManager->getRolesByUser($model->id))) {
+                    if(!array_key_exists($name,Yii::$app->authManager->getRolesByUser($model->id))) {
                         $auth->assign($authorRole, $model->id);
                     }
                 }
             }
+            Yii::$app->session->setFlash('success',Yii::t('app', 'Account has been changed.'));
             return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -151,7 +173,11 @@ class UserController extends NpController
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+
+        $model = $this->findModel($id);
+       
+        $model->is_deleted = 1;
+        $model->save();
 
         return $this->redirect(['index']);
     }

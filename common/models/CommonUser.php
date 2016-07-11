@@ -32,8 +32,12 @@ class CommonUser extends \common\models\base\BaseUser implements IdentityInterfa
             [['params'], 'string'],
             [['username', 'email', 'password_hash', 'password_reset_token'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
-            [['username'], 'unique'],
-            [['email'], 'unique'],
+            [['username'], 'unique','when' => function ($model) {
+                return CommonUser::validateUserNameIsDeleted($model->email); }
+            ],
+            [['email'], 'unique','when' => function ($model) {
+                return CommonUser::validateUserNameIsDeleted($model->email); }
+            ],
             ['email', 'email'],
             [['password_reset_token'], 'unique'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
@@ -191,6 +195,14 @@ class CommonUser extends \common\models\base\BaseUser implements IdentityInterfa
     public function getProfile()
     {
         return $this->hasOne(CommonUserProfile::className(), ['id' => 'profile_id']);
+    }
+
+    public static function validateUserNameIsDeleted($username) {
+        $user = self::findByUsername($username);
+        if($user && $user->is_deleted == 1) {
+            return false;
+        }
+        return true;
     }
 
 }

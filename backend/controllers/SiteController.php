@@ -38,6 +38,14 @@ class SiteController extends BackendController
                         'actions' => ['logout', 'index'],
                         'allow' => true,
                     ],
+                    'matchCallback' => function () {
+                        if (Yii::$app->user->can('backend-login')) {
+                            return true;
+                        }
+                        else{
+                            return false;
+                        }
+                    }
 
                 ],
             ],
@@ -64,7 +72,7 @@ class SiteController extends BackendController
 
     public function actionIndex()
     {
-        if (!\Yii::$app->user->isGuest) {
+        if (!\Yii::$app->user->isGuest ) {
             return $this->showDashboard();
         } else {
             $this->layout = 'main-login';

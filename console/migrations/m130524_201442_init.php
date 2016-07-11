@@ -14,8 +14,8 @@ class m130524_201442_init extends NpMigration
 
         $this->commonCreateTable('{{%user}}', [
             'id' => $this->primaryKey(),
-            'username' => $this->string()->notNull()->unique(),
-            'email' => $this->string()->notNull()->unique(),
+            'username' => $this->string()->notNull(),
+            'email' => $this->string()->notNull(),
             'first_name' => $this->string(),
             'last_name' => $this->string(),
             'profile_id' => $this->integer(),

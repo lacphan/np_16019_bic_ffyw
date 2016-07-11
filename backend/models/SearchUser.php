@@ -17,6 +17,8 @@ class SearchUser extends User
     * @var $globalSearch
     */
     public $globalSearch;
+    public $postPerPage = 10;
+    public $sortBy ;
 
     /**
      * @inheritdoc
@@ -73,7 +75,7 @@ class SearchUser extends User
             'updated_at' => $this->updated_at,
             'published_at' => $this->published_at,
             'creator_id' => $this->creator_id,
-            'is_deleted' => $this->is_deleted,
+            'is_deleted' => 0,
             'is_enabled' => $this->is_enabled,
             'ordering_weight' => $this->ordering_weight,
         ]);
