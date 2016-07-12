@@ -45,6 +45,8 @@ $envs = [
             'backend/config/params-local-sample.php' => 'backend/config/params-local.php',
             'frontend/config/main-local-sample.php' => 'frontend/config/main-local.php',
             'frontend/config/params-local-sample.php' => 'frontend/config/params-local.php',
+            'console/config/main-local-sample.php' => 'console/config/main-local.php',
+            'console/config/params-local-sample.php' => 'console/config/params-local.php',
             './environment-sample.php' => './environment.php',
         ]
     ],

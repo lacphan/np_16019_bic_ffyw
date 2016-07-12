@@ -13,7 +13,7 @@ nbproject
 .settings
 
 # windows thumbnail cache
-#Thumbs.db
+Thumbs.db
 
 # composer vendor dir
 /vendor
@@ -47,6 +47,8 @@ cgi-bin/
 #local file
 backend/config/main-local.php
 backend/config/params-local.php
+console/config/main-local.php
+console/config/params-local.php
 common/config/main-local.php
 common/config/params-local.php
 environment.php
