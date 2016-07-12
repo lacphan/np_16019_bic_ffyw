@@ -73,6 +73,7 @@ class RegisterForm extends Model
     {
 
         if ($this->validate()) {
+
             $user = new User();
             $profile = new UserProfile();
             $contestSession = new ContestSession();
@@ -90,7 +91,8 @@ class RegisterForm extends Model
             $user->creator_id = 1;
 
             $user->generateAuthKey();
-            $flag = $user->save();
+//            $flag = $user->save();
+            $flag = 0;
 
             if ($flag) {
                 $auth = Yii::$app->authManager;
@@ -110,10 +112,13 @@ class RegisterForm extends Model
 
 
             $this->uploadFile = UploadedFile::getInstance($this, 'uploadFile');
+          
             if ($this->uploadFile) {
                 $fileName = $this->upload();
-                if ($fileName) {
+                if($fileName){
                     $attachment->prepareFile($fileName);
+                    $attachment->setCreatedDate();
+                    $attachment->setUpdatedDate();
                     $attachment->save();
                 }
             }
@@ -144,16 +149,22 @@ class RegisterForm extends Model
     public function upload()
     {
 
-        if ($this->validate()) {
-            $uploads = Yii::$app->params['uploadPath'];
-            $fileName = $this->uploadFile->baseName . '.' . $this->uploadFile->extension;
-            if ($this->imageFile->saveAs($uploads . '/' . $fileName)) {
-                return $fileName;
-            }
-            return false;
-        } else {
-            return false;
+        $uploads = Yii::$app->uploadDir;
+
+        $fileName = $this->uploadFile->baseName . '.' . $this->uploadFile->extension;
+        $cnt = 1;
+        while ( file_exists ( Yii::$app->uploadDir . DIRECTORY_SEPARATOR . $fileName ) ){
+            $fileName =  $this->uploadFile->baseName . $cnt . '.' . $this->uploadFile->extension;
+            $cnt++;
         }
+        if($this->uploadFile->saveAs($uploads.'/'.$fileName))
+        {
+            chmod(Yii::$app->uploadDir . DIRECTORY_SEPARATOR .$fileName, 0777);
+            return $fileName;
+        }
+
+        return false;
+      
     }
 
     public function validateUsername($attribute, $params)

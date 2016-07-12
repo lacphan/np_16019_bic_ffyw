@@ -62,6 +62,6 @@ class BaseAttachment extends \common\enpii\components\NpActiveRecord
      */
     public function getContestSessions()
     {
-        return $this->hasMany(ContestSession::className(), ['attachment_id' => 'id']);
+        return $this->hasMany(BaseContestSession::className(), ['attachment_id' => 'id']);
     }
 }
