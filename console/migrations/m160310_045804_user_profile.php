@@ -22,7 +22,8 @@ class m160310_045804_user_profile extends Migration
             'phone_number' => $this->string(32),
             'united' => $this->string(32),
             'date_of_birth' => $this->dateTime(),
-
+            'parent_first_name' => $this->string(),
+            'parent_last_name' => $this->string()
         ], $tableOptions);
         $this->addForeignKey('FK_User_UserProfile_ID', '{{%user}}', 'profile_id', '{{%user_profile}}', 'id', 'CASCADE', 'CASCADE');
 

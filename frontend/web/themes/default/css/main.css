@@ -670,6 +670,9 @@ img {
   padding: 13px 0 0 0;
   position: relative;
 }
+.home-content .home-intro .subscribe-form .help-block {
+  font-size: 14px;
+}
 .home-content .home-intro .subscribe-form-inner {
   width: 100%;
   max-width: 401px;
@@ -1040,6 +1043,9 @@ img {
 .registration-content .register-form .form-group .form-control:-ms-input-placeholder {
   color: #636567;
 }
+.registration-content .register-form .required label:before {
+  content: "*";
+}
 .registration-content .register-form .form-check-box {
   vertical-align: top;
   margin-bottom: 17px;
@@ -1085,9 +1091,6 @@ img {
   font-size: 26px;
   color: #19998c;
 }
-.registration-content .register-form .required label:before {
-  content: "*";
-}
 .registration-content .register-form label {
   font-size: 12px;
   font-weight: 400;
@@ -1105,6 +1108,7 @@ img {
 }
 .registration-content .register-form .form-date-time .date-time-item {
   display: inline-block;
+  vertical-align: top;
 }
 @media only screen and (max-width: 480px) {
   .registration-content .register-form .form-date-time .date-time-item {

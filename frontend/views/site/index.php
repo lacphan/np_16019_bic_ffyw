@@ -1,6 +1,11 @@
 <?php
 
 /* @var $this yii\web\View */
+/* @var $emailSubmission  frontend\models\EmailSubmission */
+/* @var $form yii\widgets\ActiveForm */
+
+use yii\widgets\ActiveForm;
+use yii\helpers\Html;
 
 $this->title = 'BIC';
 ?>
@@ -30,17 +35,12 @@ $this->title = 'BIC';
                 </p>
                 <div class="subscribe-form">
                     <div class="subscribe-form-inner">
-                        <form action="#">
-                            <div class="form-group">
-                                <label class="control-label" for="input-subscribe"></label>
-                                <input class="form-control" id="input-subscribe" type="email"
-                                       placeholder="Email Address">
-                                <div class="help-block"></div>
-                            </div>
-                            <button type="submit">Submit
-                            </button>
-                            <div class="clearfix"></div>
-                        </form>
+                        <?php $form = ActiveForm::begin() ?>
+                        <?= $form->field($emailSubmission, 'email')->textInput(['maxlength' => true]) ?>
+                        <?= Html::submitButton('Submit') ?>
+                        <div class="clearfix"></div>
+
+                        <?php ActiveForm::end(); ?>
                     </div>
                     <div class="form-arrow"></div>
                 </div>
@@ -204,8 +204,8 @@ $this->title = 'BIC';
             <div class="home-instruction-row">
                 <div class="col-md-4 home-instruction-item item-mission">
                     <a href="#">
-                    <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/mission.jpg' ?>"
-                         alt="Mission" width="771" height="390">
+                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/mission.jpg' ?>"
+                             alt="Mission" width="771" height="390">
                     </a>
                 </div>
                 <div class="col-md-4 home-instruction-item item-feature">

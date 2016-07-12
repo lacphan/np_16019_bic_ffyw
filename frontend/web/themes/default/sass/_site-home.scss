@@ -62,6 +62,9 @@
     .subscribe-form {
       padding: 13px 0 0 0;
       position: relative;
+      .help-block {
+        font-size: 14px;
+      }
       &-inner {
         width: 100%;
         max-width: 401px;

@@ -16,6 +16,8 @@ use Yii;
  * @property string $phone_number
  * @property string $united
  * @property string $date_of_birth
+ * @property string $parent_first_name
+ * @property string $parent_last_name
  *
  * @property BaseUser[] $users
  */
@@ -36,7 +38,7 @@ class BaseUserProfile extends \common\enpii\components\NpActiveRecord
     {
         return [
             [['date_of_birth'], 'safe'],
-            [['address', 'city', 'street', 'province', 'post_code'], 'string', 'max' => 255],
+            [['address', 'city', 'street', 'province', 'post_code', 'parent_first_name', 'parent_last_name'], 'string', 'max' => 255],
             [['phone_number', 'united'], 'string', 'max' => 32]
         ];
     }
@@ -56,6 +58,8 @@ class BaseUserProfile extends \common\enpii\components\NpActiveRecord
             'phone_number' => Yii::t('app', 'Phone Number'),
             'united' => Yii::t('app', 'United'),
             'date_of_birth' => Yii::t('app', 'Date Of Birth'),
+            'parent_first_name' => Yii::t('app', 'Parent First Name'),
+            'parent_last_name' => Yii::t('app', 'Parent Last Name'),
         ];
     }
 

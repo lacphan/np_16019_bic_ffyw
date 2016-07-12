@@ -64,6 +64,13 @@
         }
       }
     }
+    .required {
+      label {
+        &:before {
+          content: "*";
+        }
+      }
+    }
     .form-check-box {
       vertical-align: top;
       margin-bottom: 17px;
@@ -114,13 +121,7 @@
       }
 
     }
-    .required {
-      label {
-        &:before {
-          content: "*";
-        }
-      }
-    }
+
     label {
       font-size: 12px;
       font-weight: 400;
@@ -137,6 +138,7 @@
       }
       .date-time-item {
         display: inline-block;
+        vertical-align: top;
         @include respond-to-custom-size(null,480px) {
           display: block;
         }

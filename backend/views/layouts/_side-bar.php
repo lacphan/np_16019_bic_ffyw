@@ -20,34 +20,46 @@
         <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
         <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
         <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-        <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" >
+        <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true"
+            data-slide-speed="200">
             <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
             <li class="sidebar-toggler-wrapper hide">
                 <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-                <div class="sidebar-toggler"> </div>
+                <div class="sidebar-toggler"></div>
                 <!-- END SIDEBAR TOGGLER BUTTON -->
             </li>
             <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
 
-            <li class="nav-item <?= Yii::$app->controller->id == 'dashboard' ? 'active': ''?>">
-                <a href="<?= Yii::$app->urlManager->createUrl(['site'])?>" class="nav-link nav-toggle">
+            <li class="nav-item <?= Yii::$app->controller->id == 'dashboard' ? 'active' : '' ?>">
+                <a href="<?= Yii::$app->urlManager->createUrl(['site']) ?>" class="nav-link nav-toggle">
                     <i class="menu-icon menu-icon-home"></i>
                     <span class="title">Dashboard</span>
                 </a>
             </li>
-            <?php if(Yii::$app->user->can('administrator')):?>
-            <li class="nav-item <?= Yii::$app->controller->id == 'user' ? 'active': ''?>">
-                <a href="<?= Yii::$app->urlManager->createUrl(['user'])?>" class="nav-link ">
-                    <i class="menu-icon menu-icon-user"></i>
-                    <span class="title">User Management</span>
-                </a>
-            </li>
-
-            <?php endif;?>
+            <?php if (Yii::$app->user->can('administrator')): ?>
+                <li class="nav-item <?= Yii::$app->controller->id == 'user' ? 'active' : '' ?>">
+                    <a href="<?= Yii::$app->urlManager->createUrl(['user']) ?>" class="nav-link ">
+                        <i class="menu-icon menu-icon-user"></i>
+                        <span class="title">User Management</span>
+                    </a>
+                </li>
+                <li class="nav-item <?= Yii::$app->controller->id == 'contest-item' ? 'active' : '' ?>">
+                    <a href="<?= Yii::$app->urlManager->createUrl(['contest-item']) ?>" class="nav-link ">
+                        <i class="menu-icon menu-icon-user"></i>
+                        <span class="title">Contest Item Management</span>
+                    </a>
+                </li>
+                <li class="nav-item <?= Yii::$app->controller->id == 'contest-session' ? 'active' : '' ?>">
+                    <a href="<?= Yii::$app->urlManager->createUrl(['contest-session']) ?>" class="nav-link ">
+                        <i class="menu-icon menu-icon-user"></i>
+                        <span class="title">Contest Session Management</span>
+                    </a>
+                </li>
+            <?php endif; ?>
             <li class="nav-item ">
-                <a href="<?= Yii::$app->urlManager->createUrl(['site/logout'])?>" class="nav-link ">
+                <a href="<?= Yii::$app->urlManager->createUrl(['site/logout']) ?>" class="nav-link ">
                     <i class="menu-icon menu-icon-logout"></i>
-                    <span class="title"><?= Yii::t('app','Logout')?></span>
+                    <span class="title"><?= Yii::t('app', 'Logout') ?></span>
                 </a>
             </li>
         </ul>

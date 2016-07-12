@@ -10,7 +10,7 @@
 use yii\bootstrap\Nav;
 
 ?>
-<header id="main-header" class="site-header <?= Yii::$app->user->isGuest ? '' : 'logged-header' ?>" role="banner">
+<header id="main-header" class="site-header" role="banner">
 
     <div class="header-inner">
         <div class="container">

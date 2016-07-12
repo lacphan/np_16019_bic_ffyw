@@ -2,6 +2,8 @@
 namespace frontend\controllers;
 
 use common\models\User;
+use frontend\models\EmailSubmission;
+use frontend\models\RegisterForm;
 use frontend\models\SubmissionForm;
 use Yii;
 use common\models\LoginForm;
@@ -33,7 +35,6 @@ class SiteController extends Controller
                     [
                         'actions' => ['signup'],
                         'allow' => true,
-                        'roles' => ['?'],
                     ],
                     [
                         'actions' => ['logout'],
@@ -74,7 +75,20 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $emailSubmission = new EmailSubmission();
+
+        if($emailSubmission->load(Yii::$app->request->post()) && $emailSubmission->isEmailExists()) {
+            Yii::$app->session->setFlash('useEmail',$emailSubmission->email);
+            return $this->redirect(['site/submission']);
+
+        } elseif ($emailSubmission->load(Yii::$app->request->post()) && !$emailSubmission->isEmailExists()) {
+            Yii::$app->session->setFlash('useEmail',$emailSubmission->email);
+            return $this->redirect(['site/register']);
+        }
+        return $this->render('index',[
+                'emailSubmission' => $emailSubmission
+            ]
+        );
     }
 
     /**
@@ -110,6 +124,7 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
+
     /**
      * Displays contact page.
      *
@@ -143,23 +158,28 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
+
+
     /**
      * Signs user up.
      *
      * @return mixed
      */
-    public function actionSignup()
+    public function actionRegister()
     {
-        $model = new SignupForm();
+        $model = new RegisterForm();
+        if(Yii::$app->session->hasFlash('useEmail')) {
+            $model->email = Yii::$app->session->getFlash('useEmail');
+        }
         if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
+            if ($user = $model->register()) {
+                //if (Yii::$app->getUser()->login($user)) {
+                    //Yii::$app->session->set('loginFE','1');
                     return $this->goHome();
-                }
+               // }
             }
         }
-
-        return $this->render('signup', [
+        return $this->render('register', [
             'model' => $model,
         ]);
     }
@@ -172,6 +192,9 @@ class SiteController extends Controller
     public function actionSubmission()
     {
         $model = new SubmissionForm();
+        if(Yii::$app->session->hasFlash('useEmail')) {
+            $model->email = Yii::$app->session->getFlash('useEmail');
+        }
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->submission()) {
             }

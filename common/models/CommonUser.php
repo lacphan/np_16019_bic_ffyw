@@ -199,6 +199,7 @@ class CommonUser extends \common\models\base\BaseUser implements IdentityInterfa
 
     public static function validateUserNameIsDeleted($username) {
         $user = self::findByUsername($username);
+        
         if($user && $user->is_deleted == 1) {
             return false;
         }

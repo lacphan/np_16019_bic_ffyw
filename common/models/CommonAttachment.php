@@ -1,11 +1,8 @@
 <?php
 
 namespace common\models;
-use backend\models\Attachment;
 use common\enpii\components\NpItemDataSub;
-use Yii;
-use yii\helpers\ArrayHelper;
-use yii\web\UploadedFile;
+use yii;
 use yii\helpers\Json;
 /**
  * @property $arrSize
@@ -41,7 +38,7 @@ class CommonAttachment extends \common\models\base\BaseAttachment
         foreach ($this->arrSize as $key => $size) {
             $newFileName = $pathParts['filename'] . "-" . $size['width'] . "x" . $size['height'] . "." . $pathParts['extension'];
             $newFile =  Yii::$app->uploadDir . DIRECTORY_SEPARATOR . $newFileName;
-           
+
 
             if($imageSize[0] > $size['width'] && $imageSize[1] > $size['height']) {
                 if (!copy($fileLocation, $newFile)) {
@@ -73,7 +70,7 @@ class CommonAttachment extends \common\models\base\BaseAttachment
                 ];
             }
         }
-       
+
         $this->image = $file;
         $this->setSize($sizeDetect);
     }
@@ -92,7 +89,7 @@ class CommonAttachment extends \common\models\base\BaseAttachment
         if(file_exists($fileLocation)) {
             unlink($fileLocation);
         }
-;    }
+        ;    }
 
     public function getSize() {
         $originSizes =  Json::decode($this->size);
@@ -106,7 +103,7 @@ class CommonAttachment extends \common\models\base\BaseAttachment
     }
 
     public function setSize($arrSize) {
-       $this->size = Json::encode($arrSize);
+        $this->size = Json::encode($arrSize);
     }
 
     public static function findMediaByID($id){
@@ -125,7 +122,7 @@ class CommonAttachment extends \common\models\base\BaseAttachment
         $imageSize = $imageSizes['full'];
         $image = '<img src="'. $this->getAttachmentUrl().'" width="'.$imageSize['width'].'" height="'.$imageSize['height'].'">';
         return $image;
-        
+
     }
 
     public function getAttachmentUrl($size = null) {
