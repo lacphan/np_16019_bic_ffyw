@@ -76,13 +76,13 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $emailSubmission = new EmailSubmission();
-
+        Yii::$app->session->remove('userEmail');
         if($emailSubmission->load(Yii::$app->request->post()) && $emailSubmission->isEmailExists()) {
-            Yii::$app->session->setFlash('useEmail',$emailSubmission->email);
+            Yii::$app->session->set('userEmail',$emailSubmission->email);
             return $this->redirect(['site/submission']);
 
         } elseif ($emailSubmission->load(Yii::$app->request->post()) && !$emailSubmission->isEmailExists()) {
-            Yii::$app->session->setFlash('useEmail',$emailSubmission->email);
+            Yii::$app->session->set('userEmail',$emailSubmission->email);
             return $this->redirect(['site/register']);
         }
         return $this->render('index',[
@@ -91,38 +91,6 @@ class SiteController extends Controller
         );
     }
 
-    /**
-     * Logs in a user.
-     *
-     * @return mixed
-     */
-    public function actionLogin()
-    {
-        if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            Yii::$app->session->set('loginFE','1');
-            return $this->goBack();
-        } else {
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    /**
-     * Logs out the current user.
-     *
-     * @return mixed
-     */
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
-        return $this->goHome();
-    }
 
 
     /**
@@ -191,9 +159,12 @@ class SiteController extends Controller
      */
     public function actionSubmission()
     {
+        if(empty(Yii::$app->session->get('userEmail'))) {
+            return $this->redirect('register');
+        }
         $model = new SubmissionForm();
         if(Yii::$app->session->hasFlash('useEmail')) {
-            $model->email = Yii::$app->session->getFlash('useEmail');
+            $model->email = Yii::$app->session->get('userEmail');
         }
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->submission()) {

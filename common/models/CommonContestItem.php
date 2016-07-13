@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\enpii\components\NpItemDataSub;
 use Yii;
 
 /**
@@ -9,4 +10,13 @@ use Yii;
  */
 class CommonContestItem extends \common\models\base\BaseContestItem
 {
+    use NpItemDataSub;
+    public static function getWeek() {
+        $day = NpItemDataSub::getGMTTime();
+        $contestItem = CommonContestItem::find()->where(['<=','start_date',$day])->andWhere(['>=','end_date',$day])->one();
+        if($contestItem) {
+            return $contestItem;
+        }
+        return  CommonContestItem::find()->where(['id' => CommonContestItem::find()->max('id')])->one();
+    }
 }

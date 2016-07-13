@@ -1,11 +1,14 @@
 <?php
 
 namespace common\models;
+use backend\models\Attachment;
 use common\enpii\components\NpItemDataSub;
 use yii;
 use yii\helpers\Json;
+use yii\web\UploadedFile;
 /**
  * @property $arrSize
+ * @property $fileUpload
  * This is the model class for table "np_attachment".
  */
 class CommonAttachment extends \common\models\base\BaseAttachment
@@ -13,6 +16,11 @@ class CommonAttachment extends \common\models\base\BaseAttachment
     use NpItemDataSub;
 
     public $arrSize;
+
+    /**
+     * @var UploadedFile
+     */
+    public $fileUpload;
 
     public function __construct()
     {
@@ -138,5 +146,42 @@ class CommonAttachment extends \common\models\base\BaseAttachment
         return Yii::$app->uploadUrl->baseUrl . '/' . $this->image;
     }
 
+    public static function uploadFile($attribute,$type = 'image') {
+        $attachment = new Attachment();
+        $attachment->fileUpload = $attribute;
+        if ($attachment->fileUpload && $type == 'image') {
+            $fileName = $attachment->upload();
+            if($fileName){
+                $attachment->prepareFile($fileName);
+                $attachment->setCreatedDate();
+                $attachment->setUpdatedDate();
+                $attachment->save();
+            }
+        }
+        if($attachment->save()) {
+            return $attachment;
+        }
+     
+        return false;
+    }
+    public function upload()
+    {
 
+        $uploads = Yii::$app->uploadDir;
+
+        $fileName = $this->fileUpload->baseName . '.' . $this->fileUpload->extension;
+        $cnt = 1;
+        while ( file_exists ( Yii::$app->uploadDir . DIRECTORY_SEPARATOR . $fileName ) ){
+            $fileName =  $this->fileUpload->baseName . $cnt . '.' . $this->fileUpload->extension;
+            $cnt++;
+        }
+        if($this->fileUpload->saveAs($uploads.'/'.$fileName))
+        {
+            chmod(Yii::$app->uploadDir . DIRECTORY_SEPARATOR .$fileName, 0777);
+            return $fileName;
+        }
+
+        return false;
+
+    }
 }

@@ -2,12 +2,12 @@
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \frontend\models\SignupForm */
+/* @var $model \frontend\models\SubmissionForm */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use himiklab\yii2\recaptcha\ReCaptcha;
-
+use frontend\models\ContestItem;
 $this->title = 'Signup';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -31,15 +31,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="intro">
                             <div class="intro-inner">
                                 <h3>
-                                    <span class="font-5 color-1">Week 1: Ask your child what they would do if they were principal for a day…</span>
-
+                                    <span class="font-5 color-1"><?= ContestItem::getWeek()->title?></span>
                                 </h3>
-                                <p>
-                                    It’s the future and your child is the head of their school. The possibilities are
-                                    endless! <br/>
-                                    Ask your child to complete the following sentence and upload a photo of their
-                                    handwritten response: “If I were principal for a day…”
-                                </p>
+                                <?= ContestItem::getWeek()->description?>
                                 <div class="global-btn">
                                     <a class="global-btn-inner" href="">GALLERY</a>
                                 </div>
@@ -52,8 +46,16 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="register-form">
                 <h3 class="form-title font-5 font-size-25">Please fill out the form below to submit your entry:</h3>
                 <p class="require-hint">* Required Fields</p>
-                <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
-
+                <?php
+                $contest = new \frontend\models\ContestSession();
+                var_dump(ContestItem::getWeek()->id);
+                ?>
+                <?php $form = ActiveForm::begin([
+                    'options' => [
+                        'enctype' => 'multipart/form-data',
+                        'id' => 'register-form']
+                ]); ?>
+                <?= $form->field($model, 'email')->hiddenInput(['value' => Yii::$app->session->get('userEmail')])->label(false) ?>
                 <div class="form-row">
                     <?= $form->field($model, 'childFirstName')->textInput(['placeholder' => Yii::t('app', '*' . 'Child’s First Name')])->label(false) ?>
                     <?= $form->field($model, 'childLastInitial')->textInput(['placeholder' => Yii::t('app', '*' . 'Child’s Last Initial')])->label(false) ?>
@@ -71,12 +73,10 @@ $this->params['breadcrumbs'][] = $this->title;
                             '<div class="global-btn-inner">UPLOAD{input}</div>' .
                             '</div>' .
                             '</div>{label}{error}'
-                    ])
-                        ->fileInput(['placeholder' => Yii::t('app', '*' . 'Child’s First Name')])
-                        ->label(false) ?>
+                    ])->fileInput(['placeholder' => Yii::t('app', '*' . 'Child’s First Name')])->label(false) ?>
                 </div>
                 <div class="form-row">
-                    <?= $form->field($model, 'password', ['options' => ['class' => 'form-check-box']])->checkbox(
+                    <?= $form->field($model, 'agreeTerm', ['options' => ['class' => 'form-check-box']])->checkbox(
                         ['template' => '<div class="form-check-box-inner">{input}{label}</div>{error}']
                     )->label(Yii::t('app', 'I have read and agree to the ') . Html::a(Yii::t('app', 'official rules'), '#')) ?>
 

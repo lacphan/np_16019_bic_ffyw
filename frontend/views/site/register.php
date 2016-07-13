@@ -7,7 +7,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use himiklab\yii2\recaptcha\ReCaptcha;
-
+use frontend\models\ContestItem;
 $this->title = 'Register';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -31,15 +31,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="intro">
                             <div class="intro-inner">
                                 <h3>
-                                    <span class="font-5 color-1">Week 1: Ask your child what they would do if they were principal for a day…</span>
-
+                                    <span class="font-5 color-1"><?= ContestItem::getWeek()->title?></span>
                                 </h3>
-                                <p>
-                                    It’s the future and your child is the head of their school. The possibilities are
-                                    endless! <br/>
-                                    Ask your child to complete the following sentence and upload a photo of their
-                                    handwritten response: “If I were principal for a day…”
-                                </p>
+                                <?= ContestItem::getWeek()->description?>
                                 <div class="global-btn">
                                     <a class="global-btn-inner" href="">GALLERY</a>
                                 </div>
@@ -52,17 +46,18 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="register-form">
                 <h3 class="form-title font-5 font-size-25">Please fill out the form below to submit your entry:</h3>
                 <p class="require-hint">* Required Fields</p>
-                <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
+                <?php $form = ActiveForm::begin([
+                    'options' => [
+                        'enctype' => 'multipart/form-data',
+                        'id' => 'register-form'
+                    ]
+                ]); ?>
                 <div class="form-row">
                     <?= $form->field($model, 'parentFirstName')->textInput(['placeholder' => Yii::t('app', '*' . 'Parents First Name')])->label(false) ?>
                     <?= $form->field($model, 'parentLastName')->textInput(['placeholder' => Yii::t('app', '*' . 'Parents Last Name')])->label(false) ?>
                     <?= $form->field($model, 'phoneNumber')->textInput(['placeholder' => Yii::t('app', '*' . 'Phone Number')])->label(false) ?>
                 </div>
 
-                <div class="form-row">
-                    <?= $form->field($model, 'password')->passwordInput(['placeholder' => Yii::t('app', '*' . 'Password')])->label(false) ?>
-                    <?= $form->field($model, 'passwordConfirm')->passwordInput(['placeholder' => Yii::t('app', '*' . 'Confirm Password')])->label(false) ?>
-                </div>
                 <div class="form-row">
                     <?= $form->field($model, 'province')->textInput(['placeholder' => Yii::t('app', '*' . 'Province')])->label(false) ?>
                     <div class="form-date-time required">

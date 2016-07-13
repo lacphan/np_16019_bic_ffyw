@@ -2,6 +2,7 @@
 namespace frontend\models;
 
 
+use common\models\CommonContestItem;
 use yii\base\Model;
 use yii;
 use himiklab\yii2\recaptcha\ReCaptchaValidator;
@@ -28,8 +29,6 @@ use yii\web\UploadedFile;
 class RegisterForm extends Model
 {
     public $email;
-    public $password;
-    public $passwordConfirm;
     public $dateOfBirth;
     public $birthDate;
     public $birthMonth;
@@ -54,13 +53,16 @@ class RegisterForm extends Model
 
             [['email', 'province', 'parentFirstName', 'parentLastName', 'phoneNumber', 'childFirstName', 'childLastInitial', 'age'], 'required'],
             [['email'], 'validateUsername'],
+            [['age'],'integer', 'min' => 4,'max' => 16 ],
+            [['birthDate'],'integer', 'min' => 1,'max' => 31,'message' => Yii::t('app','Require')],
+            [['birthMonth'],'integer', 'min' => 1,'max' => 12 ,'message' => Yii::t('app','Require')],
+            [['birthYear'],'integer', 'min' => 1970,'message' => Yii::t('app','Require')],
             ['verificationCode', ReCaptchaValidator::className(), 'secret' => '6LddpCQTAAAAAPU27Z1X3nwsVnNed-9aDrk5moSA'],
             [['birthDate', 'birthMonth', 'birthYear', 'agreeTerm'], 'required', 'message' => 'Require'],
-            [['uploadFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
-            [['password', 'email'], 'required'],
+            [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
+            [['email'], 'required'],
             [['email'], 'email'],
-            ['password', 'string', 'min' => 6],
-            ['passwordConfirm', 'compare', 'compareAttribute' => 'password'],
+
         ];
     }
 
@@ -71,18 +73,17 @@ class RegisterForm extends Model
      */
     public function register()
     {
-
+        $this->uploadFile = UploadedFile::getInstance($this, 'uploadFile');
         if ($this->validate()) {
 
             $user = new User();
             $profile = new UserProfile();
             $contestSession = new ContestSession();
             $attachment = new Attachment();
-            $uploadForm = new UploadForm();
+
 
             $user->username = $this->email;
             $user->email = $this->email;
-            $user->setPassword($this->password);
             $user->first_name = $this->parentFirstName;
             $user->last_name = $this->parentLastName;
             $user->setCreatedDate();
@@ -91,8 +92,8 @@ class RegisterForm extends Model
             $user->creator_id = 1;
 
             $user->generateAuthKey();
-//            $flag = $user->save();
-            $flag = 0;
+          
+            $flag = $user->save();
 
             if ($flag) {
                 $auth = Yii::$app->authManager;
@@ -111,23 +112,14 @@ class RegisterForm extends Model
             }
 
 
-            $this->uploadFile = UploadedFile::getInstance($this, 'uploadFile');
           
             if ($this->uploadFile) {
-                $fileName = $this->upload();
-                if($fileName){
-                    $attachment->prepareFile($fileName);
-                    $attachment->setCreatedDate();
-                    $attachment->setUpdatedDate();
-                    $attachment->save();
-                }
+                $attachment = Attachment::uploadFile($this->uploadFile,'image');
             }
-
-            $attachment->save();
 
             if ($flag) {
                 $contestSession->user_id = $user->id;
-                $contestSession->contest_item_id = 1;
+                $contestSession->contest_item_id = ContestItem::getWeek()->id;
                 $contestSession->user_email = $this->email;
                 $contestSession->first_name = $this->childFirstName;
                 $contestSession->last_name = $this->childLastInitial;
@@ -135,7 +127,6 @@ class RegisterForm extends Model
                 $contestSession->setAge($this->age);
                 $contestSession->save();
             }
-
 
             if ($flag) {
                 return $user;
@@ -146,28 +137,8 @@ class RegisterForm extends Model
         return null;
     }
 
-    public function upload()
-    {
 
-        $uploads = Yii::$app->uploadDir;
-
-        $fileName = $this->uploadFile->baseName . '.' . $this->uploadFile->extension;
-        $cnt = 1;
-        while ( file_exists ( Yii::$app->uploadDir . DIRECTORY_SEPARATOR . $fileName ) ){
-            $fileName =  $this->uploadFile->baseName . $cnt . '.' . $this->uploadFile->extension;
-            $cnt++;
-        }
-        if($this->uploadFile->saveAs($uploads.'/'.$fileName))
-        {
-            chmod(Yii::$app->uploadDir . DIRECTORY_SEPARATOR .$fileName, 0777);
-            return $fileName;
-        }
-
-        return false;
-      
-    }
-
-    public function validateUsername($attribute, $params)
+    public function validateUsername()
     {
         if (!User::validateUserNameIsDeleted($this->email)) {
             $this->addError('email', 'Email already registered.');
