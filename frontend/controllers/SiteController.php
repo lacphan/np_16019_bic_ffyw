@@ -77,14 +77,14 @@ class SiteController extends Controller
     {
         $emailSubmission = new EmailSubmission();
         Yii::$app->session->remove('userEmail');
-//        if($emailSubmission->load(Yii::$app->request->post()) && $emailSubmission->isEmailExists()) {
-//            Yii::$app->session->set('userEmail',$emailSubmission->email);
-//            return $this->redirect(['site/submission']);
-//
-//        } elseif ($emailSubmission->load(Yii::$app->request->post()) && !$emailSubmission->isEmailExists()) {
-//            Yii::$app->session->set('userEmail',$emailSubmission->email);
-//            return $this->redirect(['site/register']);
-//        }
+        if($emailSubmission->load(Yii::$app->request->post()) && $emailSubmission->isEmailExists()) {
+            Yii::$app->session->set('userEmail',$emailSubmission->email);
+            return $this->redirect(['site/submission']);
+
+        } elseif ($emailSubmission->load(Yii::$app->request->post()) && !$emailSubmission->isEmailExists()) {
+            Yii::$app->session->set('userEmail',$emailSubmission->email);
+            return $this->redirect(['site/register']);
+        }
         return $this->render('index',[
                 'emailSubmission' => $emailSubmission
             ]
@@ -159,9 +159,9 @@ class SiteController extends Controller
      */
     public function actionSubmission()
     {
-        if(empty(Yii::$app->session->get('userEmail'))) {
-            return $this->redirect('register');
-        }
+//        if(empty(Yii::$app->session->get('userEmail'))) {
+//            return $this->redirect('register');
+//        }
         $model = new SubmissionForm();
         if(Yii::$app->session->hasFlash('useEmail')) {
             $model->email = Yii::$app->session->get('userEmail');
