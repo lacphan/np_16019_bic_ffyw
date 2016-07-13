@@ -42,7 +42,7 @@ class SubmissionForm extends Model
             [['childFirstName', 'childLastInitial', 'age', 'email','agreeTerm'], 'required'],
             [['age'],'integer', 'min' => 4,'max' => 16 ],
             ['verificationCode', ReCaptchaValidator::className(), 'secret' => '6LddpCQTAAAAAPU27Z1X3nwsVnNed-9aDrk5moSA'],
-            [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
+            [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],
         ];
     }
 

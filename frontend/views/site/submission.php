@@ -46,10 +46,6 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="register-form">
                 <h3 class="form-title font-5 font-size-25">Please fill out the form below to submit your entry:</h3>
                 <p class="require-hint">* Required Fields</p>
-                <?php
-                $contest = new \frontend\models\ContestSession();
-                var_dump(ContestItem::getWeek()->id);
-                ?>
                 <?php $form = ActiveForm::begin([
                     'options' => [
                         'enctype' => 'multipart/form-data',

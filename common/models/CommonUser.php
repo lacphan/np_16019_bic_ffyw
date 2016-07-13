@@ -201,9 +201,9 @@ class CommonUser extends \common\models\base\BaseUser implements IdentityInterfa
         $user = self::findByUsername($username);
         
         if($user && $user->is_deleted == 1) {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
 }
