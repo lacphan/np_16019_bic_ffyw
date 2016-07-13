@@ -159,9 +159,9 @@ class SiteController extends Controller
      */
     public function actionSubmission()
     {
-//        if(empty(Yii::$app->session->get('userEmail'))) {
-//            return $this->redirect('register');
-//        }
+        if(empty(Yii::$app->session->get('userEmail'))) {
+            return $this->redirect(Yii::$app->urlManager->createUrl('site/register'));
+        }
         $model = new SubmissionForm();
         if(Yii::$app->session->hasFlash('useEmail')) {
             $model->email = Yii::$app->session->get('userEmail');
