@@ -136,15 +136,12 @@ class SiteController extends Controller
     public function actionRegister()
     {
         $model = new RegisterForm();
-        if(Yii::$app->session->hasFlash('useEmail')) {
-            $model->email = Yii::$app->session->getFlash('useEmail');
+        if(Yii::$app->session->hasFlash('userEmail')) {
+            $model->email = Yii::$app->session->getFlash('userEmail');
         }
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->register()) {
-                //if (Yii::$app->getUser()->login($user)) {
-                    //Yii::$app->session->set('loginFE','1');
-                    return $this->goHome();
-               // }
+                return $this->render('success');
             }
         }
         return $this->render('register', [
@@ -159,7 +156,7 @@ class SiteController extends Controller
      */
     public function actionSubmission()
     {
-        if(Yii::$app->session->get('userEmail')) {
+        if(!Yii::$app->session->get('userEmail')) {
             return $this->redirect(Yii::$app->urlManager->createUrl('site/register'));
         }
         $model = new SubmissionForm();
@@ -168,7 +165,7 @@ class SiteController extends Controller
         }
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->submission()) {
-
+                return $this->render('success');
             }
         }
 
