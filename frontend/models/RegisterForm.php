@@ -65,7 +65,7 @@ class RegisterForm extends Model
             [['birthYear'],'integer', 'min' => 1905, 'max' => 1998 ,'message' => Yii::t('app','Require')],
             ['verificationCode', ReCaptchaValidator::className(), 'secret' => '6LddpCQTAAAAAPU27Z1X3nwsVnNed-9aDrk5moSA'],
             [['birthDate', 'birthMonth', 'birthYear', 'agreeTerm'], 'required', 'message' => 'Require'],
-            [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],
+            [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'maxSize' => 52428800, 'tooBig' => 'Limit is 5MB'],
             [['email'], 'required'],
             [['email'], 'email'],
 
