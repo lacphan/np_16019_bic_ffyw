@@ -40,7 +40,9 @@ class SubmissionForm extends Model
         return [
 
             [['childFirstName', 'childLastInitial', 'age', 'email','agreeTerm'], 'required'],
-            [['age'],'integer', 'min' => 4,'max' => 16 ],
+            [['childLastInitial'],'match', 'pattern' => '/[a-zA-Z]/','message' => Yii::t('app','Only from a-z A-Z')],
+            [['childLastInitial'],'string', 'max' => 1,'message' => Yii::t('app','Maximum of one alpha character can be entered')],
+            [['age'],'integer', 'min' => 6,'max' => 18 ],
             ['verificationCode', ReCaptchaValidator::className(), 'secret' => '6LddpCQTAAAAAPU27Z1X3nwsVnNed-9aDrk5moSA'],
             [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],
         ];

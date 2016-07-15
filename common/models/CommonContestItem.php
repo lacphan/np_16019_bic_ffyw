@@ -11,6 +11,10 @@ use Yii;
 class CommonContestItem extends \common\models\base\BaseContestItem
 {
     use NpItemDataSub;
+
+    /**
+     * @return CommonContestItem
+     */
     public static function getWeek() {
         $day = NpItemDataSub::getGMTTime();
         $contestItem = CommonContestItem::find()->where(['<=','start_date',$day])->andWhere(['>=','end_date',$day])->one();

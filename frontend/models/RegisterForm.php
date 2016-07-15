@@ -2,7 +2,6 @@
 namespace frontend\models;
 
 
-use common\models\CommonContestItem;
 use yii\base\Model;
 use yii;
 use himiklab\yii2\recaptcha\ReCaptchaValidator;
@@ -29,6 +28,7 @@ use yii\web\UploadedFile;
 class RegisterForm extends Model
 {
     public $email;
+    public $emailConfirm;
     public $dateOfBirth;
     public $birthDate;
     public $birthMonth;
@@ -51,12 +51,18 @@ class RegisterForm extends Model
     {
         return [
 
-            [['email', 'province', 'parentFirstName', 'parentLastName', 'phoneNumber', 'childFirstName', 'childLastInitial', 'age'], 'required'],
+            [['email','emailConfirm', 'province', 'parentFirstName', 'parentLastName', 'phoneNumber', 'childFirstName', 'childLastInitial', 'age'], 'required'],
             [['email'], 'validateUsername'],
-            [['age'],'integer', 'min' => 4,'max' => 16 ],
+            [['emailConfirm'], 'email'],
+            [['emailConfirm'], 'compare', 'compareAttribute'=>'email', 'message'=> Yii::t('app',"Email does not match")],
+            [['phoneNumber'],'integer'],
+            [['phoneNumber'],'string',],
+            [['childLastInitial'],'match', 'pattern' => '/[a-zA-Z]/','message' => Yii::t('app','Only from a-z A-Z')],
+            [['childLastInitial'],'string', 'max' => 1,'message' => Yii::t('app','Maximum of one alpha character can be entered')],
+            [['age'],'integer', 'min' => 6,'max' => 18 ],
             [['birthDate'],'integer', 'min' => 1,'max' => 31,'message' => Yii::t('app','Require')],
             [['birthMonth'],'integer', 'min' => 1,'max' => 12 ,'message' => Yii::t('app','Require')],
-            [['birthYear'],'integer', 'min' => 1970,'message' => Yii::t('app','Require')],
+            [['birthYear'],'integer', 'min' => 1905, 'max' => 1998 ,'message' => Yii::t('app','Require')],
             ['verificationCode', ReCaptchaValidator::className(), 'secret' => '6LddpCQTAAAAAPU27Z1X3nwsVnNed-9aDrk5moSA'],
             [['birthDate', 'birthMonth', 'birthYear', 'agreeTerm'], 'required', 'message' => 'Require'],
             [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],

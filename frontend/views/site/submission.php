@@ -8,6 +8,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use himiklab\yii2\recaptcha\ReCaptcha;
 use frontend\models\ContestItem;
+use kartik\file\FileInput;
 $this->title = 'Signup';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -58,18 +59,43 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= $form->field($model, 'age')->textInput(['class' => 'small-input', 'placeholder' => Yii::t('app', 'Age')])->label(false) ?>
                 </div>
                 <div class="form-row">
-                    <?= $form->field($model, 'uploadFile', [
+                    <?php
+                    $layoutTemplate = [
+                        'main2' => '<div class="kv-upload-progress hide"></div>{browse}{preview}{remove}',
+                        'footer' => ''
+                    ]
+                    ?>
+                    <?= $form->field($model, 'uploadFile',[
                         'options' => ['class' => 'form-upload'],
                         'template' => '<div class="form-upload-inner">' .
                             '<div class="input-instruction">' .
                             Yii::t('app', 'Upload photo instructions') . ':<br/>' .
                             Yii::t('app', 'No larger than 5MB and only accept .jpg and .png files') .
                             '</div>' .
-                            '<div class="input-btn global-btn">' .
-                            '<div class="global-btn-inner">UPLOAD{input}</div>' .
-                            '</div>' .
-                            '</div>{label}{error}'
-                    ])->fileInput(['placeholder' => Yii::t('app', '*' . 'Child’s First Name')])->label(false) ?>
+                            '{label}{input}{error}</div>'
+                    ])->widget(FileInput::className(), [
+                        'options' => [
+                            'multiple' => false,
+                            'accept' => 'image/*',
+                            'class' => 'optionvalue-img'
+                        ],
+                        'pluginOptions' => [
+                            'previewFileType' => 'image',
+                            'showCaption' => false,
+                            'showUpload' => false,
+                            'browseClass' => 'btn btn-default global-btn btn-sm',
+                            'browseLabel' => Yii::t('app','UPLOAD'),
+                            'browseIcon' => '',
+                            'removeClass' => 'global-btn',
+                            'removeLabel' => '',
+                            'removeIcon' => '<i class="fa fa-trash"></i>',
+                            'previewSettings' => [
+                                'image' => ['width' => 'auto', 'height' => 'auto']
+                            ],
+                            'initialPreview' => '',
+                            'layoutTemplates' => $layoutTemplate
+                        ]
+                    ])->label(false) ?>
                 </div>
                 <div class="form-row">
                     <?= $form->field($model, 'agreeTerm', ['options' => ['class' => 'form-check-box']])->checkbox(

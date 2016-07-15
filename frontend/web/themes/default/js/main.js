@@ -1,3 +1,5 @@
-/**
- * Created by lacphan on 7/7/16.
- */
+jQuery(document).on('ready pjax:success',function () {
+    (function ($) {
+        $(".select2").select2();
+    })(jQuery);
+});

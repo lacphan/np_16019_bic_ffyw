@@ -18,7 +18,7 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'themes/default/css/site.css',
+        'assets-enpii/global/plugins/select2/css/select2.min.css',
         '//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700italic,700,800,800italic',
         'themes/default/css/bootstrap_base.css',
         'themes/default/css/fonts.css',
@@ -27,6 +27,7 @@ class AppAsset extends AssetBundle
         'themes/default/css/main.css',
     ];
     public $js = [
+        'assets-enpii/global/plugins/select2/js/select2.min.js',
         'themes/default/libs/jquery-ui/jquery-ui.min.js',
         'themes/default/libs/timepicker/jquery.timepicker.min.js',
         'themes/default/js/main.js'

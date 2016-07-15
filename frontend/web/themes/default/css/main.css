@@ -80,6 +80,11 @@ img {
   position: relative;
   font-size: 19px;
   color: #000;
+  border: 0;
+  background-color: transparent;
+}
+.global-btn:hover {
+  background-color: transparent;
 }
 .global-btn:before {
   content: "";
@@ -103,7 +108,7 @@ img {
   right: 0;
   margin: auto;
 }
-.global-btn-inner {
+.global-btn-inner, .global-btn span {
   background-color: #f8a421;
   padding: 5px 20px;
   border-radius: 10px;
@@ -113,7 +118,7 @@ img {
   display: inline-block;
   border: 0;
 }
-.global-btn-inner:hover {
+.global-btn-inner:hover, .global-btn span:hover {
   text-decoration: none;
 }
 
@@ -1015,6 +1020,28 @@ img {
 .registration-content .register-form .require-hint {
   margin-bottom: 17px;
 }
+.registration-content .register-form .select2-container--default .select2-selection--single {
+  border-radius: 0;
+  height: 31px;
+}
+.registration-content .register-form .select2-container--default .select2-selection--single:focus {
+  outline: none;
+}
+.registration-content .register-form .select2-container--default .select2-selection--single .select2-selection__rendered {
+  padding-left: 12px;
+  color: #636567;
+}
+.registration-content .register-form .hide-arrow + .select2 .select2-selection__arrow {
+  display: none;
+}
+.registration-content .register-form .a-center + .select2 .select2-selection__rendered {
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+}
+.registration-content .register-form .small-input + .select2 {
+  margin-right: 8px;
+}
 .registration-content .register-form .form-group {
   width: 229px;
   display: inline-block;
@@ -1124,10 +1151,31 @@ img {
   background-color: #fff;
   max-width: 508px;
   min-height: 61px;
+  position: relative;
 }
 .registration-content .register-form .form-upload .input-instruction {
   display: inline-block;
   margin-right: 32px;
+  margin-bottom: 15px;
+}
+.registration-content .register-form .form-upload .global-btn span {
+  background-color: #f8a421;
+  padding: 5px 20px;
+  border-radius: 10px;
+  font-family: "Lemonade ICG Bold";
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  border: 0;
+  font-size: 19px;
+}
+.registration-content .register-form .form-upload .global-btn span:hover {
+  text-decoration: none;
+}
+.registration-content .register-form .form-upload .btn-file {
+  position: absolute;
+  right: 12px;
+  top: 12px;
 }
 .registration-content .register-form .form-upload .input-btn {
   vertical-align: top;
@@ -1196,6 +1244,10 @@ img {
 }
 .registration-content .register-form .btn-submit .global-btn-inner {
   padding: 5px 26px;
+}
+
+.select2-results .select2-results__group {
+  display: none;
 }
 
 /*# sourceMappingURL=main.css.map */

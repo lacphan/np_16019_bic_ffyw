@@ -74,6 +74,11 @@ img {
   position: relative;
   font-size: 19px;
   color: #000;
+  border: 0;
+  background-color: transparent;
+  &:hover {
+    background-color: transparent;
+  }
   &:before {
     content: "";
     width: 13px;
@@ -96,7 +101,7 @@ img {
     right: 0;
     margin: auto;
   }
-  &-inner {
+  &-inner,span {
     background-color: $color3;
     padding: 5px 20px;
     border-radius: 10px;

@@ -47,6 +47,32 @@
     .require-hint {
       margin-bottom: 17px;
     }
+    .select2-container--default .select2-selection--single {
+      border-radius: 0;
+      height: 31px;
+      &:focus {
+        outline: none;
+      }
+      .select2-selection__rendered {
+        padding-left: 12px;
+        color: #636567;
+      }
+    }
+    .hide-arrow + .select2 {
+      .select2-selection__arrow {
+        display: none;
+      }
+    }
+    .a-center + .select2 {
+      .select2-selection__rendered {
+        padding-left: 5px;
+        padding-right: 5px;
+        text-align: center;
+      }
+    }
+    .small-input + .select2 {
+      margin-right: 8px;
+    }
     .form-group {
       width: 229px;
       display: inline-block;
@@ -152,10 +178,34 @@
         background-color: #fff;
         max-width: 508px;
         min-height: 61px;
+        position: relative;
       }
       .input-instruction {
         display: inline-block;
         margin-right: 32px;
+        margin-bottom: 15px;
+      }
+      .global-btn {
+
+        span {
+          background-color: $color3;
+          padding: 5px 20px;
+          border-radius: 10px;
+          font-family: $font5;
+          text-decoration: none;
+          font-weight: 600;
+          display: inline-block;
+          border: 0;
+          font-size: 19px;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+      .btn-file {
+        position: absolute;
+        right: 12px;
+        top: 12px;
       }
       .input-btn {
         vertical-align: top;
@@ -215,5 +265,10 @@
         padding: 5px 26px;
       }
     }
+  }
+}
+.select2-results {
+  .select2-results__group {
+    display: none;
   }
 }

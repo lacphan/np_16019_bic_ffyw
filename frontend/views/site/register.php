@@ -8,6 +8,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use himiklab\yii2\recaptcha\ReCaptcha;
 use frontend\models\ContestItem;
+use kartik\file\FileInput;
 $this->title = 'Register';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -31,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="intro">
                             <div class="intro-inner">
                                 <h3>
-                                    <span class="font-5 color-1"><?= ContestItem::getWeek()->title?></span>
+                                    <span class="font-5 color-1"><?= Yii::t('app','Week') . ' ' . ContestItem::getWeek()->id ?>: <?= ContestItem::getWeek()->title?></span>
                                 </h3>
                                 <?= ContestItem::getWeek()->description?>
                                 <div class="global-btn">
@@ -59,16 +60,61 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
 
                 <div class="form-row">
-                    <?= $form->field($model, 'province')->textInput(['placeholder' => Yii::t('app', '*' . 'Province')])->label(false) ?>
+                    <?= $form->field($model, 'province')->dropDownList(
+                        [
+                            'Alberta' => 'Alberta',
+                            'British Columbia' => 'British Columbia',
+                            'Manitoba' => 'Manitoba',
+                            'New Brunswick' => 'New Brunswick',
+                            'Newfoundland and Labrador' => 'Newfoundland and Labrador',
+                            'Northwest Territories' => 'Northwest Territories',
+                            'Nova Scotia' => 'Nova Scotia',
+                            'Nunavut' => 'Nunavut',
+                            'Ontario' => 'Ontario',
+                            'Prince Edward Island' => 'Prince Edward Island',
+                            'Quebec' => 'Quebec',
+                            'Saskatchewan' => 'Saskatchewan',
+                            'Yukon Territory' => 'Yukon Territory',
+                        ],
+                        [
+                            'prompt' => '*' . Yii::t('app', 'Province'),
+                            'class' => 'form-control select2 hide-arrow'
+                        ]
+                    )->label(false) ?>
                     <div class="form-date-time required">
                         <div class="form-date-time-inner">
                             <label class="control-label"><?= Yii::t('app', 'Date of Birth') ?>:</label>
-                            <?= $form->field($model, 'birthMonth', ['options' => ['class' => 'date-time-item']])->textInput(['class' => 'a-center small-input month-picker', 'placeholder' => Yii::t('app', 'Month')])->label(false) ?>
-                            <?= $form->field($model, 'birthDate', ['options' => ['class' => 'date-time-item']])->textInput(['class' => 'a-center small-input date-picker', 'placeholder' => Yii::t('app', 'Date')])->label(false) ?>
-                            <?= $form->field($model, 'birthYear', ['options' => ['class' => 'date-time-item']])->textInput(['class' => 'a-center small-input year-picker', 'placeholder' => Yii::t('app', 'Year')])->label(false) ?>
+                            <?= $form->field($model, 'birthMonth', ['options' => ['class' => 'date-time-item']])
+                                ->dropDownList([
+                                    array_combine(range(1,12), range(1,12))
+                                ],[
+                                    'prompt' => Yii::t('app', 'Month'),
+                                    'class' => 'a-center small-input date-picker select2 hide-no-value hide-arrow'
+                                ])
+                                ->label(false) ?>
+                            <?= $form->field($model, 'birthDate', ['options' => ['class' => 'date-time-item']])
+                                ->dropDownList([
+                                    array_combine(range(1,31), range(1,31))
+                                ],[
+                                    'prompt' => Yii::t('app', 'Day'),
+                                    'class' => 'a-center small-input date-picker select2 hide-no-value hide-arrow'
+                                ])
+                                ->label(false) ?>
+                            <?= $form->field($model, 'birthYear', ['options' => ['class' => 'date-time-item']]) ->dropDownList([
+                                array_combine(range(1905,1998), range(1905,1998))
+                            ],[
+                                'prompt' => Yii::t('app', 'Year'),
+                                'class' => 'a-center small-input date-picker select2 hide-no-value hide-arrow'
+                            ])
+                                ->label(false) ?>
                         </div>
                     </div>
-                    <?= $form->field($model, 'email')->textInput(['placeholder' => '*Email Address'])->label(false) ?>
+
+                </div>
+                <div class="form-row">
+                    <?= $form->field($model, 'email')->textInput(['placeholder' => '*Email Address','value' =>  Yii::$app->session->get('userEmail')])->label(false) ?>
+                    <?= $form->field($model, 'emailConfirm')->textInput(['placeholder' => '*Confirm Email'])->label(false) ?>
+
                 </div>
                 <div class="form-row">
                     <?= $form->field($model, 'agreeTerm', ['options' => ['class' => 'form-check-box']])->checkbox(
@@ -82,19 +128,44 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= $form->field($model, 'age')->textInput(['class' => 'small-input', 'placeholder' => Yii::t('app', 'Age')])->label(false) ?>
                 </div>
                 <div class="form-row">
-                    <?= $form->field($model, 'uploadFile', [
+                    <?php
+                    $layoutTemplate = [
+                        'main2' => '<div class="kv-upload-progress hide"></div>{browse}{preview}{remove}',
+                        'footer' => ''
+                    ]
+                    ?>
+                    <?= $form->field($model, 'uploadFile',[
                         'options' => ['class' => 'form-upload'],
                         'template' => '<div class="form-upload-inner">' .
                             '<div class="input-instruction">' .
                             Yii::t('app', 'Upload photo instructions') . ':<br/>' .
                             Yii::t('app', 'No larger than 5MB and only accept .jpg and .png files') .
                             '</div>' .
-                            '<div class="input-btn global-btn">' .
-                            '<div class="global-btn-inner">UPLOAD{input}</div>' .
-                            '</div>' .
-                            '</div>{label}{error}'
-                    ])->fileInput(['placeholder' => Yii::t('app', '*' . 'Child’s First Name')])->label(false) ?>
-                    
+                            '{label}{input}{error}</div>'
+                    ])->widget(FileInput::className(), [
+                        'options' => [
+                            'multiple' => false,
+                            'accept' => 'image/*',
+                            'class' => 'optionvalue-img'
+                        ],
+                        'pluginOptions' => [
+                            'previewFileType' => 'image',
+                            'showCaption' => false,
+                            'showUpload' => false,
+                            'browseClass' => 'btn btn-default global-btn btn-sm',
+                            'browseLabel' => Yii::t('app','UPLOAD'),
+                            'browseIcon' => '',
+                            'removeClass' => 'global-btn',
+                            'removeLabel' => '',
+                            'removeIcon' => '<i class="fa fa-trash"></i>',
+                            'previewSettings' => [
+                                'image' => ['width' => 'auto', 'height' => 'auto']
+                            ],
+                            'initialPreview' => '',
+                            'layoutTemplates' => $layoutTemplate
+                        ]
+                    ])->label(false) ?>
+
                 </div>
 
                 <div class="form-row">
