@@ -84,7 +84,7 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                             '<div class="file-preview"><div class="file-preview-frame"><canvas id="canvas"></canvas></div></div>'.
                             '<button class="img-rotate-left" ><i class="fa fa-undo" aria-hidden="true"></i></button>'.
                             '<button class="img-rotate-right"><i class="fa fa-repeat"></i></button>'.
-                            '</div>'
+                            '</div></div>'
                     ])->fileInput(['id' => 'imageLoader'])->label(false); ?>
                 </div>
                 <div class="form-row">

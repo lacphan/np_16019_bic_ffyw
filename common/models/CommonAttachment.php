@@ -37,7 +37,7 @@ class CommonAttachment extends \common\models\base\BaseAttachment
     public function prepareFile($file, $rotate = null)
     {
         $fileLocation = Yii::$app->uploadDir . DIRECTORY_SEPARATOR . $file;
-        if ($rotate) {
+        if ($rotate && $rotate != 0 && ($rotate % 360 != 0)) {
             $image = Yii::$app->image->load($fileLocation);
             $image->rotate($rotate);
             $image->save();
