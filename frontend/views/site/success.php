@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     Thank you! We have received your entry and you will be notified if it has been approved or rejected. Don’t forget to come back and submit a response for next week’s handwriting challenge!
                 </div>
                 <div class="global-btn">
-                    <a class="global-btn-inner" href="">GALLERY</a>
+                    <a target="_blank" class="global-btn-inner" href="<?= Yii::$app->urlManager->createUrl(['site/gallery'])?>">GALLERY</a>
                 </div>
             </div>
         </div>

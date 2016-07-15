@@ -1,10 +1,12 @@
 <?php
 namespace frontend\controllers;
 
-use backend\models\ContestSession;
+use frontend\models\ContestSession;
+
 
 use frontend\models\EmailSubmission;
 use frontend\models\RegisterForm;
+use frontend\models\Gallery;
 use frontend\models\SubmissionForm;
 use yii;
 use frontend\models\PasswordResetRequestForm;
@@ -221,6 +223,14 @@ class SiteController extends Controller
 
         return $this->render('resetPassword', [
             'model' => $model,
+        ]);
+    }
+
+    public function actionGallery()
+    {
+        $contestSessions = ContestSession::find()->orderBy(new Expression('rand()'))->all();
+        return $this->render('gallery', [
+            'contestSessions' => $contestSessions
         ]);
     }
 }
