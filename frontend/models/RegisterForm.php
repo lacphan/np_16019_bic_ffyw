@@ -56,7 +56,7 @@ class RegisterForm extends Model
             [['emailConfirm'], 'email'],
             [['emailConfirm'], 'compare', 'compareAttribute'=>'email', 'message'=> Yii::t('app',"Email does not match")],
             [['phoneNumber'],'integer'],
-            [['phoneNumber'],'string',],
+            [['phoneNumber'],'string','max' => 10],
             [['childLastInitial'],'match', 'pattern' => '/[a-zA-Z]/','message' => Yii::t('app','Only from a-z A-Z')],
             [['childLastInitial'],'string', 'max' => 1,'message' => Yii::t('app','Maximum of one alpha character can be entered')],
             [['age'],'integer', 'min' => 6,'max' => 18 ],
