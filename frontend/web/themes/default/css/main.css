@@ -136,6 +136,10 @@ img {
   text-align: right;
 }
 
+.a-left {
+  text-align: left;
+}
+
 @media only screen and (max-width: 992px) {
   .show-on-desktop {
     display: none;
@@ -146,6 +150,31 @@ img {
   .show-on-mobile {
     display: none;
   }
+}
+
+.has-table table {
+  width: 100%;
+  max-width: 700px;
+}
+.has-table table tr, .has-table table td {
+  vertical-align: top;
+}
+.has-table table td {
+  padding: 10px;
+}
+
+.official-tmp {
+  padding-bottom: 30px;
+}
+.official-tmp ol {
+  padding-left: 15px;
+}
+.official-tmp ol li {
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+.official-tmp ol li p {
+  font-weight: 400;
 }
 
 .site-header {
@@ -659,6 +688,11 @@ img {
 .home-content .home-intro .intro small {
   font-size: 15px;
 }
+@media only screen and (max-width: 1200px) {
+  .home-content .home-intro .intro {
+    width: 60%;
+  }
+}
 @media only screen and (max-width: 992px) {
   .home-content .home-intro .intro {
     position: static;
@@ -798,20 +832,122 @@ img {
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 40%;
   z-index: 1;
   text-align: right;
+  width: 426px;
+  height: 240px;
 }
 .home-content .home-intro .hand-writing-mb {
   display: none;
 }
+.home-content .home-intro .hand-writing .hand-writing-content {
+  position: absolute;
+  padding: 40px 12px 5px 60px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+}
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .home-content .home-intro .hand-writing .hand-writing-content {
+    position: static;
+    padding: 80px 12px 10px 50px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .home-content .home-intro .hand-writing .hand-writing-content {
+    position: static;
+    padding: 60px 12px 10px 50px;
+  }
+}
+.home-content .home-intro .hand-writing .hand-writing-content .left-content {
+  width: 50%;
+  float: left;
+  text-align: left;
+}
+@media only screen and (max-width: 450px) {
+  .home-content .home-intro .hand-writing .hand-writing-content .left-content {
+    width: 100%;
+    float: none;
+  }
+}
+.home-content .home-intro .hand-writing .hand-writing-content .left-content .title {
+  padding-top: 29px;
+}
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .home-content .home-intro .hand-writing .hand-writing-content .left-content {
+    height: 254px;
+    display: table;
+  }
+  .home-content .home-intro .hand-writing .hand-writing-content .left-content .title {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+.home-content .home-intro .hand-writing .hand-writing-content .left-content label {
+  display: block;
+  margin: 0;
+}
+.home-content .home-intro .hand-writing .hand-writing-content .left-content span {
+  font-family: "Lemonade ICG Bold";
+  font-size: 26px;
+  color: #ffffff;
+  line-height: 30px;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+}
+.home-content .home-intro .hand-writing .hand-writing-content .left-content span:before {
+  content: '';
+  background: url("../images/line-left-icon.png") no-repeat;
+  width: 11px;
+  height: 18px;
+  background-size: 100%;
+  position: absolute;
+  top: 5px;
+  right: 100%;
+  margin-right: 5px;
+}
+.home-content .home-intro .hand-writing .hand-writing-content .left-content span:after {
+  content: '';
+  background: url("../images/line-right-icon.png") no-repeat;
+  width: 12px;
+  height: 18px;
+  background-size: 100%;
+  position: absolute;
+  top: 5px;
+  left: 100%;
+  margin-left: 5px;
+}
+.home-content .home-intro .hand-writing .hand-writing-content .left-content label {
+  font-family: "KGSecondChancesSketch";
+  font-size: 26px;
+  line-height: 30px;
+}
+.home-content .home-intro .hand-writing .hand-writing-content .right-content {
+  width: 50%;
+  float: left;
+}
+@media only screen and (max-width: 450px) {
+  .home-content .home-intro .hand-writing .hand-writing-content .right-content {
+    width: 100%;
+    float: none;
+    margin-top: 10px;
+  }
+}
+.home-content .home-intro .hand-writing .hand-writing-content .main-content {
+  font-family: "Lemonade ICG Bold";
+  font-size: 20px;
+  line-height: 23px;
+  color: #000;
+  margin-top: 10px;
+}
 @media only screen and (max-width: 992px) {
   .home-content .home-intro .hand-writing {
-    position: static;
-    width: auto;
-  }
-  .home-content .home-intro .hand-writing img {
+    position: relative;
     width: 100%;
+    height: auto;
   }
   .home-content .home-intro .hand-writing-mb {
     display: block;
@@ -976,6 +1112,13 @@ img {
 .registration-content .image-heading {
   padding: 0 10px;
   padding-top: 19px;
+}
+.registration-content .image-heading .heading-content {
+  background: url("../images/register-writing-bg.png") no-repeat;
+  width: 265px;
+  height: 212px;
+  background-size: 100%;
+  padding: 35px 55px 35px 20px;
 }
 @media only screen and (min-width: 1024px) {
   .registration-content .image-heading {
@@ -1248,6 +1391,35 @@ img {
 
 .select2-results .select2-results__group {
   display: none;
+}
+
+.success-content {
+  padding: 10px 20px;
+  min-height: 700px;
+  text-align: center;
+}
+.success-content .title {
+  font-family: "KGSecondChancesSketch";
+  font-size: 40px;
+  text-align: center;
+  color: #000;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.success-content .title span {
+  font-family: "Lemonade ICG Bold";
+  color: #f79a2f;
+}
+.success-content .content {
+  max-width: 860px;
+  margin: 10px auto;
+  font-family: "Open Sans";
+  color: #000;
+  font-size: 18px;
+  text-align: left;
+}
+.success-content .global-btn {
+  margin-top: 20px;
 }
 
 /*# sourceMappingURL=main.css.map */

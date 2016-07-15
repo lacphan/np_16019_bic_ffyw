@@ -11,16 +11,20 @@ use frontend\models\ContestItem;
 use kartik\file\FileInput;
 $this->title = 'Signup';
 $this->params['breadcrumbs'][] = $this->title;
+$contestItem = ContestItem::getWeek();
+$weekNumber = $contestItem ? $contestItem->id : 1;
 ?>
 <div class="site-signup">
     <div class="container">
         <div class="registration-content">
             <div class="registration-content-row">
                 <div class="col-md-3 image-heading">
-
-                    <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/weekly-challenge.png' ?>"
-                         alt="Weekly Challenge" width="266" height="220">
-
+                    <div class="heading-content">
+                        <?php if($weekNumber):?>
+                            <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-'.$weekNumber.'/week.png' ?>"
+                                 alt="Feature" width="266" height="220">
+                        <?php endif;?>
+                    </div>
                 </div>
                 <div class="col-md-9 intro-heading">
                     <div class="intro-heading-inner">
@@ -100,7 +104,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="form-row">
                     <?= $form->field($model, 'agreeTerm', ['options' => ['class' => 'form-check-box']])->checkbox(
                         ['template' => '<div class="form-check-box-inner">{input}{label}</div>{error}']
-                    )->label(Yii::t('app', 'I have read and agree to the ') . Html::a(Yii::t('app', 'official rules'), '#')) ?>
+                    )->label(Yii::t('app', 'I have read and agree to the ') . Html::a(Yii::t('app', 'official rules'), Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules']),['target' => '_blank'])) ?>
 
                 </div>
                 <div class="form-row">

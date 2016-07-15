@@ -126,6 +126,9 @@ img {
 .a-right {
   text-align: right;
 }
+.a-left {
+  text-align: left;
+}
 .show-on-desktop {
   @include respond-to-custom-size(null,$mobile-break-point) {
     display: none;
@@ -134,5 +137,30 @@ img {
 .show-on-mobile {
   @include respond-to-custom-size($mobile-break-point) {
     display: none;
+  }
+}
+.has-table {
+  table {
+    width: 100%;
+    max-width: 700px;
+    tr ,td {
+      vertical-align: top;
+    }
+    td {
+      padding: 10px;
+    }
+  }
+}
+.official-tmp {
+  padding-bottom: 30px;
+  ol {
+    padding-left: 15px;
+    li {
+      margin-bottom: 15px;
+      font-weight: 600;
+      p {
+        font-weight: 400;
+      }
+    }
   }
 }
