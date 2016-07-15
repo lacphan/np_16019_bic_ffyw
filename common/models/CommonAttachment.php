@@ -1,11 +1,13 @@
 <?php
 
 namespace common\models;
+
 use backend\models\Attachment;
 use common\enpii\components\NpItemDataSub;
 use yii;
 use yii\helpers\Json;
 use yii\web\UploadedFile;
+
 /**
  * @property $arrSize
  * @property $fileUpload
@@ -27,13 +29,19 @@ class CommonAttachment extends \common\models\base\BaseAttachment
         parent::__construct();
         $this->arrSize = [
             'large' => ['width' => 1024, 'height' => 1024, 'crop' => false],
-            'medium' => ['width' => 771,'height' => 439, 'crop' => false],
-            'thumbnail' => [ 'width' => 203,'height' => 126,'crop' => true]
+            'medium' => ['width' => 771, 'height' => 439, 'crop' => false],
+            'thumbnail' => ['width' => 203, 'height' => 126, 'crop' => true]
         ];
     }
 
-    public function prepareFile($file) {
+    public function prepareFile($file, $rotate = null)
+    {
         $fileLocation = Yii::$app->uploadDir . DIRECTORY_SEPARATOR . $file;
+        if ($rotate) {
+            $image = Yii::$app->image->load($fileLocation);
+            $image->rotate($rotate);
+            $image->save();
+        }
         $pathParts = pathinfo($fileLocation);
         $sizeDetect = [];
         $imageSize = getimagesize($fileLocation);
@@ -45,21 +53,21 @@ class CommonAttachment extends \common\models\base\BaseAttachment
         ];
         foreach ($this->arrSize as $key => $size) {
             $newFileName = $pathParts['filename'] . "-" . $size['width'] . "x" . $size['height'] . "." . $pathParts['extension'];
-            $newFile =  Yii::$app->uploadDir . DIRECTORY_SEPARATOR . $newFileName;
+            $newFile = Yii::$app->uploadDir . DIRECTORY_SEPARATOR . $newFileName;
 
 
-            if($imageSize[0] > $size['width'] && $imageSize[1] > $size['height']) {
+            if ($imageSize[0] > $size['width'] && $imageSize[1] > $size['height']) {
                 if (!copy($fileLocation, $newFile)) {
                     echo "failed to copy";
                 } else {
                     chmod($newFile, 0777);
                 }
-                $image=Yii::$app->image->load($newFile);
-                if($size['crop']) {
-                    if($imageSize[0] > $imageSize[1]) {
+                $image = Yii::$app->image->load($newFile);
+                if ($size['crop']) {
+                    if ($imageSize[0] > $imageSize[1]) {
                         $image->crop($imageSize[1], $imageSize[1]);
                         $image->resize($size['width'], $size['height']);
-                    } else if($imageSize[0] < $imageSize[1]) {
+                    } else if ($imageSize[0] < $imageSize[1]) {
                         $image->crop($imageSize[0], $imageSize[0]);
                         $image->crop($size['width'], $size['height']);
                     } else {
@@ -89,18 +97,19 @@ class CommonAttachment extends \common\models\base\BaseAttachment
         $pathParts = pathinfo($fileLocation);
         foreach ($this->arrSize as $key => $size) {
             $item = $pathParts['filename'] . "-" . $size['width'] . "x" . $size['height'] . "." . $pathParts['extension'];
-            $itemLocation =  Yii::$app->uploadDir . DIRECTORY_SEPARATOR . $item;
-            if(file_exists($itemLocation)) {
+            $itemLocation = Yii::$app->uploadDir . DIRECTORY_SEPARATOR . $item;
+            if (file_exists($itemLocation)) {
                 unlink($itemLocation);
             }
         }
-        if(file_exists($fileLocation)) {
+        if (file_exists($fileLocation)) {
             unlink($fileLocation);
-        }
-        ;    }
+        };
+    }
 
-    public function getSize() {
-        $originSizes =  Json::decode($this->size);
+    public function getSize()
+    {
+        $originSizes = Json::decode($this->size);
         $prepareSize = [];
         foreach ($originSizes as $key => $sizes) {
 
@@ -110,32 +119,36 @@ class CommonAttachment extends \common\models\base\BaseAttachment
         return $prepareSize;
     }
 
-    public function setSize($arrSize) {
+    public function setSize($arrSize)
+    {
         $this->size = Json::encode($arrSize);
     }
 
-    public static function findMediaByID($id){
-        return static::find()->where(['id'=>$id])->all();
+    public static function findMediaByID($id)
+    {
+        return static::find()->where(['id' => $id])->all();
     }
 
-    public function getAttachmentImage($size = null) {
+    public function getAttachmentImage($size = null)
+    {
         $imageSizes = $this->getSize();
 
 
-        if(array_key_exists($size,$imageSizes)) {
+        if (array_key_exists($size, $imageSizes)) {
             $imageSize = $imageSizes[$size];
-            $image = '<img src="'. $this->getAttachmentUrl($size).'" width="'.$imageSize['width'].'" height="'.$imageSize['height'].'">';
+            $image = '<img src="' . $this->getAttachmentUrl($size) . '" width="' . $imageSize['width'] . '" height="' . $imageSize['height'] . '">';
             return $image;
         }
         $imageSize = $imageSizes['full'];
-        $image = '<img src="'. $this->getAttachmentUrl().'" width="'.$imageSize['width'].'" height="'.$imageSize['height'].'">';
+        $image = '<img src="' . $this->getAttachmentUrl() . '" width="' . $imageSize['width'] . '" height="' . $imageSize['height'] . '">';
         return $image;
 
     }
 
-    public function getAttachmentUrl($size = null) {
+    public function getAttachmentUrl($size = null)
+    {
         $imageSizes = $this->getSize();
-        if(array_key_exists($size,$imageSizes)) {
+        if (array_key_exists($size, $imageSizes)) {
             $imageSize = $this->arrSize[$size];
             $fileLocation = Yii::$app->uploadDir . DIRECTORY_SEPARATOR . $this->image;
             $imageParts = pathinfo($fileLocation);
@@ -143,27 +156,29 @@ class CommonAttachment extends \common\models\base\BaseAttachment
         }
 
 
-        return Yii::$app->uploadUrl->baseUrl . '/' . $this->image;
+        return str_replace(' ','%20',Yii::$app->uploadUrl->baseUrl . '/' . $this->image);
     }
 
-    public static function uploadFile($attribute,$type = 'image') {
+    public static function uploadFile($attribute, $type = 'image', $rotate = null)
+    {
         $attachment = new Attachment();
         $attachment->fileUpload = $attribute;
         if ($attachment->fileUpload && $type == 'image') {
             $fileName = $attachment->upload();
-            if($fileName){
-                $attachment->prepareFile($fileName);
+            if ($fileName) {
+                $attachment->prepareFile($fileName, $rotate);
                 $attachment->setCreatedDate();
                 $attachment->setUpdatedDate();
                 $attachment->save();
             }
         }
-        if($attachment->save()) {
+        if ($attachment->save()) {
             return $attachment;
         }
-     
+
         return false;
     }
+
     public function upload()
     {
 
@@ -171,13 +186,12 @@ class CommonAttachment extends \common\models\base\BaseAttachment
 
         $fileName = $this->fileUpload->baseName . '.' . $this->fileUpload->extension;
         $cnt = 1;
-        while ( file_exists ( Yii::$app->uploadDir . DIRECTORY_SEPARATOR . $fileName ) ){
-            $fileName =  $this->fileUpload->baseName . $cnt . '.' . $this->fileUpload->extension;
+        while (file_exists(Yii::$app->uploadDir . DIRECTORY_SEPARATOR . $fileName)) {
+            $fileName = $this->fileUpload->baseName . $cnt . '.' . $this->fileUpload->extension;
             $cnt++;
         }
-        if($this->fileUpload->saveAs($uploads.'/'.$fileName))
-        {
-            chmod(Yii::$app->uploadDir . DIRECTORY_SEPARATOR .$fileName, 0777);
+        if ($this->fileUpload->saveAs($uploads . '/' . $fileName)) {
+            chmod(Yii::$app->uploadDir . DIRECTORY_SEPARATOR . $fileName, 0777);
             return $fileName;
         }
 

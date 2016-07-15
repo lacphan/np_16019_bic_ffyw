@@ -24,6 +24,7 @@ use yii\web\UploadedFile;
  * @property $age;
  * @property $uploadFile;
  * @property $verificationCode;
+ * @property $rotateDegree;
  */
 class RegisterForm extends Model
 {
@@ -43,6 +44,7 @@ class RegisterForm extends Model
     public $uploadFile;
     public $verificationCode;
     public $agreeTerm;
+    public $rotateDegree;
 
     /**
      * @inheritdoc
@@ -54,6 +56,7 @@ class RegisterForm extends Model
             [['email','emailConfirm', 'province', 'parentFirstName', 'parentLastName', 'phoneNumber', 'childFirstName', 'childLastInitial', 'age'], 'required'],
             [['email'], 'validateUsername'],
             [['emailConfirm'], 'email'],
+            [['rotateDegree'], 'integer'],
             [['emailConfirm'], 'compare', 'compareAttribute'=>'email', 'message'=> Yii::t('app',"Email does not match")],
             [['phoneNumber'],'integer'],
             [['phoneNumber'],'string','max' => 10],
@@ -120,7 +123,11 @@ class RegisterForm extends Model
 
           
             if ($this->uploadFile) {
-                $attachment = Attachment::uploadFile($this->uploadFile,'image');
+                if($this->rotateDegree != 0) {
+                    $attachment = Attachment::uploadFile($this->uploadFile,'image',$this->rotateDegree);
+                } else {
+                    $attachment = Attachment::uploadFile($this->uploadFile,'image');
+                }
             }
 
             if ($flag) {

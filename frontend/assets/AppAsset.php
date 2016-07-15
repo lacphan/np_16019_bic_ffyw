@@ -28,6 +28,7 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'assets-enpii/global/plugins/select2/js/select2.min.js',
+        'assets-enpii/global/plugins/jQueryRotate.js',
         'themes/default/libs/jquery-ui/jquery-ui.min.js',
         'themes/default/libs/timepicker/jquery.timepicker.min.js',
         'themes/default/js/main.js'

@@ -22,6 +22,7 @@ use yii\web\UploadedFile;
  * @property $age;
  * @property $uploadFile;
  * @property $verificationCode;
+ *  @property $rotateDegree;
  */
 class SubmissionForm extends Model
 {
@@ -32,6 +33,7 @@ class SubmissionForm extends Model
     public $uploadFile;
     public $verificationCode;
     public $agreeTerm;
+    public $rotateDegree;
     /**
      * @inheritdoc
      */
@@ -43,6 +45,7 @@ class SubmissionForm extends Model
             [['childLastInitial'],'match', 'pattern' => '/[a-zA-Z]/','message' => Yii::t('app','Only from a-z A-Z')],
             [['childLastInitial'],'string', 'max' => 1,'message' => Yii::t('app','Maximum of one alpha character can be entered')],
             [['age'],'integer', 'min' => 6,'max' => 18 ],
+            [['rotateDegree'], 'integer'],
             ['verificationCode', ReCaptchaValidator::className(), 'secret' => '6LddpCQTAAAAAPU27Z1X3nwsVnNed-9aDrk5moSA'],
             [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],
         ];
@@ -63,7 +66,11 @@ class SubmissionForm extends Model
             $attachment = new Attachment();
 
             if ($this->uploadFile) {
-                $attachment = Attachment::uploadFile($this->uploadFile, 'image');
+                if($this->rotateDegree != 0) {
+                    $attachment = Attachment::uploadFile($this->uploadFile,'image',$this->rotateDegree);
+                } else {
+                    $attachment = Attachment::uploadFile($this->uploadFile,'image');
+                }
             }
 
             $contestSession->user_id = $user->id;

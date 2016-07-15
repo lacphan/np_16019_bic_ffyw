@@ -69,6 +69,8 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                         'footer' => ''
                     ]
                     ?>
+                  
+                    <?= $form->field($model,'rotateDegree')->hiddenInput(['id' => 'rotate-degree'])->label(false)?>
                     <?= $form->field($model, 'uploadFile',[
                         'options' => ['class' => 'form-upload'],
                         'template' => '<div class="form-upload-inner">' .
@@ -76,30 +78,14 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                             Yii::t('app', 'Upload photo instructions') . ':<br/>' .
                             Yii::t('app', 'No larger than 5MB and only accept .jpg and .png files') .
                             '</div>' .
-                            '{label}{input}{error}</div>'
-                    ])->widget(FileInput::className(), [
-                        'options' => [
-                            'multiple' => false,
-                            'accept' => 'image/*',
-                            'class' => 'optionvalue-img'
-                        ],
-                        'pluginOptions' => [
-                            'previewFileType' => 'image',
-                            'showCaption' => false,
-                            'showUpload' => false,
-                            'browseClass' => 'btn btn-default global-btn btn-sm',
-                            'browseLabel' => Yii::t('app','UPLOAD'),
-                            'browseIcon' => '',
-                            'removeClass' => 'global-btn',
-                            'removeLabel' => '',
-                            'removeIcon' => '<i class="fa fa-trash"></i>',
-                            'previewSettings' => [
-                                'image' => ['width' => 'auto', 'height' => 'auto']
-                            ],
-                            'initialPreview' => '',
-                            'layoutTemplates' => $layoutTemplate
-                        ]
-                    ])->label(false) ?>
+                            '<button class="btn btn-default global-btn btn-file"><span>'.Yii::t('app','Upload').'{input}</span></button>' .
+                            '{label}{error}'.
+                            '<div class="preview-wrapper">'.
+                            '<div class="file-preview"><div class="file-preview-frame"><canvas id="canvas"></canvas></div></div>'.
+                            '<button class="img-rotate-left" ><i class="fa fa-undo" aria-hidden="true"></i></button>'.
+                            '<button class="img-rotate-right"><i class="fa fa-repeat"></i></button>'.
+                            '</div>'
+                    ])->fileInput(['id' => 'imageLoader'])->label(false); ?>
                 </div>
                 <div class="form-row">
                     <?= $form->field($model, 'agreeTerm', ['options' => ['class' => 'form-check-box']])->checkbox(
