@@ -16,10 +16,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="registration-content">
             <div class="registration-content-row">
                 <div class="col-md-3 image-heading">
-
-                    <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/weekly-challenge.png' ?>"
-                         alt="Weekly Challenge" width="266" height="220">
-
+                    <div class="heading-content">
+                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/register-writing.png' ?>"
+                             alt="Weekly Challenge" width="266" height="220">
+                    </div>
                 </div>
                 <div class="col-md-9 intro-heading">
                     <div class="intro-heading-inner">

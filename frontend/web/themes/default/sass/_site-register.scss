@@ -8,6 +8,13 @@
   .image-heading {
     padding: 0 10px;
     padding-top: 19px;
+    .heading-content{
+      background: url("../images/register-writing-bg.png") no-repeat;
+      width: 265px;
+      height: 212px;
+      background-size: 100%;
+      padding: 35px 55px 35px 20px;
+    }
     @include respond-to-custom-size(1024px) {
       width: 27%;
     }
@@ -215,5 +222,33 @@
         padding: 5px 26px;
       }
     }
+  }
+}
+.success-content{
+  padding: 10px 20px;
+  min-height: 700px;
+  text-align: center;
+  .title{
+    font-family: "KGSecondChancesSketch";
+    font-size: 40px;
+    text-align: center;
+    color: #000;
+    max-width: 860px;
+    margin: 0 auto;
+    span{
+      font-family: "Lemonade ICG Bold";
+      color: #f79a2f;
+    }
+  }
+  .content{
+    max-width: 860px;
+    margin: 10px auto;
+    font-family: "Open Sans";
+    color: #000;
+    font-size: 18px;
+    text-align: left;
+  }
+  .global-btn{
+    margin-top: 20px;
   }
 }

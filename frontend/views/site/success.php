@@ -14,37 +14,17 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-signup">
     <div class="container">
         <div class="registration-content">
-            <div class="registration-content-row">
-                <div class="col-md-3 image-heading">
-
-                    <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/weekly-challenge.png' ?>"
-                         alt="Weekly Challenge" width="266" height="220">
-
+            <div class="success-content">
+                <div class="title">
+                    Thank you for talking<br>
+                    BIC'S <span>Handwriting</span> Challenge!
                 </div>
-                <div class="col-md-9 intro-heading">
-                    <div class="intro-heading-inner">
-                        <h1 class="head-line">
-                            <span class="font-2 color-2 head-line-1">This week's</span>
-                            <span class="font-5 color-3 head-line-2">hand Writing</span>
-                            <span class="font-2 color-2 head-line-3">challenge!</span>
-                        </h1>
-                        <div class="intro">
-                            <div class="intro-inner">
-                                <h3>
-                                    <span class="font-5 color-1"><?= ContestItem::getWeek()->title?></span>
-                                </h3>
-                                <?= ContestItem::getWeek()->description?>
-                                <div class="global-btn">
-                                    <a class="global-btn-inner" href="">GALLERY</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="content">
+                    Thank you! We have received your entry and you will be notified if it has been approved or rejected. Don’t forget to come back and submit a response for next week’s handwriting challenge!
                 </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="register-form">
-                <h3 class="form-title font-5 font-size-25">Thanks you for your submission !!</h3>
+                <div class="global-btn">
+                    <a class="global-btn-inner" href="">GALLERY</a>
+                </div>
             </div>
         </div>
         <div class="home-text-block">

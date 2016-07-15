@@ -51,34 +51,68 @@ $this->title = 'BIC';
             </div>
 
             <div class="sun"></div>
-            <div class="hand-writing">
-                <img class="hand-writing-dk"
-                     src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/hand-writing.png' ?>"
-                     alt="Hand writing" width="421" height="239">
-                <img class="hand-writing-mb"
-                     src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/hand-writing-mb.png' ?>"
-                     alt="Hand writing">
+            <div class="hand-writing hand-writing-dk"
+                 style="background: url('<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/writing-bg.png' ?>') no-repeat; background-size: contain;">
+                <div class="hand-writing-content">
+                    <div class="left-content">
+                        <div class="title">
+                            <label for="">This week's</label>
+                            <span>handwriting</span>
+                            <label>challenge!</label>
+                        </div>
+
+                    </div>
+                    <div class="right-content">
+                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/home-image-1.png' ?>"
+                             alt="Feature" width="364" height="326">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="main-content">
+                        <?= Yii::t('app', 'Ask your child what THEY would do if they were a principal for a day...') ?>
+                    </div>
+                </div>
+            </div>
+            <div class="hand-writing hand-writing-mb"
+                 style="background: url('<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/writing-bg-mb.png' ?>') no-repeat; background-size: cover;">
+                <div class="hand-writing-content">
+                    <div class="left-content">
+                        <div class="title">
+                            <label for="">This week's</label>
+                            <span>handwriting</span>
+                            <label>challenge!</label>
+                        </div>
+
+                    </div>
+                    <div class="right-content">
+                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/home-image-1.png' ?>"
+                             alt="Feature" width="364" height="326">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="main-content">
+                        <?= Yii::t('app', 'Ask your child what THEY would do if they were a principal for a day...') ?>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="home-gallery">
             <div class="home-gallery-row">
-                <?php if($contestSessions):?>
-                    <?php foreach ($contestSessions as $key => $contestSession):?>
-                        <?php if($contestSession->attachment): ?>
-                        <div class="home-gallery-item">
-                            <div class="home-gallery-item-inner">
-                                <div class="home-gallery-item-image"
-                                     style="background: url(<?= $contestSession->attachment->getAttachmentUrl('thumbnail') ?>) center no-repeat; background-size: cover">
-                                    <?= $contestSession->attachment->getAttachmentImage('medium') ?>
-                                </div>
-                                <div class="home-gallery-item-title">
-                                    <?= $contestSession->first_name . ',' . $contestSession->last_name?>
+                <?php if ($contestSessions): ?>
+                    <?php foreach ($contestSessions as $key => $contestSession): ?>
+                        <?php if ($contestSession->attachment): ?>
+                            <div class="home-gallery-item">
+                                <div class="home-gallery-item-inner">
+                                    <div class="home-gallery-item-image"
+                                         style="background: url(<?= $contestSession->attachment->getAttachmentUrl('thumbnail') ?>) center no-repeat; background-size: cover">
+                                        <?= $contestSession->attachment->getAttachmentImage('medium') ?>
+                                    </div>
+                                    <div class="home-gallery-item-title">
+                                        <?= $contestSession->first_name . ',' . $contestSession->last_name ?>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <?php endif;?>
-                    <?php endforeach;?>
-                <?php endif;?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
 
                 <div class="home-gallery-item item-see-all">
                     <div class="home-gallery-item-inner">
