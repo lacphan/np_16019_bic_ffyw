@@ -3,7 +3,7 @@
 /* @var $this yii\web\View */
 /* @var $emailSubmission  frontend\models\EmailSubmission */
 /* @var $form yii\widgets\ActiveForm */
-
+/* @var $contestSessions frontend\models\ContestSession[] */
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 
@@ -62,114 +62,24 @@ $this->title = 'BIC';
         </div>
         <div class="home-gallery">
             <div class="home-gallery-row">
-                <div class="home-gallery-item">
-                    <div class="home-gallery-item-inner">
-                        <div class="home-gallery-item-image"
-                             style="background: url(<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/recent-entry.jpg' ?>) center no-repeat; background-size: cover">
-                            <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/recent-entry.jpg' ?>"
-                                 alt="">
+                <?php if($contestSessions):?>
+                    <?php foreach ($contestSessions as $key => $contestSession):?>
+                        <?php if($contestSession->attachment): ?>
+                        <div class="home-gallery-item">
+                            <div class="home-gallery-item-inner">
+                                <div class="home-gallery-item-image"
+                                     style="background: url(<?= $contestSession->attachment->getAttachmentUrl('thumbnail') ?>) center no-repeat; background-size: cover">
+                                    <?= $contestSession->attachment->getAttachmentImage('medium') ?>
+                                </div>
+                                <div class="home-gallery-item-title">
+                                    <?= $contestSession->first_name . ',' . $contestSession->last_name?>
+                                </div>
+                            </div>
                         </div>
-                        <div class="home-gallery-item-title">
-                            John S, Ontario
-                        </div>
-                    </div>
-                </div>
-                <div class="home-gallery-item">
-                    <div class="home-gallery-item-inner">
-                        <div class="home-gallery-item-image"
-                             style="background: url(<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/recent-entry.jpg' ?>) center no-repeat; background-size: cover">
-                            <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/recent-entry.jpg' ?>"
-                                 alt="">
-                        </div>
-                        <div class="home-gallery-item-title">
-                            John S, Ontario
-                        </div>
-                    </div>
-                </div>
-                <div class="home-gallery-item">
-                    <div class="home-gallery-item-inner">
-                        <div class="home-gallery-item-image"
-                             style="background: url(<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/recent-entry.jpg' ?>) center no-repeat; background-size: cover">
-                            <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/recent-entry.jpg' ?>"
-                                 alt="">
-                        </div>
-                        <div class="home-gallery-item-title">
-                            John S, Ontario
-                        </div>
-                    </div>
-                </div>
-                <div class="home-gallery-item">
-                    <div class="home-gallery-item-inner">
-                        <div class="home-gallery-item-image"
-                             style="background: url(<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/recent-entry.jpg' ?>) center no-repeat; background-size: cover">
-                            <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/recent-entry.jpg' ?>"
-                                 alt="">
-                        </div>
-                        <div class="home-gallery-item-title">
-                            John S, Ontario
-                        </div>
-                    </div>
-                </div>
-                <div class="home-gallery-item">
-                    <div class="home-gallery-item-inner">
-                        <div class="home-gallery-item-image"
-                             style="background: url(<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/recent-entry.jpg' ?>) center no-repeat; background-size: cover">
-                            <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/recent-entry.jpg' ?>"
-                                 alt="">
-                        </div>
-                        <div class="home-gallery-item-title">
-                            John S, Ontario
-                        </div>
-                    </div>
-                </div>
-                <div class="home-gallery-item">
-                    <div class="home-gallery-item-inner">
-                        <div class="home-gallery-item-image"
-                             style="background: url(<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/recent-entry.jpg' ?>) center no-repeat; background-size: cover">
-                            <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/recent-entry.jpg' ?>"
-                                 alt="">
-                        </div>
-                        <div class="home-gallery-item-title">
-                            John S, Ontario
-                        </div>
-                    </div>
-                </div>
-                <div class="home-gallery-item">
-                    <div class="home-gallery-item-inner">
-                        <div class="home-gallery-item-image"
-                             style="background: url(<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/recent-entry.jpg' ?>) center no-repeat; background-size: cover">
-                            <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/recent-entry.jpg' ?>"
-                                 alt="">
-                        </div>
-                        <div class="home-gallery-item-title">
-                            John S, Ontario
-                        </div>
-                    </div>
-                </div>
-                <div class="home-gallery-item">
-                    <div class="home-gallery-item-inner">
-                        <div class="home-gallery-item-image"
-                             style="background: url(<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/recent-entry.jpg' ?>) center no-repeat; background-size: cover">
-                            <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/recent-entry.jpg' ?>"
-                                 alt="">
-                        </div>
-                        <div class="home-gallery-item-title">
-                            John S, Ontario
-                        </div>
-                    </div>
-                </div>
-                <div class="home-gallery-item">
-                    <div class="home-gallery-item-inner">
-                        <div class="home-gallery-item-image"
-                             style="background: url(<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/recent-entry.jpg' ?>) center no-repeat; background-size: cover">
-                            <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/recent-entry.jpg' ?>"
-                                 alt="">
-                        </div>
-                        <div class="home-gallery-item-title">
-                            John S, Ontario
-                        </div>
-                    </div>
-                </div>
+                        <?php endif;?>
+                    <?php endforeach;?>
+                <?php endif;?>
+
                 <div class="home-gallery-item item-see-all">
                     <div class="home-gallery-item-inner">
                         <a class="see-all-btn" href="#"></a>

@@ -98,6 +98,11 @@ class ContestSessionController extends \common\enpii\components\NpController
      */
     public function actionDelete($id)
     {
+        $model = $this->findModel($id);
+        $attachment = $model->attachment;
+        $attachment->deleteImages();
+        $model->delete();
+        $attachment->delete();
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

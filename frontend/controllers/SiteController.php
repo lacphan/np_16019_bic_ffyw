@@ -1,22 +1,21 @@
 <?php
 namespace frontend\controllers;
 
-use common\models\User;
+use backend\models\ContestSession;
+
 use frontend\models\EmailSubmission;
 use frontend\models\RegisterForm;
 use frontend\models\SubmissionForm;
-use Yii;
-use common\models\LoginForm;
+use yii;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-
+use yii\db\Expression;
 /**
  * Site controller
  */
@@ -77,6 +76,7 @@ class SiteController extends Controller
     {
         $emailSubmission = new EmailSubmission();
         Yii::$app->session->remove('userEmail');
+        $contestSessions = ContestSession::find()->orderBy(new Expression('rand()'))->limit(9)->all();
         if($emailSubmission->load(Yii::$app->request->post()) && $emailSubmission->isEmailExists()) {
             Yii::$app->session->set('userEmail',$emailSubmission->email);
             return $this->redirect(['site/submission']);
@@ -86,7 +86,8 @@ class SiteController extends Controller
             return $this->redirect(['site/register']);
         }
         return $this->render('index',[
-                'emailSubmission' => $emailSubmission
+                'emailSubmission' => $emailSubmission,
+                'contestSessions' => $contestSessions
             ]
         );
     }

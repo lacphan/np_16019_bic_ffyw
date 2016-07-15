@@ -42,6 +42,9 @@ prepros.cfg
 #css map
 .css.map
 
+#htaccess
+/.htaccess
+
 cgi-bin/
 
 #local file

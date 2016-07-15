@@ -48,6 +48,7 @@ $envs = [
             'console/config/main-local-sample.php' => 'console/config/main-local.php',
             'console/config/params-local-sample.php' => 'console/config/params-local.php',
             './environment-sample.php' => './environment.php',
+            './.htaccess-sample' => './.htaccess',
         ]
     ],
 

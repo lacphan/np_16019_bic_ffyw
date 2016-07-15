@@ -94,6 +94,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             '</div>' .
                             '</div>{label}{error}'
                     ])->fileInput(['placeholder' => Yii::t('app', '*' . 'Child’s First Name')])->label(false) ?>
+                    
                 </div>
 
                 <div class="form-row">

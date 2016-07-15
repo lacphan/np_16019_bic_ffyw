@@ -27,8 +27,8 @@ class CommonAttachment extends \common\models\base\BaseAttachment
         parent::__construct();
         $this->arrSize = [
             'large' => ['width' => 1024, 'height' => 1024, 'crop' => false],
-            'medium' => ['width' => 300,'height' => 300, 'crop' => false],
-            'thumbnail' => [ 'width' => 150,'height' => 150,'crop' => true]
+            'medium' => ['width' => 771,'height' => 439, 'crop' => false],
+            'thumbnail' => [ 'width' => 203,'height' => 126,'crop' => true]
         ];
     }
 
@@ -136,10 +136,10 @@ class CommonAttachment extends \common\models\base\BaseAttachment
     public function getAttachmentUrl($size = null) {
         $imageSizes = $this->getSize();
         if(array_key_exists($size,$imageSizes)) {
-            $imageSize = $imageSizes[$size];
-            $imageParts = explode(".",$this->image);
-
-            return Yii::$app->uploadUrl->baseUrl . '/' . $imageParts[0] . '-' . $imageSize['width'] . 'x' . $imageSize['height'] . '.' . $imageParts[1];
+            $imageSize = $this->arrSize[$size];
+            $fileLocation = Yii::$app->uploadDir . DIRECTORY_SEPARATOR . $this->image;
+            $imageParts = pathinfo($fileLocation);
+            return Yii::$app->uploadUrl->baseUrl . '/' . $imageParts['filename'] . '-' . $imageSize['width'] . 'x' . $imageSize['height'] . '.' . $imageParts['extension'];
         }
 
 
