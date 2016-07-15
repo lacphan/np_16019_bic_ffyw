@@ -108,10 +108,21 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                                 <div class="home-gallery-item-inner">
                                     <div class="home-gallery-item-image"
                                          style="background: url(<?= $contestSession->attachment->getAttachmentUrl('thumbnail') ?>) center no-repeat; background-size: cover">
+                                        <a class="popup-button" data-toggle="modal"
+                                           data-target="#popup-<?php echo $key ?>"></a>
                                         <?= $contestSession->attachment->getAttachmentImage('medium') ?>
                                     </div>
                                     <div class="home-gallery-item-title">
                                         <?= $contestSession->first_name . ',' . $contestSession->last_name ?>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="popup-<?php echo $key ?>" tabindex="-1" role="dialog"
+                                     aria-labelledby="myModalLabel">
+                                    <div class="my-modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <button class="close" data-dismiss="modal">X</button>
+                                            <?= $contestSession->attachment->getAttachmentImage('medium') ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -121,7 +132,7 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
 
                 <div class="home-gallery-item item-see-all">
                     <div class="home-gallery-item-inner">
-                        <a class="see-all-btn" href="#"></a>
+                        <a target="_blank" class="see-all-btn" href="<?= Yii::$app->urlManager->createUrl(['site/gallery'])?>"></a>
                     </div>
                 </div>
                 <div class="clearfix"></div>

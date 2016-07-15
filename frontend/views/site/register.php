@@ -44,7 +44,8 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                                 </h3>
                                 <?= ContestItem::getWeek()->description ?>
                                 <div class="global-btn">
-                                    <a target="_blank" class="global-btn-inner" href="">GALLERY</a>
+
+                                    <a target="_blank" class="global-btn-inner" href="<?= Yii::$app->urlManager->createUrl(['site/gallery'])?>"><?= Yii::t('app','GALLERY')?></a>
                                 </div>
                             </div>
                         </div>
