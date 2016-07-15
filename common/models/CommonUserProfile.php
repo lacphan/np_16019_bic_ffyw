@@ -17,7 +17,8 @@ class CommonUserProfile extends \common\models\base\BaseUserProfile
         return [
             [['date_of_birth'], 'safe'],
             [['age'], 'integer'],
-            [['address', 'city', 'street', 'province', 'post_code'], 'string', 'max' => 255],
+            [['phone_number', 'united'], 'string', 'max' => 32],
+            [['address', 'city', 'street', 'province', 'post_code', 'parent_first_name', 'parent_last_name'], 'string', 'max' => 255],
             [['phone_number', 'united'], 'string', 'max' => 32]
         ];
     }
