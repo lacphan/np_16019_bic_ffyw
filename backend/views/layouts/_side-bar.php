@@ -46,7 +46,7 @@
                 <li class="nav-item <?= Yii::$app->controller->id == 'contest-item' ? 'active' : '' ?>">
                     <a href="<?= Yii::$app->urlManager->createUrl(['contest-item']) ?>" class="nav-link ">
                         <i class="menu-icon menu-icon-user"></i>
-                        <span class="title">Contest Item Management</span>
+                        <span class="title">Weekly Challenges</span>
                     </a>
                 </li>
                 <li class="nav-item <?= Yii::$app->controller->id == 'contest-session' ? 'active' : '' ?>">

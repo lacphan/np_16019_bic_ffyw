@@ -8,7 +8,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use himiklab\yii2\recaptcha\ReCaptcha;
 use frontend\models\ContestItem;
-$this->title = 'Register';
+$this->title = 'Thank you for taking BIC’s Handwriting Challenge!';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-signup">
@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     BIC'S <span>Handwriting</span> Challenge!
                 </div>
                 <div class="content">
-                    Thank you! We have received your entry and you will be notified if it has been approved or rejected. Don’t forget to come back and submit a response for next week’s handwriting challenge!
+                    Thank you! We have received your entry and if approved it will appear in the gallery within 1-2 business days.  Don’t forget to come back and submit a response for next week’s handwriting challenge!
                 </div>
                 <div class="global-btn">
                     <a target="_blank" class="global-btn-inner" href="<?= Yii::$app->urlManager->createUrl(['site/gallery'])?>">GALLERY</a>
