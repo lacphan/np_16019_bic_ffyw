@@ -7,8 +7,7 @@ use backend\models\ContestSession;
 use backend\models\SearchContestSession;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-
+use yii\filters\AccessControl;
 /**
  * ContestSessionController implements the CRUD actions for ContestSession model.
  */
@@ -16,14 +15,24 @@ class ContestSessionController extends \common\enpii\components\NpController
 {
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
+        $behaviors['access'] = [
+            'class' => AccessControl::className(),
+            'rules' => [
+                [
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function () {
+                        if (Yii::$app->user->can('backend-login')) {
+                            return true;
+                        }
+                        else{
+                            return false;
+                        }
+                    }
                 ],
             ],
         ];
+        return $behaviors;
     }
 
     /**
@@ -104,6 +113,14 @@ class ContestSessionController extends \common\enpii\components\NpController
         return $this->redirect(['index']);
     }
 
+    public function actionAccept($id)
+    {
+        $model = $this->findModel($id);
+        $model->accepted = 1;
+        $model->save();
+        return $this->redirect(['index']);
+    }
+
     /**
      * Finds the ContestSession model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
@@ -132,6 +149,17 @@ class ContestSessionController extends \common\enpii\components\NpController
                     'class' => 'alert-success',
                     'content' => Yii::t('app',count($selection) . ' rows deleted.')
                 ]
+            ]);
+        }
+        if($action == 'accept' && count($selection) > 0) {
+            foreach($selection as $id){
+                $model = $this->findModel($id);
+                $model->accepted = 1;
+                $model->save();
+            }
+            Yii::$app->session->setFlash('success',Yii::t('app', count($selection) . ' rows accepted.'));
+            return $this->redirect([
+                'index',
             ]);
         }
         return $this->redirect(['index']);

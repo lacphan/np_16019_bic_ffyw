@@ -8,7 +8,7 @@ use backend\models\SearchContestItem;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\filters\AccessControl;
 /**
  * ContestItemController implements the CRUD actions for ContestItem model.
  */
@@ -16,14 +16,24 @@ class ContestItemController extends \common\enpii\components\NpController
 {
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
+        $behaviors['access'] = [
+            'class' => AccessControl::className(),
+            'rules' => [
+                [
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function () {
+                        if (Yii::$app->user->can('backend-login')) {
+                            return true;
+                        }
+                        else{
+                            return false;
+                        }
+                    }
                 ],
             ],
         ];
+        return $behaviors;
     }
 
     /**

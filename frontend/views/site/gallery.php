@@ -51,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <div class="my-modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <button class="close" data-dismiss="modal">X</button>
-                                                    <?= $contestSession->attachment->getAttachmentImage() ?>
+                                                    <?= $contestSession->attachment->getAttachmentImage('large') ?>
                                                 </div>
                                             </div>
                                         </div>

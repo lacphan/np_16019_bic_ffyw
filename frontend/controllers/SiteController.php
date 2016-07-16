@@ -78,7 +78,7 @@ class SiteController extends Controller
     {
         $emailSubmission = new EmailSubmission();
         Yii::$app->session->remove('userEmail');
-        $contestSessions = ContestSession::find()->orderBy(new Expression('rand()'))->limit(9)->all();
+        $contestSessions = ContestSession::find()->where(['accepted' => 1])->orderBy(new Expression('rand()'))->limit(9)->all();
         if($emailSubmission->load(Yii::$app->request->post()) && $emailSubmission->isEmailExists()) {
             Yii::$app->session->set('userEmail',$emailSubmission->email);
             return $this->redirect(['site/submission']);
@@ -228,7 +228,7 @@ class SiteController extends Controller
 
     public function actionGallery()
     {
-        $contestSessions = ContestSession::find()->orderBy(new Expression('rand()'))->all();
+        $contestSessions = ContestSession::find()->where(['accepted' => 1])->orderBy(new Expression('rand()'))->all();
         return $this->render('gallery', [
             'contestSessions' => $contestSessions
         ]);

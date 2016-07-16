@@ -52,7 +52,7 @@
                 <li class="nav-item <?= Yii::$app->controller->id == 'contest-session' ? 'active' : '' ?>">
                     <a href="<?= Yii::$app->urlManager->createUrl(['contest-session']) ?>" class="nav-link ">
                         <i class="menu-icon menu-icon-user"></i>
-                        <span class="title">Contest Session Management</span>
+                        <span class="title">Submissions</span>
                     </a>
                 </li>
             <?php endif; ?>

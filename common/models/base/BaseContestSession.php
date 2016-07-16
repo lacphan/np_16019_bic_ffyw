@@ -2,7 +2,7 @@
 
 namespace common\models\base;
 
-use Yii;
+use yii;
 
 /**
  * This is the model class for table "{{%contest_session}}".
@@ -15,6 +15,7 @@ use Yii;
  * @property string $last_name
  * @property string $birth_year
  * @property integer $attachment_id
+ * @property integer $accepted
  *
  * @property BaseAttachment $attachment
  * @property BaseContestItem $contestItem
@@ -36,7 +37,7 @@ class BaseContestSession extends \common\enpii\components\NpActiveRecord
     public function rules()
     {
         return [
-            [['contest_item_id', 'user_id', 'attachment_id'], 'integer'],
+            [['contest_item_id', 'user_id', 'attachment_id', 'accepted'], 'integer'],
             [['birth_year'], 'safe'],
             [['user_email', 'first_name', 'last_name'], 'string', 'max' => 255]
         ];
@@ -56,6 +57,7 @@ class BaseContestSession extends \common\enpii\components\NpActiveRecord
             'last_name' => Yii::t('app', 'Last Name'),
             'birth_year' => Yii::t('app', 'Birth Year'),
             'attachment_id' => Yii::t('app', 'Attachment ID'),
+            'accepted' => Yii::t('app', 'Accepted'),
         ];
     }
 
