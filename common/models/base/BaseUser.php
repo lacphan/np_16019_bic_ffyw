@@ -2,7 +2,7 @@
 
 namespace common\models\base;
 
-use Yii;
+use yii;
 
 /**
  * This is the model class for table "{{%user}}".
@@ -29,6 +29,7 @@ use Yii;
  * @property integer $ordering_weight
  * @property string $params
  *
+ * @property BaseContestSession[] $contestSessions
  * @property BaseUserProfile $profile
  */
 class BaseUser extends \common\enpii\components\NpActiveRecord
@@ -53,8 +54,6 @@ class BaseUser extends \common\enpii\components\NpActiveRecord
             [['params'], 'string'],
             [['username', 'email', 'first_name', 'last_name', 'password_hash', 'password_reset_token'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
-            [['username'], 'unique'],
-            [['email'], 'unique'],
             [['password_reset_token'], 'unique']
         ];
     }
@@ -87,6 +86,14 @@ class BaseUser extends \common\enpii\components\NpActiveRecord
             'ordering_weight' => Yii::t('app', 'Ordering Weight'),
             'params' => Yii::t('app', 'Params'),
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getContestSessions()
+    {
+        return $this->hasMany(BaseContestSession::className(), ['user_id' => 'id']);
     }
 
     /**

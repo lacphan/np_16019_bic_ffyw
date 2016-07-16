@@ -1,18 +1,18 @@
 <?php
 
-use yii\db\Migration;
+use common\enpii\components\NpMigration;
 
 /**
  * Handles the creation for table `contest_session`.
  */
-class m160712_065023_create_contest_session extends Migration
+class m160712_065023_create_contest_session extends NpMigration
 {
     /**
      * @inheritdoc
      */
     public function up()
     {
-        $this->createTable('{{%contest_session}}', [
+        $this->commonCreateTable('{{%contest_session}}', [
             'id' => $this->primaryKey(),
             'contest_item_id' => $this->integer(),
             'user_id' => $this->integer(),
@@ -26,7 +26,6 @@ class m160712_065023_create_contest_session extends Migration
         $this->addForeignKey('FK_ContestSession_ContestSessionItem_ID', '{{%contest_session}}', 'contest_item_id', '{{%contest_item}}', 'id', 'NO ACTION', 'CASCADE');
         $this->addForeignKey('FK_ContestSession_User_ID', '{{%contest_session}}', 'user_id', '{{%user}}', 'id', 'NO ACTION', 'CASCADE');
         $this->addForeignKey('FK_ContestSession_Attachment_ID', '{{%contest_session}}', 'attachment_id', '{{%attachment}}', 'id', 'NO ACTION', 'CASCADE');
-
     }
 
     /**

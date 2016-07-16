@@ -113,7 +113,7 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                                         <?= $contestSession->attachment->getAttachmentImage('medium') ?>
                                     </div>
                                     <div class="home-gallery-item-title">
-                                        <?= $contestSession->first_name . ',' . $contestSession->last_name ?>
+                                        <?= $contestSession->first_name . ' ' . $contestSession->last_name . ', ' . $contestSession->user->profile->province?>
                                     </div>
                                 </div>
                                 <div class="modal fade" id="popup-<?php echo $key ?>" tabindex="-1" role="dialog"

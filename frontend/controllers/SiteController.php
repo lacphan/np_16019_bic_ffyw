@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use backend\models\User;
 use frontend\models\ContestSession;
 
 
@@ -162,15 +163,22 @@ class SiteController extends Controller
         if(!Yii::$app->session->get('userEmail')) {
             return $this->redirect(Yii::$app->urlManager->createUrl('site/register'));
         }
+
         $model = new SubmissionForm();
         if(Yii::$app->session->hasFlash('useEmail')) {
             $model->email = Yii::$app->session->get('userEmail');
         }
+        $user = User::findByUsername(Yii::$app->session->hasFlash('useEmail'));
+        $contestSessions = $user->getWeeklySubmission();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->submission()) {
                 return $this->render('success');
             }
         }
+        if(count($contestSessions) >= 4) {
+            return $this->render('weekly-limit-reached');
+        }
+
 
         return $this->render('submission', [
             'model' => $model,

@@ -11,6 +11,6 @@ class m160716_011907_add_accepted_to_contest_session extends Migration
 
     public function down()
     {
-        $this->dropColumn('{{%user}}', 'accepted');
+        $this->dropColumn('{{%contest_session}}', 'accepted');
     }
 }

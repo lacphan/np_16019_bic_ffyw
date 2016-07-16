@@ -90,25 +90,7 @@ class RegisterForm extends Model
             $contestSession = new ContestSession();
             $attachment = new Attachment();
 
-
-            $user->username = $this->email;
-            $user->email = $this->email;
-            $user->first_name = $this->parentFirstName;
-            $user->last_name = $this->parentLastName;
-            $user->setCreatedDate();
-            $user->setUpdatedDate();
-            $user->setPublishedDate();
-            $user->creator_id = 1;
-
-            $user->generateAuthKey();
-          
-            $flag = $user->save();
-
-            if ($flag) {
-                $auth = Yii::$app->authManager;
-                $standard = $auth->getRole('standard-member');
-                $auth->assign($standard, $user->id);
-            }
+            $flag = 1;
 
             if ($flag) {
                 $profile->date_of_birth = $this->birthYear . '-' . $this->birthMonth . '-' . $this->birthDate;
@@ -120,14 +102,32 @@ class RegisterForm extends Model
                 $flag = $profile->save();
             }
 
+            if($flag) {
+                $user->username = $this->email;
+                $user->email = $this->email;
+                $user->first_name = $this->parentFirstName;
+                $user->last_name = $this->parentLastName;
+                $user->profile_id = $profile->id;
+                $user->setCreatedDate();
+                $user->setUpdatedDate();
+                $user->setPublishedDate();
+                $user->creator_id = 1;
 
-          
+                $user->generateAuthKey();
+
+                $flag = $user->save();
+            }
+            if ($flag) {
+                $auth = Yii::$app->authManager;
+                $standard = $auth->getRole('standard-member');
+                $auth->assign($standard, $user->id);
+            }
+
+
             if ($this->uploadFile) {
-                if($this->rotateDegree != 0) {
-                    $attachment = Attachment::uploadFile($this->uploadFile,'image',$this->rotateDegree);
-                } else {
-                    $attachment = Attachment::uploadFile($this->uploadFile,'image');
-                }
+
+                $attachment = Attachment::uploadFile($this->uploadFile,'image');
+
             }
 
             if ($flag) {
@@ -137,8 +137,15 @@ class RegisterForm extends Model
                 $contestSession->first_name = $this->childFirstName;
                 $contestSession->last_name = $this->childLastInitial;
                 $contestSession->attachment_id = $attachment->id;
+                $contestSession->setCreatedDate();
+                $contestSession->setUpdatedDate();
+                $contestSession->creator_id = 1;
                 $contestSession->setAge($this->age);
                 $contestSession->save();
+            }
+
+            if($this->rotateDegree != 0) {
+                $attachment->rotateImage($this->rotateDegree);
             }
 
             if ($flag) {

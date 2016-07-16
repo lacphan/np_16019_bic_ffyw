@@ -36,5 +36,6 @@ class CommonContestSession extends BaseContestSession
     {
         return $this->hasOne(CommonAttachment::className(), ['id' => 'attachment_id']);
     }
+    
 
 }

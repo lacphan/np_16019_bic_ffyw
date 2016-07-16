@@ -1,6 +1,7 @@
 <?php
 namespace frontend\models;
 
+use backend\models\User;
 use yii\base\Model;
 use yii;
 use himiklab\yii2\recaptcha\ReCaptchaValidator;
@@ -34,6 +35,7 @@ class SubmissionForm extends Model
     public $verificationCode;
     public $agreeTerm;
     public $rotateDegree;
+    public $isLimitSubmission;
     /**
      * @inheritdoc
      */
@@ -48,6 +50,7 @@ class SubmissionForm extends Model
             [['rotateDegree'], 'integer'],
             ['verificationCode', ReCaptchaValidator::className(), 'secret' => '6LddpCQTAAAAAPU27Z1X3nwsVnNed-9aDrk5moSA'],
             [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],
+            ['isLimitSubmission','string', 'message' => Yii::t('app','Weekly Limit Reached')]
         ];
     }
 
@@ -66,11 +69,9 @@ class SubmissionForm extends Model
             $attachment = new Attachment();
 
             if ($this->uploadFile) {
-                if($this->rotateDegree != 0) {
-                    $attachment = Attachment::uploadFile($this->uploadFile,'image',$this->rotateDegree);
-                } else {
-                    $attachment = Attachment::uploadFile($this->uploadFile,'image');
-                }
+
+                $attachment = Attachment::uploadFile($this->uploadFile,'image');
+
             }
 
             $contestSession->user_id = $user->id;
@@ -79,9 +80,15 @@ class SubmissionForm extends Model
             $contestSession->first_name = $this->childFirstName;
             $contestSession->last_name = $this->childLastInitial;
             $contestSession->attachment_id = $attachment->id;
+            $contestSession->setCreatedDate();
+            $contestSession->setUpdatedDate();
+            $contestSession->creator_id = 1;
             $contestSession->setAge($this->age);
             $contestSession->save();
 
+            if($this->rotateDegree != 0) {
+                $attachment->rotateImage($this->rotateDegree);
+            }
             return $user;
 
 
@@ -89,4 +96,5 @@ class SubmissionForm extends Model
 
         return null;
     }
+  
 }
