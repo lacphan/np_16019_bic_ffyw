@@ -62,7 +62,7 @@ class RegisterForm extends Model
             [['phoneNumber'],'string','min'=>10,'max' => 10,'tooShort' => Yii::t('app','Phone must contain 10 digits'),'tooLong' => Yii::t('app','Phone must contain 10 digits')],
             [['childLastInitial'],'match', 'pattern' => '/[a-zA-Z]/','message' => Yii::t('app','Only from a-z A-Z')],
             [['childLastInitial'],'string', 'max' => 1,'message' => Yii::t('app','Maximum of one alpha character can be entered')],
-            [['age'],'integer', 'min' => 6,'max' => 18 ],
+            [['age'],'integer', 'min' => 4,'max' => 18 ],
             [['birthDate'],'integer', 'min' => 1,'max' => 31,'message' => Yii::t('app','Require')],
             [['birthMonth'],'integer', 'min' => 1,'max' => 12 ,'message' => Yii::t('app','Require')],
             [['birthYear'],'integer', 'min' => 1905, 'max' => 1998 ,'message' => Yii::t('app','Require')],
