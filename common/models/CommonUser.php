@@ -210,7 +210,7 @@ class CommonUser extends \common\models\base\BaseUser implements IdentityInterfa
         $contestItem = CommonContestItem::getWeek();
         $contestSessions = CommonContestSession::find()
             ->where(['user_id' => $this->id])
-            ->where(['>=','created_at',$contestItem->start_date])
+            ->andWhere(['>=','created_at',$contestItem->start_date])
             ->andWhere(['<=','created_at',$contestItem->end_date])
             ->all()
         ;

@@ -312,8 +312,46 @@
       }
     }
   }
-}
 
+
+}
+.home-gallery {
+  .modal-header,.modal-footer{
+    background-color: $color3;
+    border: 0;
+    border-radius: 0;
+  }
+  .modal-body {
+    background-color: $color1;
+  }
+  .modal-next ,.modal-prev{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: transparent;
+    color: $color3;
+    font-size: 50px;
+    line-height: 50px;
+    border: 0;
+    height: 50px;
+    &:focus,&:active {
+      outline: none;
+    }
+  }
+  .modal-next {
+    right: -50px;
+    @include respond-to-custom-size(null,$mobile-break-point) {
+      right: 0;
+    }
+  }
+  .modal-prev {
+    left: -50px;
+    @include respond-to-custom-size(null,$mobile-break-point) {
+      left: 0;
+    }
+  }
+}
 .select2-results {
   .select2-results__group {
     display: none;

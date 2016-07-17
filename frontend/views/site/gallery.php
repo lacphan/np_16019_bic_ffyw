@@ -4,32 +4,32 @@
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\RegisterForm */
 /* @var $contestSessions frontend\models\ContestSession[] */
-use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
-use himiklab\yii2\recaptcha\ReCaptcha;
-use frontend\models\ContestItem;
+/* @var $searchModel backend\models\SearchContestSession */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $pages */
 
-$this->title = 'Register';
+use yii\widgets\LinkPager;
+use yii\helpers\Html;
+
+$this->title = 'Gallery';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-signup">
     <div class="container">
-        <div class="registration-content">
+        <div class="registration-content gallery-tmpl">
             <div class="success-content">
                 <div class="title">
                     BIC'S <span>Handwriting</span> Challenge!<br>
                     Gallery
                 </div>
-                <div class="content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante. Mauris eleifend, quam a
-                    vulputate dictum, massa quam dapibus leo, eget vulputate orci purus ut lorem. In fringilla mi in
-                    ligula. Pellentesque aliquam quam vel dolor. Nunc adipiscing. Sed quam odio, tempus ac, aliquam
-                    molestie, varius ac, tellus. Vestibulum ut nulla aliquam risus rutrum interdum. Pellentesque lorem.
-                    Curabitur sit amet erat quis risus feugiat viverra. Pellentesque augue justo, sagittis et, lacinia
-                    at, venenatis non, arcu. Nunc nec libero. In cursus dictum risus. Etiam tristique nisl a nulla. Ut a
-                    orci. Curabitur dolor nunc, egestas at, accumsan at, malesuada nec, magna.
+                <div class="gallery-intro">
+                    Check out the handwriting submissions from all across Canada!
+                    <span class="global-btn">
+                        <?= Html::a('ENTER NOW', Yii::$app->urlManager->createUrl(['site/index']), ['class' => 'global-btn-inner']) ?>
+                    </span>
                 </div>
                 <div class="home-gallery">
+                    <?= $this->render('_search', ['model' => $searchModel]) ?>
                     <div class="home-gallery-row">
                         <?php if ($contestSessions): ?>
                             <?php foreach ($contestSessions as $key => $contestSession): ?>
@@ -38,53 +38,65 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <div class="home-gallery-item-inner">
                                             <div class="home-gallery-item-image"
                                                  style="background: url(<?= $contestSession->attachment->getAttachmentUrl('thumbnail') ?>) center no-repeat; background-size: cover">
-                                                <a class="popup-button" data-toggle="modal"
-                                                   data-target="#popup-<?php echo $key ?>"></a>
-                                                <?= $contestSession->attachment->getAttachmentImage('medium') ?>
+                                                <a class="thumbnail-img" href="#" data-image-id="" data-toggle="modal"
+                                                   data-title="<?= $contestSession->first_name . ' ' . $contestSession->last_name . ', ' . $contestSession->user->profile->province ?>"
+                                                   data-caption="<?= $contestSession->user->email ?>"
+                                                   data-image="<?= $contestSession->attachment->getAttachmentUrl('large') ?>"
+                                                   data-target="#image-gallery">
+                                                    <?= $contestSession->attachment->getAttachmentImage('large') ?>
+                                                </a>
                                             </div>
                                             <div class="home-gallery-item-title">
-                                                <?= $contestSession->first_name . ' ' . $contestSession->last_name . ', ' . $contestSession->user->profile->province?>
+                                                <?= $contestSession->first_name . ' ' . $contestSession->last_name . ', ' . $contestSession->user->profile->province ?>
                                             </div>
                                         </div>
-                                        <div class="modal fade" id="popup-<?php echo $key ?>" tabindex="-1" role="dialog"
-                                             aria-labelledby="myModalLabel">
-                                            <div class="my-modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <button class="close" data-dismiss="modal">X</button>
-                                                    <?= $contestSession->attachment->getAttachmentImage('large') ?>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         <?php endif; ?>
+
                         <div class="clearfix"></div>
+
+                    </div>
+                    <div class="a-center">
+                        <?php echo LinkPager::widget([
+                            'pagination' => $dataProvider->pagination,
+                        ]); ?>
+
+                    </div>
+                    <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog"
+                         aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span
+                                            aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                    <h4 class="modal-title" id="image-gallery-title"></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <img id="image-gallery-image" class="img-responsive" src="">
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="modal-control">
+                                        <button type="button" class="modal-prev" id="show-previous-image">
+                                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                        </button>
+                                        <button type="button" id="show-next-image" class="modal-next">
+                                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+
+                                        </button>
+                                    </div>
+                                    <div class="col-md-12 a-center" id="image-gallery-caption">
+                                        This text will be overwritten by jQuery
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="home-text-block">
-            <div class="show-on-desktop">
-                <b>NO PURCHASE NECESSARY TO ENTER OR WIN.</b> Void where prohibited. The
-                Contest is strictly open to individuals who are legal residents of Canada, who are over the age of
-                majority in their province or territory of residence and a parent and/or legal guardian of a child
-                between the age of 6 and 18 at the time of entry (“Eligible Child”). The Eligible Child cannot by any
-                means enter The Contest. The Contest will begin 8/02/16 at 12:00:01 PM Eastern Time (“ET”) and ends
-                9/12/16 at 11:59:59 PM ET ("Contest Submission Period").  Winners must correctly answer a mathematical
-                skill testing question to win a prize. Contest Winners will be determined solely by random draw. Odds of
-                winning a random drawing depends upon the number of eligible entries received. One (1) Contest
-                Submission per person, per week for each Eligible Child (up to a maximum of four (4) Eligible Children
-                per person) during the entire Contest Submission Period. Weekly winners are selected at end of
-                respective weekly period. Grand prize winner to be selected upon full completion of the Contest. You may
-                only use one (1) email address to participate in this Contest. See Official Rules for details. Sponsor:
-                BIC Inc.
-            </div>
-            <div class="show-on-mobile">
-                 No Purch Nec., CAD only, Age of Majority in Prov./Territ. Of Res. Ends 09/12/2016. <a href="#">Click
-                    Here for Official Rules.</a>
-            </div>
-
-        </div>
+        <?= $this->render('_mini-rules')?>
     </div>
 </div>

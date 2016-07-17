@@ -55,7 +55,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="input-group select-wrapper">
                         <div class="form-group">
                             <?= Html::dropDownList('bulk-option', 'accept', [
-                                'accept' => 'Accept'
+                                'accept' => 'Accept',
+                                'reject' => 'Reject'
                             ], [
                                 'class' => 'select-box form-control select2-selection select2-selection--single'
                             ]) ?>
@@ -108,12 +109,22 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                 [
                                     'class' => 'common\enpii\components\grid\ActionColumn',
-                                    'template' => '{update}{delete}{accept}',
+                                    'template' => '{update}{delete}{accept}{reject}',
                                     'buttons' => [
                                         'accept' => function ($url, $model, $key) {
-                                            if ($model->accepted == 0) {
+                                            if ($model->accepted == 0 || $model->accepted == -1) {
                                                 return Html::a('Accept', $url, [
                                                     'title' => Yii::t('app', 'Accept'),
+                                                    'class' => 'btn-model-update',
+                                                ]);
+                                            }
+                                            return '';
+
+                                        },
+                                        'reject' => function ($url, $model, $key) {
+                                            if ($model->accepted == 0 || $model->accepted == 1) {
+                                                return Html::a('Reject', $url, [
+                                                    'title' => Yii::t('app', 'Reject'),
                                                     'class' => 'btn-model-update',
                                                 ]);
                                             }

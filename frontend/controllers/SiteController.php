@@ -19,6 +19,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\db\Expression;
+use yii\data\Pagination;
+use frontend\models\SearchContestSession;
 /**
  * Site controller
  */
@@ -78,14 +80,15 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $emailSubmission = new EmailSubmission();
-        Yii::$app->session->remove('userEmail');
+        Yii::$app->session->remove('registerEmail');
+        Yii::$app->session->remove('submissionEmail');
         $contestSessions = ContestSession::find()->where(['accepted' => 1])->orderBy(new Expression('rand()'))->limit(9)->all();
         if($emailSubmission->load(Yii::$app->request->post()) && $emailSubmission->isEmailExists()) {
-            Yii::$app->session->set('userEmail',$emailSubmission->email);
+            Yii::$app->session->set('submissionEmail',$emailSubmission->email);
             return $this->redirect(['site/submission']);
 
         } elseif ($emailSubmission->load(Yii::$app->request->post()) && !$emailSubmission->isEmailExists()) {
-            Yii::$app->session->set('userEmail',$emailSubmission->email);
+            Yii::$app->session->set('registerEmail',$emailSubmission->email);
             return $this->redirect(['site/register']);
         }
         return $this->render('index',[
@@ -140,8 +143,8 @@ class SiteController extends Controller
     public function actionRegister()
     {
         $model = new RegisterForm();
-        if(Yii::$app->session->hasFlash('userEmail')) {
-            $model->email = Yii::$app->session->getFlash('userEmail');
+        if(Yii::$app->session->hasFlash('registerEmail')) {
+            $model->email = Yii::$app->session->getFlash('registerEmail');
         }
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->register()) {
@@ -160,21 +163,23 @@ class SiteController extends Controller
      */
     public function actionSubmission()
     {
-        if(!Yii::$app->session->get('userEmail')) {
+        if(!Yii::$app->session->get('submissionEmail')) {
             return $this->redirect(Yii::$app->urlManager->createUrl('site/register'));
         }
 
         $model = new SubmissionForm();
-        if(Yii::$app->session->hasFlash('useEmail')) {
-            $model->email = Yii::$app->session->get('userEmail');
+        if(Yii::$app->session->hasFlash('submissionEmail')) {
+            $model->email = Yii::$app->session->get('submissionEmail');
         }
-        $user = User::findByUsername(Yii::$app->session->hasFlash('useEmail'));
+        $user = User::findByUsername(Yii::$app->session->get('submissionEmail'));
+
         $contestSessions = $user->getWeeklySubmission();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->submission()) {
                 return $this->render('success');
             }
         }
+
         if(count($contestSessions) >= 4) {
             return $this->render('weekly-limit-reached');
         }
@@ -236,9 +241,15 @@ class SiteController extends Controller
 
     public function actionGallery()
     {
-        $contestSessions = ContestSession::find()->where(['accepted' => 1])->orderBy(new Expression('rand()'))->all();
+        $searchModel = new SearchContestSession();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        $contestSessions = $dataProvider->getModels();
+
         return $this->render('gallery', [
-            'contestSessions' => $contestSessions
+            'contestSessions' => $contestSessions,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 }

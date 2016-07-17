@@ -1,0 +1,38 @@
+.gallery-tmpl {
+  .pagination {
+    li {
+      a ,span{
+        background-color: transparent;
+        color: $color2;
+        font-family: $font5;
+        font-size: 22px;
+        font-weight: 600;
+        border: 0;
+      }
+      &:hover,&.active {
+        a {
+          background-color: transparent;
+          color: $color3;
+        }
+      }
+    }
+  }
+}
+.contest-session-search {
+  .form-group {
+    max-width: 300px;
+    display: inline-block;
+    @include respond-to-custom-size(null, $mobile-break-point) {
+      display: block;
+      margin: auto;
+    }
+  }
+  .global-btn {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+}
+.gallery-intro {
+  margin-bottom: 30px;
+  font-size: 20px;
+}

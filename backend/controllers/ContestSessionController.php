@@ -121,6 +121,14 @@ class ContestSessionController extends \common\enpii\components\NpController
         return $this->redirect(['index']);
     }
 
+    public function actionReject($id)
+    {
+        $model = $this->findModel($id);
+        $model->accepted = -1;
+        $model->save();
+        return $this->redirect(['index']);
+    }
+
     /**
      * Finds the ContestSession model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
@@ -158,6 +166,17 @@ class ContestSessionController extends \common\enpii\components\NpController
                 $model->save();
             }
             Yii::$app->session->setFlash('success',Yii::t('app', count($selection) . ' rows accepted.'));
+            return $this->redirect([
+                'index',
+            ]);
+        }
+        if($action == 'reject' && count($selection) > 0) {
+            foreach($selection as $id){
+                $model = $this->findModel($id);
+                $model->accepted = -1;
+                $model->save();
+            }
+            Yii::$app->session->setFlash('success',Yii::t('app', count($selection) . ' rows rejected.'));
             return $this->redirect([
                 'index',
             ]);

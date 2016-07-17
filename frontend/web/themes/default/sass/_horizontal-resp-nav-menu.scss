@@ -84,6 +84,7 @@
       border: none;
       padding: 0;
       width: 100%;
+      min-width: 100%;
       @include border-radius(0);
 
       @include respond-to-custom-size(#{$break-point}px) {

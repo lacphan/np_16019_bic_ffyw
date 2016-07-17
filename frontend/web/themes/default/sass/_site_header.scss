@@ -1,6 +1,7 @@
 .site-header {
   position: relative;
   z-index: 1000;
+
   .header-inner {
     position: relative;
     background-color: $color3;
@@ -55,12 +56,13 @@
     text-decoration: none;
     color: $color1;
   }
-  @include horizontal-resp-nav-menu('.main-navigation');
+  @include horizontal-resp-nav-menu('.main-navigation',$color3);
   .main-navigation {
     float: right;
     .navbar-header {
       float: none;
     }
+
     .navbar-toggle {
       float: right;
     }
