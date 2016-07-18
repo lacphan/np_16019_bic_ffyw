@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <div class="content">
                     <p class="a-center">SORRY!</p>
-                    <p>
+                    <p class="a-center">
                         You have reached the maximum entries allowed for this week. Don’t forget to come back and submit a response for next week’s handwriting challenge.<br/>
                         
                         <?=  Html::a(Yii::t('app', '*' . 'Click here for Official Rules'), Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules']),['target' => '_blank','class' => 'color-1'])?>
