@@ -380,6 +380,10 @@
     color: #000;
     font-size: 18px;
     text-align: left;
+    a {
+      text-decoration: underline;
+      color: $color1;
+    }
   }
   .global-btn{
     margin-top: 20px;

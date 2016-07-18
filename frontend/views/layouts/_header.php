@@ -41,12 +41,12 @@ use yii\bootstrap\Nav;
 
                                     $menuItems = [
                                         [
-                                            'label' => 'FFYW',
+                                            'label' => 'Handwriting Challenge',
                                             'url' => Yii::$app->homeUrl,
                                             'items' => [
                                                 ['label' => 'Enter Now', 'url' => Yii::$app->homeUrl],
                                                 ['label' => 'Gallery', 'url' => Yii::$app->urlManager->createUrl(['site/gallery'])],
-                                                ['label' => 'Prize Details', 'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=> 'prize-details'])],
+                                                ['label' => 'Contest Prizes', 'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=> 'prize-details'])],
                                                 ['label' => 'Official Rules', 'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=> 'official-rules'])],
                                             ],
                                         ],

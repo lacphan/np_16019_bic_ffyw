@@ -26,7 +26,7 @@ $this->title = 'Offical Rules';
                             Ontario, L4W5P9 ("Administrator").</p>
                         </li>
                         <li><p><strong><u> DESCRIPTION</u></strong>: BIC’s Handwriting Challenge Promotion (the "Contest")
-                            begins August 2, 2016 at 12:00:01 PM Eastern Time (“ET”) and ends September 12, 2016 at
+                            begins August 2, 2016 at 12:00:01 PM Eastern Time (“ET”) and ends September 19, 2016 at
                             11:59:59 PM ET ("Contest Submission Period"). <strong>By participating in the Contest you
                                 agree to abide by and be bound by these Official Rules and the decisions of
                                 Sponsor.</strong></p></li>

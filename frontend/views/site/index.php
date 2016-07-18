@@ -47,7 +47,7 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                     <div class="form-arrow"></div>
                 </div>
                 <div class="intro-link">
-                     No Purch Nec., CAD only, Age of Majority in Prov./Territ. of Res. Ends 09/12/2016. <a target="_blank" href="<?= Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules'])?>">Click
+                     No Purch Nec., CAD only, Age of Majority in Prov./Territ. of Res. Ends 09/19/2016. <a target="_blank" href="<?= Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules'])?>">Click
                         Here for Official Rules.</a>
                 </div>
             </div>

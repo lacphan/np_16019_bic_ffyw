@@ -21,7 +21,7 @@ a {
 }
 
 a:hover {
-  color: #000;
+  color: #19998c;
 }
 
 a:focus {
@@ -370,6 +370,7 @@ img {
     border: 0;
     padding: 0 0 0 0px;
     background: transparent;
+    text-align: left;
   }
   .site-header .main-navigation .menu li ul.dropdown-menu.collapsing {
     display: block;
@@ -427,6 +428,9 @@ img {
   font-weight: 600;
   padding: 7px 0;
 }
+.site-header .main-navigation .navbar-nav > li.open a {
+  background-color: transparent;
+}
 .site-header .main-navigation .navbar-nav > li.facebook-btn {
   float: left;
   padding: 3px 16px;
@@ -448,7 +452,7 @@ img {
 }
 @media only screen and (min-width: 1200px) {
   .site-header .main-navigation .navbar-nav > li.language-switch a {
-    padding-right: 100px;
+    padding-right: 37px;
     padding-left: 37px;
   }
 }
@@ -647,6 +651,9 @@ img {
   .home-content .home-intro {
     background: url("../images/mobile-intro-bg.jpg") center repeat-y;
   }
+}
+.home-content .home-intro a {
+  text-decoration: underline;
 }
 .home-content .home-intro .head-line {
   text-align: center;
@@ -1555,6 +1562,10 @@ img {
   color: #000;
   font-size: 18px;
   text-align: left;
+}
+.success-content .content a {
+  text-decoration: underline;
+  color: #19998c;
 }
 .success-content .global-btn {
   margin-top: 20px;

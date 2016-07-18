@@ -6,7 +6,7 @@
             majority in their province or territory of residence and a parent and/or legal guardian of a child
             between the age of 6 and 18 at the time of entry (“Eligible Child”). The Eligible Child cannot by any
             means enter The Contest. The Contest will begin 8/02/16 at 12:00:01 PM Eastern Time (“ET”) and ends
-            9/12/16 at 11:59:59 PM ET ("Contest Submission Period").  Winners must correctly answer a mathematical
+            September 19, 2016 at 11:59:59 PM ET ("Contest Submission Period").  Winners must correctly answer a mathematical
             skill testing question to win a prize. Contest Winners will be determined solely by random draw. Odds of
             winning a random drawing depends upon the number of eligible entries received. One (1) Contest
             Submission per person, per week for each Eligible Child (up to a maximum of four (4) Eligible Children
@@ -16,13 +16,6 @@
             BIC Inc.
         </p>
 
-        <p>
-            <strong>DESCRIPTION</strong>: BIC’s Handwriting Challenge Promotion (the "Contest")
-            begins August 2, 2016 at 12:00:01 PM Eastern Time (“ET”) and ends September 12, 2016 at
-            11:59:59 PM ET ("Contest Submission Period"). <strong>By participating in the Contest you
-                agree to abide by and be bound by these Official Rules and the decisions of
-                Sponsor.</strong>
-        </p>
     </div>
     <div class="show-on-mobile">
          No Purch Nec., CAD only, Age of Majority in Prov./Territ. Of Res. Ends 09/12/2016. <a target="_blank" href="<?= Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules'])?>">Click
