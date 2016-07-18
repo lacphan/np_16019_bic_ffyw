@@ -4,7 +4,7 @@ use common\enpii\components\grid\GridView;
 use yii\widgets\Breadcrumbs;
 use yii\bootstrap\Modal;
 use yii\widgets\ActiveForm;
-
+use kartik\export\ExportMenu;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\SearchContestSession */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -47,6 +47,74 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
 
                     </div>
+                  
+                    <div class="form-group export-menu">
+                        <?php
+                        $gridColumn = [
+                            ['class' => 'common\enpii\components\grid\SerialColumn'],
+                            [
+                                'attribute' => 'parent_first_name',
+                                'value' => 'user.first_name',
+                                'label' => "Parent's First Name"
+                            ],
+                            [
+                                'attribute' => 'parent_last_name',
+                                'value' => 'user.last_name',
+                                'label' => "Parent's Last Name"
+                            ],
+                            [
+                                'attribute' => 'user_id',
+                                'value' => 'user.email',
+                                'label' => 'Parent\'s Email'
+                            ],
+                            [
+                                'attribute' => 'parent_phone',
+                                'value' => 'user.profile.phone_number',
+                                'label' => "Parent's Phone"
+                            ],
+                            [
+                                'attribute' => 'parent_birthday',
+                                'value' => function($model) {
+                                    return Yii::$app->formatter->asDate($model->user->profile->date_of_birth,'Y-M-d');
+                                },
+                                'label' => "Parent's Birthday"
+                            ],
+                            [
+                                'attribute' => 'first_name',
+                                'label' => "Child's First Name"
+                            ],
+                            [
+                                'attribute' => 'last_name',
+                                'label' => "Child's Initial"
+                            ],
+                            [
+                                'attribute' => 'created_at',
+                                'label' => 'Submission date'
+                            ],
+                            [
+                                'attribute' => 'contest_item_id',
+                                'label' => 'Weekly Challenge ID'
+                            ],
+                            [
+                                'attribute' => 'birth_year',
+                                'value' => 'age',
+                                'label' => 'Age'
+                            ],
+                        ];
+                        echo ExportMenu::widget([
+                            'dataProvider' => $dataProvider,
+                            'columns' => $gridColumn,
+                            'exportConfig' => [
+                                ExportMenu::FORMAT_TEXT => false,
+                                ExportMenu::FORMAT_PDF => false,
+                                ExportMenu::FORMAT_HTML => false,
+                                ExportMenu::FORMAT_EXCEL => false,
+                                ExportMenu::FORMAT_EXCEL_X => false,
+                            ]
+                            
+                        ])
+                        ?>
+                    </div>
 
                     <?= $this->render('_search', ['model' => $searchModel]) ?>
                     <?php ActiveForm::begin([
@@ -58,7 +126,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'accept' => 'Accept',
                                 'reject' => 'Reject'
                             ], [
-                                'class' => 'select-box form-control select2-selection select2-selection--single'
+                                'class' => 'select-box form-control select2-selection select2-selection--single',
+                                'onchange' => '$("select[name=\'bulk-option\']").not(this).val($(this).val())'
                             ]) ?>
                         </div>
                         <span class="input-group-btn">
@@ -81,7 +150,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 [
                                     'attribute' => 'user_id',
                                     'value' => 'user.email',
-                                    'label' => 'User'
+                                    'label' => 'Parent\'s Email'
                                 ],
                                 [
                                     'attribute' => 'parent_first_name',
@@ -106,7 +175,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'value' => 'age',
                                     'label' => 'Age'
                                 ],
-
                                 [
                                     'class' => 'common\enpii\components\grid\ActionColumn',
                                     'template' => '{update}{delete}{accept}{reject}',
@@ -141,9 +209,11 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="input-group select-wrapper">
                             <div class="form-group">
                                 <?= Html::dropDownList('bulk-option', 'accept', [
-                                    'accept' => 'Accept'
+                                    'accept' => 'Accept',
+                                    'reject' => 'Reject'
                                 ], [
-                                    'class' => 'select-box form-control select2-selection select2-selection--single'
+                                    'class' => 'select-box form-control select2-selection select2-selection--single',
+                                    'onchange' => '$("select[name=\'bulk-option\']").not(this).val($(this).val())'
                                 ]) ?>
                             </div>
                         <span class="input-group-btn">

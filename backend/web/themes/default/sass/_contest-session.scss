@@ -19,3 +19,12 @@
   -webkit-border-radius: 0 !important;
   border-radius: 0 !important;
 }
+.export-menu {
+  margin-bottom: 10px;
+  .dropdown-toggle {
+    height: 40px;
+  }
+  .dropdown-menu {
+    min-width: 220px;
+  }
+}

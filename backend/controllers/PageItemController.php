@@ -3,19 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\ContestItem;
-use backend\models\SearchContestItem;
+use backend\models\PageItem;
+use backend\models\SearchPageItem;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use backend\models\Attachment;
-use yii\web\UploadedFile;
-
 /**
- * ContestItemController implements the CRUD actions for ContestItem model.
+ * PageItemController implements the CRUD actions for PageItem model.
  */
-class ContestItemController extends \common\enpii\components\NpController
+class PageItemController extends \common\enpii\components\NpController
 {
     public function behaviors()
     {
@@ -40,12 +37,12 @@ class ContestItemController extends \common\enpii\components\NpController
     }
 
     /**
-     * Lists all ContestItem models.
+     * Lists all PageItem models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new SearchContestItem();
+        $searchModel = new SearchPageItem();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -55,7 +52,7 @@ class ContestItemController extends \common\enpii\components\NpController
     }
 
     /**
-     * Displays a single ContestItem model.
+     * Displays a single PageItem model.
      * @param integer $id
      * @return mixed
      */
@@ -67,20 +64,15 @@ class ContestItemController extends \common\enpii\components\NpController
     }
 
     /**
-     * Creates a new ContestItem model.
+     * Creates a new PageItem model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new ContestItem();
+        $model = new PageItem();
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->uploadFile) {
-                $attachment = Attachment::uploadFile($this->uploadFile,'image');
-                $model->attachment_id = $attachment->id;
-                $model->save();
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -90,7 +82,7 @@ class ContestItemController extends \common\enpii\components\NpController
     }
 
     /**
-     * Updates an existing ContestItem model.
+     * Updates an existing PageItem model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -99,23 +91,7 @@ class ContestItemController extends \common\enpii\components\NpController
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) ) {
-            $model->uploadFile = UploadedFile::getInstance($model, 'uploadFile');
-            if ($model->uploadFile) {
-                $oldAttachment = $model->attachment;
-                if($oldAttachment) {
-                    $oldAttachment->delete();
-                }
-                $attachment = Attachment::uploadFile($model->uploadFile,'image');
-                $model->attachment_id = $attachment->id;
-            } else {
-                $model->attachment_id = null;
-                $oldAttachment = $model->attachment;
-                if($oldAttachment) {
-                    $oldAttachment->delete();
-                }
-            }
-            $model->save(false);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -125,7 +101,7 @@ class ContestItemController extends \common\enpii\components\NpController
     }
 
     /**
-     * Deletes an existing ContestItem model.
+     * Deletes an existing PageItem model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -138,15 +114,15 @@ class ContestItemController extends \common\enpii\components\NpController
     }
 
     /**
-     * Finds the ContestItem model based on its primary key value.
+     * Finds the PageItem model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return ContestItem the loaded model
+     * @return PageItem the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = ContestItem::findOne($id)) !== null) {
+        if (($model = PageItem::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

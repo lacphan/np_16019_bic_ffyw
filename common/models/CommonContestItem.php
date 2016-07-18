@@ -7,6 +7,7 @@ use Yii;
 
 /**
  * This is the model class for table "bic_ffyw_contest_item".
+ * @property CommonAttachment $attachment
  */
 class CommonContestItem extends \common\models\base\BaseContestItem
 {
@@ -23,4 +24,13 @@ class CommonContestItem extends \common\models\base\BaseContestItem
         }
         return  CommonContestItem::find()->where(['id' => CommonContestItem::find()->max('id')])->one();
     }
+    
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAttachment()
+    {
+        return $this->hasOne(CommonAttachment::className(), ['id' => 'attachment_id']);
+    }
+    
 }

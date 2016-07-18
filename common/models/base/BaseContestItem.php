@@ -2,7 +2,7 @@
 
 namespace common\models\base;
 
-use Yii;
+use yii;
 
 /**
  * This is the model class for table "{{%contest_item}}".
@@ -12,6 +12,10 @@ use Yii;
  * @property string $end_date
  * @property string $title
  * @property string $description
+ * @property integer $attachment_id
+ *
+ * @property BaseAttachment $attachment
+ * @property BaseContestSession[] $contestSessions
  */
 class BaseContestItem extends \common\enpii\components\NpActiveRecord
 {
@@ -30,6 +34,7 @@ class BaseContestItem extends \common\enpii\components\NpActiveRecord
     {
         return [
             [['start_date', 'end_date'], 'safe'],
+            [['attachment_id'], 'integer'],
             [['title', 'description'], 'string', 'max' => 255]
         ];
     }
@@ -45,6 +50,23 @@ class BaseContestItem extends \common\enpii\components\NpActiveRecord
             'end_date' => Yii::t('app', 'End Date'),
             'title' => Yii::t('app', 'Title'),
             'description' => Yii::t('app', 'Description'),
+            'attachment_id' => Yii::t('app', 'Attachment ID'),
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAttachment()
+    {
+        return $this->hasOne(BaseAttachment::className(), ['id' => 'attachment_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getContestSessions()
+    {
+        return $this->hasMany(BaseContestSession::className(), ['contest_item_id' => 'id']);
     }
 }

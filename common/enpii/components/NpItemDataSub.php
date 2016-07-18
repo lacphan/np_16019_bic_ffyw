@@ -58,4 +58,8 @@ trait NpItemDataSub {
         }
     }
 
+    public static function convertToLocalTime($gtmTime) {
+        return Yii::$app->formatter->asDatetime($gtmTime);
+    }
+
 }

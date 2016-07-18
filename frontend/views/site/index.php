@@ -7,6 +7,7 @@
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use frontend\models\ContestItem;
+
 $this->title = 'BIC';
 $contestItem = ContestItem::getWeek();
 $weekNumber = $contestItem ? $contestItem->id : 1;
@@ -31,14 +32,16 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                     make
                 </p>
                 <p>
-                    BIC will <span class="font-2 color-1 font-size-25">DONATE $10</span> to the <a target="_blank" href="https://www.bgccan.com/EN/Pages/default.aspx">Boys & Girls Clubs of
+                    BIC will <span class="font-2 color-1 font-size-25">DONATE $10</span> to the <a target="_blank"
+                                                                                                   href="https://www.bgccan.com/EN/Pages/default.aspx">Boys
+                        & Girls Clubs of
                         Canada</a><br/>
                     <small>(Donation up to a max. of $10,000, with a min. of $5,000!)</small>
                 </p>
                 <div class="subscribe-form">
                     <div class="subscribe-form-inner">
                         <?php $form = ActiveForm::begin() ?>
-                        <?= $form->field($emailSubmission, 'email')->textInput(['maxlength' => true,'placeholder' => Yii::t('app','Email Address')]) ?>
+                        <?= $form->field($emailSubmission, 'email')->textInput(['maxlength' => true, 'placeholder' => Yii::t('app', 'Email Address')]) ?>
                         <?= Html::submitButton('Submit') ?>
                         <div class="clearfix"></div>
 
@@ -47,7 +50,9 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                     <div class="form-arrow"></div>
                 </div>
                 <div class="intro-link">
-                     No Purch Nec., CAD only, Age of Majority in Prov./Territ. of Res. Ends 09/19/2016. <a target="_blank" href="<?= Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules'])?>">Click
+                     No Purch Nec., CAD only, Age of Majority in Prov./Territ. of Res. Ends 09/19/2016. <a
+                        target="_blank"
+                        href="<?= Yii::$app->urlManager->createUrl(['page/show-single', 'slug' => 'official-rules']) ?>">Click
                         Here for Official Rules.</a>
                 </div>
             </div>
@@ -66,14 +71,22 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                     </div>
 
                     <div class="right-content">
-                        <?php if($weekNumber):?>
-                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-'.$weekNumber.'/week.png' ?>"
-                             alt="Feature" width="364" height="326">
-                        <?php endif;?>
+                        <?php if ($contestItem): ?>
+                            <?php if ($contestItem->attachment): ?>
+                                <?= $contestItem->attachment->getAttachmentImage() ?>
+                            <?php elseif($weekNumber): ?>
+                                <img
+                                    src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
+                                    alt="Feature" width="364" height="326">
+                            <?php endif; ?>
+                        <?php endif; ?>
+
                     </div>
                     <div class="clearfix"></div>
                     <div class="main-content">
-                        <?= $contestItem->title ?>
+                        <?php if ($contestItem): ?>
+                            <?= $contestItem->title ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -128,7 +141,8 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
 
                 <div class="home-gallery-item item-see-all">
                     <div class="home-gallery-item-inner">
-                        <a target="_blank" class="see-all-btn" href="<?= Yii::$app->urlManager->createUrl(['site/gallery'])?>"></a>
+                        <a target="_blank" class="see-all-btn"
+                           href="<?= Yii::$app->urlManager->createUrl(['site/gallery']) ?>"></a>
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -163,7 +177,7 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                 </div>
             </div>
         </div>
-        <?= $this->render('_mini-rules')?>
+        <?= $this->render('_mini-rules') ?>
         <div class="home-instruction">
             <div class="home-instruction-row">
                 <div class="col-md-4 home-instruction-item item-mission">

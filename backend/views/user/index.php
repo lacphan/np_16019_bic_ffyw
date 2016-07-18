@@ -2,7 +2,7 @@
 use yii\helpers\Html;
 use common\enpii\components\grid\GridView;
 use yii\widgets\Breadcrumbs;
-
+use kartik\export\ExportMenu;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\SearchUser */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -45,6 +45,73 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ['class' => 'btn btn-default btn-circle']) ?>
                         </div>
                     </div>
+                    <div class="form-group export-menu">
+                        <?php
+                        $gridColumn = [
+                            ['class' => 'common\enpii\components\grid\SerialColumn'],
+                            [
+                                'attribute' => 'first_name',
+                                'label' => "Parent's First Name"
+                            ],
+                            [
+                                'attribute' => 'last_name',
+                                'label' => "Parent's Last Name"
+                            ],
+                            [
+                                'attribute' => 'email',
+                                'label' => 'Parent\'s Email'
+                            ],
+                            [
+                                'attribute' => 'profile.phone_number',
+                                'value' => function($model) {
+                                    if ($model->profile) {
+                                        return $model->profile->phone_number;
+                                    }
+                                    return '';
+                                },
+                                'label' => "Parent's Phone"
+                            ],
+                            [
+                                'attribute' => 'profile.date_of_birth',
+                                'value' => function($model) {
+                                    if ($model->profile) {
+                                        return Yii::$app->formatter->asDate($model->profile->date_of_birth,'Y-M-d');
+                                    }
+                                    return '';
+                                },
+                                'label' => "Parent's Birthday"
+                            ],
+                            [
+                                'attribute' => 'contestSessions',
+                                'value' => function($model) {
+                                    $childFirstName = \yii\helpers\ArrayHelper::map($model->contestSessions,'first_name','first_name');
+                                    var_dump($childFirstName);
+                                    return implode(", ", $childFirstName);
+                                },
+                                'label' => "Child's First Name"
+                            ],
+                            [
+                                'attribute' => 'contestSessions',
+                                'value' => function($model) {
+                                    return count($model->contestSessions);
+                                },
+                                'label' => 'Total number of submissions'
+                            ],
+                        ];
+                        echo ExportMenu::widget([
+                            'dataProvider' => $dataProvider,
+                            'columns' => $gridColumn,
+                            'exportConfig' => [
+                                ExportMenu::FORMAT_TEXT => false,
+                                ExportMenu::FORMAT_PDF => false,
+                                ExportMenu::FORMAT_HTML => false,
+                                ExportMenu::FORMAT_EXCEL => false,
+                                ExportMenu::FORMAT_EXCEL_X => false,
+                            ]
+
+                        ])
+                        ?>
+                    </div>
 
                     <?= $this->render('_search', ['model' => $searchModel]) ?>
 
@@ -71,12 +138,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                 // 'updated_at',
                                 // 'published_at',
                                 // 'creator_id',
-                                 'is_deleted',
+                                //'is_deleted',
                                 // 'is_enabled',
                                 // 'ordering_weight',
                                 // 'params:ntext',
 
                                 ['class' => 'common\enpii\components\grid\ActionColumn'],
+
                             ],
                         ]); ?>
                     </div>

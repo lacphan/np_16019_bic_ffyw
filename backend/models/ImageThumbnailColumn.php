@@ -34,7 +34,7 @@ class ImageThumbnailColumn extends Column
     /**
      * @inheritdoc
      */
-    public $header = 'No.';
+    public $header = 'Image';
 
     public $value = null;
 

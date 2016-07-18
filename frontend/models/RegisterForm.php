@@ -98,7 +98,6 @@ class RegisterForm extends Model
                 $profile->province = $this->province;
                 $profile->parent_first_name = $this->parentFirstName;
                 $profile->parent_last_name = $this->parentLastName;
-                $profile->id = $user->id;
                 $flag = $profile->save();
             }
 
