@@ -73,7 +73,7 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                     </div>
                     <div class="clearfix"></div>
                     <div class="main-content">
-                        <?= Yii::t('app', 'Ask your child what THEY would do if they were a principal for a day...') ?>
+                        <?= $contestItem->title ?>
                     </div>
                 </div>
             </div>
