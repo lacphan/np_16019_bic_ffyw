@@ -17,14 +17,25 @@
         "php": ">=5.4.0",
         "yiisoft/yii2": ">=2.0.6",
         "yiisoft/yii2-bootstrap": "*",
-        "yiisoft/yii2-swiftmailer": "*"
+        "yiisoft/yii2-swiftmailer": "*",
+        "yiisoft/yii2-authclient": "*"
     },
     "require-dev": {
+        "yiisoft/yii2-jui": "~2.0.0",
         "yiisoft/yii2-codeception": "*",
         "yiisoft/yii2-debug": "*",
         "yiisoft/yii2-gii": "*",
         "yiisoft/yii2-faker": "*",
-        "kartik-v/yii2-widget-fileinput": "@dev"
+        "2amigos/yii2-tinymce-widget" : "*",
+        "himiklab/yii2-recaptcha-widget" : "*",
+        "kartik-v/yii2-grid": "@dev",
+        "kartik-v/yii2-editable": "@dev",
+        "kartik-v/yii2-tree-manager": "@dev",
+        "slatiusa/yii2-nestable": "dev-master",
+        "yii2mod/yii2-rbac": "*",
+        "wbraganca/yii2-dynamicform": "dev-master",
+        "yurkinx/yii2-image": "dev-master",
+	"kartik-v/yii2-widget-fileinput": "@dev"
     },
     "config": {
         "process-timeout": 1800
