@@ -19,6 +19,7 @@ return [
             'timeFormat' => 'php:H:i:s',
             'timeZone' => 'America/Toronto'
         ],
+        
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => false,

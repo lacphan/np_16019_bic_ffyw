@@ -40,7 +40,16 @@ use yii\bootstrap\Nav;
                                     <?php
 
                                     $menuItems = [
-                                        ['label' => 'FFYW', 'url' => Yii::$app->homeUrl],
+                                        [
+                                            'label' => 'Handwriting Challenge',
+                                            'url' => Yii::$app->homeUrl,
+                                            'items' => [
+                                                ['label' => 'Enter Now', 'url' => Yii::$app->homeUrl],
+                                                ['label' => 'Gallery', 'url' => Yii::$app->urlManager->createUrl(['site/gallery'])],
+                                                ['label' => 'Contest Prizes', 'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=> 'prize-details'])],
+                                                ['label' => 'Official Rules', 'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=> 'official-rules'])],
+                                            ],
+                                        ],
                                         ['label' => 'The Mission', 'url' => Yii::$app->urlManager->createUrl([''])],
                                         ['label' => 'Take Action', 'url' => Yii::$app->urlManager->createUrl([''])],
                                         ['label' => 'Products', 'url' => Yii::$app->urlManager->createUrl([''])],

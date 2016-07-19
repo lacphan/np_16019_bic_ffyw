@@ -7,6 +7,7 @@
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use frontend\models\ContestItem;
+
 $this->title = 'BIC';
 $contestItem = ContestItem::getWeek();
 $weekNumber = $contestItem ? $contestItem->id : 1;
@@ -16,8 +17,8 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
     <div class="home-content">
         <div class="home-intro">
             <h1 class="head-line">
-                <span class="font-2 color-2 head-line-1">Take Bic's</span>
-                <span class="font-5 color-3 font-size-68 head-line-2">Hand Writing</span>
+                <span class="font-2 color-2 head-line-1">Take BIC's</span>
+                <span class="font-5 color-3 font-size-68 head-line-2">Handwriting</span>
                 <span class="font-2 color-2 head-line-3">Challenge!</span>
             </h1>
             <div class="intro">
@@ -31,14 +32,16 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                     make
                 </p>
                 <p>
-                    BIC will <span class="font-2 color-1 font-size-25">DONATE $10</span> to the Boys & Girls Clubs of
-                    Canada<br/>
+                    BIC will <span class="font-2 color-1 font-size-25">DONATE $10</span> to the <a target="_blank"
+                                                                                                   href="https://www.bgccan.com/EN/Pages/default.aspx">Boys
+                        & Girls Clubs of
+                        Canada</a><br/>
                     <small>(Donation up to a max. of $10,000, with a min. of $5,000!)</small>
                 </p>
                 <div class="subscribe-form">
                     <div class="subscribe-form-inner">
                         <?php $form = ActiveForm::begin() ?>
-                        <?= $form->field($emailSubmission, 'email')->textInput(['maxlength' => true]) ?>
+                        <?= $form->field($emailSubmission, 'email')->textInput(['maxlength' => true, 'placeholder' => Yii::t('app', 'Email Address')]) ?>
                         <?= Html::submitButton('Submit') ?>
                         <div class="clearfix"></div>
 
@@ -47,7 +50,9 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                     <div class="form-arrow"></div>
                 </div>
                 <div class="intro-link">
-                     No Purch Nec., CAD only, Age of Majority in Prov./Territ. Of Res. Ends 09/12/2016. <a target="_blank" href="<?= Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules'])?>">Click
+                     No Purch Nec., CAD only, Age of Majority in Prov./Territ. of Res. Ends 09/19/2016. <a
+                        target="_blank"
+                        href="<?= Yii::$app->urlManager->createUrl(['page/show-single', 'slug' => 'official-rules']) ?>">Click
                         Here for Official Rules.</a>
                 </div>
             </div>
@@ -66,14 +71,22 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                     </div>
 
                     <div class="right-content">
-                        <?php if($weekNumber):?>
-                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-'.$weekNumber.'/week.png' ?>"
-                             alt="Feature" width="364" height="326">
-                        <?php endif;?>
+                        <?php if ($contestItem): ?>
+                            <?php if ($contestItem->attachment): ?>
+                                <?= $contestItem->attachment->getAttachmentImage() ?>
+                            <?php elseif($weekNumber): ?>
+                                <img
+                                    src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
+                                    alt="Feature" width="364" height="326">
+                            <?php endif; ?>
+                        <?php endif; ?>
+
                     </div>
                     <div class="clearfix"></div>
                     <div class="main-content">
-                        <?= Yii::t('app', 'Ask your child what THEY would do if they were a principal for a day...') ?>
+                        <?php if ($contestItem): ?>
+                            <?= $contestItem->title ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -108,23 +121,19 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                                 <div class="home-gallery-item-inner">
                                     <div class="home-gallery-item-image"
                                          style="background: url(<?= $contestSession->attachment->getAttachmentUrl('thumbnail') ?>) center no-repeat; background-size: cover">
-                                        <a class="popup-button" data-toggle="modal"
-                                           data-target="#popup-<?php echo $key ?>"></a>
-                                        <?= $contestSession->attachment->getAttachmentImage('medium') ?>
+                                        <a class="thumbnail-img" href="#" data-image-id="" data-toggle="modal"
+                                           data-title="<?= $contestSession->first_name . ' ' . $contestSession->last_name . ', ' . $contestSession->user->profile->province ?>"
+                                           data-caption="<?= $contestSession->user->email ?>"
+                                           data-image="<?= $contestSession->attachment->getAttachmentUrl('large') ?>"
+                                           data-target="#image-gallery">
+                                            <?= $contestSession->attachment->getAttachmentImage('large') ?>
+                                        </a>
                                     </div>
                                     <div class="home-gallery-item-title">
-                                        <?= $contestSession->first_name . ',' . $contestSession->last_name ?>
+                                        <?= $contestSession->first_name . ' ' . $contestSession->last_name . ', ' . $contestSession->user->profile->province ?>
                                     </div>
                                 </div>
-                                <div class="modal fade" id="popup-<?php echo $key ?>" tabindex="-1" role="dialog"
-                                     aria-labelledby="myModalLabel">
-                                    <div class="my-modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button class="close" data-dismiss="modal">X</button>
-                                            <?= $contestSession->attachment->getAttachmentImage() ?>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                         <?php endif; ?>
                     <?php endforeach; ?>
@@ -132,34 +141,43 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
 
                 <div class="home-gallery-item item-see-all">
                     <div class="home-gallery-item-inner">
-                        <a target="_blank" class="see-all-btn" href="<?= Yii::$app->urlManager->createUrl(['site/gallery'])?>"></a>
+                        <a target="_blank" class="see-all-btn"
+                           href="<?= Yii::$app->urlManager->createUrl(['site/gallery']) ?>"></a>
                     </div>
                 </div>
                 <div class="clearfix"></div>
             </div>
-        </div>
-        <div class="home-text-block">
-            <div class="show-on-desktop">
-                <b>NO PURCHASE NECESSARY TO ENTER OR WIN.</b> Void where prohibited. The
-                Contest is strictly open to individuals who are legal residents of Canada, who are over the age of
-                majority in their province or territory of residence and a parent and/or legal guardian of a child
-                between the age of 6 and 18 at the time of entry (“Eligible Child”). The Eligible Child cannot by any
-                means enter The Contest. The Contest will begin 8/02/16 at 12:00:01 PM Eastern Time (“ET”) and ends
-                9/12/16 at 11:59:59 PM ET ("Contest Submission Period").  Winners must correctly answer a mathematical
-                skill testing question to win a prize. Contest Winners will be determined solely by random draw. Odds of
-                winning a random drawing depends upon the number of eligible entries received. One (1) Contest
-                Submission per person, per week for each Eligible Child (up to a maximum of four (4) Eligible Children
-                per person) during the entire Contest Submission Period. Weekly winners are selected at end of
-                respective weekly period. Grand prize winner to be selected upon full completion of the Contest. You may
-                only use one (1) email address to participate in this Contest. See Official Rules for details. Sponsor:
-                BIC Inc.
-            </div>
-            <div class="show-on-mobile">
-                 No Purch Nec., CAD only, Age of Majority in Prov./Territ. Of Res. Ends 09/12/2016. <a href="#">Click
-                    Here for Official Rules.</a>
-            </div>
+            <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog"
+                 aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span
+                                    aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title" id="image-gallery-title"></h4>
+                        </div>
+                        <div class="modal-body">
+                            <img id="image-gallery-image" class="img-responsive" src="">
+                        </div>
+                        <div class="modal-footer">
+                            <div class="modal-control">
+                                <button type="button" class="modal-prev" id="show-previous-image">
+                                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" id="show-next-image" class="modal-next">
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
 
+                                </button>
+                            </div>
+                            <div class="col-md-12 a-center" id="image-gallery-caption">
+                                This text will be overwritten by jQuery
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <?= $this->render('_mini-rules') ?>
         <div class="home-instruction">
             <div class="home-instruction-row">
                 <div class="col-md-4 home-instruction-item item-mission">

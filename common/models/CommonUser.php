@@ -206,4 +206,17 @@ class CommonUser extends \common\models\base\BaseUser implements IdentityInterfa
         return false;
     }
 
+    public function getWeeklySubmission() {
+        $contestItem = CommonContestItem::getWeek();
+        $contestSessions = CommonContestSession::find()
+            ->where(['user_id' => $this->id])
+            ->andWhere(['>=','created_at',$contestItem->start_date])
+            ->andWhere(['<=','created_at',$contestItem->end_date])
+            ->all()
+        ;
+        if($contestSessions) {
+            return $contestSessions;
+        }
+        return null;
+    }
 }

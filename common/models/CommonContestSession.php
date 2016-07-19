@@ -9,7 +9,7 @@ use common\models\base\BaseContestSession;
 /**
  * This is the model class for table "bic_ffyw_contest_session".
  * @property CommonContestItem $week ;
- *  * @property CommonAttachment $attachment
+ * @property CommonAttachment $attachment
  */
 class CommonContestSession extends BaseContestSession
 {
@@ -36,5 +36,6 @@ class CommonContestSession extends BaseContestSession
     {
         return $this->hasOne(CommonAttachment::className(), ['id' => 'attachment_id']);
     }
+    
 
 }

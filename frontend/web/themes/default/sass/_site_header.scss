@@ -1,17 +1,18 @@
 .site-header {
   position: relative;
   z-index: 1000;
+
   .header-inner {
     position: relative;
     background-color: $color3;
     min-height: 30px;
     margin-top: 70px;
-    @include respond-to-custom-size(null,$mobile-break-point) {
+    @include respond-to-custom-size(null, $mobile-break-point) {
       margin-top: 0;
       padding-top: 60px;
       padding-bottom: 60px;
     }
-    @include respond-to-custom-size(null,480px) {
+    @include respond-to-custom-size(null, 480px) {
       margin-top: 0;
       padding-top: 30px;
       padding-bottom: 30px;
@@ -31,20 +32,20 @@
     margin: auto;
     a {
       display: inline-block;
-      &:hover,&:focus {
+      &:hover, &:focus {
         text-decoration: none;
       }
     }
-    @include respond-to-custom-size(null,1024px) {
+    @include respond-to-custom-size(null, 1024px) {
       float: left;
       padding: 10px 0;
     }
-    @include respond-to-custom-size(480px,$mobile-break-point) {
+    @include respond-to-custom-size(480px, $mobile-break-point) {
       width: 267px;
       height: 201px;
       top: 130px;
     }
-    @include respond-to-custom-size(null,480px) {
+    @include respond-to-custom-size(null, 480px) {
       top: 70px;
     }
   }
@@ -55,12 +56,13 @@
     text-decoration: none;
     color: $color1;
   }
-  @include horizontal-resp-nav-menu('.main-navigation');
+  @include horizontal-resp-nav-menu('.main-navigation', $color3);
   .main-navigation {
     float: right;
     .navbar-header {
       float: none;
     }
+
     .navbar-toggle {
       float: right;
     }
@@ -74,7 +76,11 @@
       font-family: $font1;
       font-weight: 600;
       padding: 7px 0;
-
+      &.open {
+        a {
+          background-color: transparent;
+        }
+      }
       &.facebook-btn {
         float: left;
         padding: 3px 16px;
@@ -94,7 +100,7 @@
         a {
           border-left: 0;
           @include respond-to-custom-size(1200px) {
-            padding-right: 100px;
+            padding-right: 37px;
             padding-left: 37px;
           }
         }
@@ -104,7 +110,7 @@
         color: $color1;
         padding: 1px 43px;
       }
-      &:hover, &.active ,&.current-menu-item {
+      &:hover, &.active, &.current-menu-item {
         a {
           color: $color2;
         }
@@ -117,7 +123,7 @@
 
         }
       }
-      @include respond-to-custom-size(null,1024px) {
+      @include respond-to-custom-size(null, 1024px) {
         float: none;
         &.facebook-btn {
           float: none;
@@ -132,7 +138,7 @@
       }
 
     }
-    @include respond-to-custom-size(null,1024px) {
+    @include respond-to-custom-size(null, 1024px) {
 
       .navbar-toggle {
         display: block;
@@ -164,7 +170,7 @@
       & + .icon-bar {
         margin-top: 7px;
       }
-      @include respond-to-custom-size(null,480px) {
+      @include respond-to-custom-size(null, 480px) {
         width: 53px;
         height: 6px;
         & + .icon-bar {
@@ -181,7 +187,7 @@
       width: 180px;
       padding-top: 10px;
       padding-bottom: 14px;
-      @include respond-to-custom-size(null,1024px) {
+      @include respond-to-custom-size(null, 1024px) {
         position: absolute;
         left: 0;
         top: 0;

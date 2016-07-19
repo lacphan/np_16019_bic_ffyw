@@ -2,7 +2,7 @@
 
 namespace common\models\base;
 
-use Yii;
+use yii;
 
 /**
  * This is the model class for table "{{%contest_session}}".
@@ -15,6 +15,15 @@ use Yii;
  * @property string $last_name
  * @property string $birth_year
  * @property integer $attachment_id
+ * @property string $created_at
+ * @property string $updated_at
+ * @property string $published_at
+ * @property integer $creator_id
+ * @property integer $is_deleted
+ * @property integer $is_enabled
+ * @property integer $ordering_weight
+ * @property string $params
+ * @property integer $accepted
  *
  * @property BaseAttachment $attachment
  * @property BaseContestItem $contestItem
@@ -36,8 +45,10 @@ class BaseContestSession extends \common\enpii\components\NpActiveRecord
     public function rules()
     {
         return [
-            [['contest_item_id', 'user_id', 'attachment_id'], 'integer'],
-            [['birth_year'], 'safe'],
+            [['contest_item_id', 'user_id', 'attachment_id', 'creator_id', 'is_deleted', 'is_enabled', 'ordering_weight', 'accepted'], 'integer'],
+            [['birth_year', 'created_at', 'updated_at', 'published_at'], 'safe'],
+            [['created_at', 'updated_at', 'creator_id'], 'required'],
+            [['params'], 'string'],
             [['user_email', 'first_name', 'last_name'], 'string', 'max' => 255]
         ];
     }
@@ -56,6 +67,15 @@ class BaseContestSession extends \common\enpii\components\NpActiveRecord
             'last_name' => Yii::t('app', 'Last Name'),
             'birth_year' => Yii::t('app', 'Birth Year'),
             'attachment_id' => Yii::t('app', 'Attachment ID'),
+            'created_at' => Yii::t('app', 'Created At'),
+            'updated_at' => Yii::t('app', 'Updated At'),
+            'published_at' => Yii::t('app', 'Published At'),
+            'creator_id' => Yii::t('app', 'Creator ID'),
+            'is_deleted' => Yii::t('app', 'Is Deleted'),
+            'is_enabled' => Yii::t('app', 'Is Enabled'),
+            'ordering_weight' => Yii::t('app', 'Ordering Weight'),
+            'params' => Yii::t('app', 'Params'),
+            'accepted' => Yii::t('app', 'Accepted'),
         ];
     }
 

@@ -7,7 +7,7 @@ use yii\widgets\Breadcrumbs;
 /* @var $searchModel backend\models\SearchContestItem */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Contest Items');
+$this->title = Yii::t('app', 'Weekly Challenges');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="contest-item-index">
@@ -32,15 +32,15 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="portlet-title">
                         <div class="caption">
                                 <span class="caption-subject font-green-sharp bold uppercase">
-                                    <?= Yii::t("app", "contest-item Listing") ?>
+                                    <?= Yii::t("app", "Weekly Challenges Listing") ?>
                                 </span>
                                 <span class="caption-helper">
-                                    <?= Yii::t("app", "manage contest-item") . "..." ?>
+                                    <?= Yii::t("app", "manage Weekly Challenges") . "..." ?>
                                 </span>
                         </div>
                         <div class="actions">
                             <?= Html::a('<i class="fa fa-plus"></i><span class="hidden-480">' .
-                                Yii::t('app', 'Create Contest Item'),
+                                Yii::t('app', 'Create Weekly Challenges'),
                                 ['create'],
                                 ['class' => 'btn btn-default btn-circle']) ?>
                         </div>

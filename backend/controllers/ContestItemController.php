@@ -8,6 +8,9 @@ use backend\models\SearchContestItem;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use backend\models\Attachment;
+use yii\web\UploadedFile;
 
 /**
  * ContestItemController implements the CRUD actions for ContestItem model.
@@ -16,14 +19,24 @@ class ContestItemController extends \common\enpii\components\NpController
 {
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
+        $behaviors['access'] = [
+            'class' => AccessControl::className(),
+            'rules' => [
+                [
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function () {
+                        if (Yii::$app->user->can('backend-login')) {
+                            return true;
+                        }
+                        else{
+                            return false;
+                        }
+                    }
                 ],
             ],
         ];
+        return $behaviors;
     }
 
     /**
@@ -62,7 +75,12 @@ class ContestItemController extends \common\enpii\components\NpController
     {
         $model = new ContestItem();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->uploadFile) {
+                $attachment = Attachment::uploadFile($this->uploadFile,'image');
+                $model->attachment_id = $attachment->id;
+                $model->save();
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -81,7 +99,23 @@ class ContestItemController extends \common\enpii\components\NpController
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) ) {
+            $model->uploadFile = UploadedFile::getInstance($model, 'uploadFile');
+            if ($model->uploadFile) {
+                $oldAttachment = $model->attachment;
+                if($oldAttachment) {
+                    $oldAttachment->delete();
+                }
+                $attachment = Attachment::uploadFile($model->uploadFile,'image');
+                $model->attachment_id = $attachment->id;
+            } else {
+                $model->attachment_id = null;
+                $oldAttachment = $model->attachment;
+                if($oldAttachment) {
+                    $oldAttachment->delete();
+                }
+            }
+            $model->save(false);
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

@@ -21,16 +21,24 @@ $this->title = 'Offical Rules';
                             WINNING. VOID WHERE PROHIBITED OR RESTRICTED BY LAW. </strong></p>
                     <p><strong> </strong></p>
                     <ol>
-                        <li><p><strong><u> SPONSOR/ADMINISTRATOR</u></strong>: BIC Inc., at 155 Oakdale Rd, Toronto,
+                        <li>
+                            <p>
+                                <strong><u> SPONSOR/ADMINISTRATOR</u></strong>: BIC Inc., at 155 Oakdale Rd, Toronto,
                             Ontario, Canada, M3N1W2 (“Sponsor”). Match Marketing Group, 5225 Satellite Dr, Mississauga,
-                            Ontario, L4W5P9 ("Administrator").</p>
+                            Ontario, L4W5P9 ("Administrator").
+                            </p>
                         </li>
-                        <li><p><strong><u> DESCRIPTION</u></strong>: BIC’s Handwriting Challenge Promotion (the "Contest")
-                            begins August 2, 2016 at 12:00:01 PM Eastern Time (“ET”) and ends September 12, 2016 at
+                        <li>
+                            <p>
+                                <strong><u> DESCRIPTION</u></strong>: BIC’s Handwriting Challenge Promotion (the "Contest")
+                            begins August 9, 2016 at 12:00:01 PM Eastern Time (“ET”) and ends September 19, 2016 at
                             11:59:59 PM ET ("Contest Submission Period"). <strong>By participating in the Contest you
                                 agree to abide by and be bound by these Official Rules and the decisions of
-                                Sponsor.</strong></p></li>
-                        <li><p><strong><u> ELIGIBILITY</u></strong>: <strong><u>Contest Eligibility</u></strong>: The
+                                Sponsor.</strong>
+                            </p>
+                        </li>
+                        <li>
+                            <p><strong><u> ELIGIBILITY</u></strong>: <strong><u>Contest Eligibility</u></strong>: The
                             Contest is open to individuals who are legal residents of, and reside in, Canada and are
                             over the age of majority in their province or territory of residence at the time of entry
                             and a parent and/or legal guardian of a child age 6 to 18 at the time of entry (“Eligible
@@ -44,9 +52,11 @@ $this->title = 'Offical Rules';
                             grandfather, children or grandchildren or any of their respective spouses), regardless of
                             where they live; or persons who reside in the same household, whether related or not, as any
                             person in any of the preceding categories. All applicable federal, provincial and local laws
-                            and regulations apply. Void where prohibited or restricted by law.ç</p>
+                            and regulations apply. Void where prohibited or restricted by law.
+                            </p>
                         </li>
-                        <li><p><strong><u> HOW TO ENTER THE CONTEST</u></strong><u>:</u> During the Contest Submission
+                        <li>
+                            <p><strong><u> HOW TO ENTER THE CONTEST</u></strong><u>:</u> During the Contest Submission
                             Period visit <a href="http://www.bicfightforyourwrite.ca">www.bicfightforyourwrite.ca</a>
                             (“Website”) and have your Eligible Child handwrite their response (75 words or less) to the
                             weekly handwriting challenges on a piece of 8.5” X 11” paper, then take a photo of your
@@ -71,7 +81,11 @@ $this->title = 'Offical Rules';
                         participate in this Contest.</p>
                     <p><strong> </strong></p>
                     <ol>
-                        <li><p><strong><u>SUBMISSION GUIDELINES</u></strong><strong>: </strong></p></li>
+                        <li>
+                            <p>
+                                <strong><u>SUBMISSION GUIDELINES</u></strong><strong>: </strong>
+                            </p>
+                        </li>
                     </ol>
                     <ul>
                         <li>Must be a unique entry;</li>
@@ -130,7 +144,7 @@ $this->title = 'Offical Rules';
                         </li>
                     </ul>
                     <p>&nbsp;</p>
-                    <p> You agree to waive all claims to receive any payments, compensation and/or royalties of
+                    <p>       You agree to waive all claims to receive any payments, compensation and/or royalties of
                         any kind now or in the future from the Sponsor and Administrator and their respective parents,
                         affiliates, subsidiaries, assigns, licensees, and designees (collectively, “Sponsor Parties”),
                         for any use of your Eligible Child’s Submission, including copyright or trademark payments,
@@ -178,17 +192,19 @@ $this->title = 'Offical Rules';
                         identical to your Eligible Child’s Submission and that neither you nor your Eligible Child are
                         entitled to any compensation for any use by the Sponsor Parties of this similar material.  </p>
                     <ol>
-                        <li><p><strong><u> GENERAL ENTRY CONDITIONS</u></strong>: Sponsor has the right, in its sole
+                        <li>
+                            <p>
+                                <strong><u> GENERAL ENTRY CONDITIONS</u></strong>: Sponsor has the right, in its sole
                             discretion, to maintain the integrity of the Contest including the right to void entries,
                             including, but not limited to, for the following reasons: multiple entries from the same
                             user from different IP addresses or from different email addresses; technical malfunction of
                             servers or internet connection; user(s) recanting their own entries; technical or content
                             upgrades that render entries incompatible or inconsistent; and inappropriate conduct in
-                            promoting entries (spam, harassment, offering prizes or other inducements, etc.).</p>
+                            promoting entries (spam, harassment, offering prizes or other inducements, etc.).
+                            </p>
                         </li>
-
                     </ol>
-                    <p> Entries received from any email account or person in excess of the stated limitations
+                    <p>         Entries received from any email account or person in excess of the stated limitations
                         will be void, as will any entries received in violation of the Official Rules. Entrants are
                         prohibited from submitting entries, by any fraudulent or inappropriate means, as determined by
                         Sponsor in its sole discretion, including, without limitation, offering prizes or other
@@ -203,7 +219,9 @@ $this->title = 'Offical Rules';
                         winner may be disqualified if they are found to have benefited from entries submitted in
                         violation of these Official Rules.</p>
                     <ol start="5">
-                        <li><p><strong><u> CONTEST WINNER DETERMINATION:</u></strong></p></li>
+                        <li>
+                            <p><strong><u> CONTEST WINNER DETERMINATION:</u></strong></p>
+                        </li>
                         <li><p><strong>A) Weekly</strong></p></li>
                     </ol>
                     <p><strong>Six</strong> (6) potential weekly Contest Prize winners (one (1) per Weekly Entry Period)
@@ -224,6 +242,7 @@ $this->title = 'Offical Rules';
                         <tr>
                             <td width="122">
                                 <p><strong>Weekly Entry Period:</strong></p>
+                                <p><strong> </strong></p>
                             </td>
                             <td width="117">
                                 <p><strong>Drawing &amp; Weekly Entry Period Weekly Winner Notification Dates:</strong>
@@ -232,26 +251,19 @@ $this->title = 'Offical Rules';
                         </tr>
                         <tr>
                             <td width="122">
-                                <p><strong>August 2<sup>nd</sup> 12:00PM EST, 2016 to August 8<sup>th</sup> 11:59PM EST,
-                                        2016</strong></p>
-                            </td>
-                            <td width="117">
-                                <p><strong>August 9<sup>th</sup>, 9:00am </strong></p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="122">
                                 <p><strong>August 9<sup>th</sup> 12:00PM EST, 2016 to August 15<sup>th</sup> 11:59PM
                                         EST, 2016</strong></p>
+                                <p>&nbsp;</p>
                             </td>
                             <td width="117">
-                                <p><strong>August 16<sup>th</sup>, 2016 - 9:00am</strong></p>
+                                <p><strong>August 16<sup>th</sup>, 9:00am </strong></p>
                             </td>
                         </tr>
                         <tr>
                             <td width="122">
                                 <p><strong>August 16<sup>th</sup> 12:00PM EST, 2016 to August 22<sup>nd</sup> 11:59PM
                                         EST, 2016</strong></p>
+                                <p>&nbsp;</p>
                             </td>
                             <td width="117">
                                 <p><strong>August 23<sup>rd</sup>, 2016 - 9:00am</strong></p>
@@ -261,6 +273,7 @@ $this->title = 'Offical Rules';
                             <td width="122">
                                 <p><strong>August 23<sup>rd</sup> 12:00PM EST, 2016 to August 29<sup>th</sup> 11:59PM
                                         EST, 2016</strong></p>
+                                <p>&nbsp;</p>
                             </td>
                             <td width="117">
                                 <p><strong>August 30<sup>th</sup>, 2016 - 9:00am</strong></p>
@@ -270,6 +283,7 @@ $this->title = 'Offical Rules';
                             <td width="122">
                                 <p><strong>August 30<sup>th</sup> 12:00PM EST, 2016 to September 5<sup>th</sup> 11:59PM
                                         EST, 2016</strong></p>
+                                <p>&nbsp;</p>
                             </td>
                             <td width="117">
                                 <p><strong>September 6<sup>th</sup>, 2016 - 9:00am</strong></p>
@@ -277,20 +291,32 @@ $this->title = 'Offical Rules';
                         </tr>
                         <tr>
                             <td width="122">
-                                <p><strong>September 6th12:00PM EST, 2016 to September 12<sup>th</sup> 11:59PM EST, 2016</strong>
-                                </p>
+                                <p><strong>September 6<sup>th</sup> 12:00PM EST, 2016 to September 12<sup>th</sup>
+                                        11:59PM EST, 2016</strong></p>
+                                <p>&nbsp;</p>
                             </td>
                             <td width="117">
-                                <p><strong>September 13<sup>th</sup>, 2016 – 9:00am</strong></p>
+                                <p><strong>September 13<sup>th</sup>, 2016 - 9:00am</strong></p>
                             </td>
                         </tr>
                         <tr>
                             <td width="122">
-                                <p><strong>August 2<sup>nd</sup>, 2016, 12:00PM EST, to September 12<sup>th</sup>
+                                <p><strong>September 13<sup>th</sup> 12:00PM EST, 2016 to September 19<sup>th</sup>
                                         11:59PM EST, 2016</strong></p>
+                                <p>&nbsp;</p>
                             </td>
                             <td width="117">
-                                <p><strong>Grand Prize Draw: September 13<sup>th</sup>, 9:00am </strong></p>
+                                <p><strong>September 20<sup>th</sup>, 2016 – 9:00am</strong></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="122">
+                                <p><strong>August 9<sup>th</sup>, 2016, 12:00PM EST, to September 19<sup>th</sup>
+                                        11:59PM EST, 2016</strong></p>
+                                <p><strong> </strong></p>
+                            </td>
+                            <td width="117">
+                                <p><strong>Grand Prize Draw: September 20<sup>th</sup>, 9:00am </strong></p>
                             </td>
                         </tr>
                         </tbody>
@@ -299,14 +325,12 @@ $this->title = 'Offical Rules';
                     <ol>
                         <li><p><strong>B) Grand Prize</strong></p></li>
                     </ol>
-                    <p><strong> </strong></p>
+
                     <p>One (1) potential Grand Prize winner will be randomly selected on or about September
-                        13<sup>th</sup>, 2016, 9:00am EST from all eligible entries received during the Weekly Entry
+                        20<sup>th</sup>, 2016, 9:00am EST from all eligible entries received during the Weekly Entry
                         Periods described above (“Grand Prize Entry Period”). All non-winning weekly submissions will
                         also be included in the Grand Prize drawing.</p>
-                    <p><strong><u> </u></strong></p>
-                    <p><strong><u> </u></strong></p>
-                    <p><strong><u> </u></strong></p>
+                    <p><strong> </strong></p>
                     <ol start="6">
                         <li><p><strong><u> CONTEST PRIZES</u></strong>: Seven (7) Contest Prizes will be awarded:</p></li>
                     </ol>
@@ -314,6 +338,7 @@ $this->title = 'Offical Rules';
                         <li>One (1) Grand Prize Contest Winner will receive $5,000; Prize will be awarded as a cheque.
                         </li>
                     </ul>
+                    <p>&nbsp;</p>
                     <ul>
                         <li>Six (6) Weekly Prize Contest Winners will receive a BIC prize pack chosen by Sponsor and a
                             Wal-Mart or Staples gift card. $150.00 CAD value each.
@@ -327,9 +352,10 @@ $this->title = 'Offical Rules';
                             person/email address/per household. All prize details are at Sponsor’s sole
                             discretion.</strong></p>
                     <ol start="7">
-                        <li><p><strong><u> CONTEST WINNERS VERIFICATION/NOTIFICATION</u></strong>: Potential Grand Prize
+                        <li>
+                            <p><strong><u> CONTEST WINNERS VERIFICATION/NOTIFICATION</u></strong>: Potential Grand Prize
                             and Weekly Contest Winners ("Potential Winners") will be notified by telephone and/or email
-                            on or about August 8, 2016 through September 19, 2016. To be declared an Official Contest
+                            on or about August 8, 2016 through September 20, 2016. To be declared an Official Contest
                             Winner and receive the Contest Prize, the Potential Winner must correctly answer a
                             mathematical skill-testing question. If a Potential Winner is found to be ineligible for any
                             reason, or not in compliance with these Official Rules, declines to accept a prize, or if
@@ -346,18 +372,26 @@ $this->title = 'Offical Rules';
                             alternate Potential Winner. Email notification shall be deemed to have occurred on the date
                             Sponsor or Sponsor’s designee first attempts to make email contact with the Potential
                             Winner. Sponsor is not responsible for any change in entrant's email address or unsuccessful
-                            efforts to notify the Potential Winner.</p>
+                            efforts to notify the Potential Winner.
+                            </p>
                         </li>
-                        <li><p><strong><u> PUBLICITY GRANT</u></strong><strong>:</strong> Submission and/or entry and
-                            acceptance of the Contest Prize constitutes permission for Sponsor to use Contest winner's
-                            (and the applicable Eligible Child’s) name (first name and last initial for the Eligible
-                            Child), age, province/territory, likeness and/or photograph and statements for
-                            advertising/trade and all other purposes, in any manner, in any and all media, and all media
-                            now or hereafter known worldwide, including the Internet and social networking sites,
-                            without further compensation or notification to, or permission from any Contest winner,
-                            unless prohibited by law in perpetuity.</p>
+                        <li>
+                            <p>
+                            <strong><u> PUBLICITY GRANT</u></strong><strong>:</strong> Submission and/or entry and
+                            acceptance of the Contest Prize constitutes permission for Sponsor to use Eligible Child’s
+                            first name, age and likeness and Contest winners, age, city, province/territory, likeness
+                            and/or photograph and statements for advertising/trade and all other purposes, in any
+                            manner, in any and all media, and all media now or hereafter known worldwide, including the
+                            Internet and social networking sites, without further compensation or notification to, or
+                            permission from any Contest winner, unless prohibited by law in perpetuity.
+                            </p>
                         </li>
-                        <li><p><strong><u> GENERAL CONDITIONS</u></strong>: Entrants, by participating, agree that Sponsor,
+                    </ol>
+                    <p>&nbsp;</p>
+                    <ol start="9">
+                        <li>
+                            <p>
+                            <strong><u> GENERAL CONDITIONS</u></strong>: Entrants, by participating, agree that Sponsor,
                             Administrator, and their respective parents, affiliates, subsidiaries and advertising and
                             promotion agencies and all of their respective officers, directors, employees,
                             representatives and agents (collectively, “Released Parties”) will have no liability
@@ -396,7 +430,8 @@ $this->title = 'Offical Rules';
                             otherwise deemed fair and appropriate by Sponsor. The use of any automated launching or
                             entry software or any other mechanical or electronic means that permits the entrant to
                             automatically enter repeatedly is prohibited. Any entries found or suspected to be submitted
-                            in this manner will be deemed ‘void’ by the Sponsor. </p>
+                            in this manner will be deemed ‘void’ by the Sponsor. 
+                            </p>
                         </li>
                     </ol>
                     <p>&nbsp;</p>
@@ -413,7 +448,8 @@ $this->title = 'Offical Rules';
                         settlement.</p>
                     <p><strong><u> </u></strong></p>
                     <ol start="10">
-                        <li><p><strong><u> DISPUTES</u></strong>: This Contest shall be interrupted in accordance with the
+                        <li>
+                            <p><strong><u> DISPUTES</u></strong>: This Contest shall be interrupted in accordance with the
                             laws of the province of Ontario, without respect to conflict of law doctrines. Except where
                             prohibited by law, as a condition of participating in this Contest, entrants agree that any
                             and all disputes which cannot be resolved between the parties, and causes of action arising
@@ -423,28 +459,31 @@ $this->title = 'Offical Rules';
                             permitted to obtain awards for, and hereby waive all rights to claim punitive, incidental or
                             consequential damages, including attorneys' fees, other than entrant's actual out-of-pocket
                             costs associate with entering the Promotion, and entrant further waives all rights to have
-                            damages multiplied or increased.</p>
+                            damages multiplied or increased.
+                            </p>
                         </li>
-                        <li><p><strong><u> DATA COLLECTION</u></strong>: All Submission information will be held and used
+                        <li>
+                            <p><strong><u> DATA COLLECTION</u></strong>: All Submission information will be held and used
                             in accordance with the Official Rules and Sponsor’s Privacy Policy located at <a
                                 href="http://www.bicfightforyourwrite.ca">www.bicfightforyourwrite.ca</a>.
+                            </p>
                         </li>
-                        <li><strong><u> WINNER’S LIST CONTEST</u></strong>: For the names of the winners (available
+                        <li>
+                            <p><strong><u> WINNER’S LIST CONTEST</u></strong>: For the names of the winners (available
                             after October 14, 2016), send a self-addressed, postage stamped #10 envelope by November 15,
                             2016 to: Winner’s List Request, “BIC Handwriting Challenge ” Contest, 155 Oakdale Rd,
-                            Toronto, Ontario, Canada, M3N1W2</p>
+                            Toronto, Ontario, Canada, M3N1W2
+                            </p>
                         </li>
                     </ol>
-                    <p>&nbsp;</p>
-                    <p>©2016 BIC Inc.</p>
-                    <p><strong> </strong></p>
+                    <p>©2016 BIC Inc.<strong> </strong></p>
                     <p><strong>BIC’s HANDWRITING CHALLENGE</strong> <strong>PROMOTION </strong><strong>ABBREVIATED
                             RULES:</strong></p>
                     <p><strong>NO PURCHASE NECESSARY TO ENTER OR WIN</strong>. The Contest is strictly open to
                         individuals who are legal residents of Canada, who are over the age of majority in their
                         province or territory of residence and a parent and/or legal guardian of a child between the age
-                        of 6 and 18 at the time of entry (“Eligible Child”). The Contest will begin August 2, 2016 at
-                        12:00:01 PM Eastern Time (“ET”) and ends September 12, 2016 at 11:59:59 PM ET ("Contest
+                        of 6 and 18 at the time of entry (“Eligible Child”). The Contest will begin August 9, 2016 at
+                        12:00:01 PM Eastern Time (“ET”) and ends September 19, 2016 at 11:59:59 PM ET ("Contest
                         Submission Period"). Contest Winners will be determined solely by random draw. Odds of winning
                         in the random drawings depend upon the number of eligible entries received. <u>One (1) Contest
                             Submission per person, per week for each Eligible Child (up to a maximum of four (4)
@@ -460,6 +499,6 @@ $this->title = 'Offical Rules';
 
             </div>
         </div>
-      
+
     </div>
 </div>

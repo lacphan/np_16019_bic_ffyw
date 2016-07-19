@@ -44,7 +44,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules'=>[
-
+                '<alias:index|register|submission|gallery>' => 'site/<alias>',
+                '/<slug:\w[\w\-]+>/' => 'page/show-single',
             ]
         ],
         'reCaptcha' => [
