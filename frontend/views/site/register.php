@@ -21,15 +21,10 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
             <div class="registration-content-row">
                 <div class="col-md-3 image-heading">
                     <div class="heading-content">
-                        <?php if ($contestItem): ?>
-                            <?php if ($contestItem->attachment): ?>
-                                <?= $contestItem->attachment->getAttachmentImage() ?>
-                            <?php elseif($weekNumber): ?>
-                                <img
-                                    src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
-                                    alt="Feature" width="364" height="326">
-                            <?php endif; ?>
-                        <?php endif; ?>
+                        <?php if($weekNumber):?>
+                            <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-'.$weekNumber.'/week.png' ?>"
+                                 alt="Feature" width="266" height="220">
+                        <?php endif;?>
                     </div>
                 </div>
                 <div class="col-md-9 intro-heading">
@@ -132,8 +127,8 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
 
                 </div>
                 <div class="form-row">
-                    <?= $form->field($model, 'childFirstName')->textInput(['placeholder' => Yii::t('app', '*' . 'Child’s First Name')])->label(false) ?>
-                    <?= $form->field($model, 'childLastInitial')->textInput(['placeholder' => Yii::t('app', '*' . 'Child’s Last Initial')])->label(false) ?>
+                    <?= $form->field($model, 'childFirstName')->textInput(['placeholder' => Yii::t('app', '*' . 'Your Child\'s Name,')])->label(false) ?>
+                    <?= $form->field($model, 'childLastInitial')->textInput(['placeholder' => Yii::t('app', '*' . 'Your Child\'s Last Initial')])->label(false) ?>
                     <?= $form->field($model, 'age')->textInput(['class' => 'small-input', 'placeholder' => Yii::t('app', 'Age')])->label(false) ?>
                 </div>
                 <div class="form-row">
@@ -163,11 +158,8 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
 
                 </div>
 
-
-
-
-
                 <div class="form-row">
+
                     <?= $form->field($model, 'verificationCode', [
                         'options' => ['class' => 'form-recaptcha'],
                     ])->widget(

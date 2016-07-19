@@ -221,4 +221,51 @@ class CommonAttachment extends \common\models\base\BaseAttachment
         return false;
 
     }
+
+    /**
+     * Function for delete not using image
+     */
+    public static function removeNotUseFile() {
+        $allAttachments = Attachment::find()->all(); /* Get all attachment in database */
+        $uploadPath = Yii::$app->uploadDir;
+        $dh  = opendir($uploadPath);
+
+        $existFile = [];
+        while (false !== ($filename = readdir($dh))) {
+            $existFile[] = $filename;
+        }
+        $fileUsing = [];
+        $tmpAttachment = new CommonAttachment(); /* For get array file size */
+
+        foreach ($allAttachments as $attachment) {
+            $fileLocation = Yii::$app->uploadDir . DIRECTORY_SEPARATOR . $attachment->image;
+            $pathParts = pathinfo($fileLocation);
+            $fileUsing[] = $attachment->image;
+            foreach ($tmpAttachment->arrSize as $key => $size) {
+                $item = $pathParts['filename'] . "-" . $size['width'] . "x" . $size['height'] . "." . $pathParts['extension'];
+                $itemLocation = Yii::$app->uploadDir . DIRECTORY_SEPARATOR . $item;
+                if (file_exists($itemLocation)) {
+                    $fileUsing[] = $item;
+                }
+            }
+
+        }
+        $deleteFile = [];
+        foreach ($existFile as $key => $file) {
+            if(!in_array($file,$fileUsing)) {
+                $deleteFile[] = $file;
+            }
+        }
+        foreach($deleteFile as $key => $file ) {
+            if($file != '.' && $file != '..' && $file != '.gitignore') {
+                $itemLocation = Yii::$app->uploadDir . DIRECTORY_SEPARATOR . $file;
+                if (file_exists($itemLocation)) {
+
+                     unlink($itemLocation);
+                }
+            }
+
+        }
+
+    }
 }

@@ -87,8 +87,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                         </button>
                                     </div>
-                                    <div class="col-md-12 a-center" id="image-gallery-caption">
-                                        This text will be overwritten by jQuery
+                                    <div class="col-md-12 a-center" id="#image-gallery-caption">
+
                                     </div>
                                 </div>
                             </div>

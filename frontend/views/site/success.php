@@ -20,7 +20,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     BIC'S <span>Handwriting</span> Challenge!
                 </div>
                 <div class="content a-center">
-                    Thank you! We have received your entry and if approved it will appear in the gallery within 1-2 business days.  Don’t forget to come back and submit a response for next week’s handwriting challenge!
+                    <p>Thank you! We have received your entry and if approved it will appear in the gallery within 1-2 business days.  Don’t forget to come back and submit a response for next week’s handwriting challenge! If selected as a potential winner, we will contact you via email provided.</p>
+
+                    <p><?=  Html::a(Yii::t('app', '*' . 'Click here for Official Rules'), Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules']),['target' => '_blank','class' => 'color-1'])?></p>
                 </div>
                 <div class="global-btn">
                     <a target="_blank" class="global-btn-inner" href="<?= Yii::$app->urlManager->createUrl(['site/gallery'])?>">GALLERY</a>

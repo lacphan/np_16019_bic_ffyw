@@ -21,6 +21,7 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                 <span class="font-5 color-3 font-size-68 head-line-2">Handwriting</span>
                 <span class="font-2 color-2 head-line-3">Challenge!</span>
             </h1>
+
             <div class="intro">
                 <p>
                     BIC wants you to encourage your kids to write<br/>
@@ -166,11 +167,10 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                                 </button>
                                 <button type="button" id="show-next-image" class="modal-next">
                                     <i class="fa fa-chevron-right" aria-hidden="true"></i>
-
                                 </button>
                             </div>
-                            <div class="col-md-12 a-center" id="image-gallery-caption">
-                                This text will be overwritten by jQuery
+                            <div class="col-md-12 a-center" id="#image-gallery-caption">
+                               
                             </div>
                         </div>
                     </div>
@@ -179,25 +179,45 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
         </div>
         <?= $this->render('_mini-rules') ?>
         <div class="home-instruction">
-            <div class="home-instruction-row">
-                <div class="col-md-4 home-instruction-item item-mission">
-                    <a href="#">
-                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/mission.jpg' ?>"
-                             alt="Mission" width="771" height="390">
-                    </a>
-                </div>
-                <div class="col-md-4 home-instruction-item item-feature">
-                    <a href="#">
-                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/feature.jpg' ?>"
-                             alt="Feature" width="771" height="390">
-                    </a>
-                </div>
-                <div class="col-md-4 home-instruction-item item-action">
-                    <a href="">
-                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/action.jpg' ?>"
-                             alt="Action" width="771" height="390">
-                    </a>
+            <div class="row feature_boxes clearfix">
+                <div class="col-lg-4 col-md-4 column">
+                    <div class="feature_box box1">
+                        <div class="inner">
+                            <h3>THE MISSION</h3>
+                            <div class="image-inner">
+                                <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/mission.png'?>" alt="">
+                           </div>
 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 column">
+                    <div class="feature_box box2">
+                        <div class="inner">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <h3>FEATURED TIP TO<br>INSPIRE WRITING</h3>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 column">
+                    <div class="feature_box box3">
+                        <div class="inner">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <h3>TAKE ACTION</h3>
+                                        <input type="button" class="join_button" value="JOIN NOW!">
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
                 </div>
                 <div class="clearfix"></div>
             </div>
