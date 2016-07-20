@@ -102,11 +102,13 @@
       button {
         border: 0;
         float: left;
-        background: url("../images/enternow.png") center no-repeat;
+        //background: url("../images/enternow.png") center no-repeat;
         background-size: cover;
-        width: 182px;
+        width: 154px;
         height: 47px;
-        color: transparent;
+        //color: transparent;
+        font-size: 26px;
+        border-radius: 5px;
         position: relative;
         &:focus {
           outline: none;
@@ -593,4 +595,7 @@
       outline: none;
     }
   }
+}
+.item-float-left{
+  float: left;
 }
