@@ -10,6 +10,7 @@ use frontend\assets\BootstrapPluginAsset;
 //User::hasLoginBE();
 BootstrapPluginAsset::register($this);
 AppAsset::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

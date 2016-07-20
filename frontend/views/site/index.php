@@ -11,34 +11,63 @@ use yii\bootstrap\Modal;
 $this->title = 'BIC';
 $contestItem = ContestItem::getWeek();
 $weekNumber = $contestItem ? $contestItem->id : 1;
+
 ?>
 <div class="container">
 
     <div class="home-content">
         <div class="home-intro">
-            <h1 class="head-line">
-                <span class="font-2 color-2 head-line-1">Take BIC's</span>
-                <span class="font-5 color-3 font-size-68 head-line-2">Handwriting</span>
-                <span class="font-2 color-2 head-line-3">Challenge!</span>
-            </h1>
+
+            <?php if((Yii::$app->language == 'fr_FR')):?>
+                <h1 class="head-line">
+                    <span class="font-2 color-2 head-line-1">Participez au défi</span>
+                    <span class="font-5 color-3 font-size-68 head-line-2">d'écriture</span>
+                    <span class="font-2 color-2 head-line-3">de BIC!</span>
+                </h1>
+            <?php else:?>
+                <h1 class="head-line">
+                    <span class="font-2 color-2 head-line-1">Take BIC's</span>
+                    <span class="font-5 color-3 font-size-68 head-line-2">Handwriting</span>
+                    <span class="font-2 color-2 head-line-3">Challenge!</span>
+                </h1>
+            <?php endif;?>
+
 
             <div class="intro">
-                <p>
-                    BIC wants you to encourage your kids to write<br/>
-                    more, so we’re giving you a chance to
-                </p>
-                <p>
-                    <span class="font-2 color-1 font-size-25">WIN $5,000 towards your child’s education,</span><br/>
-                    <span class="font-2 color-3 font-size-25">weekly prizing,</span> and for every submission YOU
-                    make
-                </p>
-                <p>
-                    BIC will <span class="font-2 color-1 font-size-25">DONATE $10</span> to the <a target="_blank"
-                                                                                                   href="https://www.bgccan.com/EN/Pages/default.aspx">Boys
-                        & Girls Clubs of
-                        Canada</a><br/>
-                    <small>(Donation up to a max. of $10,000, with a min. of $5,000!)</small>
-                </p>
+
+                <?php if((Yii::$app->language == 'fr_FR')):?>
+                     DON de 10 $ à Repaires jeunesse du Canada.
+                    <p>
+                        BIC veut que vous encouragiez vos enfants à écrire davantage.
+                        Nous vous donnons donc la chance de
+                    </p>
+                    <p>
+                        <span class="font-2 color-1 font-size-25">GAGNER 5 000 $ pour l'éducation de votre enfant ainsi que des </span><br/>
+                        <span class="font-2 color-3 font-size-25">prix hebdomadaires.</span> De plus, pour chaque participation,
+                    </p>
+                    <p>
+                        BIC fera un <span class="font-2 color-1 font-size-25">DON de 10 $</span> à  <a target="_blank"
+                                                                                                       href="https://www.bgccan.com/FR/Pages/default.aspx">Repaires jeunesse du Canada.</a><br/>
+                        <small>(Donation up to a max. of $10,000, with a min. of $5,000!)</small>
+                    </p>
+                <?php else:?>
+                    <p>
+                        BIC wants you to encourage your kids to write<br/>
+                        more, so we’re giving you a chance to
+                    </p>
+                    <p>
+                        <span class="font-2 color-1 font-size-25">WIN $5,000 towards your child’s education,</span><br/>
+                        <span class="font-2 color-3 font-size-25">weekly prizing,</span> and for every submission YOU
+                        make
+                    </p>
+                    <p>
+                        BIC will <span class="font-2 color-1 font-size-25">DONATE $10</span> to the <a target="_blank"
+                                                                                                       href="https://www.bgccan.com/EN/Pages/default.aspx">Boys
+                            & Girls Clubs of
+                            Canada</a><br/>
+                        <small>(Donation up to a max. of $10,000, with a min. of $5,000!)</small>
+                    </p>
+                <?php endif;?>
                 <div class="subscribe-form">
                     <div class="subscribe-form-inner">
                         <?php $form = ActiveForm::begin(['id' => 'home-email-checker']) ?>
@@ -196,7 +225,7 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                                 </button>
                             </div>
                             <div class="col-md-12 a-center" id="#image-gallery-caption">
-                               
+
                             </div>
                         </div>
                     </div>
