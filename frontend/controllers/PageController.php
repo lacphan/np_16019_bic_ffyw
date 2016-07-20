@@ -9,7 +9,7 @@ namespace frontend\controllers;
 
 use common\enpii\components\NpController;
 
-class PageController extends NpController
+class PageController extends FrontendController
 {
     public function actionShowSingle($slug) {
         return $this->render($slug);

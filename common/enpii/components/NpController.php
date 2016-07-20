@@ -11,6 +11,4 @@ use yii\web\Controller;
 
 class NpController extends Controller {
 
-
-
 }
