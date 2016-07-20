@@ -72,7 +72,12 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                     <div class="subscribe-form-inner">
                         <?php $form = ActiveForm::begin(['id' => 'home-email-checker']) ?>
                         <?= $form->field($emailSubmission, 'email')->textInput(['maxlength' => true, 'placeholder' => Yii::t('app', 'Email Address')]) ?>
-                        <?= Html::submitButton('Submit') ?>
+                        <div class="global-btn item-float-left">
+
+                        <?= Html::submitButton(
+                            Yii::t(_NP_TEXT_DOMAIN,'Enter Now'),
+                            ['class'=>'global-btn-inner']) ?>
+                        </div>
                         <div class="clearfix"></div>
 
                         <?php ActiveForm::end(); ?>
@@ -80,10 +85,14 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                     <div class="form-arrow"></div>
                 </div>
                 <div class="intro-link">
-                     No Purch Nec., CAD only, Age of Majority in Prov./Territ. of Res. Ends 09/19/2016. <a
-                        target="_blank"
-                        href="<?= Yii::$app->urlManager->createUrl(['page/show-single', 'slug' => 'official-rules']) ?>">Click
-                        Here for Official Rules.</a>
+                     <?= Yii::t(_NP_TEXT_DOMAIN,'© 2016 BIC Inc. No Purch Nec., CAD only, Age of Majority in Prov./Territ.  Of Res. Ends 09/12/2016.') ?> 
+                    <p>
+                        <a
+                            target="_blank"
+                            href="<?= Yii::$app->urlManager->createUrl(['page/show-single', 'slug' => 'official-rules']) ?>">
+                            <?= Yii::t(_NP_TEXT_DOMAIN, 'Click Here for Official Rules.') ?>
+                        </a>
+                    </p>
                 </div>
             </div>
 
@@ -93,11 +102,10 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                 <div class="hand-writing-content">
                     <div class="left-content">
                         <a href="#" class="title weekly-text-nav" >
-                            <span class="font-1">This week's</span>
-                            <span  class="font-2">handwriting</span>
-                            <span  class="font-1">challenge!</span>
+                            <span class="font-1"><?= Yii::t(_NP_TEXT_DOMAIN, "This week's") ?></span>
+                            <span  class="font-2"><?= Yii::t(_NP_TEXT_DOMAIN, "handwriting") ?></span>
+                            <span  class="font-1"><?= Yii::t(_NP_TEXT_DOMAIN, "challenge!")?></span>
                         </a>
-
                     </div>
 
                     <div class="right-content">
@@ -127,9 +135,9 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                 <div class="hand-writing-content">
                     <div class="left-content">
                         <div class="title">
-                            <label for="">This week's</label>
-                            <span>handwriting</span>
-                            <label>challenge!</label>
+                            <label for=""><?= Yii::t(_NP_TEXT_DOMAIN, "This week's")?></label>
+                            <span><?= Yii::t(_NP_TEXT_DOMAIN, "handwriting")?></span>
+                            <label><?= Yii::t(_NP_TEXT_DOMAIN, "challenge!")?></label>
                         </div>
 
                     </div>
