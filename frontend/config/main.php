@@ -58,6 +58,7 @@ return [
             'showScriptName' => false,
             'rules'=>[
                 '<alias:index|register|submission|gallery>' => 'site/<alias>',
+                '/<locale:\w+>/<slug:\w[\w\-]+>/<id:\d+>' => 'page/show-single',
                 '/<slug:\w[\w\-]+>/' => 'page/show-single',
             ]
         ],

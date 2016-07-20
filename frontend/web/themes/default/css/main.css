@@ -762,11 +762,13 @@ img {
   border: 0;
   float: left;
   background-size: cover;
-  width: 154px;
-  height: 47px;
+  width: 156px;
+  min-height: 47px;
   font-size: 26px;
   border-radius: 5px;
   position: relative;
+  line-height: 26px;
+  text-transform: uppercase;
 }
 .home-content .home-intro .subscribe-form button:focus {
   outline: none;
