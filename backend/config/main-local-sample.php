@@ -1,21 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * Author: npbtrac@yahoo.com
- * Date time: 6/29/16 5:43 PM
- */
+
 $config = [
 
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'lA_Zj09v7R-189AhjEtSgM1lpom5X1jT',
-            'baseUrl' => '/backend',
+            'baseUrl' => '/admin',
 
         ],
         'urlManager' => [
             'class' => 'yii\web\UrlManager',
-            'baseUrl' => '/backend',
+            'baseUrl' => '/admin',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
         ],

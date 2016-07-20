@@ -8,7 +8,7 @@ RewriteRule ^(frontend|backend|api)/web/ - [L]
 
 # Handle the case of backend, skip ([S=1]) the following rule, if current matched
 RewriteRule ^api(/(.*))?$ api/web/$2 [S=1]
-RewriteRule ^backend(/(.*))?$ backend/web/$2 [S=1]
+RewriteRule ^admin(/(.*))?$ backend/web/$2 [S=1]
 
 # handle the case of frontend
 RewriteCond %{REQUEST_URI}  !(uploads) [NC]
