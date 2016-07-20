@@ -20,7 +20,7 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
 
             <?php if((Yii::$app->language == 'fr_FR')):?>
                 <h1 class="head-line">
-                    <span class="font-2 color-2 head-line-1">Participez au défi</span>
+                    <span class="font-2 color-2 head-line-1">Participez au défi</span><br/>
                     <span class="font-5 color-3 font-size-68 head-line-2">d'écriture</span>
                     <span class="font-2 color-2 head-line-3">de BIC!</span>
                 </h1>

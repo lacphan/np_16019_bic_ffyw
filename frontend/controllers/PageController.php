@@ -11,15 +11,20 @@ use frontend\models\PageItem;
 use yii\web\NotFoundHttpException;
 class PageController extends FrontendController
 {
-    public function actionShowSingle($slug,$id) {
+    public function actionShowSingle($slug,$id = null) {
 
-
-        $model = $this->findModel($id);
 
         if (is_readable($this->getViewPath() . '/' . $slug . '.php')) {
-            return $this->render($slug,[
-                'model'=> $model
-            ]);
+            if($id) {
+                $model = $this->findModel($id);
+                if($model) {
+                    return $this->render($slug,[
+                        'model'=> $model
+                    ]);
+                }
+            }
+
+            return $this->render($slug);
         }
         throw new \yii\web\NotFoundHttpException();
     }
