@@ -71,7 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'code',
 
                                 [
-                                    'attribute' => 'published_date',
+                                    'attribute' => 'published_at',
                                     'headerOptions' =>  [
                                         'rowspan'   => '1',
                                         'width'     => "20%"

@@ -8,7 +8,7 @@
  */
 
 use yii\bootstrap\Nav;
-
+use frontend\models\PageItem;
 ?>
 <header id="main-header" class="site-header" role="banner">
 
@@ -38,6 +38,8 @@ use yii\bootstrap\Nav;
                             <nav id="site-navigation" class="navbar-collapse collapse" role="navigation">
                                 <div class="menu-primary-menu-container">
                                     <?php
+                                    $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : 'en';
+                                    $pageMenu = new PageItem();
 
                                     $menuItems = [
                                         [
@@ -46,8 +48,7 @@ use yii\bootstrap\Nav;
                                             'items' => [
                                                 ['label' => 'Enter Now', 'url' => Yii::$app->homeUrl],
                                                 ['label' => 'Gallery', 'url' => Yii::$app->urlManager->createUrl(['site/gallery'])],
-                                                ['label' => 'Contest Prizes', 'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=> 'prize-details'])],
-                                                ['label' => 'Official Rules', 'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=> 'official-rules'])],
+                                                ['label' => 'Contest Prizes', 'url' => $pageMenu->getPermalink(['prize-details','locale'=> $locale])],
                                                 ['label' => 'Official Rules', 'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=> 'official-rules'])],
 
                                             ],

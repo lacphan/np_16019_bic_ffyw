@@ -71,6 +71,10 @@ class PageItemController extends \common\enpii\components\NpController
     public function actionCreate()
     {
         $model = new PageItem();
+        $model->setCreatedDate();
+        $model->setUpdatedDate();
+        $model->setPublishedDate();
+        $model->creator_id = 1;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
