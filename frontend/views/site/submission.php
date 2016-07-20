@@ -35,7 +35,7 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                     <div class="intro-heading-inner">
                         <h1 class="head-line">
                             <span class="font-2 color-2 head-line-1">This week's</span>
-                            <span class="font-5 color-3 head-line-2">hand Writing</span>
+                            <span class="font-5 color-3 head-line-2">handwriting</span>
                             <span class="font-2 color-2 head-line-3">challenge!</span>
                         </h1>
                         <div class="intro">

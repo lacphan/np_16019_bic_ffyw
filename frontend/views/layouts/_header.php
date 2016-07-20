@@ -48,6 +48,8 @@ use yii\bootstrap\Nav;
                                                 ['label' => 'Gallery', 'url' => Yii::$app->urlManager->createUrl(['site/gallery'])],
                                                 ['label' => 'Contest Prizes', 'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=> 'prize-details'])],
                                                 ['label' => 'Official Rules', 'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=> 'official-rules'])],
+                                                ['label' => 'Official Rules', 'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=> 'official-rules'])],
+
                                             ],
                                         ],
                                         ['label' => 'The Mission', 'url' => Yii::$app->urlManager->createUrl([''])],

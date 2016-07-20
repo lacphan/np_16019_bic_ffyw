@@ -147,6 +147,13 @@ jQuery(document).on('ready pjax:success',function () {
                 updateGallery($(this));
             });
         }
-
+        $('.weekly-image').click(function (e) {
+            e.preventDefault();
+            $('#weekly-image-popup').modal('show');
+        });
+        $('.weekly-text-nav').click(function (e) {
+            e.preventDefault();
+            $('#home-email-checker').submit();
+        })
     })(jQuery);
 });

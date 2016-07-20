@@ -882,6 +882,9 @@ img {
 }
 .home-content .home-intro .hand-writing .hand-writing-content .left-content .title {
   padding-top: 29px;
+  display: block;
+  text-align: center;
+  text-decoration: none;
 }
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   .home-content .home-intro .hand-writing .hand-writing-content .left-content {
@@ -893,11 +896,14 @@ img {
     vertical-align: middle;
   }
 }
-.home-content .home-intro .hand-writing .hand-writing-content .left-content label {
+.home-content .home-intro .hand-writing .hand-writing-content .left-content .font-1 {
   display: block;
   margin: 0;
+  font-family: "KGSecondChancesSketch";
+  font-size: 26px;
+  line-height: 30px;
 }
-.home-content .home-intro .hand-writing .hand-writing-content .left-content span {
+.home-content .home-intro .hand-writing .hand-writing-content .left-content .font-2 {
   font-family: "Lemonade ICG Bold";
   font-size: 26px;
   color: #ffffff;
@@ -906,7 +912,7 @@ img {
   display: inline-block;
   margin: 0;
 }
-.home-content .home-intro .hand-writing .hand-writing-content .left-content span:before {
+.home-content .home-intro .hand-writing .hand-writing-content .left-content .font-2:before {
   content: '';
   background: url("../images/line-left-icon.png") no-repeat;
   width: 11px;
@@ -917,7 +923,7 @@ img {
   right: 100%;
   margin-right: 5px;
 }
-.home-content .home-intro .hand-writing .hand-writing-content .left-content span:after {
+.home-content .home-intro .hand-writing .hand-writing-content .left-content .font-2:after {
   content: '';
   background: url("../images/line-right-icon.png") no-repeat;
   width: 12px;
@@ -927,11 +933,6 @@ img {
   top: 5px;
   left: 100%;
   margin-left: 5px;
-}
-.home-content .home-intro .hand-writing .hand-writing-content .left-content label {
-  font-family: "KGSecondChancesSketch";
-  font-size: 26px;
-  line-height: 30px;
 }
 .home-content .home-intro .hand-writing .hand-writing-content .right-content {
   width: 50%;
@@ -1242,6 +1243,30 @@ img {
 }
 .feature_boxes .join_button:hover {
   background: #D89905;
+}
+
+#weekly-image-popup .modal-content {
+  border-radius: 0;
+}
+#weekly-image-popup .modal-header {
+  border: 0;
+  padding: 0;
+  height: 0;
+}
+#weekly-image-popup .close-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 50px;
+  color: #19998c;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  z-index: 15;
+  line-height: 26px;
+}
+#weekly-image-popup .close-btn:focus {
+  outline: none;
 }
 
 .registration-content {

@@ -213,6 +213,9 @@
           }
           .title {
             padding-top: 29px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
           }
           @include respond-to-custom-size(768px, 992px) {
             height: 254px;
@@ -222,11 +225,14 @@
               vertical-align: middle;
             }
           }
-          label {
+          .font-1 {
             display: block;
             margin: 0;
+            font-family: "KGSecondChancesSketch";
+            font-size: 26px;
+            line-height: 30px;
           }
-          span {
+          .font-2 {
             font-family: "Lemonade ICG Bold";
             font-size: 26px;
             color: #ffffff;
@@ -257,11 +263,7 @@
               margin-left: 5px;
             }
           }
-          label {
-            font-family: "KGSecondChancesSketch";
-            font-size: 26px;
-            line-height: 30px;
-          }
+
         }
         .right-content {
           width: 50%;
@@ -564,6 +566,31 @@
     text-transform: uppercase;
     &:hover {
       background: #D89905;
+    }
+  }
+}
+#weekly-image-popup {
+  .modal-content {
+    border-radius: 0;
+  }
+  .modal-header {
+    border: 0;
+    padding: 0;
+    height: 0;
+  }
+  .close-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 50px;
+    color: $color1;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    z-index: 15;
+    line-height: 26px;
+    &:focus {
+      outline: none;
     }
   }
 }

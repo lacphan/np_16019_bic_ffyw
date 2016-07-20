@@ -7,7 +7,7 @@
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use frontend\models\ContestItem;
-
+use yii\bootstrap\Modal;
 $this->title = 'BIC';
 $contestItem = ContestItem::getWeek();
 $weekNumber = $contestItem ? $contestItem->id : 1;
@@ -41,7 +41,7 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                 </p>
                 <div class="subscribe-form">
                     <div class="subscribe-form-inner">
-                        <?php $form = ActiveForm::begin() ?>
+                        <?php $form = ActiveForm::begin(['id' => 'home-email-checker']) ?>
                         <?= $form->field($emailSubmission, 'email')->textInput(['maxlength' => true, 'placeholder' => Yii::t('app', 'Email Address')]) ?>
                         <?= Html::submitButton('Submit') ?>
                         <div class="clearfix"></div>
@@ -63,24 +63,26 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                  style="background: url('<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/writing-bg.png' ?>') no-repeat; background-size: contain;">
                 <div class="hand-writing-content">
                     <div class="left-content">
-                        <div class="title">
-                            <label for="">This week's</label>
-                            <span>handwriting</span>
-                            <label>challenge!</label>
-                        </div>
+                        <a href="#" class="title weekly-text-nav" >
+                            <span class="font-1">This week's</span>
+                            <span  class="font-2">handwriting</span>
+                            <span  class="font-1">challenge!</span>
+                        </a>
 
                     </div>
 
                     <div class="right-content">
-                        <?php if ($contestItem): ?>
-                            <?php if ($contestItem->attachment): ?>
-                                <?= $contestItem->attachment->getAttachmentImage() ?>
-                            <?php elseif($weekNumber): ?>
-                                <img
-                                    src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
-                                    alt="Feature" width="364" height="326">
+                        <a class="weekly-image" href="#">
+                            <?php if ($contestItem): ?>
+                                <?php if ($contestItem->attachment): ?>
+                                    <?= $contestItem->attachment->getAttachmentImage() ?>
+                                <?php elseif($weekNumber): ?>
+                                    <img
+                                        src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
+                                        alt="Feature" width="364" height="326">
+                                <?php endif; ?>
                             <?php endif; ?>
-                        <?php endif; ?>
+                        </a>
 
                     </div>
                     <div class="clearfix"></div>
@@ -103,8 +105,17 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
 
                     </div>
                     <div class="right-content">
-                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/home-image-1.png' ?>"
-                             alt="Feature" width="364" height="326">
+                        <a class="image-nav" href="#">
+                            <?php if ($contestItem): ?>
+                                <?php if ($contestItem->attachment): ?>
+                                    <?= $contestItem->attachment->getAttachmentImage() ?>
+                                <?php elseif($weekNumber): ?>
+                                    <img
+                                        src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
+                                        alt="Feature" width="364" height="326">
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        </a>
                     </div>
                     <div class="clearfix"></div>
                     <div class="main-content">
@@ -113,6 +124,21 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                 </div>
             </div>
         </div>
+        <?php
+        Modal::begin([
+            'closeButton' => [
+                'label' => '&times;',
+                'class' => 'close-btn',
+            ],
+            'size' => 'modal-lg',
+            'id' => 'weekly-image-popup',
+            'options' => [
+                'class' => 'fade modal'
+            ]
+        ]);
+        echo '<div id="modalContent"> <img src="'.Yii::$app->urlManager->baseUrl . '/themes/default/images/week-1/week-popup.png"></div>';
+        Modal::end();
+        ?>
         <div class="home-gallery">
             <div class="home-gallery-row">
                 <?php if ($contestSessions): ?>
