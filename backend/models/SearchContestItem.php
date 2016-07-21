@@ -51,7 +51,7 @@ class SearchContestItem extends ContestItem
         $query = ContestItem::find();
 
         $dataProvider = new ActiveDataProvider([
-            'query' => $query,
+            'query' => $query->orderBy(['week_number' => SORT_ASC]),
         ]);
 
         $this->load($params);
@@ -76,7 +76,7 @@ class SearchContestItem extends ContestItem
         $query->orFilterWhere(['like','end_date', $this->globalSearch]);
         $query->orFilterWhere(['like','title', $this->globalSearch]);
         $query->orFilterWhere(['like','description', $this->globalSearch]);
-        
+
         return $dataProvider;
     }
 }

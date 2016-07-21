@@ -41,9 +41,26 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                         <div class="intro">
                             <div class="intro-inner">
                                 <h3>
-                                    <span class="font-5 color-1"><?= Yii::t('app','Week') . ' ' . ContestItem::getWeek()->id ?>: <?= ContestItem::getWeek()->title?></span>
+                                    <span class="font-5 color-1">
+                                        <?= Yii::t(_NP_TEXT_DOMAIN,'Week') . ' ' . ContestItem::getWeek()->id ?>:
+                                        <?php if ($contestItem ): ?>
+                                            <?php if($contestItem->children && Yii::$app->language == 'fr_FR') :?>
+                                                <?= $contestItem->children->title;?>
+                                            <?php else:?>
+                                                <?= $contestItem->title;?>
+                                            <?php endif;?>
+                                        <?php endif;?>
+                                    </span>
                                 </h3>
-                                <?= ContestItem::getWeek()->description?>
+                                <p>
+                                    <?php if ($contestItem ): ?>
+                                        <?php if($contestItem->children && Yii::$app->language == 'fr_FR') :?>
+                                            <?= $contestItem->children->description;?>
+                                        <?php else:?>
+                                            <?= $contestItem->description;?>
+                                        <?php endif;?>
+                                    <?php endif;?>
+                                </p>
                                 <div class="global-btn">
                                     <a target="_blank" class="global-btn-inner" href="<?= Yii::$app->urlManager->createUrl(['site/gallery'])?>">GALLERY</a>
                                 </div>

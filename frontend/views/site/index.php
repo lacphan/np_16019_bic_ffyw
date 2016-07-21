@@ -138,9 +138,13 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                     </div>
                     <div class="clearfix"></div>
                     <div class="main-content">
-                        <?php if ($contestItem): ?>
-                            <?= $contestItem->title ?>
-                        <?php endif; ?>
+                        <?php if ($contestItem ): ?>
+                            <?php if($contestItem->children && Yii::$app->language == 'fr_FR') :?>
+                                <?= $contestItem->children->title;?>
+                            <?php else:?>
+                                <?= $contestItem->title;?>
+                            <?php endif;?>
+                        <?php endif;?>
                     </div>
                 </div>
             </div>
@@ -170,7 +174,13 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                     </div>
                     <div class="clearfix"></div>
                     <div class="main-content">
-                        <?= Yii::t('app', 'Ask your child what THEY would do if they were a principal for a day...') ?>
+                        <?php if ($contestItem ): ?>
+                            <?php if($contestItem->children && Yii::$app->language == 'fr_FR') :?>
+                                <?= $contestItem->children->title;?>
+                            <?php else:?>
+                                <?= $contestItem->title;?>
+                            <?php endif;?>
+                        <?php endif;?>
                     </div>
                 </div>
             </div>

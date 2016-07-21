@@ -8,6 +8,8 @@
  */
 namespace common\enpii\components;
 use Yii;
+use DateTime;
+use DateTimeZone;
 trait NpItemDataSub {
 
     /**
@@ -15,7 +17,7 @@ trait NpItemDataSub {
      * @return string
      */
     public static function getGMTTime() {
-        $dateGMT = new \DateTime(null, new \DateTimeZone("GMT"));
+        $dateGMT = new DateTime(null, new DateTimeZone("GMT"));
         return $dateGMT->format('Y-m-d H:i:s');
     }
 
@@ -60,6 +62,13 @@ trait NpItemDataSub {
 
     public static function convertToLocalTime($gtmTime) {
         return Yii::$app->formatter->asDatetime($gtmTime);
+    }
+
+    public static function convertToGMTTime($localTime) {
+        date_default_timezone_set(Yii::$app->formatter->timeZone);
+        $dateGMT = new DateTime($localTime);
+        $dateGMT->setTimezone(new DateTimeZone("GMT"));
+        return $dateGMT->format('Y-m-d H:i:s');
     }
 
 }

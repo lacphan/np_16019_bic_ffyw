@@ -2,7 +2,9 @@
 use yii\helpers\Html;
 use common\enpii\components\grid\GridView;
 use yii\widgets\Breadcrumbs;
-
+use yii\helpers\ArrayHelper;
+use backend\models\Locale;
+use common\enpii\components\NpItemDataSub;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\SearchContestItem */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -54,12 +56,33 @@ $this->params['breadcrumbs'][] = $this->title;
                             'dataProvider' => $dataProvider,
                             'filterModel' => $searchModel,
                             'columns' => [
-                                ['class' => 'common\enpii\components\grid\CheckboxColumn'], ['class' => 'common\enpii\components\grid\SerialColumn'], 'id',
-                                'start_date',
-                                'end_date',
+                                ['class' => 'common\enpii\components\grid\CheckboxColumn'],
+                                ['class' => 'common\enpii\components\grid\SerialColumn'],
+                                [
+                                    'attribute' => 'locale_id',
+                                    'label' => 'Language',
+                                    'value' => function ($model) {
+                                        return $model->locale->locale;
+                                    },
+                                    'filter'=> ArrayHelper::map(Locale::find()->asArray()->all(),'id','locale')
+                                ],
+                                [
+                                    'attribute' => 'start_date',
+                                    'value' => function ($model) {
+                                        return NpItemDataSub::convertToLocalTime($model->start_date);
+                                    },
+                                ],
+                                [
+                                    'attribute' => 'end_date',
+                                    'value' => function ($model) {
+                                        return NpItemDataSub::convertToLocalTime($model->end_date);
+                                    },
+                                ],
                                 'title',
-//                                'description',
-
+                                [
+                                    'attribute' => 'week_number',
+                                    'label' => 'Week',
+                                ],
                                 ['class' => 'common\enpii\components\grid\ActionColumn'],
                             ],
                         ]); ?>

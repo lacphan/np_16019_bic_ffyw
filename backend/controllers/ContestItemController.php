@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\enpii\components\NpItemDataSub;
 use Yii;
 use backend\models\ContestItem;
 use backend\models\SearchContestItem;
@@ -76,12 +77,25 @@ class ContestItemController extends \common\enpii\components\NpController
         $model = new ContestItem();
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->start_date = NpItemDataSub::convertToGMTTime($model->start_date);
+            $model->end_date = NpItemDataSub::convertToGMTTime($model->end_date);
+            if($model->parent_id) {
+                $parent = $this->findModel($model->parent_id);
+                $model->start_date = $parent->start_date;
+                $model->end_date = $parent->end_date;
+                $model->week_number = $parent->week_number;
+            }
             if ($model->uploadFile) {
                 $attachment = Attachment::uploadFile($this->uploadFile,'image');
                 $model->attachment_id = $attachment->id;
-                $model->save();
+
             }
-            return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->popupFile) {
+                $attachment = Attachment::uploadFile($this->popupFile,'image');
+                $model->popup_id = $attachment->id;
+            }
+            $model->save();
+            return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -100,7 +114,11 @@ class ContestItemController extends \common\enpii\components\NpController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) ) {
+
             $model->uploadFile = UploadedFile::getInstance($model, 'uploadFile');
+            $model->popupFile = UploadedFile::getInstance($model, 'popupFile');
+            $model->start_date = NpItemDataSub::convertToGMTTime($model->start_date);
+            $model->end_date = NpItemDataSub::convertToGMTTime($model->end_date);
             if ($model->uploadFile) {
                 $oldAttachment = $model->attachment;
                 if($oldAttachment) {
@@ -115,8 +133,23 @@ class ContestItemController extends \common\enpii\components\NpController
                     $oldAttachment->delete();
                 }
             }
+
+            if ($model->popupFile) {
+                $oldAttachment = $model->popup;
+                if($oldAttachment) {
+                    $oldAttachment->delete();
+                }
+                $attachment = Attachment::uploadFile($model->popupFile,'image');
+                $model->popup_id = $attachment->id;
+            } else {
+                $model->popup_id = null;
+                $oldAttachment = $model->popup;
+                if($oldAttachment) {
+                    $oldAttachment->delete();
+                }
+            }
             $model->save(false);
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,

@@ -13,6 +13,10 @@ use yii;
  * @property string $title
  * @property string $description
  * @property integer $attachment_id
+ * @property integer $locale_id
+ * @property integer $popup_id
+ * @property integer $parent_id
+ * @property integer $week_number
  *
  * @property BaseAttachment $attachment
  * @property BaseContestSession[] $contestSessions
@@ -34,7 +38,7 @@ class BaseContestItem extends \common\enpii\components\NpActiveRecord
     {
         return [
             [['start_date', 'end_date'], 'safe'],
-            [['attachment_id'], 'integer'],
+            [['attachment_id', 'locale_id', 'popup_id', 'parent_id', 'week_number'], 'integer'],
             [['title', 'description'], 'string', 'max' => 255]
         ];
     }
@@ -51,6 +55,10 @@ class BaseContestItem extends \common\enpii\components\NpActiveRecord
             'title' => Yii::t('app', 'Title'),
             'description' => Yii::t('app', 'Description'),
             'attachment_id' => Yii::t('app', 'Attachment ID'),
+            'locale_id' => Yii::t('app', 'Locale ID'),
+            'popup_id' => Yii::t('app', 'Popup ID'),
+            'parent_id' => Yii::t('app', 'Parent ID'),
+            'week_number' => Yii::t('app', 'Week Number'),
         ];
     }
 
