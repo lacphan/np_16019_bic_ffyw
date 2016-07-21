@@ -11,7 +11,7 @@ use yii\bootstrap\Modal;
 
 $this->title = 'BIC';
 $contestItem = ContestItem::getWeek();
-$weekNumber = $contestItem ? $contestItem->id : 1;
+$weekNumber = $contestItem ? $contestItem->week_number : 1;
 
 ?>
 <div class="container">

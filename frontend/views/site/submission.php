@@ -12,7 +12,7 @@ use kartik\file\FileInput;
 $this->title = 'Submission';
 $this->params['breadcrumbs'][] = $this->title;
 $contestItem = ContestItem::getWeek();
-$weekNumber = $contestItem ? $contestItem->id : 1;
+$weekNumber = $contestItem ? $contestItem->week_number : 1;
 ?>
 <div class="site-signup">
     <div class="container">

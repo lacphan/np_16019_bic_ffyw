@@ -53,8 +53,21 @@ use frontend\models\PageItem;
 
                                             ],
                                         ],
-                                        ['label' => 'The Mission', 'url' => Yii::$app->urlManager->createUrl([''])],
-                                        ['label' => 'Take Action', 'url' => Yii::$app->urlManager->createUrl([''])],
+                                        [
+                                            'label' => 'The Mission',
+                                            'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=> 'mission']),
+                                            'items' => [
+                                                [
+                                                    'label' => Yii::t(_NP_TEXT_DOMAIN, 'Boys and Girls Club of Canada'),
+                                                    'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=>'boy-and-girl-of-canada'])
+                                                ],
+
+                                            ],
+                                        ],
+                                        [
+                                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Write Now'),
+                                            'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=>'write-now'])
+                                        ],
                                         ['label' => 'Products', 'url' => Yii::$app->urlManager->createUrl([''])],
                                         [
                                             'label' => false,

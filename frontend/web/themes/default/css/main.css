@@ -178,7 +178,7 @@ img {
 }
 
 .contents {
-  background: url("../images/bg-paper.jpg") center;
+  background: url("../images/bg-paper.jpg") 0 0;
   background-size: 100% auto;
   background-repeat: repeat-y;
   padding: 43px 0 0 0;

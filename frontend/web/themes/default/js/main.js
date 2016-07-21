@@ -1,5 +1,15 @@
 jQuery(document).on('ready pjax:success',function () {
     (function ($) {
+        $('.panel-collapse').on('hide.bs.collapse', function () {
+            $(this).parent().find('.glyphicon-triangle-right').show();
+            $(this).parent().find('.glyphicon-triangle-bottom').hide();
+        });
+
+        $('.panel-collapse').on('show.bs.collapse', function () {
+            $(this).parent().find('.glyphicon-triangle-right').hide();
+            $(this).parent().find('.glyphicon-triangle-bottom').show();
+        });
+
         $(".select2").select2();
         var imageLoader = document.getElementById('imageLoader');
         if(imageLoader) {
