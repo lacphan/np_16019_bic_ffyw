@@ -6,7 +6,7 @@
  * Time: 11:37 AM
  */
 
-$this->title = 'Offical Rules';
+$this->title = 'Boy And Girl Of Canada';
 ?>
 <div class="site-signup tmpl-official-rules">
     <div class="how_bic_is_helping">

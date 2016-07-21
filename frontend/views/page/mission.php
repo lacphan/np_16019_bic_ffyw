@@ -6,7 +6,7 @@
  * Time: 11:37 AM
  */
 
-$this->title = 'Offical Rules';
+$this->title = 'The Mission';
 ?>
 <div class="site-signup tmpl-official-rules">
     <div class="mission">
@@ -36,7 +36,7 @@ $this->title = 'Offical Rules';
                             <div class="video_container">
                                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/yx6tellQ5dk?rel=0&amp;controls=0&amp;showinfo=0;autoplay=0" frameborder="0" allowfullscreen></iframe>
                             </div>
-                            <div class="video_link"><a href="video_transcript.php">Text Transcript</a></div>
+                            <div class="video_link"><a href="#">Text Transcript</a></div>
                             <div class="how_handwriting_can">
                                 <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'how_handwriting_can.png'?>" alt="How Handwriting Can Make you Awesome!" />
                             </div>
@@ -86,7 +86,7 @@ $this->title = 'Offical Rules';
                                 <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                                     <div class="panel-body">
                                         <div>Handwriting builds a solid foundation for school success. Research shows that handwriting is a foundational skill that can influence student’s reading, writing, language use, and critical thinking.</div>
-                                        <div><a href="https://www.hw21summit.com/media/zb/hw21/H2948_HW_Summit_White_Paper_eVersion.pdf" target="_blank">Learn More</a></div>
+                                        <div><a href="<?= Yii::$app->uploadUrl->baseUrl.'/H2948_HW_Summit_White_Paper_eVersion.pdf'?>" target="_blank">Learn More</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@ $this->title = 'Offical Rules';
                                 <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
                                     <div class="panel-body">
                                         <div>Research has proven that there is a positive correlation between better handwriting skills and increased academic performance in reading and writing. When students spend less time concentrating on the basics of letter formation, "students can better focus on the planning and thought organization that is required for effective composition."</div>
-                                        <div><a href="https://www.hw21summit.com/media/zb/hw21/H2948_HW_Summit_White_Paper_eVersion.pdf" target="_blank">Learn More</a></div>
+                                        <div><a href="<?= Yii::$app->uploadUrl->baseUrl.'/H2948_HW_Summit_White_Paper_eVersion.pdf'?>" target="_blank">Learn More</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@ $this->title = 'Offical Rules';
                                 <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
                                     <div class="panel-body">
                                         <div>In terms of students’ cognitive development, evidence-based research has shown that handwriting skills can influence reading, writing, language and critical thinking.</div>
-                                        <div><a href="https://www.hw21summit.com/media/zb/hw21/H2948_HW_Summit_White_Paper_eVersion.pdf" target="_blank">Learn More</a></div>
+                                        <div><a href="<?= Yii::$app->uploadUrl->baseUrl.'/H2948_HW_Summit_White_Paper_eVersion.pdf'?>" target="_blank">Learn More</a></div>
                                     </div>
                                 </div>
                             </div>

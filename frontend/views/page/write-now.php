@@ -6,7 +6,7 @@
  * Time: 11:37 AM
  */
 
-$this->title = 'Offical Rules';
+$this->title = 'Write Now';
 ?>
 <div class="site-signup tmpl-official-rules">
     <div class="write_now">
@@ -34,7 +34,7 @@ $this->title = 'Offical Rules';
                     <div class="col-lg-4 col-md-4">
                         <div class="downloadable">
                             <div class="get_list">Get Your <em>Downloadable</em> Back to School Shopping List Here!</div>
-                            <div><a href="pdf/BIC_BackToSchool_Checklist-en.pdf" target="_blank"  class="button_blue">DOWNLOAD</a></div>
+                            <div><a href="<?= Yii::$app->uploadUrl->baseUrl.'/BIC_BackToSchool_Checklist-en.pdf' ?>" target="_blank"  class="button_blue">DOWNLOAD</a></div>
 
                             <div class="pencil_purple"><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'pencil_purple.png'?>" alt="" /></div>
                         </div>

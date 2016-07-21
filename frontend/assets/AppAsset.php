@@ -25,11 +25,13 @@ class AppAsset extends AssetBundle
         'themes/default/css/fonts.css',
         'themes/default/libs/jquery-ui/jquery-ui.min.css',
         'themes/default/libs/timepicker/jquery.timepicker.css',
+        'themes/default/css/bootstrap.min.css',
         'themes/default/css/page_mission.css',
         'themes/default/css/page_boy_girl_canada.css',
         'themes/default/css/write_now.css',
         'themes/default/css/main.css',
     ];
+
     public $js = [
         'assets-enpii/global/plugins/select2/js/select2.min.js',
         'assets-enpii/global/plugins/colorbox-master/jquery.colorbox-min.js',
