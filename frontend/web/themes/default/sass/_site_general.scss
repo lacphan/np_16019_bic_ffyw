@@ -164,3 +164,38 @@ img {
     }
   }
 }
+.contents {
+  background: url("../images/bg-paper.jpg") center ;
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+  padding: 43px 0 0 0;
+  position: relative;
+}
+[class*='doodle-']{
+  position: absolute;
+}
+.doodle-1 {
+  width: 26px;
+  height: 27px;
+  background: url("../images/doodle-1.png");
+}
+.doodle-2 {
+  width: 31px;
+  height: 32px;
+  background: url("../images/doodle-2.png");
+}
+.doodle-3 {
+  width: 28px;
+  height: 29px;
+  background: url("../images/doodle-3.png");
+}
+.doodle-4 {
+  width: 61px;
+  height: 60px;
+  background: url("../images/doodle-4.png");
+}
+.doodle-5 {
+  width: 61px;
+  height: 60px;
+  background: url("../images/doodle-5.png");
+}

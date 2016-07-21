@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?= Html::a('ENTER NOW', Yii::$app->urlManager->createUrl(['site/index']), ['class' => 'global-btn-inner']) ?>
                     </span>
                 </div>
-                <div class="home-gallery">
+                <div class="gallery-wrapper">
                     <?= $this->render('_search', ['model' => $searchModel]) ?>
                     <div class="home-gallery-row">
                         <?php if ($contestSessions): ?>

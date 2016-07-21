@@ -10,8 +10,13 @@ $this->title = 'Offical Rules';
 ?>
 <div class="site-signup">
     <div class="container">
-        <div class="registration-content">
-            <div class="success-content">
+        <div class="contents">
+            <div class="doodle-1"></div>
+            <div class="doodle-2"></div>
+            <div class="doodle-3"></div>
+            <div class="doodle-4"></div>
+            <div class="doodle-5"></div>
+            <div class="success-content ">
                 <h1 class="font-5 color-3">BIC’s HANDWRITING CHALLENGE PROMOTION</h1>
                 <div class="title">
                     <span><?= Yii::t('app', 'Official Rules') ?></span>

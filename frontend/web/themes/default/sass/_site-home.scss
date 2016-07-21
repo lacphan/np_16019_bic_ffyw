@@ -574,6 +574,9 @@
   }
 }
 #weekly-image-popup {
+  .modal-dialog {
+    max-width: 600px;
+  }
   .modal-content {
     border-radius: 0;
   }
