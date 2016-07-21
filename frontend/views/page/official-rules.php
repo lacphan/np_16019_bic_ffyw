@@ -45,7 +45,7 @@ $this->title = 'Offical Rules';
                                 Contest is open to individuals who are legal residents of, and reside in, Canada and are
                                 over the age of majority in their province or territory of residence at the time of
                                 entry
-                                and a parent and/or legal guardian of a child age 6 to 18 at the time of entry
+                                and a parent and/or legal guardian of a child age 4 to 18 at the time of entry
                                 (“Eligible
                                 Child”) . <u>Persons in any of the following categories are NOT eligible to enter the
                                     Contest or win a Prize:</u> (a) employees, representatives or agents of Sponsor and

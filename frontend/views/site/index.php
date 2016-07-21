@@ -85,7 +85,7 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                     <div class="form-arrow"></div>
                 </div>
                 <div class="intro-link">
-                     <?= Yii::t(_NP_TEXT_DOMAIN,'© 2016 BIC Inc. No Purch Nec., CAD only, Age of Majority in Prov./Territ.  Of Res. Ends 09/12/2016.') ?> 
+                     <?= Yii::t(_NP_TEXT_DOMAIN,'© 2016 BIC Inc. No Purch Nec., CAD only, Age of Majority in Prov./Territ. of Res. Ends 09/19/2016.') ?> 
                     <p>
                         <a
                             target="_blank"

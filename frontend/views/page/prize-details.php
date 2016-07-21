@@ -5,7 +5,6 @@
  * Date: 7/14/16
  * Time: 11:37 AM
  */
-/* @var $model \frontend\models\PageItem  */
 use yii\helpers\Html;
 
 $this->title = 'Contest Prizes';
@@ -16,10 +15,13 @@ $this->title = 'Contest Prizes';
         <div class="registration-content">
             <div class="success-content">
                 <div class="title">
-                    <span><?= $model->name ?></span>
+                    <span><?= Yii::t('app', 'Contest Prizes') ?></span>
                 </div>
                 <div class="content">
-                    <?= $model->description ?>
+                    <p>One (1) Grand Prize Contest winner will receive $5,000; prize will be awarded as a cheque.</p>
+
+                    <p>Six (6) Weekly Prize Contest Winners will receive a $150 gift card (from a National Retailer) and a BIC Product Prize pack valued at $50.00 each.</p>
+
                     <p>
                         <?=  Html::a(Yii::t('app', '*' . 'Click here for Official Rules'), Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules']),['target' => '_blank','class' => 'color-1'])?>
                     </p> 
