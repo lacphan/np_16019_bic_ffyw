@@ -25,6 +25,9 @@ class AppAsset extends AssetBundle
         'themes/default/css/fonts.css',
         'themes/default/libs/jquery-ui/jquery-ui.min.css',
         'themes/default/libs/timepicker/jquery.timepicker.css',
+        'themes/default/css/page_mission.css',
+        'themes/default/css/page_boy_girl_canada.css',
+        'themes/default/css/write_now.css',
         'themes/default/css/main.css',
     ];
     public $js = [

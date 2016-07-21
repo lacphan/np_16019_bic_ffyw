@@ -188,7 +188,7 @@ img {
 }
 
 .contents {
-  background: url("../images/bg-paper.jpg") center;
+  background: url("../images/bg-paper.jpg") 0 0;
   background-size: 100% auto;
   background-repeat: repeat-y;
   padding: 43px 0 0 0;
@@ -2016,6 +2016,31 @@ img {
 .gallery-intro {
   margin-bottom: 30px;
   font-size: 20px;
+}
+
+.tmpl-official-rules .doodle-1 {
+  left: 58%;
+  top: 10px;
+}
+
+.tmpl-official-rules .doodle-2 {
+  right: 2%;
+  top: 367px;
+}
+
+.tmpl-official-rules .doodle-3 {
+  right: 3%;
+  top: 73px;
+}
+
+.tmpl-official-rules .doodle-4 {
+  left: 62.3%;
+  top: -18px;
+}
+
+.tmpl-official-rules .doodle-5 {
+  right: 18%;
+  top: 240px;
 }
 
 /*# sourceMappingURL=main.css.map */
