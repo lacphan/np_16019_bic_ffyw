@@ -170,6 +170,7 @@ img {
   background-repeat: repeat-y;
   padding: 43px 0 0 0;
   position: relative;
+  min-height: 800px;
 }
 [class*='doodle-']{
   position: absolute;
@@ -198,4 +199,7 @@ img {
   width: 61px;
   height: 60px;
   background: url("../images/doodle-5.png");
+}
+#content_wrapper {
+  padding-bottom: 0;
 }

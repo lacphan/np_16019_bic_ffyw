@@ -9,6 +9,7 @@ use yii\bootstrap\ActiveForm;
 use himiklab\yii2\recaptcha\ReCaptcha;
 use frontend\models\ContestItem;
 use kartik\file\FileInput;
+use yii\bootstrap\Modal;
 $this->title = 'Submission';
 $this->params['breadcrumbs'][] = $this->title;
 $contestItem = ContestItem::getWeek();
@@ -21,14 +22,43 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                 <div class="col-md-3 image-heading">
                     <div class="heading-content">
                         <?php if ($contestItem): ?>
-                            <?php if ($contestItem->attachment): ?>
-                                <?= $contestItem->attachment->getAttachmentImage() ?>
-                            <?php elseif($weekNumber): ?>
-                                <img
-                                    src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
-                                    alt="Feature" width="364" height="326">
-                            <?php endif; ?>
+                            <?php if($contestItem->popup): ?>
+                                <a class="weekly-image" href="#">
+                                    <?php if ($contestItem->attachment): ?>
+                                        <?= $contestItem->attachment->getAttachmentImage() ?>
+                                    <?php elseif ($weekNumber): ?>
+                                        <img
+                                            src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
+                                            alt="Feature" width="364" height="326">
+                                    <?php endif; ?>
+                                </a>
+                            <?php else: ?>
+                                <?php if ($contestItem->attachment): ?>
+                                    <?= $contestItem->attachment->getAttachmentImage() ?>
+                                <?php elseif ($weekNumber): ?>
+                                    <img
+                                        src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
+                                        alt="Feature" width="364" height="326">
+                                <?php endif; ?>
+                            <?php endif;?>
                         <?php endif; ?>
+                        <?php
+                        if($contestItem->popup) {
+                            Modal::begin([
+                                'closeButton' => [
+                                    'label' => '&times;',
+                                    'class' => 'close-btn',
+                                ],
+                                'size' => 'modal-lg',
+                                'id' => 'weekly-image-popup',
+                                'options' => [
+                                    'class' => 'fade modal'
+                                ]
+                            ]);
+                            echo '<div id="modalContent"> <img src="'.$contestItem->popup->getAttachmentUrl().'"></div>';
+                            Modal::end();
+                        }
+                        ?>
                     </div>
                 </div>
                 <div class="col-md-9 intro-heading">

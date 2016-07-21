@@ -56,10 +56,12 @@ use frontend\models\PageItem;
                                         [
                                             'label' => 'The Mission',
                                             'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=> 'mission']),
+                                            'linkOptions'=>['data-toggle'=> false],
                                             'items' => [
                                                 [
                                                     'label' => Yii::t(_NP_TEXT_DOMAIN, 'Boys and Girls Club of Canada'),
-                                                    'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=>'boy-and-girl-of-canada'])
+                                                    'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=>'boy-and-girl-of-canada']),
+
                                                 ],
 
                                             ],

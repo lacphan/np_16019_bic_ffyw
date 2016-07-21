@@ -579,11 +579,16 @@
   }
   .modal-content {
     border-radius: 0;
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
   .modal-header {
     border: 0;
     padding: 0;
     height: 0;
+    min-height: 0;
   }
   .close-btn {
     position: absolute;

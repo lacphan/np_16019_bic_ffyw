@@ -2,26 +2,6 @@
 .video_link a{
 	color: #337ab7
 }
-html { position: relative; min-height: 100%; height: 100%; margin: 0; padding: 0}
-body { font-family: 'Open Sans', sans-serif; background: #00aa9e; height: 100%; margin: 0; padding: 0 }
-#wrapper {
-	min-height:100%;
-	position:relative;
-}
-* { outline: none; }
-.purple { color: #9151a0; }
-.blue { color: #039ff8; }
-sub, sup { font-size: 50%; }
-sup { vertical-align: super; top: -0.2em; }
-::-webkit-input-placeholder { color: #333; }
-:-moz-placeholder { color: #333; opacity:  1; }
-::-moz-placeholder { color: #333; }
-:-ms-input-placeholder { color: #333; }
-input[type=text], input[type=email], select { color: #333; }
-input.error, select.error { border: 2px solid red;  }
-#errorsBox { color: red; font-size: 11px; font-weight: normal; }
-#errorsBox label { margin-bottom: 0; display: block; }
-label { display: none; }
 
 /* Bootstrap */
 .container { max-width: 1080px; }
@@ -638,37 +618,3 @@ a.button_blue:hover { background: #9151a0; text-decoration: none}
 
 }
 
-@media(max-width: 667px){
-	.row { margin-left: 0; margin-right: 0}
-	.row [class*='col-'] {
-		padding-right:0;
-		padding-left:0;
-	}
-	#content_wrapper { padding-left: 10px; padding-right: 10px; }
-	.product_type_page .double_tile { max-width: 100%; margin-left: auto; margin-right: auto; }
-	.product_type_page .tile_wide { max-width: 90%; margin-left: auto; margin-right: auto;  height: 280px; }
-	.product_type_page .tile .title { max-width: 100%; padding: 5px; font-size: 21px; }
-	.product_type_page .tile .title_two_lines { font-size: 17px; }
-	.product_type_page .tile_narrow {  float: none; max-width: 90%;  }
-	.product_type_page .tile_narrow_first { margin-right: auto; }
-	.correction .tile .title { font-size: 19px; }
-	.thank_you .banner_inner { padding-left: 0; }
-	.pledges_count_box { width: 100%; }
-	.row .purple_box { padding-left: 10px; padding-right: 10px; }
-	.thank_you .share_support { margin-left: 10px; margin-right: 10px; }
-	.modal-dialog { max-width: 800px; width: 100%; }
-
-}
-@media(min-width: 568px) and (max-width: 666px){
-	.take_action p img { left: -40px; }
-}
-@media(max-width: 480px){
-	.panel-body div { width: 250px; }
-	.panel-group { width: 95%; }
-
-}
-
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-	/* IE10+ CSS styles go here */
-	.index .banner, .contents { margin-top: -40px; }
-}
