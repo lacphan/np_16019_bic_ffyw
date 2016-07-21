@@ -8,7 +8,7 @@
 
 $this->title = 'Offical Rules';
 ?>
-<div class="site-signup">
+<div class="site-signup tmpl-official-rules">
     <div class="container">
         <div class="contents">
             <div class="doodle-1"></div>

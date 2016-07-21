@@ -8,6 +8,7 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use frontend\models\ContestItem;
 use yii\bootstrap\Modal;
+
 $this->title = 'BIC';
 $contestItem = ContestItem::getWeek();
 $weekNumber = $contestItem ? $contestItem->id : 1;
@@ -18,39 +19,41 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
     <div class="home-content">
         <div class="home-intro">
 
-            <?php if((Yii::$app->language == 'fr_FR')):?>
+            <?php if ((Yii::$app->language == 'fr_FR')): ?>
                 <h1 class="head-line">
                     <span class="font-2 color-2 head-line-1">Participez au défi</span><br/>
                     <span class="font-5 color-3 font-size-68 head-line-2">d'écriture</span>
                     <span class="font-2 color-2 head-line-3">de BIC!</span>
                 </h1>
-            <?php else:?>
+            <?php else: ?>
                 <h1 class="head-line">
                     <span class="font-2 color-2 head-line-1">Take BIC's</span>
                     <span class="font-5 color-3 font-size-68 head-line-2">Handwriting</span>
                     <span class="font-2 color-2 head-line-3">Challenge!</span>
                 </h1>
-            <?php endif;?>
+            <?php endif; ?>
 
 
             <div class="intro">
 
-                <?php if((Yii::$app->language == 'fr_FR')):?>
-                     DON de 10 $ à Repaires jeunesse du Canada.
+                <?php if ((Yii::$app->language == 'fr_FR')): ?>
+                    DON de 10 $ à Repaires jeunesse du Canada.
                     <p>
                         BIC veut que vous encouragiez vos enfants à écrire davantage.
                         Nous vous donnons donc la chance de
                     </p>
                     <p>
                         <span class="font-2 color-1 font-size-25">GAGNER 5 000 $ pour l'éducation de votre enfant ainsi que des </span><br/>
-                        <span class="font-2 color-3 font-size-25">prix hebdomadaires.</span> De plus, pour chaque participation,
+                        <span class="font-2 color-3 font-size-25">prix hebdomadaires.</span> De plus, pour chaque
+                        participation,
                     </p>
                     <p>
-                        BIC fera un <span class="font-2 color-1 font-size-25">DON de 10 $</span> à  <a target="_blank"
-                                                                                                       href="https://www.bgccan.com/FR/Pages/default.aspx">Repaires jeunesse du Canada.</a><br/>
+                        BIC fera un <span class="font-2 color-1 font-size-25">DON de 10 $</span> à <a target="_blank"
+                                                                                                      href="https://www.bgccan.com/FR/Pages/default.aspx">Repaires
+                            jeunesse du Canada.</a><br/>
                         <small>(Donation up to a max. of $10,000, with a min. of $5,000!)</small>
                     </p>
-                <?php else:?>
+                <?php else: ?>
                     <p>
                         BIC wants you to encourage your kids to write<br/>
                         more, so we’re giving you a chance to
@@ -67,16 +70,16 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                             Canada</a><br/>
                         <small>(Donation up to a max. of $10,000, with a min. of $5,000!)</small>
                     </p>
-                <?php endif;?>
+                <?php endif; ?>
                 <div class="subscribe-form">
                     <div class="subscribe-form-inner">
                         <?php $form = ActiveForm::begin(['id' => 'home-email-checker']) ?>
                         <?= $form->field($emailSubmission, 'email')->textInput(['maxlength' => true, 'placeholder' => Yii::t('app', 'Email Address')]) ?>
                         <div class="global-btn item-float-left">
 
-                        <?= Html::submitButton(
-                            Yii::t(_NP_TEXT_DOMAIN,'Enter Now'),
-                            ['class'=>'global-btn-inner']) ?>
+                            <?= Html::submitButton(
+                                Yii::t(_NP_TEXT_DOMAIN, 'Enter Now'),
+                                ['class' => 'global-btn-inner']) ?>
                         </div>
                         <div class="clearfix"></div>
 
@@ -85,7 +88,8 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                     <div class="form-arrow"></div>
                 </div>
                 <div class="intro-link">
-                     <?= Yii::t(_NP_TEXT_DOMAIN,'© 2016 BIC Inc. No Purch Nec., CAD only, Age of Majority in Prov./Territ. of Res. Ends 09/19/2016.') ?> 
+                     <?= Yii::t(_NP_TEXT_DOMAIN, '© 2016 BIC Inc. No Purch Nec., CAD only, Age of Majority in Prov./Territ. of Res. Ends 09/19/2016.') ?>
+                     
                     <p>
                         <a
                             target="_blank"
@@ -101,26 +105,36 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                  style="background: url('<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/writing-bg.png' ?>') no-repeat; background-size: contain;">
                 <div class="hand-writing-content">
                     <div class="left-content">
-                        <a href="#" class="title weekly-text-nav" >
+                        <a href="#" class="title weekly-text-nav">
                             <span class="font-1"><?= Yii::t(_NP_TEXT_DOMAIN, "This week's") ?></span>
-                            <span  class="font-2"><?= Yii::t(_NP_TEXT_DOMAIN, "handwriting") ?></span>
-                            <span  class="font-1"><?= Yii::t(_NP_TEXT_DOMAIN, "challenge!")?></span>
+                            <span class="font-2"><?= Yii::t(_NP_TEXT_DOMAIN, "handwriting") ?></span>
+                            <span class="font-1"><?= Yii::t(_NP_TEXT_DOMAIN, "challenge!") ?></span>
                         </a>
                     </div>
 
                     <div class="right-content">
-                        <a class="weekly-image" href="#">
-                            <?php if ($contestItem): ?>
+
+                        <?php if ($contestItem): ?>
+                            <?php if ($weekNumber && ($weekNumber == 4 || $weekNumber == 5)): ?>
+                                <a class="weekly-image" href="#">
                                 <?php if ($contestItem->attachment): ?>
                                     <?= $contestItem->attachment->getAttachmentImage() ?>
-                                <?php elseif($weekNumber): ?>
+                                <?php elseif ($weekNumber): ?>
                                     <img
                                         src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
                                         alt="Feature" width="364" height="326">
                                 <?php endif; ?>
-                            <?php endif; ?>
-                        </a>
-
+                                </a>
+                            <?php else: ?>
+                                <?php if ($contestItem->attachment): ?>
+                                    <?= $contestItem->attachment->getAttachmentImage() ?>
+                                <?php elseif ($weekNumber): ?>
+                                    <img
+                                        src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
+                                        alt="Feature" width="364" height="326">
+                                <?php endif; ?>
+                            <?php endif;?>
+                        <?php endif; ?>
                     </div>
                     <div class="clearfix"></div>
                     <div class="main-content">
@@ -135,9 +149,9 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                 <div class="hand-writing-content">
                     <div class="left-content">
                         <div class="title">
-                            <label for=""><?= Yii::t(_NP_TEXT_DOMAIN, "This week's")?></label>
-                            <span><?= Yii::t(_NP_TEXT_DOMAIN, "handwriting")?></span>
-                            <label><?= Yii::t(_NP_TEXT_DOMAIN, "challenge!")?></label>
+                            <label for=""><?= Yii::t(_NP_TEXT_DOMAIN, "This week's") ?></label>
+                            <span><?= Yii::t(_NP_TEXT_DOMAIN, "handwriting") ?></span>
+                            <label><?= Yii::t(_NP_TEXT_DOMAIN, "challenge!") ?></label>
                         </div>
 
                     </div>
@@ -146,7 +160,7 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                             <?php if ($contestItem): ?>
                                 <?php if ($contestItem->attachment): ?>
                                     <?= $contestItem->attachment->getAttachmentImage() ?>
-                                <?php elseif($weekNumber): ?>
+                                <?php elseif ($weekNumber): ?>
                                     <img
                                         src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
                                         alt="Feature" width="364" height="326">
@@ -173,7 +187,7 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                 'class' => 'fade modal'
             ]
         ]);
-        echo '<div id="modalContent"> <img src="'.Yii::$app->urlManager->baseUrl . '/themes/default/images/week-1/week-popup.png"></div>';
+        echo '<div id="modalContent"> <img src="' . Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week-popup.png"></div>';
         Modal::end();
         ?>
         <div class="home-gallery">
@@ -248,8 +262,9 @@ $weekNumber = $contestItem ? $contestItem->id : 1;
                         <div class="inner">
                             <h3>THE MISSION</h3>
                             <div class="image-inner">
-                                <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/mission.png'?>" alt="">
-                           </div>
+                                <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/mission.png' ?>"
+                                     alt="">
+                            </div>
 
                         </div>
                     </div>
