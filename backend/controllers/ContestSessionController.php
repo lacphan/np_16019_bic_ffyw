@@ -13,7 +13,7 @@ use yii\web\UploadedFile;
 /**
  * ContestSessionController implements the CRUD actions for ContestSession model.
  */
-class ContestSessionController extends \common\enpii\components\NpController
+class ContestSessionController extends BackendController
 {
     public function behaviors()
     {
@@ -91,21 +91,26 @@ class ContestSessionController extends \common\enpii\components\NpController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $oldAttachment = null;
+        $oldAttachment = $model->attachment;
+        $flagAttachment = 0;
         if ($model->load(Yii::$app->request->post()) ) {
+
             $model->uploadFile = UploadedFile::getInstance($model, 'uploadFile');
             if ($model->uploadFile) {
-
-                $oldAttachment = $model->attachment;
-
+                $flagAttachment = 1;
                 $attachment = Attachment::uploadFile($model->uploadFile,'image');
                 $model->attachment_id = $attachment->id;
             }
+            if ($model->attachment_id == '') {
+                $flagAttachment = 1;
+            }
+
             $model->uploadFile = null;
             $model->save();
-            if($oldAttachment) {
+            if($flagAttachment && $oldAttachment) {
                 $oldAttachment->delete();
             }
+
             return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('update', [

@@ -12,7 +12,7 @@ use yii\filters\AccessControl;
 /**
  * PageItemController implements the CRUD actions for PageItem model.
  */
-class PageItemController extends \common\enpii\components\NpController
+class PageItemController extends BackendController
 {
     public function behaviors()
     {

@@ -13,7 +13,6 @@ class ContestItem extends \common\models\CommonContestItem
 {
     public $uploadFile;
     public $popupFile;
-
     /**
      * @inheritdoc
      */

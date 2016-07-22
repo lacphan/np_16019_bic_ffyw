@@ -16,7 +16,7 @@ use yii\web\UploadedFile;
 /**
  * ContestItemController implements the CRUD actions for ContestItem model.
  */
-class ContestItemController extends \common\enpii\components\NpController
+class ContestItemController extends BackendController
 {
     public function behaviors()
     {
@@ -112,40 +112,48 @@ class ContestItemController extends \common\enpii\components\NpController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $oldAttachment = null;
-        $oldPopUp = null;
+        $oldAttachment = $model->attachment;
+        $oldPopUp = $model->popup;
+        $flagAttachment = 0;
+        $flagPopup = 0;
         if ($model->load(Yii::$app->request->post()) ) {
-
             $model->uploadFile = UploadedFile::getInstance($model, 'uploadFile');
             $model->popupFile = UploadedFile::getInstance($model, 'popupFile');
             $model->start_date = NpItemDataSub::convertToGMTTime($model->start_date);
             $model->end_date = NpItemDataSub::convertToGMTTime($model->end_date);
+
+            //Process update attachment
             if ($model->uploadFile) {
-                $oldAttachment = $model->attachment;
-                if($oldAttachment) {
-                    $oldAttachment->delete();
-                }
+                $flagAttachment = 1;
                 $attachment = Attachment::uploadFile($model->uploadFile,'image');
                 $model->attachment_id = $attachment->id;
             }
-            if($oldAttachment) {
-                $oldAttachment->delete();
+            if ($model->attachment_id == '') {
+                $flagAttachment = 1;
             }
 
+
+            //Process update popUp
             if ($model->popupFile) {
-                $oldPopUp = $model->popup;
-                if($oldPopUp) {
-                    $oldPopUp->delete();
-                }
+                $flagPopup = 1;
                 $attachment = Attachment::uploadFile($model->popupFile,'image');
                 $model->popup_id = $attachment->id;
             }
-            if($oldPopUp) {
-                $oldPopUp->delete();
+            if ($model->popup_id == '') {
+                $flagPopup = 1;
             }
+
+
             $model->uploadFile = null;
             $model->popupFile = null;
             $model->save(false);
+
+            if($flagAttachment && $oldAttachment) {
+                $oldAttachment->delete();
+            }
+            if($flagPopup && $oldPopUp) {
+                $oldPopUp->delete();
+            }
             return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('update', [
