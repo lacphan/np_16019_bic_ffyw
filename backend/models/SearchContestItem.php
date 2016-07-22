@@ -13,6 +13,7 @@ use backend\models\ContestItem;
  */
 class SearchContestItem extends ContestItem
 {
+
     /**
     * @var $globalSearch
     */

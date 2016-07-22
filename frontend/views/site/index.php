@@ -8,6 +8,8 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use frontend\models\ContestItem;
 use yii\bootstrap\Modal;
+use common\enpii\components\NpItemDataSub;
+use frontend\models\PageItem;
 
 $this->title = 'BIC';
 $contestItem = ContestItem::getWeek();
@@ -102,7 +104,7 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
 
             <div class="sun"></div>
             <div class="hand-writing hand-writing-dk"
-                 style="background: url('<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/writing-bg.png' ?>') no-repeat; background-size: contain;">
+                 style="background: url('<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/writing-bg.png' ?>') no-repeat; background-size: cover;">
                 <div class="hand-writing-content">
                     <div class="left-content">
                         <a href="#" class="title weekly-text-nav">
@@ -220,13 +222,13 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                             <div class="home-gallery-item">
                                 <div class="home-gallery-item-inner">
                                     <div class="home-gallery-item-image"
-                                         style="background: url(<?= $contestSession->attachment->getAttachmentUrl('thumbnail') ?>) center no-repeat; background-size: cover">
+                                         style="background: url(<?= $contestSession->attachment->getAttachmentUrl('medium') ?>) center no-repeat; background-size: cover">
                                         <a class="thumbnail-img" href="#" data-image-id="" data-toggle="modal"
                                            data-title="<?= $contestSession->first_name . ' ' . $contestSession->last_name . ', ' . $contestSession->user->profile->province ?>"
                                            data-caption="<?= $contestSession->user->email ?>"
-                                           data-image="<?= $contestSession->attachment->getAttachmentUrl('large') ?>"
+                                           data-image="<?= $contestSession->attachment->getAttachmentUrl('medium') ?>"
                                            data-target="#image-gallery">
-                                            <?= $contestSession->attachment->getAttachmentImage('large') ?>
+                                            <?= $contestSession->attachment->getAttachmentImage('medium') ?>
                                         </a>
                                     </div>
                                     <div class="home-gallery-item-title">
@@ -292,12 +294,17 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 column">
+                    <?php
+                    $dateGMT = new DateTime(null, new DateTimeZone("GMT"));
+                    $code =  $dateGMT->format('d-m');
+                    $tip = PageItem::findPageLocale($code,Yii::$app->request->get('locale'));
+                    ?>
                     <div class="feature_box box2">
                         <div class="inner">
                             <table>
                                 <tr>
-                                    <td>
-                                        <h3>FEATURED TIP TO<br>INSPIRE WRITING</h3>
+                                    <td class="v-middle">
+                                        <?= $tip ? $tip->description : '<h3>'. Yii::t(_NP_TEXT_DOMAIN,'FEATURED TIP TO INSPIRE WRITING') .'</h3>'?>
                                     </td>
                                 </tr>
                             </table>
@@ -309,9 +316,9 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                         <div class="inner">
                             <table>
                                 <tr>
-                                    <td>
+                                    <td class="v-top join-wrapper">
                                         <h3>TAKE ACTION</h3>
-                                        <input type="button" class="join_button" value="JOIN NOW!">
+                                        <a target="_blank" href="https://www.facebook.com/BICWritingCanada" class="join_button"><?= Yii::t(_NP_TEXT_DOMAIN,'JOIN NOW')?></a>
                                     </td>
                                 </tr>
                             </table>

@@ -36,11 +36,9 @@ $this->title = 'Boy And Girl Of Canada';
                             in our weekly challenges! For every
                             submission, BIC will donate $10 to the Boys
                             and Girls Clubs of Canada and enter you into
-                            a grand prize draw to win a
-                            $5,000 RESP contribution!” Fine print should
-                            read “up to a maximum of
-                            $10,000.</p>
-                        <a href="http://www.breakfastclubcanada.org/" target="_blank" class="button_blue"><?= Yii::t(_NP_TEXT_DOMAIN, 'LEARN MORE ABOUT BREAKFAST CLUB OF CANADA') ?></a>
+                            a grand prize draw to win
+                            $5,000 towards your child's education, in the print, "(up to a maximum of $10,000)"</p>
+                        <a href="http://www.breakfastclubcanada.org/" target="_blank" class="button_blue"><?= Yii::t(_NP_TEXT_DOMAIN, 'LEARN MORE ABOUT BOYS AND GIRLS CLUBS OF CANADA') ?></a>
                     </div>
                 </div>
             </div>

@@ -112,7 +112,8 @@ class ContestItemController extends \common\enpii\components\NpController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        $oldAttachment = null;
+        $oldPopUp = null;
         if ($model->load(Yii::$app->request->post()) ) {
 
             $model->uploadFile = UploadedFile::getInstance($model, 'uploadFile');
@@ -126,28 +127,24 @@ class ContestItemController extends \common\enpii\components\NpController
                 }
                 $attachment = Attachment::uploadFile($model->uploadFile,'image');
                 $model->attachment_id = $attachment->id;
-            } else {
-                $model->attachment_id = null;
-                $oldAttachment = $model->attachment;
-                if($oldAttachment) {
-                    $oldAttachment->delete();
-                }
+            }
+            if($oldAttachment) {
+                $oldAttachment->delete();
             }
 
             if ($model->popupFile) {
-                $oldAttachment = $model->popup;
-                if($oldAttachment) {
-                    $oldAttachment->delete();
+                $oldPopUp = $model->popup;
+                if($oldPopUp) {
+                    $oldPopUp->delete();
                 }
                 $attachment = Attachment::uploadFile($model->popupFile,'image');
                 $model->popup_id = $attachment->id;
-            } else {
-                $model->popup_id = null;
-                $oldAttachment = $model->popup;
-                if($oldAttachment) {
-                    $oldAttachment->delete();
-                }
             }
+            if($oldPopUp) {
+                $oldPopUp->delete();
+            }
+            $model->uploadFile = null;
+            $model->popupFile = null;
             $model->save(false);
             return $this->redirect(['update', 'id' => $model->id]);
         } else {

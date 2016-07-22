@@ -8,6 +8,8 @@ use backend\models\SearchContestSession;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\AccessControl;
+use backend\models\Attachment;
+use yii\web\UploadedFile;
 /**
  * ContestSessionController implements the CRUD actions for ContestSession model.
  */
@@ -89,9 +91,22 @@ class ContestSessionController extends \common\enpii\components\NpController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $oldAttachment = null;
+        if ($model->load(Yii::$app->request->post()) ) {
+            $model->uploadFile = UploadedFile::getInstance($model, 'uploadFile');
+            if ($model->uploadFile) {
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+                $oldAttachment = $model->attachment;
+
+                $attachment = Attachment::uploadFile($model->uploadFile,'image');
+                $model->attachment_id = $attachment->id;
+            }
+            $model->uploadFile = null;
+            $model->save();
+            if($oldAttachment) {
+                $oldAttachment->delete();
+            }
+            return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,

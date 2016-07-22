@@ -75,7 +75,12 @@
         width: 100%;
         max-width: 401px;
         margin: auto;
-
+        @include respond-to-custom-size(null, 480px) {
+          text-align: center;
+          .item-float-left {
+            float: none;
+          }
+        }
       }
       .form-group {
         width: 201px;
@@ -159,7 +164,7 @@
           float: none;
           margin: 10px auto auto;
           width: 182px;
-          height: 47px;
+          min-height: 47px;
         }
         .form-arrow {
           right: 0;
@@ -187,12 +192,11 @@
       z-index: 1;
       text-align: right;
       width: 426px;
-      height: 240px;
+      min-height: 240px;
       &-mb {
         display: none;
       }
       .hand-writing-content {
-        position: absolute;
         padding: 40px 12px 5px 60px;
         top: 0;
         left: 0;
@@ -508,7 +512,6 @@
     width: 100%;
     tr ,td {
       text-align: center;
-      vertical-align: middle;
     }
   }
   .box1 {
@@ -560,7 +563,6 @@
     }
   }
   .join_button {
-    margin-top: 10px;
     border: 0;
     padding: 10px 30px;
     color: #000;
@@ -568,8 +570,12 @@
     font-size: 18px;
     border-radius: 3px;
     text-transform: uppercase;
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 15px;
     &:hover {
       background: #D89905;
+      text-decoration: none;
     }
   }
 }

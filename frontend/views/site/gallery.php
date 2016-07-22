@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-signup">
     <div class="container">
         <div class="registration-content gallery-tmpl">
-            <div class="success-content">
+            <div class="home-gallery success-content">
                 <div class="title">
                     BIC'S <span>Handwriting</span> Challenge!<br>
                     Gallery
@@ -37,13 +37,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div class="home-gallery-item">
                                         <div class="home-gallery-item-inner">
                                             <div class="home-gallery-item-image"
-                                                 style="background: url(<?= $contestSession->attachment->getAttachmentUrl('thumbnail') ?>) center no-repeat; background-size: cover">
+                                                 style="background: url(<?= $contestSession->attachment->getAttachmentUrl('medium') ?>) center no-repeat; background-size: cover">
                                                 <a class="thumbnail-img" href="#" data-image-id="" data-toggle="modal"
                                                    data-title="<?= $contestSession->first_name . ' ' . $contestSession->last_name . ', ' . $contestSession->user->profile->province ?>"
                                                    data-caption="<?= $contestSession->user->email ?>"
-                                                   data-image="<?= $contestSession->attachment->getAttachmentUrl('large') ?>"
+                                                   data-image="<?= $contestSession->attachment->getAttachmentUrl('medium') ?>"
                                                    data-target="#image-gallery">
-                                                    <?= $contestSession->attachment->getAttachmentImage('large') ?>
+                                                    <?= $contestSession->attachment->getAttachmentImage('medium') ?>
                                                 </a>
                                             </div>
                                             <div class="home-gallery-item-title">

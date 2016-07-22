@@ -53,6 +53,7 @@ use backend\models\Locale;
                                     'options' => ['rows' => 20],
                                     'language' => 'en_CA',
                                     'clientOptions' => [
+                                        'fontSize' => 15,
                                         'plugins' => [
                                             "advlist autolink lists link charmap print preview anchor",
                                             "searchreplace visualblocks code fullscreen",

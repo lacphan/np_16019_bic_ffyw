@@ -129,6 +129,12 @@ img {
 .a-left {
   text-align: left;
 }
+.v-middle {
+  vertical-align: middle;
+}
+.v-top {
+  vertical-align: top;
+}
 .show-on-desktop {
   @include respond-to-custom-size(null,$mobile-break-point) {
     display: none;

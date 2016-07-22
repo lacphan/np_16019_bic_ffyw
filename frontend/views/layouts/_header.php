@@ -9,6 +9,7 @@
 
 use yii\bootstrap\Nav;
 use frontend\models\PageItem;
+use yii\widgets\Menu;
 ?>
 <header id="main-header" class="site-header" role="banner">
 
@@ -45,6 +46,9 @@ use frontend\models\PageItem;
                                         [
                                             'label' => 'Handwriting Challenge',
                                             'url' => Yii::$app->homeUrl,
+                                            'options' => ['class' => 'dropdown'],
+                                            'template' => '<a class="dropdown-toggle" href="{url}" data-toggle="dropdown">{label}<b class="caret"></b></a>',
+                                            'submenuTemplate' => '<ul class="dropdown-menu">{items}</ul>',
                                             'items' => [
                                                 ['label' => 'Enter Now', 'url' => Yii::$app->homeUrl],
                                                 ['label' => 'Gallery', 'url' => Yii::$app->urlManager->createUrl(['site/gallery'])],
@@ -56,7 +60,8 @@ use frontend\models\PageItem;
                                         [
                                             'label' => 'The Mission',
                                             'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=> 'mission']),
-                                            'linkOptions'=>['data-toggle'=> false],
+                                            'template' => '<a href="{url}" >{label}<b class="caret"></b></a>',
+                                            'submenuTemplate' => '<ul class="dropdown-menu">{items}</ul>',
                                             'items' => [
                                                 [
                                                     'label' => Yii::t(_NP_TEXT_DOMAIN, 'Boys and Girls Club of Canada'),
@@ -76,7 +81,7 @@ use frontend\models\PageItem;
                                             'options' => [
                                                 'class' => 'facebook-btn',
                                             ],
-                                            'url' => Yii::$app->urlManager->createUrl([''])
+                                            'url' => 'https://www.facebook.com/BICWritingCanada'
                                         ],
                                         [
                                             'label' => Yii::t('app', 'Français') ,
@@ -87,8 +92,7 @@ use frontend\models\PageItem;
                                         ],
                                     ];
 
-
-                                    echo Nav::widget([
+                                    echo Menu::widget([
                                         'options' => [
                                             'class' => 'menu nav navbar-nav',
                                             'id' => 'menu-primary-menu'

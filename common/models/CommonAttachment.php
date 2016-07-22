@@ -29,8 +29,8 @@ class CommonAttachment extends \common\models\base\BaseAttachment
         parent::__construct();
         $this->arrSize = [
             'large' => ['width' => 1024, 'height' => 1024, 'crop' => false],
-//            'medium' => ['width' => 771, 'height' => 439, 'crop' => false],
-            'thumbnail' => ['width' => 300, 'height' => 300, 'crop' => false]
+            'medium' => ['width' => 480, 'height' => 480, 'crop' => false],
+            'thumbnail' => ['width' => 300, 'height' => 300, 'crop' => true]
         ];
     }
 
@@ -266,6 +266,6 @@ class CommonAttachment extends \common\models\base\BaseAttachment
             }
 
         }
-
     }
+
 }

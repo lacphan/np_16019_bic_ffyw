@@ -70,5 +70,4 @@ trait NpItemDataSub {
         $dateGMT->setTimezone(new DateTimeZone("GMT"));
         return $dateGMT->format('Y-m-d H:i:s');
     }
-
 }
