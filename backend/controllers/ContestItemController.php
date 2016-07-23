@@ -207,4 +207,8 @@ class ContestItemController extends BackendController
         }
         return $this->redirect(['index']);
     }
+
+    public function actionGetGrandPrize() {
+
+    }
 }
