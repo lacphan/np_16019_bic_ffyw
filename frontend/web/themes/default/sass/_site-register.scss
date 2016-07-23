@@ -228,8 +228,11 @@
       }
       .input-instruction {
         display: inline-block;
-        margin-right: 32px;
+        margin-right: 125px;
         margin-bottom: 15px;
+        &:lang(fr_FR){
+          margin-right: 150px;
+        }
       }
       .global-btn {
 

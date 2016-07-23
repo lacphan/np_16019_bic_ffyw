@@ -44,21 +44,32 @@ use yii\widgets\Menu;
 
                                     $menuItems = [
                                         [
-                                            'label' => 'Handwriting Challenge',
+                                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Handwriting Challenge'),
                                             'url' => Yii::$app->homeUrl,
                                             'options' => ['class' => 'dropdown'],
                                             'template' => '<a class="dropdown-toggle" href="{url}" data-toggle="dropdown">{label}<b class="caret"></b></a>',
                                             'submenuTemplate' => '<ul class="dropdown-menu">{items}</ul>',
                                             'items' => [
-                                                ['label' => 'Enter Now', 'url' => Yii::$app->homeUrl],
-                                                ['label' => 'Gallery', 'url' => Yii::$app->urlManager->createUrl(['site/gallery'])],
-                                                ['label' => 'Contest Prizes', 'url' => $pageMenu->getPermalink(['prize-details','locale'=> $locale])],
-                                                ['label' => 'Official Rules', 'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=> 'official-rules'])],
+                                                [
+                                                    'label' => Yii::t(_NP_TEXT_DOMAIN, 'Enter Now'),
+                                                    'url' => Yii::$app->homeUrl
+                                                ],
+                                                [
+                                                    'label' => Yii::t(_NP_TEXT_DOMAIN, 'Gallery'),
+                                                    'url' => Yii::$app->urlManager->createUrl(['site/gallery'])],
+                                                [
+                                                    'label' => Yii::t(_NP_TEXT_DOMAIN, 'Contest Prizes'),
+                                                    'url' => $pageMenu->getPermalink(['prize-details','locale'=> $locale])
+                                                ],
+                                                [
+                                                    'label' => Yii::t(_NP_TEXT_DOMAIN, 'Official Rules'),
+                                                    'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=> 'official-rules'])
+                                                ],
 
                                             ],
                                         ],
                                         [
-                                            'label' => 'The Mission',
+                                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'The Mission'),
                                             'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=> 'mission']),
                                             'template' => '<a href="{url}" >{label}<b class="caret"></b></a>',
                                             'submenuTemplate' => '<ul class="dropdown-menu">{items}</ul>',
@@ -75,7 +86,10 @@ use yii\widgets\Menu;
                                             'label' => Yii::t(_NP_TEXT_DOMAIN, 'Write Now'),
                                             'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=>'write-now'])
                                         ],
-                                        ['label' => 'Products', 'url' => Yii::$app->urlManager->createUrl([''])],
+                                        [
+                                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Products'),
+                                            'url' => Yii::$app->urlManager->createUrl([''])
+                                        ],
                                         [
                                             'label' => false,
                                             'options' => [

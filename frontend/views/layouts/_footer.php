@@ -25,10 +25,22 @@ use frontend\models\PageItem;
                     <?php
 
                     $menuItems = [
-                        ['label' => 'Press', 'url' => Yii::$app->homeUrl],
-                        ['label' => 'Term and Conditions', 'url' => Yii::$app->urlManager->createUrl([''])],
-                        ['label' => 'Privacy Policy', 'url' => Yii::$app->urlManager->createUrl([''])],
-                        ['label' => 'Contact Us', 'url' => Yii::$app->urlManager->createUrl([''])],
+                        [
+                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Press')
+                            , 'url' => Yii::$app->homeUrl
+                        ],
+                        [
+                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Term and Conditions'),
+                            'url' => Yii::$app->urlManager->createUrl([''])
+                        ],
+                        [
+                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Privacy Policy'),
+                            'url' => Yii::$app->urlManager->createUrl([''])
+                        ],
+                        [
+                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Contact Us'),
+                            'url' => Yii::$app->urlManager->createUrl([''])
+                        ],
                     ];
 
 
