@@ -28,3 +28,21 @@
     min-width: 220px;
   }
 }
+.filter-option {
+  .week-filter-option {
+    float: left;
+    form {
+      margin-right: 5px;
+    }
+  }
+  .bulk-option {
+    float: right;
+  }
+  .prize {
+    float: left;
+    form {
+      float: left;
+      margin-right: 5px;
+    }
+  }
+}

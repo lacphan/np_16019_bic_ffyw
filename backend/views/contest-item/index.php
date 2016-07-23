@@ -26,8 +26,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::encode($this->title) ?>
     </h3>
     <div class="portlet light bordered">
-        <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
         <div class="row">
             <div class="col-md-12">
                 <div class="portlet">

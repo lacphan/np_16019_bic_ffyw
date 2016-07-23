@@ -131,7 +131,7 @@ class RegisterForm extends Model
 
             if ($flag) {
                 $contestSession->user_id = $user->id;
-                $contestSession->contest_item_id = ContestItem::getWeek()->id;
+                $contestSession->contest_item_id = ContestItem::getWeek()->week_number;
                 $contestSession->user_email = $this->email;
                 $contestSession->first_name = $this->childFirstName;
                 $contestSession->last_name = $this->childLastInitial;
