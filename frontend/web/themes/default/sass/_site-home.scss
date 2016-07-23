@@ -361,10 +361,36 @@
     display: block;
     min-height: 126px;
     background-color: #1890f3;
-    background-image: url("../images/see-all.png");
+    font-size: 25px;
+    color: #ffffff;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 124px 24px;
+    line-height: 126px;
+    text-align: center;
+    text-decoration: none;
+    padding: 0 45px;
+    .see-all-inner{
+      position: relative;
+      &:before{
+        position: absolute;
+        top: 2px;
+        left: -30px;
+        width: 25px;
+        height: 25px;
+        content: '';
+        background: url("../images/left-see-all.png") no-repeat center;
+      }
+      &:after{
+        position: absolute;
+        top: 2px;
+        right: -30px;
+        width: 25px;
+        height: 25px;
+        content: '';
+        background: url("../images/right-see-all.png") no-repeat center;
+      }
+    }
   }
   @include respond-to-custom-size(null, $mobile-break-point) {
     padding: 0;

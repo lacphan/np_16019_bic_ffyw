@@ -172,7 +172,7 @@ $this->title = 'The Mission';
                         <div class="markers pencil_image"><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'markers.png'?>"  alt="Markers" /></div>
                         <div class="pen pencil_image"><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'pen_2.png'?>" alt="pen" /></div>
                     </div>
-                    <div class="col-lg-3 col-md-3">
+                    <div class="col-lg-3 col-md-3 no-padding-left">
                         <div class="how_bic_helping"><a href="<?= Yii::$app->urlManager->createUrl(['page/show-single','slug'=>'boy-and-girl-of-canada'])?>"><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'BGCC_Logo.png'?>" alt="How BIC is helping BREAKFAST CLUB OF CANADA" /></a></div>
                     </div>
                 </div>
