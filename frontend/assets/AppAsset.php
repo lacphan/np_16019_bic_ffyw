@@ -27,6 +27,7 @@ class AppAsset extends AssetBundle
         'themes/default/libs/timepicker/jquery.timepicker.css',
         'themes/default/css/bootstrap.min.css',
         'themes/default/css/page_mission.css',
+        'themes/default/css/mission_new.css',
         'themes/default/css/page_boy_girl_canada.css',
         'themes/default/css/write_now.css',
         'themes/default/css/main.css',
@@ -40,7 +41,9 @@ class AppAsset extends AssetBundle
         'assets-enpii/global/plugins/jQueryRotate.js',
         'themes/default/libs/jquery-ui/jquery-ui.min.js',
         'themes/default/libs/timepicker/jquery.timepicker.min.js',
-        'themes/default/js/main.js'
+        'themes/default/js/video.js',
+        'themes/default/js/page-mission.js',
+        'themes/default/js/main.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
