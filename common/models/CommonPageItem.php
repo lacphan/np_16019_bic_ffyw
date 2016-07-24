@@ -63,6 +63,7 @@ class CommonPageItem extends \common\models\base\BasePageItem
      * @var $localeItem CommonLocale
      */
     public static function findPageLocale($code,$locale = null) {
+        if (!$locale) $locale = DEFAULT_LOCALE;
         $localeItem = CommonLocale::find()->where(['locale' => $locale])->one();
         $page = CommonPageItem::find()->where(['code' => $code, 'locale_id' => $localeItem->id])->one();
         if($page) {

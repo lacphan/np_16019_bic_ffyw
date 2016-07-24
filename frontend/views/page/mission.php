@@ -10,7 +10,7 @@ $this->title = 'The Mission';
 ?>
 <section id="mission" class="container mission-bk relative">
 	<span id="bkWheel" class="absolute">
-		<img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'bkWheel_03.png'?>"/>
+		<img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'bkWheel_03.png' ?>"/>
 	</span>
     <div class="row">
         <div class="col-xs-12 col-sm-9">
@@ -27,89 +27,137 @@ $this->title = 'The Mission';
             <span class=""></span>
 
             <div id="mission-vid-wrap" class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
-                <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'mission-VidPlaceholder_11.png'?>" class="vidLink" data-vidname="Bic_PSA_Broadcast_-_FINAL"/>
+                <img
+                    src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-VidPlaceholder_11.png' ?>"
+                    class="vidLink" data-vidname="Bic_PSA_Broadcast_-_FINAL"/>
 
                 <span class="hidden-xs visible-md-block visible-lg-block flyout"><h3 class="kg-fall-bd yellow-text">Watch
                         <span class="blk-text">Our</span> Video!
-                    </h3><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'mission-arrows_14.png'?>"/></span>
+                    </h3><img
+                        src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-arrows_14.png' ?>"/></span>
             </div>
 
             <div id="mission-accordion-wrap" class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
                 <div class="panel-group" id="mission-accordion">
                     <div class="panel panel-default">
-                        <a href="#list-itembody-1" class="top col-xs-12" data-parent="#mission-accordion" data-toggle="collapse"><i class="fa fa-2x fa-caret-right col-xs-1 center"></i>
+                        <a href="#list-itembody-1" class="top col-xs-12" data-parent="#mission-accordion"
+                           data-toggle="collapse"><i class="fa fa-2x fa-caret-right col-xs-1 center"></i>
                             <div class="col-xs-1">
-                                <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'mission-icon_03.png'?>"/></div>
+                                <img
+                                    src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-icon_03.png' ?>"/>
+                            </div>
                             <span class="col-xs-10 kg-fall-bd">Improves Cognitive Development</span></a>
                         <div class="col-xs-12 panel-collapse collapse in" id="list-itembody-1">
                             <div class="well-sm panel-body center">
-                                <p class="sans-semi">Experts recommend at least 15 minutes of handwriting instruction each day for students. Research has shown that improved handwriting skills have benefits for cognitive development, motor skills and can lead to improved writing skills and comprehension.</p>
+                                <p class="sans-semi">Experts recommend at least 15 minutes of handwriting instruction
+                                    each day for students. Research has shown that improved handwriting skills have
+                                    benefits for cognitive development, motor skills and can lead to improved writing
+                                    skills and comprehension.</p>
                                 <!--<a href="https://www.zaner-bloser.com/media/zb/zaner-bloser/pdf/hw_hanover.pdf" target="_blank" class="sans-bold learn-more" style="text-decoration:underline">Learn More</a></div>-->
                                 <small>
-                                    <span class="turq-text">Source:</span> Hanover Research (2012). The Importance of Teaching Handwriting in the 21st Century. Washington, DC: Hanover Research
+                                    <span class="turq-text">Source:</span> Hanover Research (2012). The Importance of
+                                    Teaching Handwriting in the 21st Century. Washington, DC: Hanover Research
                                 </small>
                             </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
-                        <a href="#list-itembody-2" class="top col-xs-12" data-parent="#mission-accordion" data-toggle="collapse"><i class="fa fa-2x fa-caret-right col-xs-1 center"></i>
+                        <a href="#list-itembody-2" class="top col-xs-12" data-parent="#mission-accordion"
+                           data-toggle="collapse"><i class="fa fa-2x fa-caret-right col-xs-1 center"></i>
                             <div class="col-xs-1">
-                                <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'mission-icon_06.png'?>"/></div>
+                                <img
+                                    src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-icon_06.png' ?>"/>
+                            </div>
                             <span class="col-xs-10 kg-fall-bd">Builds Self-Confidence</span></a>
                         <div class="btm col-xs-12 panel-collapse collapse" id="list-itembody-2">
                             <div class="well-sm panel-body center">
-                                <p class="sans-semi">"Studies show that children who write frequently, both at school and at home, feel more confident in their writing abilities. This confidence translates into success in all academic subjects and in nonacademic environments as well." – Pam Allyn, Your Child’s Writing Life and "Prepare My Child for School: Early Childhood Education," U.S. Department of Education.</p>
+                                <p class="sans-semi">"Studies show that children who write frequently, both at school
+                                    and at home, feel more confident in their writing abilities. This confidence
+                                    translates into success in all academic subjects and in nonacademic environments as
+                                    well." – Pam Allyn, Your Child’s Writing Life and "Prepare My Child for School:
+                                    Early Childhood Education," U.S. Department of Education.</p>
                             </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
-                        <a href="#list-itembody-3" class="top col-xs-12" data-parent="#mission-accordion" data-toggle="collapse"><i class="fa fa-2x fa-caret-right col-xs-1 center"></i>
+                        <a href="#list-itembody-3" class="top col-xs-12" data-parent="#mission-accordion"
+                           data-toggle="collapse"><i class="fa fa-2x fa-caret-right col-xs-1 center"></i>
                             <div class="col-xs-1">
-                                <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'mission-icon_08.png'?>"/></div>
+                                <img
+                                    src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-icon_08.png' ?>"/>
+                            </div>
                             <span class="col-xs-10 kg-fall-bd">Betters School Performance</span></a>
                         <div class="btm panel-collapse collapse col-xs-12" id="list-itembody-3">
                             <div class="well-sm panel-body center">
-                                <p class="sans-semi">Handwriting builds a solid foundation for school success. Research shows that handwriting is a foundational skill that can influence student’s reading, writing, language use, and critical thinking.</p>
-                                <a href="https://www.hw21summit.com/media/zb/hw21/H2948_HW_Summit_White_Paper_eVersion.pdf" target="_blank" class="sans-bold learn-more" style="text-decoration:underline">Learn More</a>
+                                <p class="sans-semi">Handwriting builds a solid foundation for school success. Research
+                                    shows that handwriting is a foundational skill that can influence student’s reading,
+                                    writing, language use, and critical thinking.</p>
+                                <a href="https://www.hw21summit.com/media/zb/hw21/H2948_HW_Summit_White_Paper_eVersion.pdf"
+                                   target="_blank" class="sans-bold learn-more" style="text-decoration:underline">Learn
+                                    More</a>
                             </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
-                        <a href="#list-itembody-4" class="top col-xs-12" data-parent="#mission-accordion" data-toggle="collapse"><i class="fa fa-2x fa-caret-right col-xs-1 center"></i>
+                        <a href="#list-itembody-4" class="top col-xs-12" data-parent="#mission-accordion"
+                           data-toggle="collapse"><i class="fa fa-2x fa-caret-right col-xs-1 center"></i>
                             <div class="col-xs-1">
-                                <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'mission-icon_10.png'?>"/></div>
+                                <img
+                                    src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-icon_10.png' ?>"/>
+                            </div>
                             <span class="col-xs-10 kg-fall-bd">Helps Reading Skills</span></a>
                         <div class="btm panel-collapse collapse col-xs-12" id="list-itembody-4">
                             <div class="well-sm panel-body center">
-                                <p class="sans-semi">Research has proven that there is a positive correlation between better handwriting skills and increased academic performance in reading and writing. When students spend less time concentrating on the basics of letter formation, "students can better focus on the planning and thought organization that is required for effective composition."</p>
-                                <a href="https://www.hw21summit.com/media/zb/hw21/H2948_HW_Summit_White_Paper_eVersion.pdf" target="_blank" class="sans-bold learn-more" style="text-decoration:underline">Learn More</a>
+                                <p class="sans-semi">Research has proven that there is a positive correlation between
+                                    better handwriting skills and increased academic performance in reading and writing.
+                                    When students spend less time concentrating on the basics of letter formation,
+                                    "students can better focus on the planning and thought organization that is required
+                                    for effective composition."</p>
+                                <a href="https://www.hw21summit.com/media/zb/hw21/H2948_HW_Summit_White_Paper_eVersion.pdf"
+                                   target="_blank" class="sans-bold learn-more" style="text-decoration:underline">Learn
+                                    More</a>
                             </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
-                        <a href="#list-itembody-5" class="top col-xs-12" data-parent="#mission-accordion" data-toggle="collapse"><i class="fa fa-2x fa-caret-right col-xs-1 center"></i>
+                        <a href="#list-itembody-5" class="top col-xs-12" data-parent="#mission-accordion"
+                           data-toggle="collapse"><i class="fa fa-2x fa-caret-right col-xs-1 center"></i>
                             <div class="col-xs-1">
-                                <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'mission-icon_12.png'?>"/></div>
+                                <img
+                                    src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-icon_12.png' ?>"/>
+                            </div>
                             <span class="col-xs-10 kg-fall-bd">Sparks Creativity</span></a>
                         <div class="btm panel-collapse collapse col-xs-12" id="list-itembody-5">
                             <div class="well-sm panel-body center">
-                                <p class="sans-semi">According to an expert in educational psychology from the University of Washington, handwriting instruction benefits students' cognitive development as well as motor functioning. For example, some of the motor and cognitive tasks associated with handwriting are the following: ideation, text production, punctuation, planning, spelling, grammar.</p>
+                                <p class="sans-semi">According to an expert in educational psychology from the
+                                    University of Washington, handwriting instruction benefits students' cognitive
+                                    development as well as motor functioning. For example, some of the motor and
+                                    cognitive tasks associated with handwriting are the following: ideation, text
+                                    production, punctuation, planning, spelling, grammar.</p>
                                 <!--<a href="https://www.zaner-bloser.com/media/zb/zaner-bloser/pdf/hw_hanover.pdf" target="_blank" class="sans-bold learn-more" style="text-decoration:underline">Learn More</a></div>-->
                                 <small>
-                                    <span class="turq-text">Source:</span> Hanover Research (2012). The Importance of Teaching Handwriting in the 21st Century. Washington, DC: Hanover Research
+                                    <span class="turq-text">Source:</span> Hanover Research (2012). The Importance of
+                                    Teaching Handwriting in the 21st Century. Washington, DC: Hanover Research
                                 </small>
                             </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
-                        <a href="#list-itembody-6" class="top col-xs-12" data-parent="#mission-accordion" data-toggle="collapse"><i class="fa fa-2x fa-caret-right col-xs-1 center"></i>
+                        <a href="#list-itembody-6" class="top col-xs-12" data-parent="#mission-accordion"
+                           data-toggle="collapse"><i class="fa fa-2x fa-caret-right col-xs-1 center"></i>
                             <div class="col-xs-1">
-                                <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'mission-icon_14.png'?>"/></div>
+                                <img
+                                    src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-icon_14.png' ?>"/>
+                            </div>
                             <span class="col-xs-10 kg-fall-bd">Sharpens Critical Thinking Skills</span></a>
                         <div class="btm panel-collapse collapse col-xs-12" id="list-itembody-6">
                             <div class="well-sm panel-body center">
-                                <p class="sans-semi">In terms of students’ cognitive development, evidence-based research has shown that handwriting skills can influence reading, writing, language and critical thinking.</p>
-                                <a href="https://www.hw21summit.com/media/zb/hw21/H2948_HW_Summit_White_Paper_eVersion.pdf" target="_blank" class="sans-bold learn-more" style="text-decoration:underline">Learn More</a>
+                                <p class="sans-semi">In terms of students’ cognitive development, evidence-based
+                                    research has shown that handwriting skills can influence reading, writing, language
+                                    and critical thinking.</p>
+                                <a href="https://www.hw21summit.com/media/zb/hw21/H2948_HW_Summit_White_Paper_eVersion.pdf"
+                                   target="_blank" class="sans-bold learn-more" style="text-decoration:underline">Learn
+                                    More</a>
                             </div>
                         </div>
                     </div>
@@ -117,15 +165,18 @@ $this->title = 'The Mission';
 
                 <span class="hidden-xs visible-md-block visible-lg-block flyout"><h3 class="center yellow-text">How Handwriting<br> Can Make<br>
                         <span class="blk-text">YOU</span> Awesome!
-                    </h3><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'mission-arrows_23.png'?>"/></span>
+                    </h3><img
+                        src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-arrows_23.png' ?>"/></span>
 
             </div>
 
             <div id="mission-gauges" class="col-xs-12 show-grid">
-                <span class="flyout hidden-xs visible-md-inline visible-lg-inline"><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'mission-arrow-grn_03.png'?>"/></span>
+                <span class="flyout hidden-xs visible-md-inline visible-lg-inline"><img
+                        src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-arrow-grn_03.png' ?>"/></span>
                 <h2 class="kg-fall-bd center relative turq-text">Know The Facts:
                     <span class="absolute" style="bottom: -14px;width: 100%;left: 0;">
-						<img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'experts_06.png'?>"/>
+						<img
+                            src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'experts_06.png' ?>"/>
 					</span>
                 </h2>
                 <div id="gauges" class="clearfix">
@@ -162,7 +213,8 @@ $this->title = 'The Mission';
                                 </div>
                                 <div class="inner_static"></div>
                             </div>
-                            <p class="sans-bold">grades 4-12 were writing below grade level on a national writing exam</p>
+                            <p class="sans-bold">grades 4-12 were writing below grade level on a national writing
+                                exam</p>
                         </div>
                     </div>
                     <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-0">
@@ -186,28 +238,34 @@ $this->title = 'The Mission';
                 </div>
                 <div>
                     <small class="center full-width"><span class="turq-text">Source:</span>
-                        <a target="_blank" href="http://lib.dr.iastate.edu/cgi/viewcontent.cgi?article=2432&context=etd">http://lib.dr.iastate.edu/cgi/viewcontent.cgi?article=2432&context=etd</a>
+                        <a target="_blank"
+                           href="http://lib.dr.iastate.edu/cgi/viewcontent.cgi?article=2432&context=etd">http://lib.dr.iastate.edu/cgi/viewcontent.cgi?article=2432&context=etd</a>
                     </small>
                 </div>
             </div>
 
             <div id="mission-facts" class="col-xs-12 show-grid relative">
                 <div id="factFrame" class="hidden-xs visible-md-block visible-lg-block full-width">
-                    <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'mission-fact-frame_03.png'?>"/>
+                    <img
+                        src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-fact-frame_03.png' ?>"/>
                 </div>
-                <span class="flyout hidden-xs visible-md-inline visible-lg-inline"><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'mission-arrow-grn_03.png'?>"/></span>
+                <span class="flyout hidden-xs visible-md-inline visible-lg-inline"><img
+                        src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-arrow-grn_03.png' ?>"/></span>
 
                 <div class="mission-fact show-grid col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 show-grid">
-                    <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'mission-fact_22.png'?>" class="blockCenter"/>
+                    <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-fact_22.png' ?>"
+                         class="blockCenter"/>
                     <!--<a href="https://www.zaner-bloser.com/media/zb/zaner-bloser/pdf/hw_hanover.pdf" class="btn btn-primary col-xs-5 col-sm-6" target="_blank">LEARN MORE</a>-->
                 </div>
                 <div class="mission-fact show-grid col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 show-grid">
-                    <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'mission-fact_24.png'?>" class="blockCenter"/>
+                    <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-fact_24.png' ?>"
+                         class="blockCenter"/>
                     <!--    <a href="https://www.zaner-bloser.com/media/zb/zaner-bloser/pdf/hw_hanover.pdf" class="btn btn-primary col-xs-5 col-sm-6" target="_blank">LEARN MORE</a>-->
                 </div>
                 <div>
                     <small class="center col-xs-12" style="margin-top: 10px;" ;>
-                        <span class="turq-text">Source:</span> Hanover Research (2012). The Importance of Teaching Handwriting in the 21st Century. Washington, DC: Hanover Research
+                        <span class="turq-text">Source:</span> Hanover Research (2012). The Importance of Teaching
+                        Handwriting in the 21st Century. Washington, DC: Hanover Research
                     </small>
                 </div>
             </div>
@@ -216,9 +274,13 @@ $this->title = 'The Mission';
 
                 <div id="ability-list" class="col-xs-12">
                     <div class="show-grid relative">
-                        <h3 class="sans-bold">Handwriting engages 14 different abilities<span class="absolute" style="bottom: -14px;width: 100%;left: 0;"><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'experts_06.png'?>" class=""/></span>
+                        <h3 class="sans-bold">Handwriting engages 14 different abilities<span class="absolute"
+                                                                                              style="bottom: -14px;width: 100%;left: 0;"><img
+                                    src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'experts_06.png' ?>"
+                                    class=""/></span>
                         </h3>
-                        <span class="flyout hidden-xs visible-md-inline visible-lg-inline"><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'mission-arrow-grn_03.png'?>"/></span>
+                        <span class="flyout hidden-xs visible-md-inline visible-lg-inline"><img
+                                src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-arrow-grn_03.png' ?>"/></span>
                     </div>
 
                     <div>
@@ -253,16 +315,20 @@ $this->title = 'The Mission';
                     </div>
 
                     <span id="rightPen" class="absolute hidden-xs visible-md-block visible-lg-block">
-			            <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'mission-ability-pens_03.png'?>"/>
+			            <img
+                            src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-ability-pens_03.png' ?>"/>
 		            </span>
                     <span id="leftPen" class="absolute hidden-xs visible-md-block visible-lg-block">
-			            <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'mission-ability-pens_06.png'?>"/>
+			            <img
+                            src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-ability-pens_06.png' ?>"/>
 		            </span>
 
                 </div>
                 <div class="col-xs-12">
                     <small class="center full-width"><span class="turq-text">Source:</span>
-                        <a target="_blank" href="https://www.brainworks.info/2015/08/adhd-and-handwriting-is-there-a-connection/" target="_blank" onclick="_troq.push(
+                        <a target="_blank"
+                           href="https://www.brainworks.info/2015/08/adhd-and-handwriting-is-there-a-connection/"
+                           target="_blank" onclick="_troq.push(
 		            ['_rtgclickaction', 'mission_brainworks'],
 		            ['_rtgclickcat', 'external'],
 		            ['_rtgconversion', '1'],
@@ -274,12 +340,14 @@ $this->title = 'The Mission';
 
         </div>
         <div class="col-xs-12 col-sm-3">
-            <a href="/mission/adopt">
+            <a href="<?= Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'boy-and-girl-of-canada','locale' => Yii::$app->request->get('locale')])?>">
                 <div id="howBic" class="col-xs-6 col-xs-offset-3 col-sm-12 col-sm-offset-0 sidebarBox">
                     <h4 class="center yellow-text kg-fall-bd col-xs-12">How BIC Is Helping</h4>
-                    <img class="blockCenter" src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' .'mission-side-adapt_07.png'?>"/>
+                    <img class="blockCenter"
+                         src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'BGCC_Logo.png' ?>"/>
                 </div>
             </a>
         </div>
 
     </div>
+</section>

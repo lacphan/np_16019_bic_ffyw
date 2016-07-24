@@ -8,3 +8,4 @@
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
 defined('VENDOR_PATH') or define('VENDOR_PATH', dirname(__FILE__) .'/../../../yii2/vendor');
+defined('DEFAULT_LOCALE') or define('DEFAULT_LOCALE', 'en');
