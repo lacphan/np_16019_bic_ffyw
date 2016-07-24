@@ -14,7 +14,6 @@ use frontend\models\PageItem;
 $this->title = 'BIC';
 $contestItem = ContestItem::getWeek();
 $weekNumber = $contestItem ? $contestItem->week_number : 1;
-
 ?>
 <div class="container">
 

@@ -106,7 +106,7 @@ use yii\widgets\Menu;
                                             ],
                                             'url' => Yii::$app->language == 'fr_FR' ? Yii::$app->urlManager->createUrl(['']) :  Yii::$app->urlManager->createUrl(['', 'locale' => 'fr'])
                                         ],
-                                    ]; 
+                                    ];
                                     echo Menu::widget([
                                         'options' => [
                                             'class' => 'menu nav navbar-nav',

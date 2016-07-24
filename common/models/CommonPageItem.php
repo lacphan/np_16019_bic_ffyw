@@ -59,7 +59,7 @@ class CommonPageItem extends \common\models\base\BasePageItem
      * Function get PageItem with code and locale
      * @param $code
      * @param $locale
-     * @return array|null|CommonLocale
+     * @return array|null| CommonPageItem
      * @var $localeItem CommonLocale
      */
     public static function findPageLocale($code,$locale = null) {

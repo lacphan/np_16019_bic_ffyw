@@ -236,6 +236,33 @@ img {
   padding-left: 0;
 }
 
+#out-date-browser .modal-content {
+  border-radius: 0;
+  background: url("../images/bg-paper.jpg") center repeat-x;
+  background-size: 100% auto;
+}
+#out-date-browser .modal-header h3 {
+  font-size: 30.34px;
+  font-family: kg_fall_for_youbold, sans-serif;
+  color: #039ff8;
+  margin: 0;
+}
+#out-date-browser .close-btn {
+  position: absolute;
+  right: 10px;
+  top: 17px;
+  font-size: 50px;
+  color: #19998c;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  z-index: 15;
+  line-height: 26px;
+}
+#out-date-browser .close-btn:focus {
+  outline: none;
+}
+
 .site-header {
   position: relative;
   z-index: 1000;

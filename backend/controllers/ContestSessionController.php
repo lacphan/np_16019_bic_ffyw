@@ -234,11 +234,19 @@ class ContestSessionController extends BackendController
                 $contestSession->is_winner = 0;
                 $contestSession->save();
             }
-            $winners = array_rand($contestSessions,6);
-            foreach ($winners as $key => $winner) {
-                $contestSessions[$winner]->is_winner = 1;
-                $contestSessions[$winner]->save();
+            if(count($contestSessions) > 6) {
+                $winners = array_rand($contestSessions,6);
+                foreach ($winners as $key => $winner) {
+                    $contestSessions[$winner]->is_winner = 1;
+                    $contestSessions[$winner]->save();
+                }
+            } else {
+                foreach ($contestSessions as $key => $winner) {
+                    $winner->is_winner = 1;
+                    $winner->save();
+                }
             }
+
         }
 
     }

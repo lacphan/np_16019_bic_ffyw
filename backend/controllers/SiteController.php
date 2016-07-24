@@ -22,8 +22,6 @@ class SiteController extends BackendController
     /**
      * @inheritdoc
      */
-
-    
     public function behaviors()
     {
         return [

@@ -29,10 +29,11 @@ class CommonContestItem extends \common\models\base\BaseContestItem
         ];
     }
     /**
-     * @return CommonContestItem
+     * @return null CommonContestItem
      */
     public static function getWeek() {
         $day = NpItemDataSub::getGMTTime();
+
         $contestItem = CommonContestItem::find()->where(['<=','start_date',$day])->andWhere(['>=','end_date',$day])->andWhere(['locale_id' => 1])->one();
         if($contestItem) {
             return $contestItem;

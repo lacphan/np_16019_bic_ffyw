@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\SubmissionForm */
+/* @var $contestItem \frontend\models\ContestItem */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
@@ -72,7 +73,7 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                             <div class="intro-inner">
                                 <h3>
                                     <span class="font-5 color-1">
-                                        <?= Yii::t(_NP_TEXT_DOMAIN,'Week') . ' ' . ContestItem::getWeek()->id ?>:
+                                        <?= Yii::t(_NP_TEXT_DOMAIN,'Week') . ' ' . $weekNumber ?>:
                                         <?php if ($contestItem ): ?>
                                             <?php if($contestItem->children && Yii::$app->language == 'fr_FR') :?>
                                                 <?= $contestItem->children->title;?>

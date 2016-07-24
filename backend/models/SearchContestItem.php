@@ -52,7 +52,7 @@ class SearchContestItem extends ContestItem
         $query = ContestItem::find();
 
         $dataProvider = new ActiveDataProvider([
-            'query' => $query->orderBy(['week_number' => SORT_ASC]),
+            'query' => $query->orderBy(['end_date' => SORT_ASC]),
         ]);
 
         $this->load($params);
