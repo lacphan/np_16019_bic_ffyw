@@ -94,18 +94,19 @@ use yii\widgets\Menu;
                                             'label' => false,
                                             'options' => [
                                                 'class' => 'facebook-btn',
+                                                'target'
                                             ],
-                                            'url' => 'https://www.facebook.com/BICWritingCanada'
+                                            'url' => 'https://www.facebook.com/BICWritingCanada',
+                                            'template' => '<a href="{url}" target="_blank">{label}</a>'
                                         ],
                                         [
-                                            'label' => Yii::t('app', 'Français') ,
+                                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Français') ,
                                             'options' => [
                                                 'class' => 'language-switch',
                                             ],
-                                            'url' =>  Yii::$app->urlManager->createUrl(['', 'locale' => 'fr'])
+                                            'url' => Yii::$app->language == 'fr_FR' ? Yii::$app->urlManager->createUrl(['']) :  Yii::$app->urlManager->createUrl(['', 'locale' => 'fr'])
                                         ],
-                                    ];
-
+                                    ]; 
                                     echo Menu::widget([
                                         'options' => [
                                             'class' => 'menu nav navbar-nav',
