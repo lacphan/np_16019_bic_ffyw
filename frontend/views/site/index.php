@@ -296,9 +296,8 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                 </div>
                 <div class="col-lg-4 col-md-4 column">
                     <?php
-                    $dateGMT = new DateTime(null, new DateTimeZone("GMT"));
-                    $code =  $dateGMT->format('d-m');
-                    $tip = PageItem::findPageLocale($code,Yii::$app->request->get('locale'));
+                    $tipNumber = rand( 1, 14);
+                    $tip = PageItem::findPageLocale('tip-'.$tipNumber,Yii::$app->request->get('locale'));
                     ?>
                     <div class="feature_box box2">
                         <div class="inner">
