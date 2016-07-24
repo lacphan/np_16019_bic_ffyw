@@ -290,7 +290,7 @@ input[type=checkbox] {
 }
 .checkbox_substitution {
     display: inline-block;
-    background: #ffffff url('../img/checkboxes.png') no-repeat -32px 0;
+    background: #ffffff url('../images/checkboxes.png') no-repeat -32px 0;
     width: 30px;
     height: 29px;
     margin: 0 4px 2px 2px;
@@ -590,7 +590,7 @@ h1 {
     font-family: 'OpenSansRegular', sans-serif;
 }
 select .form-control-old {
-    background: #ffffff url("../img/promo/dropdown-arrow.png") no-repeat calc(100% - 6px) 8px;
+    background: #ffffff url("../images/dropdown-arrow.png") no-repeat calc(100% - 6px) 8px;
     padding-right: 20px;
 }
 .ie select .form-control-old {
@@ -601,7 +601,7 @@ select .form-control-old {
     padding-right:0;
 }
 select .form-control-old::-ms-value {
-    background: url("../img/promo/dropdown-arrow.png") no-repeat calc(100% - 6px) 8px;
+    background: url("../images/dropdown-arrow.png") no-repeat calc(100% - 6px) 8px;
 }
 .select .form-control-old.error {
     color: red;
@@ -617,7 +617,7 @@ select .form-control-old::-ms-value {
 
 }
 #pledge_block #pledge_inner {
-    background: #ffffff url("../img/pledge/pledge-notebook-bg.jpg") no-repeat top center;
+    background: #ffffff url("../images/pledge-notebook-bg.jpg") no-repeat top center;
     padding: 20px 0 0;
     margin-bottom: 0;
 }
@@ -626,7 +626,7 @@ select .form-control-old::-ms-value {
 }
 #pledge_block #pledge_inner #pledge_words {
     font-size: 17px;
-    background: #f3f3f3 url('../img/pledge/lightning-bolt.png') no-repeat 91% calc(100% - 48px);
+    background: #f3f3f3 url('../images/lightning-bolt.png') no-repeat 91% calc(100% - 48px);
     border-top: #dedede solid 1px;
     border-bottom: #dedede solid 1px;
     margin-top: 20px;
@@ -848,7 +848,6 @@ select .form-control-old::-ms-value {
     border: none;
     outline: none;
     color: #ffffff;
-    text-align: 12px;
     font-family: "OpenSansBold", sans-serif;
     letter-spacing: 1px;
     padding: 8px 14px;
@@ -859,7 +858,7 @@ select .form-control-old::-ms-value {
     color: #fcb514;
 }
 .home #video_button {
-    background: url("../img/promo/video_lockup_mob.jpg") no-repeat center center;
+    background: url("../images/video_lockup_mob.jpg") no-repeat center center;
     background-size: cover;
     height: 410px;
     width: 100%;
@@ -967,7 +966,7 @@ select .form-control-old::-ms-value {
 /* Thank you */
 .thank_you #promo_info .top ,
 .thank_you_vote #promo_info .top {
-    background: url("../img/promo/enter_top_bg.jpg") no-repeat center center;
+    background: url("../images/enter_top_bg.jpg") no-repeat center center;
     background-size: cover;
     width: 100%;
     padding: 20px 0 10px;
@@ -1109,7 +1108,7 @@ select .form-control-old::-ms-value {
 
 /* Voting */
 .voting #voteContent {
-    background: #f3f3f3 url("../img/promo/votingdoodles-bg.png") no-repeat center 50px;
+    background: #f3f3f3 url("../images/votingdoodles-bg.png") no-repeat center 50px;
     background-size: 92%;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -1558,6 +1557,7 @@ select .form-control-old::-ms-value {
 #mission small.center {
     display: block;
     margin-bottom: 30px;
+    font-size: 10px;
 }
 /******************* fact squares *********************/
 .mission-fact img {
@@ -1597,6 +1597,8 @@ select .form-control-old::-ms-value {
 #ability-list h3 {
     color: #000;
     font-size: 21px;
+    text-align: center;
+    margin-top: 0;
 }
 #ability-list p {
     font-size: 21px;
@@ -1813,7 +1815,7 @@ select .form-control-old::-ms-value {
     font-size: 36px;
 }
 #teachersCornerContent h2 span {
-    background: url("../img/teachers_underline_sm.png") no-repeat -8px 34px;
+    background: url("../images/teachers_underline_sm.png") no-repeat -8px 34px;
 }
 #teachersCornerContent #activitiesLinks {
     border: 2px solid #00aa9e;
@@ -1906,7 +1908,7 @@ select .form-control-old::-ms-value {
    Inspire
    ========================================================================== */
 #inspire-tile {
-    background-image: url('../img/BIC1STATIO15351_FFYW_Microsite_Design_PrePromo_19.png');
+    background-image: url('../images/BIC1STATIO15351_FFYW_Microsite_Design_PrePromo_19.png');
 }
 /* ==========================================================================
    Adopt a Classroom
@@ -2048,7 +2050,7 @@ select .form-control-old::-ms-value {
    ========================================================================== */
 .signatures #sig_top_line {
     height: 55px;
-    background: url("../img/signatures/top_line.png") no-repeat 0 46px;
+    background: url("../images/top_line.png") no-repeat 0 46px;
 }
 .signatures .left_col {
     min-height: 440px;
@@ -2095,7 +2097,7 @@ select .form-control-old::-ms-value {
     min-height: 270px;
 }
 .signatures .bottom #topborder {
-    background: url("../img/signatures/bot_line.png") no-repeat 0 0;
+    background: url("../images/bot_line.png") no-repeat 0 0;
     height: 15px;
 }
 .signatures .sign_col {
@@ -2307,7 +2309,7 @@ select .form-control-old::-ms-value {
 #contactUs {
     padding-top: 50px;
     min-height: 700px;
-    background: url("../img/contactUs_bg.jpg") no-repeat center -30px;
+    background: url("../images/contactUs_bg.jpg") no-repeat center -30px;
 }
 #contactUs .highlightText,
 #contactUsThanks .highlightText {
@@ -2565,7 +2567,7 @@ select .form-control-old::-ms-value {
         height: 737px;
     }
     .home #video_button {
-        background: url("../img/promo/video_lockup.jpg") no-repeat center center;
+        background: url("../images/video_lockup.jpg") no-repeat center center;
         background-size: cover;
         height: 100%;
     }
