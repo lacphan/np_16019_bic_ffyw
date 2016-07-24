@@ -33,6 +33,8 @@ class AppAsset extends AssetBundle
     ];
 
     public $js = [
+        'assets-enpii/global/plugins/modern-izr/modernizr.js',
+        'assets-enpii/global/plugins/detectizr/dist/detectizr.min.js',
         'assets-enpii/global/plugins/select2/js/select2.min.js',
         'assets-enpii/global/plugins/colorbox-master/jquery.colorbox-min.js',
         'assets-enpii/global/plugins/jQueryRotate.js',

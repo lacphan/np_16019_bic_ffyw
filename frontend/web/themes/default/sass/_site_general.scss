@@ -212,3 +212,35 @@ img {
 .no-padding-left{
   padding-left: 0;
 }
+#out-date-browser {
+  .modal-dialog {
+  }
+  .modal-content {
+    border-radius: 0;
+    background: url("../images/bg-paper.jpg") center repeat-x;
+    background-size: 100% auto;
+  }
+  .modal-header {
+    h3 {
+      font-size: 30.34px;
+      font-family: kg_fall_for_youbold, sans-serif;
+      color: #039ff8;
+      margin: 0;
+    }
+  }
+  .close-btn {
+    position: absolute;
+    right: 10px;
+    top: 17px;
+    font-size: 50px;
+    color: $color1;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    z-index: 15;
+    line-height: 26px;
+    &:focus {
+      outline: none;
+    }
+  }
+}

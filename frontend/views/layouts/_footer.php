@@ -7,18 +7,39 @@
  */
 use yii\bootstrap\Nav;
 use frontend\models\PageItem;
+use yii\bootstrap\Modal;
 
 /**
  * @var $privacy common\models\CommonPageItem
  * @var $termsConditions common\models\CommonPageItem
  */
 ?>
+<?php
+$outDateBrowser =  PageItem::findPageLocale('out-date-browser',Yii::$app->request->get('locale'));
+if($outDateBrowser) {
+    Modal::begin([
+        'closeButton' => [
+            'label' => '&times;',
+            'class' => 'close-btn',
+        ],
+        'header' =>  '<h3>' . $outDateBrowser->name . '</h3>',
+        'size' => 'modal-lg',
+        'id' => 'out-date-browser',
+        'options' => [
+            'class' => 'fade modal'
+        ]
+    ]);
+    echo '<div id="modalContent">'. $outDateBrowser->description .'</div>';
+    Modal::end();
+}
+?>
 <footer class="site-footer">
     <div class="footer-inner">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 footer-logo">
-                    <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/footer-logo.png'?>" alt="footer-logo">
+                    <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/footer-logo.png' ?>"
+                         alt="footer-logo">
                 </div>
                 <div class="col-md-5 footer-menu">
 
