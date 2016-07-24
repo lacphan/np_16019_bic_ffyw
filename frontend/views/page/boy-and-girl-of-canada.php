@@ -6,7 +6,7 @@
  * Time: 11:37 AM
  */
 
-$this->title = 'Boy And Girl Of Canada';
+$this->title = 'Boys and Girls Clubs of Canada';
 ?>
 <div class="site-signup tmpl-official-rules">
     <div class="how_bic_is_helping">
@@ -37,7 +37,7 @@ $this->title = 'Boy And Girl Of Canada';
                             submission, BIC will donate $10 to the Boys
                             and Girls Clubs of Canada and enter you into
                             a grand prize draw to win
-                            $5,000 towards your child's education, in the print, "(up to a maximum of $10,000)"</p>
+                            $5,000 towards your child's education, in the print, "<small>(up to a maximum of $10,000)</small>"</p>
                         <a href="http://www.breakfastclubcanada.org/" target="_blank" class="button_blue"><?= Yii::t(_NP_TEXT_DOMAIN, 'LEARN MORE ABOUT BOYS AND GIRLS CLUBS OF CANADA') ?></a>
                     </div>
                 </div>
