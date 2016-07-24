@@ -43,6 +43,12 @@
                         <span class="title">Page</span>
                     </a>
                 </li>
+                <li class="nav-item <?= Yii::$app->controller->id == 'code-block-item' ? 'active' : '' ?>">
+                    <a href="<?= Yii::$app->urlManager->createUrl(['code-block-item']) ?>" class="nav-link ">
+                        <i class="menu-icon menu-icon-user"></i>
+                        <span class="title">Block</span>
+                    </a>
+                </li>
                 <li class="nav-item <?= Yii::$app->controller->id == 'user' ? 'active' : '' ?>">
                     <a href="<?= Yii::$app->urlManager->createUrl(['user']) ?>" class="nav-link ">
                         <i class="menu-icon menu-icon-user"></i>
