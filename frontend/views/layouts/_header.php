@@ -75,7 +75,7 @@ use yii\widgets\Menu;
                                             'submenuTemplate' => '<ul class="dropdown-menu">{items}</ul>',
                                             'items' => [
                                                 [
-                                                    'label' => Yii::t(_NP_TEXT_DOMAIN, 'Boys and Girls Club of Canada'),
+                                                    'label' => Yii::t(_NP_TEXT_DOMAIN, 'Boys and Girls Clubs of Canada'),
                                                     'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=>'boy-and-girl-of-canada']),
 
                                                 ],
