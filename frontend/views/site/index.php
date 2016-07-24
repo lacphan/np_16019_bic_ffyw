@@ -306,6 +306,9 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                                 <tr>
                                     <td class="v-middle">
                                         <h3><?=  Yii::t(_NP_TEXT_DOMAIN,'FEATURED TIP TO INSPIRE WRITING') ?></h3>
+                                        <?php if($tip) :?>
+                                            <?= $tip->description ?>
+                                        <?php endif;?>
                                     </td>
                                 </tr>
                             </table>
