@@ -42,6 +42,8 @@ class AppAsset extends AssetBundle
         'themes/default/libs/jquery-ui/jquery-ui.min.js',
         'themes/default/libs/timepicker/jquery.timepicker.min.js',
         'themes/default/js/TweenMax.min.js',
+        'themes/default/js/validationEngine.js',
+        'themes/default/js/plupload.full.min.js',
         'themes/default/js/video.js',
         'themes/default/js/page-mission.js',
         'themes/default/js/main.js',
