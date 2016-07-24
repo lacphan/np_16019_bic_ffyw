@@ -2,7 +2,12 @@
 var footerEls_tl;
 var $reg_cont, reg_open;
 var did_enter = false;
-
+var base         = 'http://www.bicfightforyourwrite.com';
+var fb_app_id    = '652943698129898';
+var promo_status = 'contest_active';
+var statesData   = null;
+var fills        = null;
+var ranges       = null;
 var getVidHTML = function(name) {
     var resWidth  = $(window).width() * .8;
     var resHeight = resWidth * .5625;

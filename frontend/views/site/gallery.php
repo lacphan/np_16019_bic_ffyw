@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-signup">
     <div class="container">
         <div class="registration-content gallery-tmpl">
-            <div class="home-gallery success-content">
+            <div class="success-content">
                 <div class="title">
                     BIC'S <span>Handwriting</span> Challenge!<br>
                     Gallery
@@ -65,7 +65,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         ]); ?>
 
                     </div>
-                    <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog"
+                    <div class="home-galerry"></div>
+                    <div class="modal fade site-gallery" id="image-gallery" tabindex="-1" role="dialog"
                          aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
