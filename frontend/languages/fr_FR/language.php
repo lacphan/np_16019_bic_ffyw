@@ -57,5 +57,25 @@ return [
     'official rules' => 'les règlements officiels',
     'Boys and Girls Clubs of Canada' => 'Repaires jeunesse du Canada',
     'Required' => 'Mandatory field',
-    'Verification Code' => 'Code de vérification'
+    'Verification Code' => 'Code de vérification',
+    'PRODUCTS'=>'PRODUITS',
+    "BIC<sup>&reg;</sup>PRODUCTS MAKE WRITING FUN!"=>"LES PRODUITS BIC<sup>®</sup> FONT DE L’ÉCRITURE UNE ACTIVITÉ RIGOLO !",
+    "The perfect BIC<sup>&reg;</sup> pen, pencil or marker can make a child feel inspired to write. We
+                        offer so much variety and style; kids and adults will be amazed by what they find. Our products
+                        offer:"=>"Le bon stylo, crayon ou marqueur de BIC<sup>&reg;</sup>  peut inspirer un enfant à écrire. Nous offrons toute une diversité de styles que les enfants et les adultes seront émerveillés à découvrir, notamment: ",
+    "Smooth writing pens and pencils • Bold, classic and fashionable ink colors •
+                        Precise writing instruments • Variety of shapes and point sizes for that perfect fit •
+                        Incredibly comfortable grips • Forgiving smudge-free and erasable mechanical pencils"=>"Des stylos et crayons pour une écriture en douceur • Encres de couleurs classiques et fantaisistes vives •
+                  Instruments d’écriture précise • Offrant une variété de formes et de tailles de pointes pour trouver l’instrument parfait • Prises incroyablement confortables • Porte-mines effaçables pour une écriture aisée sans bavures",
+    "Check out some of our products!"=>"Jetez un coup d'oeil à quelques-uns de nos produits!",
+    "PENS"=>"STYLOS",
+    "PENCILS"=>"CRAYONS",
+    "MARKING"=>"MARQUEURS",
+    "CORRECTION"=>"CORRECTEURS",
+    "From ballpoint pen to gel to roller, these awesome varieties of pens provide endless hours of fun writing!"=>"Notre variété incroyable de stylos à bille, de stylos à encre gel et de stylos roller assure des heures et des heures de fun en écrivant!",
+    "An amazing mechanical pencil that writes 2 ½ times longer than wood case pencils? Now that’s smart!"=>"Des porte-mines et crayons ordinaires robustes qui augmentent le plaisir d’écrire. C’est du fun Extra!",
+    "Bold and brilliant coloured markers and highlighters for all of your marking needs."=>"Des marqueurs de couleur vives et audacieuses pour tous vos besoins de marquage.",
+    "Correcting mistakes has never been so cool!"=>"La correction des erreurs, c’est cool!",
+    "LEARN MORE"=>"EN SAVOIR PLUS"
+
 ];

@@ -61,6 +61,7 @@ return [
                 '/<locale:\w+>' => '',
                 '/<locale:\w+>/<slug:\w[\w\-]+>/<id:\d+>' => 'page/show-single',
                 '/<locale:\w+>/<slug:\w[\w\-]+>/' => 'page/show-single',
+
             ]
         ],
         'reCaptcha' => [

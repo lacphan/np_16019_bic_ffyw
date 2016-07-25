@@ -13,7 +13,6 @@ class PageController extends FrontendController
 {
     public function actionShowSingle($slug,$id = null) {
 
-
         if (is_readable($this->getViewPath() . '/' . $slug . '.php')) {
             if($id) {
                 $model = $this->findModel($id);
