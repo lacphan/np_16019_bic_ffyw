@@ -1,55 +1,103 @@
-﻿var mw_width  = 600;
-var footerEls_tl;
-var $reg_cont, reg_open;
-var did_enter = false;
-var base         = 'http://www.bicfightforyourwrite.com';
-var fb_app_id    = '652943698129898';
-var promo_status = 'contest_active';
-var statesData   = null;
-var fills        = null;
-var ranges       = null;
-var getVidHTML = function(name) {
-    var resWidth  = $(window).width() * .8;
-    var resHeight = resWidth * .5625;
-    return '<video id="' + name + '" width="' + resWidth + '" height="' + resHeight + '" class="big-vid video-js vjs-default-skin"  controls preload="auto" >'
-        + '<source src="' + base + '/assets/video/' + name + '.mp4" type="video/mp4" />'
-        + '<source src="' + base + '/assets/video/' + name + '.ogv" type="video/ogg" />'
-        + '<source src="' + base + '/assets/video/' + name + '.webm" type="video/webm" />'
-        + '<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p></video>';
-};
+﻿$(document).ready(function() {
+    function cbInit() {
+        $('input[type=checkbox]').iCheck({});
+    }
+    window._troq = window._troq || [];
+    _troq.push(['tagid', '6556198-7803fa5bbff2638012db0b526d604c64']);
+    _troq.push(['rtgpg', 'cat']);
+    _troq.push(['rtgidcat', 'mission']);
+    var getVidHTML = function(name) {
+        var resWidth  = $(window).width() * .8;
+        var resHeight = resWidth * .5625;
+        return '<video id="' + name + '" width="' + resWidth + '" height="' + resHeight + '" class="big-vid video-js vjs-default-skin"  controls preload="auto" >'
+            + '<source src="' + base + '/themes/default/videos/' + name + '.mp4" type="video/mp4" />'
+            + '<source src="' + base + '/themes/default/videos/' + name + '.ogv" type="video/ogg" />'
+            + '<source src="' + base + '/themes/default/videos/' + name + '.webm" type="video/webm" />'
+            + '<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p></video>';
+    };
 
 
-var removeVidSlide = function(vidElemID) {
-    _V_(vidElemID).dispose();
-};
-var resizeVidSlide = function(slide) {
-    var vidWidthCalculated  = getVidWidth();
-    var vidHeightCalculated = getVidHeight();
-    slide.width(vidWidthCalculated);
-    slide.height(vidHeightCalculated);
-};
-var getVidWidth    = function() {
-    return jQuery('#pressContentWrap').width(); //change to colorbox wrap
-};
-var getVidHeight   = function() {
-    return getVidWidth() * 0.56190476; //check ratio again
-};
+    var removeVidSlide = function(vidElemID) {
+        _V_(vidElemID).dispose();
+    };
+    var resizeVidSlide = function(slide) {
+        var vidWidthCalculated  = getVidWidth();
+        var vidHeightCalculated = getVidHeight();
+        slide.width(vidWidthCalculated);
+        slide.height(vidHeightCalculated);
+    };
+    var getVidWidth    = function() {
+        return jQuery('#pressContentWrap').width(); //change to colorbox wrap
+    };
+    var getVidHeight   = function() {
+        return getVidWidth() * 0.56190476; //check ratio again
+    };
+    /* MOBILE */
+    var mobileSize = 756;
+    var isMobile   = false;
+    var width      = 0;
 
-$(document).ready(function() {
+    function checkMobile() {
+        width    = $(window).width();
+        isMobile = (width < mobileSize);
+    }
+
+    checkMobile();
+    $(window).on('resize focus', function() {
+        checkMobile();
+    });
 
 
+    $('#inspire_sample').colorbox({
+        transition: "fade",
+        width: 400,
+        opacity: '0.55'
+    });
 
-    /*function checkPromoBlock() {
-        var $columns = $('.promo_block .column');
-        $columns.height('auto');
-        if (!isMobile) {
-            var elementHeights = $columns.map(function() {
-                return $(this).height();
-            }).get();
-            var maxHeight      = Math.max.apply(null, elementHeights);
-            $columns.height(maxHeight);
+    var image_uploader = new plupload.Uploader({
+        "runtimes": "html5",
+        "browse_button": "browse-button",
+        "container": "file-container",
+        "url": "/upload-image",
+        "headers": {"Accept": "application\/json", "X-CSRF-TOKEN": $('input[name="_token"]').val()},
+        "chunk_size": "200kb",
+        "filters": {
+            mime_types: [
+                {title: "Image files", extensions: "jpg,jpeg,png"}
+            ],
+            max_file_size: "5mb",
+            prevent_duplicates: true
+        },
+        "init": {
+            FilesAdded: function(up, files) {
+                $('#file_name').html("<i class='fa fa-spinner fa-pulse' aria-hidden='true'></i> Uploading...");
+                up.start();
+            },
+            UploadComplete: function(up, files) {
+                if (files.length > 0) {
+                    $('#error_msg').html(' ');
+                    $('#image').val(files[0].name);
+                    $('#file_name').html("Uploaded: " + files[0].name);
+                    ga('send', 'event', 'ContestForm', 'Upload', 'Upload Complete');
+                } else {
+                    $('#error_msg').html('Please choose a file to upload.');
+                    ga('send', 'event', 'ContestForm', 'Upload', 'Upload Error');
+                }
+            }
         }
-    }*/
+    });
+    image_uploader.init();
+
+
+    $('.enlarge-image').colorbox({
+        transition: "fade",
+        width: width * .7,
+        opacity: '0.55'
+    });
+
+
+
+
 
 
     $('.vidLink').on('click', function(e) {
@@ -129,6 +177,7 @@ $(document).ready(function() {
             }
         })
     });
+
     var gauge_tls = {};
     var gauge_ts  = 3;
     var $gauge    = $('#mission').find('.gauge');
@@ -185,7 +234,4 @@ $(document).ready(function() {
         });
     }
 
-
-
 });
-
