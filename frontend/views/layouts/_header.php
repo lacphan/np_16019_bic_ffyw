@@ -10,7 +10,9 @@
 use yii\bootstrap\Nav;
 use frontend\models\PageItem;
 use yii\widgets\Menu;
+
 $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : DEFAULT_LOCALE;
+
 ?>
 <header id="main-header" class="site-header" role="banner">
 
@@ -18,7 +20,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
         <div class="container">
             <div class="header-main-content">
                 <div class="main-logo">
-                    <a href="<?= Yii::$app->urlManager->createUrl(['locale'=> $locale]) ?>">
+                    <a href="<?= Yii::$app->urlManager->createUrl(['','locale'=> $locale]) ?>">
                         <img src="<?= Yii::$app->urlManager->getBaseUrl() . '/themes/default/images/main-logo.png' ?>"
                              alt="">
                     </a>
@@ -53,7 +55,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                             'items' => [
                                                 [
                                                     'label' => Yii::t(_NP_TEXT_DOMAIN, 'Enter Now'),
-                                                    'url' => Yii::$app->urlManager->createUrl(['locale'=> $locale])
+                                                    'url' => Yii::$app->urlManager->createUrl(['','locale'=> $locale])
                                                 ],
                                                 [
                                                     'label' => Yii::t(_NP_TEXT_DOMAIN, 'Gallery'),

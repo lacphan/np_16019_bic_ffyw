@@ -12,6 +12,21 @@ $config = [
             'cookieValidationKey' => 'ndoojpBv-kdTZYGWHho51g5K-i-i2IFy',
             'baseUrl' => '',
         ],
+        'urlManager' => [
+            'class'=> 'yii\web\UrlManager',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'baseUrl' => '',
+            'rules'=>[
+                '/<locale:\w+>/product' => 'product',
+                '/<locale:\w+>/product/<slug:\w[\w\-]+>/' => 'product/show-single',
+                '/<locale:\w+>/<alias:index|register|submission|gallery>' => 'site/<alias>',
+                '/<locale:\w+>' => '',
+                '/<locale:\w+>/<slug:\w[\w\-]+>/<id:\d+>' => 'page/show-single',
+                '/<locale:\w+>/<slug:\w[\w\-]+>/' => 'page/show-single',
+
+            ]
+        ],
     ],
 
 ];
