@@ -62,7 +62,9 @@ class RegisterForm extends Model
             'birthDate' => Yii::t(_NP_TEXT_DOMAIN, "Date"),
             'birthMonth' => Yii::t(_NP_TEXT_DOMAIN, "Month"),
             'birthYear' => Yii::t(_NP_TEXT_DOMAIN, "Year"),
+            'agreeTerm' => Yii::t(_NP_TEXT_DOMAIN, "Official rules"),
             'age' => Yii::t(_NP_TEXT_DOMAIN, "Age"),
+            'verificationCode' => Yii::t(_NP_TEXT_DOMAIN, "Verification Code"),
         ];
     }
     public function rules()
@@ -79,12 +81,12 @@ class RegisterForm extends Model
             [['childLastInitial'],'match', 'pattern' => '/[a-zA-Z]/','message' => Yii::t(_NP_TEXT_DOMAIN,'Only from a-z A-Z')],
             [['childLastInitial'],'string', 'max' => 1,'message' => Yii::t(_NP_TEXT_DOMAIN,'Maximum of one alpha character can be entered')],
             [['age'],'integer', 'min' => 6,'max' => 18, 'tooSmall' => Yii::t(_NP_TEXT_DOMAIN,'Must be 6 years or older'),'tooBig' => Yii::t(_NP_TEXT_DOMAIN,'Age must be no greater than 18')],
-            [['birthDate'],'integer', 'min' => 1,'max' => 31,'message' => Yii::t(_NP_TEXT_DOMAIN,'Require')],
-            [['birthMonth'],'integer', 'min' => 1,'max' => 12 ,'message' => Yii::t(_NP_TEXT_DOMAIN,'Require')],
-            [['birthYear'],'integer', 'min' => 1905, 'max' => 1998 ,'message' => Yii::t(_NP_TEXT_DOMAIN,'Please enter a valid').' {attribute}'],
+            [['birthDate'],'integer', 'min' => 1,'max' => 31,'message' => Yii::t(_NP_TEXT_DOMAIN,'Please enter a valid').' {attribute}'],
+            [['birthMonth'],'integer', 'min' => 1,'max' => 12 ,'message' => Yii::t(_NP_TEXT_DOMAIN,'Please enter a valid').' {attribute}'],
+            [['birthYear'],'integer', 'min' => 1905, 'max' => 1998 ,'message' => Yii::t(_NP_TEXT_DOMAIN,'Please enter a valid').'{attribute}'],
             ['verificationCode', ReCaptchaValidator::className(), 'secret' => '6LddpCQTAAAAAPU27Z1X3nwsVnNed-9aDrk5moSA'],
             [['birthDate', 'birthMonth', 'birthYear', 'agreeTerm'], 'required',
-                'message' =>Yii::t(_NP_TEXT_DOMAIN, 'Require')
+                'message' => '{attribute} ' . Yii::t(_NP_TEXT_DOMAIN, 'is a mandatory field.')
             ],
             [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg',  'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],
             [['email'], 'required'],

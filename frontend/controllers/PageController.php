@@ -23,10 +23,10 @@ class PageController extends FrontendController
                     ]);
                 }
             }
-
             return $this->render($slug);
+        } else {
+            return $this->render('default');
         }
-        throw new \yii\web\NotFoundHttpException();
     }
     /**
      * @param $id

@@ -55,6 +55,19 @@ class SubmissionForm extends Model
     }
 
     /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'childFirstName' => Yii::t(_NP_TEXT_DOMAIN, "Your Child's Name"),
+            'childLastInitial' => Yii::t(_NP_TEXT_DOMAIN, "Your Child's Last Initial"),
+            'age' => Yii::t(_NP_TEXT_DOMAIN, "Age"),
+            'verificationCode' => Yii::t(_NP_TEXT_DOMAIN, "Verification Code"),
+        ];
+    }
+
+    /**
      * Signs user up.
      * @return User|null the saved model or null if saving fails
      */

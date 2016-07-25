@@ -8,7 +8,6 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use frontend\models\ContestItem;
 use yii\bootstrap\Modal;
-use common\enpii\components\NpItemDataSub;
 use frontend\models\PageItem;
 
 $this->title = 'BIC';
@@ -94,7 +93,7 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                     <p>
                         <a
                             target="_blank"
-                            href="<?= Yii::$app->urlManager->createUrl(['page/show-single', 'slug' => 'official-rules']) ?>">
+                            href="<?= PageItem::getPermalink(['official-rules']) ?>">
                             <?= Yii::t(_NP_TEXT_DOMAIN, 'Click Here for Official Rules.') ?>
                         </a>
                     </p>

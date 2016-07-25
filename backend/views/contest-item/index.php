@@ -62,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'value' => function ($model) {
                                         return $model->locale->locale;
                                     },
-                                    'filter'=> ArrayHelper::map(Locale::find()->asArray()->all(),'id','locale')
+                                    'filter'=> ArrayHelper::map(Locale::find()->asArray()->all(),'id','locale'),
                                 ],
                                 [
                                     'attribute' => 'start_date',

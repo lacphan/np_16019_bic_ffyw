@@ -117,6 +117,7 @@ img {
   font-weight: 600;
   display: inline-block;
   border: 0;
+  text-transform: uppercase;
 }
 .global-btn-inner:hover, .global-btn span:hover {
   text-decoration: none;
@@ -263,6 +264,12 @@ img {
   outline: none;
 }
 
+.vjs-default-skin .vjs-play-control:before {
+  content: '\f04b';
+  font-family: 'FontAwesome';
+  color: #ffffff;
+}
+
 .site-header {
   position: relative;
   z-index: 1000;
@@ -299,6 +306,10 @@ img {
   height: 136px;
   bottom: 0;
   margin: auto;
+}
+.site-header .main-logo img {
+  width: 100%;
+  height: auto;
 }
 .site-header .main-logo a {
   display: inline-block;
@@ -535,6 +546,7 @@ img {
   height: 22px;
   background: url("../images/facebook-icon.png") center no-repeat;
   background-size: cover;
+  border-radius: 2px;
 }
 .site-header .main-navigation .navbar-nav > li.facebook-btn a:lang(fr_FR) a {
   padding: 0;
@@ -872,6 +884,7 @@ img {
   position: relative;
   line-height: 26px;
   text-transform: uppercase;
+  padding: 5px 10px;
 }
 .home-content .home-intro .subscribe-form button:focus {
   outline: none;
