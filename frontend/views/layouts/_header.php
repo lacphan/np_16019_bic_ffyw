@@ -20,7 +20,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
         <div class="container">
             <div class="header-main-content">
                 <div class="main-logo">
-                    <a href="<?= Yii::$app->urlManager->createUrl(['/','locale'=> $locale]) ?>">
+                    <a href="<?= Yii::$app->urlManager->createUrl(['','locale'=> $locale]) ?>">
                         <img src="<?= Yii::$app->urlManager->getBaseUrl() . '/themes/default/images/main-logo.png' ?>"
                              alt="">
                     </a>
@@ -107,7 +107,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                             'options' => [
                                                 'class' => 'language-switch',
                                             ],
-                                            'url' => Yii::$app->language == 'fr_FR' ? Yii::$app->urlManager->createUrl(['/', 'locale' => DEFAULT_LOCALE]) :  Yii::$app->urlManager->createUrl(['', 'locale' => 'fr'])
+                                            'url' => Yii::$app->language == 'fr_FR' ? Yii::$app->urlManager->createUrl(['', 'locale' => DEFAULT_LOCALE]) :  Yii::$app->urlManager->createUrl(['', 'locale' => 'fr'])
                                         ],
                                     ];
                                     echo Menu::widget([
@@ -118,7 +118,6 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                         'items' => $menuItems,
                                     ]);
                                     ?>
-
                                 </div>
                             </nav>
 
