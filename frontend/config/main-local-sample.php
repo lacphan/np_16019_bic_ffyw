@@ -13,6 +13,7 @@ $config = [
             'baseUrl' => '',
         ],
     ],
+
 ];
 
 if (!YII_ENV_TEST) {
