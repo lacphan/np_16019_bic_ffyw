@@ -57,6 +57,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules'=>[
+                '/<locale:\w+>/product' => 'product',
+                '/<locale:\w+>/product/<slug:\w[\w\-]+>/' => 'product/show-single',
                 '/<locale:\w+>/<alias:index|register|submission|gallery>' => 'site/<alias>',
                 '/<locale:\w+>' => '',
                 '/<locale:\w+>/<slug:\w[\w\-]+>/<id:\d+>' => 'page/show-single',

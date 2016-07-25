@@ -89,7 +89,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                         ],
                                         [
                                             'label' => Yii::t(_NP_TEXT_DOMAIN, 'Products'),
-                                            'url' => Yii::$app->urlManager->createUrl([''])
+                                            'url' => Yii::$app->urlManager->createUrl(['product', 'locale' => $locale])
                                         ],
                                         [
                                             'label' => false,
