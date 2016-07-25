@@ -29,7 +29,7 @@ class CommonContestItem extends \common\models\base\BaseContestItem
         ];
     }
     /**
-     * @return null CommonContestItem
+     * @return array | CommonContestItem
      */
     public static function getWeek() {
         $day = NpItemDataSub::getGMTTime();

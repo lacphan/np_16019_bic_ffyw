@@ -2,12 +2,13 @@
 /**
  * Created by PhpStorm.
  * User: lacphan
- * Date: 7/14/16
- * Time: 11:34 AM
+<<<<<<< HEAD
+ * Date: 7/25/16
+ * Time: 12:15 PM
  */
+
 namespace frontend\controllers;
 
-use yii\web\NotFoundHttpException;
 class ProductController extends FrontendController
 {
     public function actionIndex()
@@ -19,3 +20,4 @@ class ProductController extends FrontendController
     }
 
 }
+

@@ -21,7 +21,8 @@ class ContestItem extends \common\models\CommonContestItem
         return [
             [['start_date', 'end_date'], 'safe'],
             [['attachment_id', 'locale_id', 'popup_id', 'parent_id', 'week_number'], 'integer'],
-            [['title', 'description'], 'string', 'max' => 255],
+            [['title'], 'string', 'max' => 255],
+            [['title', 'description'], 'string'],
             [['uploadFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg',  'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],
             [['popupFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg',  'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],
         ];

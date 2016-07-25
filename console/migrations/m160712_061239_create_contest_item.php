@@ -17,7 +17,7 @@ class m160712_061239_create_contest_item extends Migration
             'start_date' => $this->dateTime(),
             'end_date' => $this->dateTime(),
             'title' => $this->string(),
-            'description' => $this->string(),
+            'description' => $this->text(),
             'attachment_id' => $this->integer(),
         ]);
 

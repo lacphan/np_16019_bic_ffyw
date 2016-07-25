@@ -19,7 +19,7 @@ class EmailSubmission extends Model
     {
         return [
 
-            [['email'],'required'],
+            [['email'],'required','message' => Yii::t(_NP_TEXT_DOMAIN,'Please enter your email to participate.')],
             [['email'],'email'],
         ];
     }
