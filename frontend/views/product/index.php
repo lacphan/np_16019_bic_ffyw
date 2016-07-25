@@ -7,6 +7,7 @@
  */
 
 $this->title = 'Products';
+$locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : DEFAULT_LOCALE;
 ?>
 <div class="products">
     <div class="container" id="content_wrapper">
@@ -53,7 +54,7 @@ $this->title = 'Products';
                             provide endless hours of fun writing!") ?>
                         </div>
                     </div>
-                    <div><a href="#" class="learn_more"><?= Yii::t(_NP_TEXT_DOMAIN, "LEARN MORE") ?></a></div>
+                    <div><a href="<?= Yii::$app->urlManager->createUrl(['product/show-single','slug' => 'pens','locale' => $locale])?>" class="learn_more"><?= Yii::t(_NP_TEXT_DOMAIN, "LEARN MORE") ?></a></div>
                 </div>
 
                 <div class="product_type product_pencils">
@@ -65,7 +66,7 @@ $this->title = 'Products';
                             wood case pencils? Now that’s smart!") ?>
                         </div>
                     </div>
-                    <div><a href="" class="learn_more"><?= Yii::t(_NP_TEXT_DOMAIN, "LEARN MORE") ?></a></div>
+                    <div><a href="<?= Yii::$app->urlManager->createUrl(['product/show-single','slug' => 'pencil','locale' => $locale])?>" class="learn_more"><?= Yii::t(_NP_TEXT_DOMAIN, "LEARN MORE") ?></a></div>
                 </div>
 
                 <div class="product_type product_marking">
@@ -77,7 +78,7 @@ $this->title = 'Products';
                             marking needs.") ?>
                         </div>
                     </div>
-                    <div><a href="" class="learn_more"><?= Yii::t(_NP_TEXT_DOMAIN, "LEARN MORE") ?></a></div>
+                    <div><a href="<?= Yii::$app->urlManager->createUrl(['product/show-single','slug' => 'marking','locale' => $locale])?>" class="learn_more"><?= Yii::t(_NP_TEXT_DOMAIN, "LEARN MORE") ?></a></div>
                 </div>
 
                 <div class="product_type product_correction">
@@ -86,7 +87,7 @@ $this->title = 'Products';
                         <div><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/'?>products_correction.png" alt="Correction"/></div>
                         <div class="description"><?= Yii::t(_NP_TEXT_DOMAIN, "Correcting mistakes has never been so cool!") ?></div>
                     </div>
-                    <div><a href="#" class="learn_more"><?= Yii::t(_NP_TEXT_DOMAIN, "LEARN MORE") ?></a></div>
+                    <div><a href="<?= Yii::$app->urlManager->createUrl(['product/show-single','slug' => 'correction','locale' => $locale])?>" class="learn_more"><?= Yii::t(_NP_TEXT_DOMAIN, "LEARN MORE") ?></a></div>
                 </div>
             </div>
         </div>
