@@ -93,7 +93,7 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                                     <?php endif;?>
                                 </p>
                                 <div class="global-btn">
-                                    <a target="_blank" class="global-btn-inner" href="<?= Yii::$app->urlManager->createUrl(['site/gallery'])?>">GALLERY</a>
+                                    <a target="_blank" class="global-btn-inner" href="<?= Yii::$app->urlManager->createUrl(['site/gallery'])?>"><?= Yii::t(_NP_TEXT_DOMAIN,'Gallery')?></a>
                                 </div>
                             </div>
                         </div>
@@ -102,8 +102,9 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                 <div class="clearfix"></div>
             </div>
             <div class="register-form">
-                <h3 class="form-title font-5 font-size-25">Please fill out the form below to submit your entry:</h3>
-                <p class="require-hint">* Required Fields</p>
+                <h3 class="form-title font-5 font-size-25">
+                    <?= Yii::t(_NP_TEXT_DOMAIN,'Please fill out the form below to submit your entry:')?></h3>
+                <p class="require-hint">* <?= Yii::t(_NP_TEXT_DOMAIN,'Required Fields')?></p>
                 <?php $form = ActiveForm::begin([
                     'options' => [
                         'enctype' => 'multipart/form-data',
@@ -111,9 +112,9 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                 ]); ?>
                 <?= $form->field($model, 'email')->hiddenInput(['value' => Yii::$app->session->get('submissionEmail')])->label(false) ?>
                 <div class="form-row">
-                    <?= $form->field($model, 'childFirstName')->textInput(['placeholder' => Yii::t('app', '*' . 'Your Child\'s Name')])->label(false) ?>
-                    <?= $form->field($model, 'childLastInitial')->textInput(['placeholder' => Yii::t('app', '*' . 'Your Child\'s Last Initial')])->label(false) ?>
-                    <?= $form->field($model, 'age')->textInput(['class' => 'small-input', 'placeholder' => Yii::t('app', 'Age')])->label(false) ?>
+                    <?= $form->field($model, 'childFirstName')->textInput(['placeholder' => '*' . Yii::t(_NP_TEXT_DOMAIN, 'Your Child\'s Name')])->label(false) ?>
+                    <?= $form->field($model, 'childLastInitial')->textInput(['placeholder' =>'*' . Yii::t(_NP_TEXT_DOMAIN, 'Your Child\'s Last Initial')])->label(false) ?>
+                    <?= $form->field($model, 'age')->textInput(['class' => 'small-input', 'placeholder' => Yii::t(_NP_TEXT_DOMAIN, 'Age')])->label(false) ?>
                 </div>
                 <div class="form-row">
                     <?php
@@ -128,10 +129,10 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                         'options' => ['class' => 'form-upload'],
                         'template' => '<div class="form-upload-inner">' .
                             '<div class="input-instruction">' .
-                            Yii::t('app', 'Upload photo instructions') . ':<br/>' .
-                            Yii::t('app', 'No larger than 5MB and only accept .jpg and .png files') .
+                            Yii::t(_NP_TEXT_DOMAIN, 'Upload photo instructions') . ':<br/>' .
+                            Yii::t(_NP_TEXT_DOMAIN, 'No larger than 5MB and only accept .jpg and .png files') .
                             '</div>' .
-                            '<button class="btn btn-default global-btn btn-file"><span>'.Yii::t('app','Upload').'{input}</span></button>' .
+                            '<button class="btn btn-default global-btn btn-file"><span>'.Yii::t(_NP_TEXT_DOMAIN,'Upload').'{input}</span></button>' .
                             '{label}{error}'.
                             '<div class="preview-wrapper">'.
                             '<div class="file-preview"><div class="file-preview-frame"><canvas id="canvas"></canvas></div></div>'.
@@ -143,7 +144,7 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                 <div class="form-row">
                     <?= $form->field($model, 'agreeTerm', ['options' => ['class' => 'form-check-box']])->checkbox(
                         ['template' => '<div class="form-check-box-inner">{input}{label}</div>{error}']
-                    )->label(Yii::t('app', 'I have read and agree to the ') . Html::a(Yii::t('app', 'official rules'), Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules']),['target' => '_blank'])) ?>
+                    )->label(Yii::t(_NP_TEXT_DOMAIN, 'I have read and agree to the ') . Html::a(Yii::t(_NP_TEXT_DOMAIN, 'official rules'), Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules']),['target' => '_blank'])) ?>
 
                 </div>
                 <div class="form-row">
@@ -161,7 +162,7 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                 <div class="form-row">
                     <div class="form-group">
                         <div class="global-btn btn-submit">
-                            <?= Html::submitButton('SUBMIT', ['class' => 'global-btn-inner', 'name' => 'signup-button']) ?>
+                            <?= Html::submitButton(Yii::t(_NP_TEXT_DOMAIN,'SUBMIT'), ['class' => 'global-btn-inner', 'name' => 'signup-button']) ?>
                         </div>
 
                     </div>

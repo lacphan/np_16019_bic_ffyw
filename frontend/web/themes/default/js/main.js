@@ -219,6 +219,12 @@ jQuery(document).on('ready pjax:success',function () {
         $('.weekly-text-nav').click(function (e) {
             e.preventDefault();
             $('#home-email-checker').submit();
-        })
+        });
+        $( ".product_type_page .tile" ).hover(
+            function() {
+                $(this).find('.title').addClass('title_full');
+                $(this).find( ".description" ).slideToggle( "slow", function() {});
+            }
+        );
     })(jQuery);
 });

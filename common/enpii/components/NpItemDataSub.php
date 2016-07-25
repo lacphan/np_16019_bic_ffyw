@@ -42,23 +42,6 @@ trait NpItemDataSub {
         $this->published_at =  NpItemDataSub::getGMTTime();
     }
 
-    /**
-     * @param $modalClass() common\enpii\components\NpActiveRecord
-     * @param $id
-     */
-    public function getPermalink($args = [], $id) {
-        if(!empty($args)) {
-
-        }
-        $args = [
-            'page/show-single',
-            'slug' => $this->slug,
-        ];
-        $args[] = ['id' => $id];
-        if(!empty($modalClass) && !empty($id)) {
-            Yii::$app->urlManager->createUrl($args);
-        }
-    }
 
     public static function convertToLocalTime($gtmTime) {
         return Yii::$app->formatter->asDatetime($gtmTime);

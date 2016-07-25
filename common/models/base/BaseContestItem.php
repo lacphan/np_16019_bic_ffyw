@@ -38,8 +38,9 @@ class BaseContestItem extends \common\enpii\components\NpActiveRecord
     {
         return [
             [['start_date', 'end_date'], 'safe'],
+            [['description'], 'string'],
             [['attachment_id', 'locale_id', 'popup_id', 'parent_id', 'week_number'], 'integer'],
-            [['title', 'description'], 'string', 'max' => 255]
+            [['title'], 'string', 'max' => 255]
         ];
     }
 

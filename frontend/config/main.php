@@ -52,16 +52,7 @@ return [
                 ],
             ],
         ],
-        'urlManager' => [
-            'class'=> 'yii\web\UrlManager',
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules'=>[
-                '<alias:index|register|submission|gallery>' => 'site/<alias>',
-                '/<locale:\w+>/<slug:\w[\w\-]+>/<id:\d+>' => 'page/show-single',
-                '/<slug:\w[\w\-]+>/' => 'page/show-single',
-            ]
-        ],
+
         'reCaptcha' => [
             'name' => 'reCaptcha',
             'class' => 'himiklab\yii2\recaptcha\ReCaptcha',

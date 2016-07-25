@@ -12,8 +12,6 @@ class CommonPageItem extends \common\models\base\BasePageItem
 {
     use NpItemDataSub;
 
-    public $pageOption = ['locale' => 'en'];
-
     public static function getSlugPage($id)
     {
         return static::findOne(['id' => $id])->slug;
@@ -30,20 +28,20 @@ class CommonPageItem extends \common\models\base\BasePageItem
      *  ['code', 'locale' => 'fr_FR', 'param2' => 'value2']
      * @param string|array $params
      */
-    public function getPermalink($params){
+    public static function getPermalink($params){
 
         $params = (array) $params;
 
-        $arg = array_merge($this->pageOption,$params);
+        $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : DEFAULT_LOCALE;
 
+        $arg = array_merge($params);
 
-        $page = self::findPageLocale($arg[0],$arg['locale']);
-
+        $page = self::findPageLocale($arg[0],$locale);
 
         if ($page) {
-            return Yii::$app->urlManager->createUrl(['page/show-single','locale' =>  $arg['locale'], 'slug' => $page->slug,'id'=> $page->id]);
+            return Yii::$app->urlManager->createUrl(['page/show-single','locale' =>  $locale, 'slug' => $page->slug,'id'=> $page->id]);
         }
-        return Yii::$app->urlManager->createUrl(['page/show-single','locale' => $arg['locale'], 'slug' => $this->slug,'id'=>$this->id]);
+        return Yii::$app->urlManager->createUrl(['page/show-single','locale' => $locale, 'slug' => $arg[0]]);
 
     }
 

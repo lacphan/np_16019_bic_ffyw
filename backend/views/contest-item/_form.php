@@ -31,7 +31,7 @@ use common\enpii\components\NpItemDataSub;
 
                     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-                    <?= $form->field($model, 'description')->textarea(['maxlength' => true,'rows' => 10]) ?>
+                    <?= $form->field($model, 'description')->textarea(['rows' => 10]) ?>
 
                     <?= $form->field($model, 'locale_id')->dropDownList(
                     ArrayHelper::map(Locale::find()->all(), 'id', 'locale'),

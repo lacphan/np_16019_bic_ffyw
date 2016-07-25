@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="gallery-intro">
                     Check out the handwriting submissions from all across Canada!
                     <span class="global-btn">
-                        <?= Html::a('ENTER NOW', Yii::$app->urlManager->createUrl(['site/index']), ['class' => 'global-btn-inner']) ?>
+                        <?= Html::a(Yii::t(_NP_TEXT_DOMAIN,'Enter Now'), Yii::$app->urlManager->createUrl(['site/index']), ['class' => 'global-btn-inner']) ?>
                     </span>
                 </div>
                 <div class="gallery-wrapper">
