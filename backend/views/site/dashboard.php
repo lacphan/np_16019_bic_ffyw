@@ -2,7 +2,7 @@
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use backend\models\ContestSession;
-
+use infoweb\analytics\Analytics;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
@@ -12,20 +12,6 @@ $this->params['breadcrumbs'][] = $this->title;
 $contestSessions = ContestSession::find()->all();
 $winner = ContestSession::find()->where(['is_winner' => 1])->all();
 
-
-$client = new Google_Client();
-
-
-//$client->setApplicationName("Client_Library_Examples");
-//$client->setDeveloperKey("YOUR_APP_KEY");
-//
-//$service = new Google_Service_Books($client);
-//$optParams = array('filter' => 'free-ebooks');
-//$results = $service->volumes->listVolumes('Henry David Thoreau', $optParams);
-//
-//foreach ($results as $item) {
-//    echo $item['volumeInfo']['title'], "<br /> \n";
-//}
 ?>
 <div class="user-index">
     <div class="page-bar">
@@ -90,77 +76,7 @@ $client = new Google_Client();
                         <div class="tab-content">
                             <div class="tab-pane active" id="overview_1">
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-hover table-bordered">
-
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                <a href="javascript:;"> Apple iPhone 4s - 16GB - Black </a>
-                                            </td>
-                                            <td> $625.50 </td>
-                                            <td> 809 </td>
-                                            <td>
-                                                <a href="javascript:;" class="btn btn-sm btn-default">
-                                                    <i class="fa fa-search"></i> View </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="javascript:;"> Samsung Galaxy S III SGH-I747 - 16GB </a>
-                                            </td>
-                                            <td> $915.50 </td>
-                                            <td> 6709 </td>
-                                            <td>
-                                                <a href="javascript:;" class="btn btn-sm btn-default">
-                                                    <i class="fa fa-search"></i> View </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="javascript:;"> Motorola Droid 4 XT894 - 16GB - Black </a>
-                                            </td>
-                                            <td> $878.50 </td>
-                                            <td> 784 </td>
-                                            <td>
-                                                <a href="javascript:;" class="btn btn-sm btn-default">
-                                                    <i class="fa fa-search"></i> View </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="javascript:;"> Samsung Galaxy Note 4 </a>
-                                            </td>
-                                            <td> $925.50 </td>
-                                            <td> 21245 </td>
-                                            <td>
-                                                <a href="javascript:;" class="btn btn-sm btn-default">
-                                                    <i class="fa fa-search"></i> View </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="javascript:;"> Regatta Luca 3 in 1 Jacket </a>
-                                            </td>
-                                            <td> $25.50 </td>
-                                            <td> 1245 </td>
-                                            <td>
-                                                <a href="javascript:;" class="btn btn-sm btn-default">
-                                                    <i class="fa fa-search"></i> View </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="javascript:;"> Samsung Galaxy Note 3 </a>
-                                            </td>
-                                            <td> $925.50 </td>
-                                            <td> 21245 </td>
-                                            <td>
-                                                <a href="javascript:;" class="btn btn-sm btn-default">
-                                                    <i class="fa fa-search"></i> View </a>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                                    
                                 </div>
                             </div>
                         </div>
