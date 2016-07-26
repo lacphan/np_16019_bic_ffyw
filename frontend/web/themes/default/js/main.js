@@ -226,5 +226,7 @@ jQuery(document).on('ready pjax:success',function () {
                 $(this).find( ".description" ).slideToggle( "slow", function() {});
             }
         );
+
+
     })(jQuery);
 });
