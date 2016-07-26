@@ -45,7 +45,7 @@ use kartik\file\FileInput;
                             'options' => [
                                 'multiple' => false,
                                 'accept' => 'image/*',
-                                'class' => 'optionvalue-img'
+                                'class' => 'attachment-img'
                             ],
                             'pluginOptions' => [
                                 'previewFileType' => 'image',
@@ -67,7 +67,7 @@ use kartik\file\FileInput;
                     <div class="form-group">
                         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
                     </div>
-
+                    <?= $form->field($model,'attachment_id')->hiddenInput(['id' => 'attachment-id'])->label(false)?>
                     <?php ActiveForm::end(); ?>
 
                 </div>
@@ -76,3 +76,13 @@ use kartik\file\FileInput;
         </div>
     </div>
 </div>
+<?php
+$js = <<<JS
+
+$(".attachment-img").on("filecleared", function(event) {
+    $('#attachment-id').val('');
+});
+
+JS;
+
+$this->registerJs($js);

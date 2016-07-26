@@ -10,6 +10,9 @@
 use yii\bootstrap\Nav;
 use frontend\models\PageItem;
 use yii\widgets\Menu;
+
+$locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : DEFAULT_LOCALE;
+
 ?>
 <header id="main-header" class="site-header" role="banner">
 
@@ -17,9 +20,16 @@ use yii\widgets\Menu;
         <div class="container">
             <div class="header-main-content">
                 <div class="main-logo">
-                    <a href="<?= Yii::$app->homeUrl ?>">
-                        <img src="<?= Yii::$app->urlManager->getBaseUrl() . '/themes/default/images/main-logo.png' ?>"
-                             alt="">
+                    <a href="<?= $locale == DEFAULT_LOCALE  ? Yii::$app->urlManager->createUrl(['']) :  Yii::$app->urlManager->createUrl(['', 'locale' => 'fr']) ?>">
+
+                        <?php if(Yii::$app->language == 'fr_FR'):?>
+                            <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/logo_header_fr.png' ?>"
+                                 alt="BIC: Ton pouvoir d’écrire">
+                        <?php else: ?>
+                            <img src="<?= Yii::$app->urlManager->getBaseUrl() . '/themes/default/images/main-logo.png' ?>"
+                                 alt="">
+                        <?php endif;?>
+
                     </a>
                 </div>
                 <div class="main-navigation">
@@ -39,33 +49,45 @@ use yii\widgets\Menu;
                             <nav id="site-navigation" class="navbar-collapse collapse" role="navigation">
                                 <div class="menu-primary-menu-container">
                                     <?php
-                                    $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : 'en';
+
                                     $pageMenu = new PageItem();
 
                                     $menuItems = [
                                         [
-                                            'label' => 'Handwriting Challenge',
+                                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Handwriting Challenge'),
                                             'url' => Yii::$app->homeUrl,
                                             'options' => ['class' => 'dropdown'],
                                             'template' => '<a class="dropdown-toggle" href="{url}" data-toggle="dropdown">{label}<b class="caret"></b></a>',
                                             'submenuTemplate' => '<ul class="dropdown-menu">{items}</ul>',
                                             'items' => [
-                                                ['label' => 'Enter Now', 'url' => Yii::$app->homeUrl],
-                                                ['label' => 'Gallery', 'url' => Yii::$app->urlManager->createUrl(['site/gallery'])],
-                                                ['label' => 'Contest Prizes', 'url' => $pageMenu->getPermalink(['prize-details','locale'=> $locale])],
-                                                ['label' => 'Official Rules', 'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=> 'official-rules'])],
+                                                [
+                                                    'label' => Yii::t(_NP_TEXT_DOMAIN, 'Enter Now'),
+                                                    'url' => $locale == DEFAULT_LOCALE ? Yii::$app->urlManager->baseUrl : Yii::$app->urlManager->createUrl(['','locale'=> $locale])
+                                                ],
+                                                [
+                                                    'label' => Yii::t(_NP_TEXT_DOMAIN, 'Gallery'),
+                                                    'url' =>  $locale == DEFAULT_LOCALE ?  Yii::$app->urlManager->createUrl(['site/gallery']) : Yii::$app->urlManager->createUrl(['site/gallery','locale'=> $locale])
+                                                ],
+                                                [
+                                                    'label' => Yii::t(_NP_TEXT_DOMAIN, 'Contest Prizes'),
+                                                    'url' => PageItem::getPermalink(['prize-details'])
+                                                ],
+                                                [
+                                                    'label' => Yii::t(_NP_TEXT_DOMAIN, 'Official Rules'),
+                                                    'url' => PageItem::getPermalink(['official-rules'])
+                                                ],
 
                                             ],
                                         ],
                                         [
-                                            'label' => 'The Mission',
-                                            'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=> 'mission']),
+                                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'The Mission'),
+                                            'url' => PageItem::getPermalink(['mission']),
                                             'template' => '<a href="{url}" >{label}<b class="caret"></b></a>',
                                             'submenuTemplate' => '<ul class="dropdown-menu">{items}</ul>',
                                             'items' => [
                                                 [
-                                                    'label' => Yii::t(_NP_TEXT_DOMAIN, 'Boys and Girls Club of Canada'),
-                                                    'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=>'boy-and-girl-of-canada']),
+                                                    'label' => Yii::t(_NP_TEXT_DOMAIN, 'Boys and Girls Clubs of Canada'),
+                                                    'url' => PageItem::getPermalink(['boys-and-girls-clubs-of-canada']),
 
                                                 ],
 
@@ -73,25 +95,29 @@ use yii\widgets\Menu;
                                         ],
                                         [
                                             'label' => Yii::t(_NP_TEXT_DOMAIN, 'Write Now'),
-                                            'url' => Yii::$app->urlManager->createUrl(['page/show-single','slug'=>'write-now'])
+                                            'url' => PageItem::getPermalink(['write-now'])
                                         ],
-                                        ['label' => 'Products', 'url' => Yii::$app->urlManager->createUrl([''])],
+                                        [
+                                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Products'),
+                                            'url' =>  $locale == DEFAULT_LOCALE ? Yii::$app->urlManager->createUrl(['product']) : Yii::$app->urlManager->createUrl(['product', 'locale' => $locale])
+                                        ],
                                         [
                                             'label' => false,
                                             'options' => [
                                                 'class' => 'facebook-btn',
+                                                'target'
                                             ],
-                                            'url' => 'https://www.facebook.com/BICWritingCanada'
+                                            'url' => 'https://www.facebook.com/BICWritingCanada',
+                                            'template' => '<a href="{url}" target="_blank">{label}</a>'
                                         ],
                                         [
-                                            'label' => Yii::t('app', 'Français') ,
+                                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Français') ,
                                             'options' => [
                                                 'class' => 'language-switch',
                                             ],
-                                            'url' =>  Yii::$app->urlManager->createUrl(['', 'locale' => 'fr'])
+                                            'url' => $locale != DEFAULT_LOCALE  ? Yii::$app->urlManager->createUrl(['']) :  Yii::$app->urlManager->createUrl(['', 'locale' => 'fr'])
                                         ],
                                     ];
-
                                     echo Menu::widget([
                                         'options' => [
                                             'class' => 'menu nav navbar-nav',
@@ -100,7 +126,6 @@ use yii\widgets\Menu;
                                         'items' => $menuItems,
                                     ]);
                                     ?>
-
                                 </div>
                             </nav>
 

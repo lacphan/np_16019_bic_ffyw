@@ -12,8 +12,6 @@ class CommonPageItem extends \common\models\base\BasePageItem
 {
     use NpItemDataSub;
 
-    public $pageOption = ['locale' => 'en'];
-
     public static function getSlugPage($id)
     {
         return static::findOne(['id' => $id])->slug;
@@ -30,20 +28,26 @@ class CommonPageItem extends \common\models\base\BasePageItem
      *  ['code', 'locale' => 'fr_FR', 'param2' => 'value2']
      * @param string|array $params
      */
-    public function getPermalink($params){
+    public static function getPermalink($params){
 
         $params = (array) $params;
 
-        $arg = array_merge($this->pageOption,$params);
+        $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : DEFAULT_LOCALE;
 
+        $arg = array_merge($params);
 
-        $page = self::findPageLocale($arg[0],$arg['locale']);
-
+        $page = self::findPageLocale($arg[0],$locale);
 
         if ($page) {
-            return Yii::$app->urlManager->createUrl(['page/show-single','locale' =>  $arg['locale'], 'slug' => $page->slug,'id'=> $page->id]);
+            if($locale != DEFAULT_LOCALE) {
+                return Yii::$app->urlManager->createUrl(['page/show-single','locale' =>  $locale, 'slug' => $page->slug,'id'=> $page->id]);
+            }
+            return Yii::$app->urlManager->createUrl(['page/show-single', 'slug' => $page->slug,'id'=> $page->id]);
         }
-        return Yii::$app->urlManager->createUrl(['page/show-single','locale' => $arg['locale'], 'slug' => $this->slug,'id'=>$this->id]);
+        if($locale != DEFAULT_LOCALE) {
+            return Yii::$app->urlManager->createUrl(['page/show-single','locale' => $locale , 'slug' => $arg[0]]);
+        }
+        return Yii::$app->urlManager->createUrl(['page/show-single', 'slug' => $arg[0]]);
 
     }
 
@@ -59,10 +63,11 @@ class CommonPageItem extends \common\models\base\BasePageItem
      * Function get PageItem with code and locale
      * @param $code
      * @param $locale
-     * @return array|null|CommonLocale
+     * @return array|null| CommonPageItem
      * @var $localeItem CommonLocale
      */
     public static function findPageLocale($code,$locale = null) {
+        if (!$locale) $locale = DEFAULT_LOCALE;
         $localeItem = CommonLocale::find()->where(['locale' => $locale])->one();
         $page = CommonPageItem::find()->where(['code' => $code, 'locale_id' => $localeItem->id])->one();
         if($page) {

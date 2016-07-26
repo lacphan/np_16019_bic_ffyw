@@ -1,7 +1,15 @@
 .site-header {
   position: relative;
   z-index: 1000;
+  @media (min-width: 768px){
+  .navbar-collapse.collapse {
+    height: 0 !important;
+    &.in{
+      height: auto !important;
+    }
+  }
 
+  }
   .header-inner {
     position: relative;
     background-color: $color3;
@@ -30,6 +38,10 @@
     height: 136px;
     bottom: 0;
     margin: auto;
+    img {
+      width: 100%;
+      height: auto;
+    }
     a {
       display: inline-block;
       &:hover, &:focus {
@@ -76,6 +88,11 @@
       font-family: $font1;
       font-weight: 600;
       padding: 7px 0;
+      &:lang(fr_FR){
+        a{
+          padding: 1px 30px;
+        }
+      }
       &.open {
         a {
           background-color: transparent;
@@ -92,7 +109,12 @@
           height: 22px;
           background: url("../images/facebook-icon.png") center no-repeat;
           background-size: cover;
-
+          border-radius: 2px;
+          &:lang(fr_FR){
+            a{
+              padding: 0;
+            }
+          }
         }
       }
       &.language-switch {

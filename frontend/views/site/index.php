@@ -8,12 +8,11 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use frontend\models\ContestItem;
 use yii\bootstrap\Modal;
-use common\enpii\components\NpItemDataSub;
 use frontend\models\PageItem;
-
-$this->title = 'BIC';
+$this->title = 'BIC FFYW';
 $contestItem = ContestItem::getWeek();
 $weekNumber = $contestItem ? $contestItem->week_number : 1;
+$locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : DEFAULT_LOCALE;
 
 ?>
 <div class="container">
@@ -53,7 +52,7 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                         BIC fera un <span class="font-2 color-1 font-size-25">DON de 10 $</span> à <a target="_blank"
                                                                                                       href="https://www.bgccan.com/FR/Pages/default.aspx">Repaires
                             jeunesse du Canada.</a><br/>
-                        <small>(Donation up to a max. of $10,000, with a min. of $5,000!)</small>
+                        <small>(Dons jusqu'à un maximum de 10 000 $ avec un minimum de 5 000 $!)</small>
                     </p>
                 <?php else: ?>
                     <p>
@@ -76,7 +75,7 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                 <div class="subscribe-form">
                     <div class="subscribe-form-inner">
                         <?php $form = ActiveForm::begin(['id' => 'home-email-checker']) ?>
-                        <?= $form->field($emailSubmission, 'email')->textInput(['maxlength' => true, 'placeholder' => Yii::t('app', 'Email Address')]) ?>
+                        <?= $form->field($emailSubmission, 'email')->textInput(['maxlength' => true, 'placeholder' => Yii::t(_NP_TEXT_DOMAIN, 'Email Address')]) ?>
                         <div class="global-btn item-float-left">
 
                             <?= Html::submitButton(
@@ -90,12 +89,12 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                     <div class="form-arrow"></div>
                 </div>
                 <div class="intro-link">
-                     <?= Yii::t(_NP_TEXT_DOMAIN, '© 2016 BIC Inc. No Purch Nec., CAD only, Age of Majority in Prov./Territ. of Res. Ends 09/19/2016.') ?>
+                     <?= Yii::t(_NP_TEXT_DOMAIN, 'No Purch Nec., CAD only, Age of Majority in Prov./Territ. of Res. Ends 09/19/2016.') ?>
                      
                     <p>
                         <a
                             target="_blank"
-                            href="<?= Yii::$app->urlManager->createUrl(['page/show-single', 'slug' => 'official-rules']) ?>">
+                            href="<?= PageItem::getPermalink(['official-rules']) ?>">
                             <?= Yii::t(_NP_TEXT_DOMAIN, 'Click Here for Official Rules.') ?>
                         </a>
                     </p>
@@ -108,9 +107,7 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                 <div class="hand-writing-content">
                     <div class="left-content">
                         <a href="#" class="title weekly-text-nav">
-                            <span class="font-1"><?= Yii::t(_NP_TEXT_DOMAIN, "This week's") ?></span>
-                            <span class="font-2"><?= Yii::t(_NP_TEXT_DOMAIN, "handwriting") ?></span>
-                            <span class="font-1"><?= Yii::t(_NP_TEXT_DOMAIN, "challenge!") ?></span>
+                            <?= Yii::t(_NP_TEXT_DOMAIN, "<span class=\"font-1\">This week's</span><span class=\"font-2\">handwriting</span><span class=\"font-1\">challenge!</span>") ?>
                         </a>
                     </div>
 
@@ -243,8 +240,12 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
 
                 <div class="home-gallery-item item-see-all">
                     <div class="home-gallery-item-inner">
-                        <a target="_blank" class="see-all-btn"
-                           href="<?= Yii::$app->urlManager->createUrl(['site/gallery']) ?>"></a>
+                        <a target="_blank" class="see-all-btn font-5"
+                           href="<?= $locale == DEFAULT_LOCALE ? Yii::$app->urlManager->createUrl(['site/gallery']) :  Yii::$app->urlManager->createUrl(['site/gallery','locale' => $locale]) ?>">
+                            <span class="see-all-inner">
+                                <?= Yii::t(_NP_TEXT_DOMAIN, 'SEE ALL')?>
+                            </span>
+                        </a>
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -284,7 +285,7 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                 <div class="col-lg-4 col-md-4 column">
                     <div class="feature_box box1">
                         <div class="inner">
-                            <h3>THE MISSION</h3>
+                            <h3><?= Yii::t(_NP_TEXT_DOMAIN, "THE MISSION")?></h3>
                             <div class="image-inner">
                                 <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/mission.png' ?>"
                                      alt="">
@@ -295,16 +296,18 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                 </div>
                 <div class="col-lg-4 col-md-4 column">
                     <?php
-                    $dateGMT = new DateTime(null, new DateTimeZone("GMT"));
-                    $code =  $dateGMT->format('d-m');
-                    $tip = PageItem::findPageLocale($code,Yii::$app->request->get('locale'));
+                    $tipNumber = rand( 1, 14);
+                    $tip = PageItem::findPageLocale('tip-'.$tipNumber,Yii::$app->request->get('locale'));
                     ?>
                     <div class="feature_box box2">
                         <div class="inner">
                             <table>
                                 <tr>
                                     <td class="v-middle">
-                                        <?= $tip ? $tip->description : '<h3>'. Yii::t(_NP_TEXT_DOMAIN,'FEATURED TIP TO INSPIRE WRITING') .'</h3>'?>
+                                        <h3><?=  Yii::t(_NP_TEXT_DOMAIN,'FEATURED TIP TO INSPIRE WRITING') ?></h3>
+                                        <?php if($tip) :?>
+                                            <?= $tip->description ?>
+                                        <?php endif;?>
                                     </td>
                                 </tr>
                             </table>
@@ -317,7 +320,7 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                             <table>
                                 <tr>
                                     <td class="v-top join-wrapper">
-                                        <h3>TAKE ACTION</h3>
+                                        <h3><?= Yii::t(_NP_TEXT_DOMAIN,'TAKE ACTION')?></h3>
                                         <a target="_blank" href="https://www.facebook.com/BICWritingCanada" class="join_button"><?= Yii::t(_NP_TEXT_DOMAIN,'JOIN NOW')?></a>
                                     </td>
                                 </tr>

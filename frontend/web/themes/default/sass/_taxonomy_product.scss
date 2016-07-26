@@ -1,0 +1,28 @@
+.pens{
+  /* CSS Document */
+  .product_type_page .tile .title{
+    left: 0;
+  }
+  .product_type_page .tile_wide{
+    float: none;
+  }
+  img{
+    max-width: 100%;
+    height: auto;
+  }
+  .tile img{
+    width: auto;
+  }
+}
+.pens .product_type_page .tile img { margin-top: 25px; }
+.pens .product_type_page .tile img.pen_her { margin-top: 50px; }
+.pencil-page{
+  .pencils .tile_wide, .pencils .tile_narrow{
+    background: #00aa9e;
+  }
+}
+.product_type_page{
+  .contents{
+    min-height: 0;
+  }
+}

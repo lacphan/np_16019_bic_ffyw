@@ -7,6 +7,7 @@
  */
 
 $this->title = 'Offical Rules';
+use frontend\models\PageItem;
 ?>
 <div class="site-signup tmpl-official-rules">
     <div class="container">
@@ -24,74 +25,45 @@ $this->title = 'Offical Rules';
                 <div class="a-left has-table official-tmp">
                     <p><strong>NO PURCHASE NECESSARY TO ENTER OR WIN. A PURCHASE WILL NOT INCREASE YOUR CHANCES OF
                             WINNING. VOID WHERE PROHIBITED OR RESTRICTED BY LAW. </strong></p>
-                    <p><strong> </strong></p>
                     <ol>
-                        <li>
-                            <p>
-                                <strong><u> SPONSOR/ADMINISTRATOR</u></strong>: BIC Inc., at 155 Oakdale Rd, Toronto,
-                                Ontario, Canada, M3N1W2 (“Sponsor”). Match Marketing Group, 5225 Satellite Dr,
-                                Mississauga,
-                                Ontario, L4W5P9 ("Administrator").
-                            </p>
+                        <li><p><strong><u> SPONSOR/ADMINISTRATOR</u></strong>: BIC Inc., at 155 Oakdale Rd, Toronto,
+                            Ontario, Canada, M3N1W2 (“Sponsor”). Match Marketing Group, 5225 Satellite Dr, Mississauga,
+                            Ontario, L4W5P9 ("Administrator").</p>
                         </li>
-                        <li>
-                            <p>
-                                <strong><u> DESCRIPTION</u></strong>: BIC’s Handwriting Challenge Promotion (the
-                                "Contest")
-                                begins August 9, 2016 at 12:00:01 PM Eastern Time (“ET”) and ends September 19, 2016 at
-                                11:59:59 PM ET ("Contest Submission Period"). <strong>By participating in the Contest
-                                    you
-                                    agree to abide by and be bound by these Official Rules and the decisions of
-                                    Sponsor.</strong>
-                            </p>
+                        <li><p><strong><u> DESCRIPTION</u></strong>: BIC’s Handwriting Challenge Promotion (the "Contest")
+                            begins August 9, 2016 at 12:00:01 PM Eastern Time (“ET”) and ends September 19, 2016 at
+                            11:59:59 PM ET ("Contest Submission Period"). <strong>By participating in the Contest you
+                                agree to abide by and be bound by these Official Rules and the decisions of
+                                Sponsor.</strong></p></li>
+                        <li><p><strong><u> ELIGIBILITY</u></strong>: <strong><u>Contest Eligibility</u></strong>: The
+                            Contest is open to individuals who are legal residents of, and reside in, Canada and are
+                            over the age of majority in their province or territory of residence at the time of entry
+                            and a parent and/or legal guardian of a child age 6 to 18 at the time of entry (“Eligible
+                            Child”) . <u>Persons in any of the following categories are NOT eligible to enter the
+                                Contest or win a Prize:</u> (a) employees, representatives or agents of Sponsor and
+                            Administrator and their respective parent companies, subsidiaries, affiliates, distributors,
+                            subsidiaries, advertising and promotion agencies; (b) individuals engaged in the
+                            development, production or distribution of materials for the Contest; (c) persons with whom
+                            they are domiciled or who are in the immediate family of a person in any of the preceding
+                            categories (including mother, father, sister, brother, daughter, son, spouse, grandmother,
+                            grandfather, children or grandchildren or any of their respective spouses), regardless of
+                            where they live; or persons who reside in the same household, whether related or not, as any
+                            person in any of the preceding categories. All applicable federal, provincial and local laws
+                            and regulations apply. Void where prohibited or restricted by law.</p>
                         </li>
-                        <li>
-                            <p><strong><u> ELIGIBILITY</u></strong>: <strong><u>Contest Eligibility</u></strong>: The
-                                Contest is open to individuals who are legal residents of, and reside in, Canada and are
-                                over the age of majority in their province or territory of residence at the time of
-                                entry
-                                and a parent and/or legal guardian of a child age 4 to 18 at the time of entry
-                                (“Eligible
-                                Child”) . <u>Persons in any of the following categories are NOT eligible to enter the
-                                    Contest or win a Prize:</u> (a) employees, representatives or agents of Sponsor and
-                                Administrator and their respective parent companies, subsidiaries, affiliates,
-                                distributors,
-                                subsidiaries, advertising and promotion agencies; (b) individuals engaged in the
-                                development, production or distribution of materials for the Contest; (c) persons with
-                                whom
-                                they are domiciled or who are in the immediate family of a person in any of the
-                                preceding
-                                categories (including mother, father, sister, brother, daughter, son, spouse,
-                                grandmother,
-                                grandfather, children or grandchildren or any of their respective spouses), regardless
-                                of
-                                where they live; or persons who reside in the same household, whether related or not, as
-                                any
-                                person in any of the preceding categories. All applicable federal, provincial and local
-                                laws
-                                and regulations apply. Void where prohibited or restricted by law.
-                            </p>
-                        </li>
-                        <li>
-                            <p><strong><u> HOW TO ENTER THE CONTEST</u></strong><u>:</u> During the Contest Submission
-                                Period visit <a
-                                    href="http://www.bicfightforyourwrite.ca">www.bicfightforyourwrite.ca</a>
-                                (“Website”) and have your Eligible Child handwrite their response (75 words or less) to
-                                the
-                                weekly handwriting challenges on a piece of 8.5” X 11” paper, then take a photo of your
-                                child’s handwritten response and follow the directions on the Website to complete the
-                                registration form fully and accurately with all the required information and upload the
-                                photo (the “Submission”). Submissions must be received as per below periods to be
-                                eligible
-                                for the respective prizes. Participants will be required to enter their email address
-                                and
-                                click “ENTER NOW” to continue to the registration form.  On the next visit during the
-                                Contest Submission Period, the entrant will be directed to the submission page to enter
-                                their Eligible Child’s first name, last initial and age and to accept the Official
-                                Rules,
-                                but will not be required to complete the entire registration form as their entry
-                                information
-                                will be remembered by the Sponsor.</p>
+                        <li><p><strong><u> HOW TO ENTER THE CONTEST</u></strong><u>:</u> During the Contest Submission
+                            Period visit <a href="http://www.bicfightforyourwrite.ca">www.bicfightforyourwrite.ca</a>
+                            (“Website”) and have your Eligible Child handwrite their response (75 words or less) to the
+                            weekly handwriting challenges on a piece of 8.5” X 11” paper, then take a photo of your
+                            child’s handwritten response and follow the directions on the Website to complete the
+                            registration form fully and accurately with all the required information and upload the
+                            photo (the “Submission”). Submissions must be received as per below periods to be eligible
+                            for the respective prizes. Participants will be required to enter their email address and
+                            click “ENTER NOW” to continue to the registration form.  On the next visit during the
+                            Contest Submission Period, the entrant will be directed to the submission page to enter
+                            their Eligible Child’s first name, last initial and age and to accept the Official Rules,
+                            but will not be required to complete the entire registration form as their entry information
+                            will be remembered by the Sponsor.</p>
                         </li>
                     </ol>
                     <p>&nbsp;</p>
@@ -104,11 +76,7 @@ $this->title = 'Offical Rules';
                         participate in this Contest.</p>
                     <p><strong> </strong></p>
                     <ol>
-                        <li>
-                            <p>
-                                <strong><u>SUBMISSION GUIDELINES</u></strong><strong>: </strong>
-                            </p>
-                        </li>
+                        <li><p><strong><u>SUBMISSION GUIDELINES</u></strong><strong>: </strong></p></li>
                     </ol>
                     <ul>
                         <li>Must be a unique entry;</li>
@@ -215,19 +183,13 @@ $this->title = 'Offical Rules';
                         identical to your Eligible Child’s Submission and that neither you nor your Eligible Child are
                         entitled to any compensation for any use by the Sponsor Parties of this similar material.  </p>
                     <ol>
-                        <li>
-                            <p>
-                                <strong><u> GENERAL ENTRY CONDITIONS</u></strong>: Sponsor has the right, in its sole
-                                discretion, to maintain the integrity of the Contest including the right to void
-                                entries,
-                                including, but not limited to, for the following reasons: multiple entries from the same
-                                user from different IP addresses or from different email addresses; technical
-                                malfunction of
-                                servers or internet connection; user(s) recanting their own entries; technical or
-                                content
-                                upgrades that render entries incompatible or inconsistent; and inappropriate conduct in
-                                promoting entries (spam, harassment, offering prizes or other inducements, etc.).
-                            </p>
+                        <li><p><strong><u> GENERAL ENTRY CONDITIONS</u></strong>: Sponsor has the right, in its sole
+                            discretion, to maintain the integrity of the Contest including the right to void entries,
+                            including, but not limited to, for the following reasons: multiple entries from the same
+                            user from different IP addresses or from different email addresses; technical malfunction of
+                            servers or internet connection; user(s) recanting their own entries; technical or content
+                            upgrades that render entries incompatible or inconsistent; and inappropriate conduct in
+                            promoting entries (spam, harassment, offering prizes or other inducements, etc.).</p>
                         </li>
                     </ol>
                     <p>         Entries received from any email account or person in excess of the stated limitations
@@ -245,9 +207,7 @@ $this->title = 'Offical Rules';
                         winner may be disqualified if they are found to have benefited from entries submitted in
                         violation of these Official Rules.</p>
                     <ol start="5">
-                        <li>
-                            <p><strong><u> CONTEST WINNER DETERMINATION:</u></strong></p>
-                        </li>
+                        <li><p><strong><u> CONTEST WINNER DETERMINATION:</u></strong></p></li>
                         <li><p><strong>A) Weekly</strong></p></li>
                     </ol>
                     <p><strong>Six</strong> (6) potential weekly Contest Prize winners (one (1) per Weekly Entry Period)
@@ -351,23 +311,22 @@ $this->title = 'Offical Rules';
                     <ol>
                         <li><p><strong>B) Grand Prize</strong></p></li>
                     </ol>
-
                     <p>One (1) potential Grand Prize winner will be randomly selected on or about September
                         20<sup>th</sup>, 2016, 9:00am EST from all eligible entries received during the Weekly Entry
                         Periods described above (“Grand Prize Entry Period”). All non-winning weekly submissions will
                         also be included in the Grand Prize drawing.</p>
-                    <p><strong> </strong></p>
+
                     <ol start="6">
-                        <li><p><strong><u> CONTEST PRIZES</u></strong>: Seven (7) Contest Prizes will be awarded:</p>
-                        </li>
+                        <li><p><strong><u> CONTEST PRIZES</u></strong>: Seven (7) Contest Prizes will be awarded:</p></li>
                     </ol>
                     <ul>
                         <li>One (1) Grand Prize Contest Winner will receive $5,000; Prize will be awarded as a cheque.
                         </li>
                     </ul>
+
                     <ul>
-                        <li> Six (6) Weekly Prize Contest Winners will receive a $150 gift card (from a National
-                            Retailer) and a BIC Product Prize pack valued at $50.00 each.
+                        <li>Six (6) Weekly Prize Contest Winners will receive a BIC prize pack chosen by Sponsor and a
+                            Wal-Mart or Staples gift card. $150.00 CAD value each.
                         </li>
                     </ul>
                     <p>Weekly Prizes are awarded “as is” with no warranty or guarantee, either express or implied.
@@ -378,126 +337,78 @@ $this->title = 'Offical Rules';
                             person/email address/per household. All prize details are at Sponsor’s sole
                             discretion.</strong></p>
                     <ol start="7">
-                        <li>
-                            <p><strong><u> CONTEST WINNERS VERIFICATION/NOTIFICATION</u></strong>: Potential Grand Prize
-                                and Weekly Contest Winners ("Potential Winners") will be notified by telephone and/or
-                                email
-                                on or about August 15th, 2016 through September 26th, 2016. To be declared an Official
-                                Contest
-                                Winner and receive the Contest Prize, the Potential Winner must correctly answer a
-                                mathematical skill-testing question. If a Potential Winner is found to be ineligible for
-                                any
-                                reason, or not in compliance with these Official Rules, declines to accept a prize, or
-                                if
-                                the notification that the Sponsor sends is returned as undeliverable, any non-response
-                                by a
-                                Potential Winner within the prescribed response period, or a Potential Winner is
-                                otherwise
-                                unreachable for any reason, the prize will be forfeited and Sponsor may award the prize
-                                to
-                                an alternate Potential Winner. If a Potential Winner cannot be reached or fails to
-                                respond
-                                for a period of five (5) calendar days following first attempted notification, prize may
-                                be
-                                forfeited and an alternate Potential Winner may be notified. <strong>Potential Winners
-                                    will
-                                    be required to sign a Declaration of Eligibility/Release of Liability and Publicity
-                                    Release to be completed, executed, and returned within five (5) calendar days of
-                                    initial
-                                    notification.</strong> Non-compliance by the Potential Winner within this time frame
-                                will result in the Potential Winner being disqualified, and the prize may be awarded to
-                                an
-                                alternate Potential Winner. Email notification shall be deemed to have occurred on the
-                                date
-                                Sponsor or Sponsor’s designee first attempts to make email contact with the Potential
-                                Winner. Sponsor is not responsible for any change in entrant's email address or
-                                unsuccessful
-                                efforts to notify the Potential Winner.
-                            </p>
+                        <li><p><strong><u> CONTEST WINNERS VERIFICATION/NOTIFICATION</u></strong>: Potential Grand Prize
+                            and Weekly Contest Winners ("Potential Winners") will be notified by telephone and/or email
+                            on or about August 8, 2016 through September 20, 2016. To be declared an Official Contest
+                            Winner and receive the Contest Prize, the Potential Winner must correctly answer a
+                            mathematical skill-testing question. If a Potential Winner is found to be ineligible for any
+                            reason, or not in compliance with these Official Rules, declines to accept a prize, or if
+                            the notification that the Sponsor sends is returned as undeliverable, any non-response by a
+                            Potential Winner within the prescribed response period, or a Potential Winner is otherwise
+                            unreachable for any reason, the prize will be forfeited and Sponsor may award the prize to
+                            an alternate Potential Winner. If a Potential Winner cannot be reached or fails to respond
+                            for a period of five (5) calendar days following first attempted notification, prize may be
+                            forfeited and an alternate Potential Winner may be notified. <strong>Potential Winners will
+                                be required to sign a Declaration of Eligibility/Release of Liability and Publicity
+                                Release to be completed, executed, and returned within five (5) calendar days of initial
+                                notification.</strong> Non-compliance by the Potential Winner within this time frame
+                            will result in the Potential Winner being disqualified, and the prize may be awarded to an
+                            alternate Potential Winner. Email notification shall be deemed to have occurred on the date
+                            Sponsor or Sponsor’s designee first attempts to make email contact with the Potential
+                            Winner. Sponsor is not responsible for any change in entrant's email address or unsuccessful
+                            efforts to notify the Potential Winner.</p>
                         </li>
-                        <li>
-                            <p>
-                                <strong><u> PUBLICITY GRANT</u></strong><strong>:</strong> Submission and/or entry and
-                                acceptance of the Contest Prize constitutes permission for Sponsor to use Eligible
-                                Child’s
-                                first name, age and likeness and Contest winners, age, city, province/territory,
-                                likeness
-                                and/or photograph and statements for advertising/trade and all other purposes, in any
-                                manner, in any and all media, and all media now or hereafter known worldwide, including
-                                the
-                                Internet and social networking sites, without further compensation or notification to,
-                                or
-                                permission from any Contest winner, unless prohibited by law in perpetuity.
-                            </p>
+                        <li><p><strong><u> PUBLICITY GRANT</u></strong><strong>:</strong> Submission and/or entry and
+                            acceptance of the Contest Prize constitutes permission for Sponsor to use Eligible Child’s
+                            first name, age and likeness and Contest winners, age, city, province/territory, likeness
+                            and/or photograph and statements for advertising/trade and all other purposes, in any
+                            manner, in any and all media, and all media now or hereafter known worldwide, including the
+                            Internet and social networking sites, without further compensation or notification to, or
+                            permission from any Contest winner, unless prohibited by law in perpetuity.</p>
                         </li>
                     </ol>
                     <p>&nbsp;</p>
                     <ol start="9">
-                        <li>
-                            <p>
-                                <strong><u> GENERAL CONDITIONS</u></strong>: Entrants, by participating, agree that
-                                Sponsor,
-                                Administrator, and their respective parents, affiliates, subsidiaries and advertising
-                                and
-                                promotion agencies and all of their respective officers, directors, employees,
-                                representatives and agents (collectively, “Released Parties”) will have no liability
-                                whatsoever for, and shall be held harmless by entrants against, any liability, for any
-                                injuries, losses or damages of any kind, including death, to persons, or property
-                                resulting
-                                in whole or in part, directly or indirectly, from acceptance, possession, misuse or use
-                                of
-                                prize(s) (including any travel or activity related thereto) or participation in this
-                                Contest. Released Parties are not responsible for lost, late, incomplete, inaccurate,
-                                stolen, misdirected, undelivered, delayed, garbled, illegible or damaged Submissions
-                                and/or
-                                entries or email; or for lost, interrupted or unavailable network, server, Internet
-                                Service
-                                Provider (ISP), Website, or other connections, availability or accessibility or
-                                miscommunications or failed computer, satellite, telephone or cable transmissions,
-                                lines, or
-                                technical failure or jumbled, scrambled, delayed, or misdirected transmissions or
-                                computer
-                                hardware or software malfunctions, failures or difficulties, or other errors or
-                                difficulties
-                                of any kind whether human, mechanical, electronic, computer, network, typographical,
-                                printing or otherwise relating to or in connection with the Contest, including, without
-                                limitation, errors or difficulties which may occur in connection with the administration
-                                of
-                                the Contest, the processing of Submission and/or entries, the announcement of the prizes
-                                or
-                                in any Contest-related materials. Released Parties are also not responsible for any
-                                incorrect or inaccurate information, whether caused by site users, tampering, hacking,
-                                or by
-                                any equipment or programming associated with or utilized in the Contest. Released
-                                Parties
-                                are not responsible for injury or damage to entrants’ or to any other person’s computer
-                                related to or resulting from participating in this Contest or downloading materials from
-                                or
-                                use of the Website. Persons who tamper with or abuse any aspect of the Contest or
-                                Website or
-                                who are in violation of these Official Rules, as solely determined by Sponsor, will be
-                                disqualified and all associated Submissions and/or entries will be void. If for any
-                                reason
-                                the Contest is not capable of running as planned due to infection by computer virus,
-                                bugs,
-                                tampering, unauthorized intervention, fraud, technical failures, or any other causes,
-                                which
-                                corrupts or affects the administration or proper conduct of the Contest, the Sponsor
-                                reserves the right, subject to the approval of the Régie des alcools, des courses et des
-                                jeux, at its sole discretion, to cancel, terminate, modify or suspend the Contest and/or
-                                Contest or any element thereof and/or to disqualify any individual who tampers with the
-                                Submission and/or entry process. If the Contest is cancelled, Sponsor may randomly
-                                select
-                                the remaining Contest Prize Winners from among all non-suspect, eligible entries
-                                received up
-                                to time of such action for the applicable Weekly Entry Period/Grand Prize Entry Period
-                                or as
-                                otherwise deemed fair and appropriate by Sponsor. The use of any automated launching or
-                                entry software or any other mechanical or electronic means that permits the entrant to
-                                automatically enter repeatedly is prohibited. Any entries found or suspected to be
-                                submitted
-                                in this manner will be deemed ‘void’ by the Sponsor. 
-                            </p>
+                        <li><p><strong><u> GENERAL CONDITIONS</u></strong>: Entrants, by participating, agree that Sponsor,
+                            Administrator, and their respective parents, affiliates, subsidiaries and advertising and
+                            promotion agencies and all of their respective officers, directors, employees,
+                            representatives and agents (collectively, “Released Parties”) will have no liability
+                            whatsoever for, and shall be held harmless by entrants against, any liability, for any
+                            injuries, losses or damages of any kind, including death, to persons, or property resulting
+                            in whole or in part, directly or indirectly, from acceptance, possession, misuse or use of
+                            prize(s) (including any travel or activity related thereto) or participation in this
+                            Contest. Released Parties are not responsible for lost, late, incomplete, inaccurate,
+                            stolen, misdirected, undelivered, delayed, garbled, illegible or damaged Submissions and/or
+                            entries or email; or for lost, interrupted or unavailable network, server, Internet Service
+                            Provider (ISP), Website, or other connections, availability or accessibility or
+                            miscommunications or failed computer, satellite, telephone or cable transmissions, lines, or
+                            technical failure or jumbled, scrambled, delayed, or misdirected transmissions or computer
+                            hardware or software malfunctions, failures or difficulties, or other errors or difficulties
+                            of any kind whether human, mechanical, electronic, computer, network, typographical,
+                            printing or otherwise relating to or in connection with the Contest, including, without
+                            limitation, errors or difficulties which may occur in connection with the administration of
+                            the Contest, the processing of Submission and/or entries, the announcement of the prizes or
+                            in any Contest-related materials. Released Parties are also not responsible for any
+                            incorrect or inaccurate information, whether caused by site users, tampering, hacking, or by
+                            any equipment or programming associated with or utilized in the Contest. Released Parties
+                            are not responsible for injury or damage to entrants’ or to any other person’s computer
+                            related to or resulting from participating in this Contest or downloading materials from or
+                            use of the Website. Persons who tamper with or abuse any aspect of the Contest or Website or
+                            who are in violation of these Official Rules, as solely determined by Sponsor, will be
+                            disqualified and all associated Submissions and/or entries will be void. If for any reason
+                            the Contest is not capable of running as planned due to infection by computer virus, bugs,
+                            tampering, unauthorized intervention, fraud, technical failures, or any other causes, which
+                            corrupts or affects the administration or proper conduct of the Contest, the Sponsor
+                            reserves the right, subject to the approval of the Régie des alcools, des courses et des
+                            jeux, at its sole discretion, to cancel, terminate, modify or suspend the Contest and/or
+                            Contest or any element thereof and/or to disqualify any individual who tampers with the
+                            Submission and/or entry process. If the Contest is cancelled, Sponsor may randomly select
+                            the remaining Contest Prize Winners from among all non-suspect, eligible entries received up
+                            to time of such action for the applicable Weekly Entry Period/Grand Prize Entry Period or as
+                            otherwise deemed fair and appropriate by Sponsor. The use of any automated launching or
+                            entry software or any other mechanical or electronic means that permits the entrant to
+                            automatically enter repeatedly is prohibited. Any entries found or suspected to be submitted
+                            in this manner will be deemed ‘void’ by the Sponsor. </p>
                         </li>
                     </ol>
                     <p>&nbsp;</p>
@@ -514,45 +425,32 @@ $this->title = 'Offical Rules';
                         settlement.</p>
                     <p><strong><u> </u></strong></p>
                     <ol start="10">
-                        <li>
-                            <p><strong><u> DISPUTES</u></strong>: This Contest shall be interrupted in accordance with
-                                the
-                                laws of the province of Ontario, without respect to conflict of law doctrines. Except
-                                where
-                                prohibited by law, as a condition of participating in this Contest, entrants agree that
-                                any
-                                and all disputes which cannot be resolved between the parties, and causes of action
-                                arising
-                                out of or in connection with this Contest, shall be resolved individually, without
-                                resort to
-                                any form of class action, exclusively before a court located in Toronto, Ontario having
-                                jurisdiction. Further, in any such dispute, under no circumstances will entrants be
-                                permitted to obtain awards for, and hereby waive all rights to claim punitive,
-                                incidental or
-                                consequential damages, including attorneys' fees, other than entrant's actual
-                                out-of-pocket
-                                costs associate with entering the Promotion, and entrant further waives all rights to
-                                have
-                                damages multiplied or increased.
-                            </p>
+                        <li><p><strong><u> DISPUTES</u></strong>: This Contest shall be interrupted in accordance with the
+                            laws of the province of Ontario, without respect to conflict of law doctrines. Except where
+                            prohibited by law, as a condition of participating in this Contest, entrants agree that any
+                            and all disputes which cannot be resolved between the parties, and causes of action arising
+                            out of or in connection with this Contest, shall be resolved individually, without resort to
+                            any form of class action, exclusively before a court located in Toronto, Ontario having
+                            jurisdiction. Further, in any such dispute, under no circumstances will entrants be
+                            permitted to obtain awards for, and hereby waive all rights to claim punitive, incidental or
+                            consequential damages, including attorneys' fees, other than entrant's actual out-of-pocket
+                            costs associate with entering the Promotion, and entrant further waives all rights to have
+                            damages multiplied or increased.</p>
                         </li>
-                        <li>
-                            <p><strong><u> DATA COLLECTION</u></strong>: All Submission information will be held and
-                                used
-                                in accordance with the Official Rules and Sponsor’s Privacy Policy located at <a
-                                    href="http://www.bicfightforyourwrite.ca">www.bicfightforyourwrite.ca</a>.
-                            </p>
+                        <li><p><strong><u> DATA COLLECTION</u></strong>: All Submission information will be held and used
+                            in accordance with the Official Rules and Sponsor’s Privacy Policy located at <a
+                                href="http://www.bicfightforyourwrite.ca">www.bicfightforyourwrite.ca</a>.</p>
                         </li>
-                        <li>
-                            <p><strong><u> WINNER’S LIST CONTEST</u></strong>: For the names of the winners (available
-                                after October 14, 2016), send a self-addressed, postage stamped #10 envelope by November
-                                15,
-                                2016 to: Winner’s List Request, “BIC Handwriting Challenge ” Contest, 155 Oakdale Rd,
-                                Toronto, Ontario, Canada, M3N1W2
-                            </p>
+                        <li><p><strong><u> WINNER’S LIST CONTEST</u></strong>: For the names of the winners (available
+                            after October 14, 2016), send a self-addressed, postage stamped #10 envelope by November 15,
+                            2016 to: Winner’s List Request, “BIC Handwriting Challenge ” Contest, 155 Oakdale Rd,
+                            Toronto, Ontario, Canada, M3N1W2</p>
                         </li>
                     </ol>
-                    <p>©2016 BIC Inc.<strong> </strong></p>
+                    <p>&nbsp;</p>
+                    <p>©2016 BIC Inc.</p>
+                    <p>&nbsp;</p>
+
                     <p><strong>BIC’s HANDWRITING CHALLENGE</strong> <strong>PROMOTION </strong><strong>ABBREVIATED
                             RULES:</strong></p>
                     <p><strong>NO PURCHASE NECESSARY TO ENTER OR WIN</strong>. The Contest is strictly open to
@@ -566,9 +464,11 @@ $this->title = 'Offical Rules';
                             Eligible Children per person)</u>. You may only use one (1) email address to participate in
                         this Contest. Weekly winners are selected randomly at end of respective weekly period. Grand
                         prize winner to be selected upon full completion of the Contest. Winners must correctly answer a
-                        mathematical skill testing question to win a prize. See <u>Official Rules</u> for details.
+                        mathematical skill testing question to win a prize. See  <u><a target="_blank"
+                            href="<?= PageItem::getPermalink(['official-rules']) ?>">
+                            <?= Yii::t(_NP_TEXT_DOMAIN, 'Official Rules.') ?> </a></u>for details.
                         Sponsor: BIC Inc.</p>
-
+                    <p><strong> </strong></p>
 
                 </div>
 

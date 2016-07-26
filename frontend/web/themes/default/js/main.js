@@ -1,5 +1,60 @@
 jQuery(document).on('ready pjax:success',function () {
+    function getBrowserVersion($browserClass,$classes) {
+        $version = '';
+        $.each($classes, function( $key, $class ) {
+            if( ($class.length > $browserClass.length) && $class.match('^' + $browserClass)) {
+                $version = getVersion($browserClass,$class);
+            }
+        });
+
+        return $version;
+    }
+    function getVersion($browserClass,$class) {
+        $version = $class.replace($browserClass,'');
+        if( ($class.length > $browserClass.length) && $version.length > 2) {
+            $version = $version.split("_");
+        }
+        return $version;
+    }
     (function ($) {
+        $siteHtml = $("html");
+        $siteClasses = $siteHtml.attr('class').split(" ");
+        $oldBrowserFlag = 0;
+        $chromeMinVer = 40;
+        $safariMinVer = 6;
+        $ieMinVer = 9;
+        $firefoxMinVer = 35;
+        $operaMinVer = 12;
+
+        $chromeVersion  = getBrowserVersion('chrome',$siteClasses);
+        if($chromeVersion && $chromeVersion[0] < $chromeMinVer) {
+            $oldBrowserFlag = 1;
+        }
+
+        $safariVersion  = getBrowserVersion('safari',$siteClasses);
+        if($safariVersion && $safariVersion[0] < $safariMinVer) {
+            $oldBrowserFlag = 1;
+        }
+
+        $ieVersion  = getBrowserVersion('ie',$siteClasses);
+        if($ieVersion && $ieVersion[0] < $ieMinVer) {
+            $oldBrowserFlag = 1;
+        }
+        $firefoxVersion  = getBrowserVersion('firefox',$siteClasses);
+        if($firefoxVersion && $firefoxVersion[0] < $firefoxMinVer) {
+            $oldBrowserFlag = 1;
+        }
+
+        $operaVersion  = getBrowserVersion('opera',$siteClasses);
+        if($operaVersion && ($operaVersion[0] < $operaMinVer || (($operaVersion[0] == 12 && $operaVersion[1] < 14)) ))  {
+            $oldBrowserFlag = 1;
+        }
+
+        if($oldBrowserFlag) {
+            $('#out-date-browser').modal('show');
+        }
+
+
         $('.panel-collapse').on('hide.bs.collapse', function () {
             $(this).parent().find('.glyphicon-triangle-right').show();
             $(this).parent().find('.glyphicon-triangle-bottom').hide();
@@ -164,6 +219,12 @@ jQuery(document).on('ready pjax:success',function () {
         $('.weekly-text-nav').click(function (e) {
             e.preventDefault();
             $('#home-email-checker').submit();
-        })
+        });
+        $( ".product_type_page .tile" ).hover(
+            function() {
+                $(this).find('.title').addClass('title_full');
+                $(this).find( ".description" ).slideToggle( "slow", function() {});
+            }
+        );
     })(jQuery);
 });

@@ -4,4 +4,4 @@ Yii::setAlias('frontend', dirname(dirname(__DIR__)) . '/frontend');
 Yii::setAlias('backend', dirname(dirname(__DIR__)) . '/backend');
 Yii::setAlias('console', dirname(dirname(__DIR__)) . '/console');
 Yii::setAlias('root', dirname(dirname(__DIR__)));
-defined('_NP_TEXT_DOMAIN') || define('_NP_TEXT_DOMAIN', 'enpii');
+Yii::setAlias('google/api', dirname(dirname(__DIR__)) . '/vendor/google/apiclient/src');

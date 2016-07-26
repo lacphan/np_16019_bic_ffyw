@@ -11,6 +11,7 @@ use yii\filters\AccessControl;
 use backend\models\LoginForm;
 use yii\filters\VerbFilter;
 use yii;
+use backend\models\ContestItem;
 
 /**
  * SiteController
@@ -22,8 +23,6 @@ class SiteController extends BackendController
     /**
      * @inheritdoc
      */
-
-    
     public function behaviors()
     {
         return [
@@ -82,6 +81,7 @@ class SiteController extends BackendController
 
     public function showDashboard()
     {
+
         return $this->render('dashboard');
     }
 

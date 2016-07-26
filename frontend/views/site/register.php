@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\RegisterForm */
+/* @var $contestItem \frontend\models\ContestItem */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
@@ -14,6 +15,7 @@ $this->title = 'Register';
 $this->params['breadcrumbs'][] = $this->title;
 $contestItem = ContestItem::getWeek();
 $weekNumber = $contestItem ? $contestItem->week_number : 1;
+$locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : DEFAULT_LOCALE;
 ?>
 <div class="site-signup">
     <div class="container">
@@ -64,15 +66,22 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                 <div class="col-md-9 intro-heading">
                     <div class="intro-heading-inner">
                         <h1 class="head-line">
-                            <span class="font-2 color-2 head-line-1">This Week's</span>
-                            <span class="font-5 color-3 head-line-2">Handwriting</span>
-                            <span class="font-2 color-2 head-line-3">Challenge!</span>
+                            <?php if ((Yii::$app->language == 'fr_FR')): ?>
+                                <span class="font-2 color-2 head-line-1">Défid'écriture</span>
+                                <span class="font-5 color-3 head-line-2">de la</span>
+                                <span class="font-2 color-2 head-line-3">semaine!</span>
+                            <?php else:?>
+                                <span class="font-2 color-2 head-line-1">This Week's</span>
+                                <span class="font-5 color-3 head-line-2">Handwriting</span>
+                                <span class="font-2 color-2 head-line-3">Challenge!</span>
+                            <?php endif;?>
+
                         </h1>
                         <div class="intro">
                             <div class="intro-inner">
                                 <h3>
                                     <span class="font-5 color-1">
-                                        <?= Yii::t(_NP_TEXT_DOMAIN,'Week') . ' ' . ContestItem::getWeek()->id ?>:
+                                        <?= Yii::t(_NP_TEXT_DOMAIN,'Week') . ' ' . $weekNumber ?>:
                                         <?php if ($contestItem ): ?>
                                             <?php if($contestItem->children && Yii::$app->language == 'fr_FR') :?>
                                                 <?= $contestItem->children->title;?>
@@ -93,7 +102,7 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                                 </p>
 
                                 <div class="global-btn">
-                                    <a target="_blank" class="global-btn-inner" href="<?= Yii::$app->urlManager->createUrl(['site/gallery'])?>"><?= Yii::t('app','GALLERY')?></a>
+                                    <a target="_blank" class="global-btn-inner" href="<?= $locale == DEFAULT_LOCALE ? Yii::$app->urlManager->createUrl(['site/gallery']) :  Yii::$app->urlManager->createUrl(['site/gallery','locale' => $locale]) ?>"><?= Yii::t(_NP_TEXT_DOMAIN,'Gallery')?></a>
                                 </div>
                             </div>
                         </div>
@@ -102,8 +111,10 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                 <div class="clearfix"></div>
             </div>
             <div class="register-form">
-                <h3 class="form-title font-5 font-size-25">Please fill out the form below to submit your entry:</h3>
-                <p class="require-hint">* Required Fields</p>
+                <h3 class="form-title font-5 font-size-25">
+                    <?= Yii::t(_NP_TEXT_DOMAIN, "Please fill out the form below to submit your entry:")?>
+                </h3>
+                <p class="require-hint">* <?=Yii::t(_NP_TEXT_DOMAIN, 'Required Fields')?></p>
                 <?php $form = ActiveForm::begin([
                     'options' => [
                         'enctype' => 'multipart/form-data',
@@ -111,9 +122,12 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                     ]
                 ]); ?>
                 <div class="form-row">
-                    <?= $form->field($model, 'parentFirstName')->textInput(['placeholder' => Yii::t('app', '*' . "Parent's First Name")])->label(false) ?>
-                    <?= $form->field($model, 'parentLastName')->textInput(['placeholder' => Yii::t('app', '*' . "Parent's Last Name")])->label(false) ?>
-                    <?= $form->field($model, 'phoneNumber')->textInput(['placeholder' => Yii::t('app', '*' . 'Phone Number')])->label(false) ?>
+                    <?= $form->field($model, 'parentFirstName')->textInput(
+                        ['placeholder' =>'*'. Yii::t(_NP_TEXT_DOMAIN, "Parent's First Name")])->label(false) ?>
+                    <?= $form->field($model, 'parentLastName')->textInput(
+                        ['placeholder' =>'*'.Yii::t(_NP_TEXT_DOMAIN, "Parents Last Name")])->label(false) ?>
+                    <?= $form->field($model, 'phoneNumber')->textInput(
+                        ['placeholder' => '*'.Yii::t(_NP_TEXT_DOMAIN, "Phone Number")])->label(false) ?>
                 </div>
 
                 <div class="form-row">
@@ -134,18 +148,18 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                             'Yukon Territory' => 'Yukon Territory',
                         ],
                         [
-                            'prompt' => '*' . Yii::t('app', 'Province'),
+                            'prompt' => '*' . Yii::t(_NP_TEXT_DOMAIN, 'Province'),
                             'class' => 'form-control select2 hide-arrow'
                         ]
                     )->label(false) ?>
                     <div class="form-date-time required">
                         <div class="form-date-time-inner">
-                            <label class="control-label"><?= Yii::t('app', 'Date of Birth') ?>:</label>
+                            <label class="control-label"><?= Yii::t(_NP_TEXT_DOMAIN, 'Date of Birth') ?>:</label>
                             <?= $form->field($model, 'birthMonth', ['options' => ['class' => 'date-time-item']])
                                 ->dropDownList([
                                     array_combine(range(1,12), range(1,12))
                                 ],[
-                                    'prompt' => Yii::t('app', 'Month'),
+                                    'prompt' => Yii::t(_NP_TEXT_DOMAIN, 'Month'),
                                     'class' => 'a-center small-input date-picker select2 hide-no-value hide-arrow'
                                 ])
                                 ->label(false) ?>
@@ -153,14 +167,14 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                                 ->dropDownList([
                                     array_combine(range(1,31), range(1,31))
                                 ],[
-                                    'prompt' => Yii::t('app', 'Day'),
+                                    'prompt' => Yii::t(_NP_TEXT_DOMAIN, 'Day'),
                                     'class' => 'a-center small-input date-picker select2 hide-no-value hide-arrow'
                                 ])
                                 ->label(false) ?>
                             <?= $form->field($model, 'birthYear', ['options' => ['class' => 'date-time-item']]) ->dropDownList([
                                 array_combine(range(1905,1998), range(1905,1998))
                             ],[
-                                'prompt' => Yii::t('app', 'Year'),
+                                'prompt' => Yii::t(_NP_TEXT_DOMAIN, 'Year'),
                                 'class' => 'a-center small-input date-picker select2 hide-no-value hide-arrow'
                             ])
                                 ->label(false) ?>
@@ -168,20 +182,34 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                     </div>
                 </div>
                 <div class="form-row">
-                    <?= $form->field($model, 'email')->textInput(['placeholder' => '*Email Address','value' =>  Yii::$app->session->get('registerEmail')])->label(false) ?>
-                    <?= $form->field($model, 'emailConfirm')->textInput(['placeholder' => '*Confirm Email'])->label(false) ?>
+                    <?= $form->field($model, 'email')->textInput(
+                        ['placeholder' =>'*'. Yii::t(_NP_TEXT_DOMAIN, 'Email Address'),
+                            'value' =>  Yii::$app->session->get('registerEmail')])->label(false) ?>
+                    <?= $form->field($model, 'emailConfirm')->textInput(
+                        [
+                            'placeholder' => '*'.Yii::t(_NP_TEXT_DOMAIN, 'Confirm Email')])->label(false) ?>
 
                 </div>
                 <div class="form-row">
-                    <?= $form->field($model, 'agreeTerm', ['options' => ['class' => 'form-check-box']])->checkbox(
-                        ['template' => '<div class="form-check-box-inner">{input}{label}</div>{error}']
-                    )->label(Yii::t('app', 'I have read and agree to the ') . Html::a(Yii::t('app', 'official rules'), Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules']),['target' => '_blank'])) ?>
+                    <?php if ((Yii::$app->language == 'fr_FR')): ?>
+                        <?= $form->field($model, 'agreeTerm', ['options' => ['class' => 'form-check-box']])->checkbox(
+                            ['template' => '<div class="form-check-box-inner">{input}{label}</div>{error}']
+                        )->label(Yii::t(_NP_TEXT_DOMAIN, 'J\'ai lu et j\'accepte ') . Html::a(Yii::t(_NP_TEXT_DOMAIN, 'les règlements officiels'), Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules']),['target' => '_blank'])) ?>
+                    <?php else:?>
+                        <?= $form->field($model, 'agreeTerm',
+                            ['options' => ['class' => 'form-check-box']])->checkbox(
+                            ['template' => '<div class="form-check-box-inner">{input}{label}{error}</div>']
+                        )->label(Yii::t(_NP_TEXT_DOMAIN, 'I have read and agree to the ') . Html::a(Yii::t(_NP_TEXT_DOMAIN, 'official rules'), Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules']),['target' => '_blank'])) ?>
+                    <?php endif;?>
+
 
                 </div>
                 <div class="form-row">
-                    <?= $form->field($model, 'childFirstName')->textInput(['placeholder' => Yii::t('app', '*' . 'Your Child\'s Name,')])->label(false) ?>
-                    <?= $form->field($model, 'childLastInitial')->textInput(['placeholder' => Yii::t('app', '*' . 'Your Child\'s Last Initial')])->label(false) ?>
-                    <?= $form->field($model, 'age')->textInput(['class' => 'small-input', 'placeholder' => Yii::t('app', 'Age')])->label(false) ?>
+                    <?= $form->field($model, 'childFirstName')->textInput([
+                        'placeholder' =>'*'. Yii::t(_NP_TEXT_DOMAIN, 'Your Child\'s Name')])->label(false) ?>
+                    <?= $form->field($model, 'childLastInitial')->textInput([
+                        'placeholder' => '*'.Yii::t(_NP_TEXT_DOMAIN, 'Your Child\'s Last Initial')])->label(false) ?>
+                    <?= $form->field($model, 'age')->textInput(['class' => 'small-input', 'placeholder' => Yii::t(_NP_TEXT_DOMAIN, 'Age')])->label(false) ?>
                 </div>
                 <div class="form-row">
                     <?php
@@ -196,10 +224,10 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                         'options' => ['class' => 'form-upload'],
                         'template' => '<div class="form-upload-inner">' .
                             '<div class="input-instruction">' .
-                            Yii::t('app', 'Upload photo instructions') . ':<br/>' .
-                            Yii::t('app', 'No larger than 5MB and only accept .jpg and .png files') .
+                            Yii::t(_NP_TEXT_DOMAIN, 'Upload photo instructions') . ':<br/>' .
+                            Yii::t(_NP_TEXT_DOMAIN, 'No larger than 5MB and only accept .jpg and .png files') .
                             '</div>' .
-                            '<button class="btn btn-default global-btn btn-file"><span>'.Yii::t('app','Upload').'{input}</span></button>' .
+                            '<button class="btn btn-default global-btn btn-file"><span>'.Yii::t(_NP_TEXT_DOMAIN,'Upload').'{input}</span></button>' .
                             '{label}{error}'.
                             '<div class="preview-wrapper">'.
                             '<div class="file-preview"><div class="file-preview-frame"><canvas id="canvas"></canvas></div></div>'.
@@ -226,7 +254,9 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                 <div class="form-row">
                     <div class="form-group">
                         <div class="global-btn btn-submit">
-                            <?= Html::submitButton('SUBMIT', ['class' => 'global-btn-inner', 'name' => 'signup-button']) ?>
+                            <?= Html::submitButton(
+                                Yii::t(_NP_TEXT_DOMAIN, "SUBMIT"),
+                                ['class' => 'global-btn-inner', 'name' => 'signup-button']) ?>
                         </div>
 
                     </div>

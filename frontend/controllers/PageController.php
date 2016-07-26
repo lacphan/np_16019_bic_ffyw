@@ -12,8 +12,6 @@ use yii\web\NotFoundHttpException;
 class PageController extends FrontendController
 {
     public function actionShowSingle($slug,$id = null) {
-
-
         if (is_readable($this->getViewPath() . '/' . $slug . '.php')) {
             if($id) {
                 $model = $this->findModel($id);
@@ -23,10 +21,10 @@ class PageController extends FrontendController
                     ]);
                 }
             }
-
             return $this->render($slug);
+        } else {
+            return $this->render('default');
         }
-        throw new \yii\web\NotFoundHttpException();
     }
     /**
      * @param $id

@@ -1,4 +1,5 @@
 <?php
+
 require(__DIR__ . '/../../environment.php');
 require(VENDOR_PATH . '/autoload.php');
 require(VENDOR_PATH . '/yiisoft/yii2/Yii.php');

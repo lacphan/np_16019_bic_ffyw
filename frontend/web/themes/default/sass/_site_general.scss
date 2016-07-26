@@ -1,7 +1,5 @@
 // Only use font if using internal font, other wise, put it there for auto-complete
-
 //@import "compass";
-
 @import "devices";
 @import "functions";
 @import "horizontal-resp-nav-menu";
@@ -25,48 +23,75 @@ $font5: 'Lemonade ICG Bold';
 html {
 
 }
-body { font-family: $font1; color: $color2; background-color: $color1}
-a { color: $color2; text-decoration: none; }
-a:hover { color: $color1;}
-a:focus { outline: none; }
+
+body {
+  font-family: $font1;
+  color: $color2;
+  background-color: $color1
+}
+
+a {
+  color: $color2;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $color1;
+}
+
+a:focus {
+  outline: none;
+}
 
 h1, h2, h3, h4, h5, h6 {
 
 }
+
 img {
   max-width: 100%;
   height: auto;
 }
+
 .font-1 {
   font-family: $font1;
 }
+
 .font-2 {
   font-family: $font2;
 }
+
 .font-3 {
   font-family: $font3;
 }
+
 .font-4 {
   font-family: $font4;
 }
+
 .font-5 {
   font-family: $font5;
 }
+
 .color-1 {
   color: $color1;
 }
+
 .color-2 {
   color: $color2;
 }
+
 .color-3 {
   color: $color3;
 }
+
 .color-4 {
   color: $color4;
 }
+
 .font-size-25 {
   font-size: 25px;
 }
+
 .global-btn {
   display: inline-block;
   cursor: pointer;
@@ -101,7 +126,7 @@ img {
     right: 0;
     margin: auto;
   }
-  &-inner,span {
+  &-inner, span {
     background-color: $color3;
     padding: 5px 20px;
     border-radius: 10px;
@@ -110,46 +135,56 @@ img {
     font-weight: 600;
     display: inline-block;
     border: 0;
+    text-transform: uppercase;
     &:hover {
       text-decoration: none;
     }
   }
 }
+
 .site-content {
   background-color: #f8f8f8;
   padding-top: 50px;
   padding-bottom: 68px;
 }
+
 .a-center {
   text-align: center;
 }
+
 .a-right {
   text-align: right;
 }
+
 .a-left {
   text-align: left;
 }
+
 .v-middle {
   vertical-align: middle;
 }
+
 .v-top {
   vertical-align: top;
 }
+
 .show-on-desktop {
-  @include respond-to-custom-size(null,$mobile-break-point) {
+  @include respond-to-custom-size(null, $mobile-break-point) {
     display: none;
   }
 }
+
 .show-on-mobile {
   @include respond-to-custom-size($mobile-break-point) {
     display: none;
   }
 }
+
 .has-table {
   table {
     width: 100%;
     max-width: 700px;
-    tr ,td {
+    tr, td {
       vertical-align: top;
     }
     td {
@@ -157,6 +192,7 @@ img {
     }
   }
 }
+
 .official-tmp {
   padding-bottom: 30px;
   ol {
@@ -170,42 +206,127 @@ img {
     }
   }
 }
+
 .contents {
-  background: url("../images/bg-paper.jpg") 0 0 ;
+  background: url("../images/bg-paper.jpg") 0 0;
   background-size: 100% auto;
   background-repeat: repeat-y;
   padding: 43px 0 0 0;
   position: relative;
   min-height: 800px;
 }
-[class*='doodle-']{
+
+[class*='doodle-'] {
   position: absolute;
 }
+
 .doodle-1 {
   width: 26px;
   height: 27px;
   background: url("../images/doodle-1.png");
 }
+
 .doodle-2 {
   width: 31px;
   height: 32px;
   background: url("../images/doodle-2.png");
 }
+
 .doodle-3 {
   width: 28px;
   height: 29px;
   background: url("../images/doodle-3.png");
 }
+
 .doodle-4 {
   width: 61px;
   height: 60px;
   background: url("../images/doodle-4.png");
 }
+
 .doodle-5 {
   width: 61px;
   height: 60px;
   background: url("../images/doodle-5.png");
 }
+
 #content_wrapper {
   padding-bottom: 0;
+}
+
+.no-padding-left {
+  padding-left: 0;
+}
+
+#out-date-browser {
+  .modal-dialog {
+  }
+  .modal-content {
+    border-radius: 0;
+    background: url("../images/bg-paper.jpg") center repeat-x;
+    background-size: 100% auto;
+  }
+  .modal-header {
+    h3 {
+      font-size: 30.34px;
+      font-family: kg_fall_for_youbold, sans-serif;
+      color: #039ff8;
+      margin: 0;
+    }
+  }
+  .close-btn {
+    position: absolute;
+    right: 10px;
+    top: 17px;
+    font-size: 50px;
+    color: $color1;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    z-index: 15;
+    line-height: 26px;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.vjs-default-skin .vjs-play-control:before {
+  content: '\f04b';
+  font-family: 'FontAwesome';
+  color: #cccccc;
+}
+
+.vjs-default-skin.vjs-playing .vjs-play-control:before {
+  content: '\f04c';
+  font-family: 'FontAwesome';
+  color: #cccccc;
+}
+
+.vjs-default-skin .vjs-mute-control:before, .vjs-default-skin .vjs-volume-menu-button:before {
+  content: "\f028";
+  font-family: 'FontAwesome';
+  color: #cccccc;
+}
+
+.vjs-default-skin .vjs-mute-control.vjs-vol-0:before, .vjs-default-skin .vjs-volume-menu-button.vjs-vol-0:before {
+  content: "\f026";
+  font-family: 'FontAwesome';
+  color: #cccccc;
+}
+
+.vjs-default-skin .vjs-fullscreen-control:before {
+  content: "\f065";
+  font-family: 'FontAwesome';
+  color: #cccccc;
+}
+.vjs-default-skin.vjs-fullscreen .vjs-fullscreen-control:before{
+  content: "\f066";
+  font-family: 'FontAwesome';
+  color: #cccccc;
+}
+
+.sans-bold{
+  font-family: 'Open Sans';
+  font-weight: 700;
 }

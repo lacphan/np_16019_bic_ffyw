@@ -49,28 +49,52 @@ class RegisterForm extends Model
     /**
      * @inheritdoc
      */
+    public function attributeLabels()
+    {
+        return [
+            'email' => Yii::t(_NP_TEXT_DOMAIN, "Email"),
+            'emailConfirm' => Yii::t(_NP_TEXT_DOMAIN, "Confirm Email"),
+            'parentFirstName' => Yii::t(_NP_TEXT_DOMAIN, "Parent's First Name"),
+            'parentLastName' => Yii::t(_NP_TEXT_DOMAIN, "Parents Last Name"),
+            'childFirstName' => Yii::t(_NP_TEXT_DOMAIN, "Your Child's Name"),
+            'childLastInitial' => Yii::t(_NP_TEXT_DOMAIN, "Your Child's Last Initial"),
+            'phoneNumber' => Yii::t(_NP_TEXT_DOMAIN, "Phone Number"),
+            'birthDate' => Yii::t(_NP_TEXT_DOMAIN, "Date"),
+            'birthMonth' => Yii::t(_NP_TEXT_DOMAIN, "Month"),
+            'birthYear' => Yii::t(_NP_TEXT_DOMAIN, "Year"),
+            'agreeTerm' => Yii::t(_NP_TEXT_DOMAIN, "Official rules"),
+            'age' => Yii::t(_NP_TEXT_DOMAIN, "Age"),
+            'verificationCode' => Yii::t(_NP_TEXT_DOMAIN, "Verification Code"),
+        ];
+    }
     public function rules()
     {
         return [
 
-            [['email','emailConfirm', 'province', 'parentFirstName', 'parentLastName', 'phoneNumber', 'childFirstName', 'childLastInitial', 'age'], 'required'],
+            [['email','emailConfirm', 'province', 'parentFirstName', 'parentLastName', 'phoneNumber', 'childFirstName', 'childLastInitial'], 'required','message'=>'{attribute} '.Yii::t(_NP_TEXT_DOMAIN, 'is a mandatory field')],
             [['email'], 'validateUsername'],
             [['emailConfirm'], 'email'],
             [['rotateDegree'], 'integer'],
-            [['emailConfirm'], 'compare', 'compareAttribute'=>'email', 'message'=> Yii::t('app',"Email does not match")],
+            [['emailConfirm'], 'compare', 'compareAttribute'=>'email', 'message'=> Yii::t(_NP_TEXT_DOMAIN,"Email does not match")],
             [['phoneNumber'],'integer'],
-            [['phoneNumber'],'string','min'=>10,'max' => 10,'tooShort' => Yii::t('app','Phone must contain 10 digits'),'tooLong' => Yii::t('app','Phone must contain 10 digits')],
-            [['childLastInitial'],'match', 'pattern' => '/[a-zA-Z]/','message' => Yii::t('app','Only from a-z A-Z')],
-            [['childLastInitial'],'string', 'max' => 1,'message' => Yii::t('app','Maximum of one alpha character can be entered')],
-            [['age'],'integer', 'min' => 4,'max' => 18 ],
-            [['birthDate'],'integer', 'min' => 1,'max' => 31,'message' => Yii::t('app','Require')],
-            [['birthMonth'],'integer', 'min' => 1,'max' => 12 ,'message' => Yii::t('app','Require')],
-            [['birthYear'],'integer', 'min' => 1905, 'max' => 1998 ,'message' => Yii::t('app','Require')],
+            [['phoneNumber'],'string','min'=>10,'max' => 10,'tooShort' => Yii::t(_NP_TEXT_DOMAIN,'Phone must contain 10 digits'),'tooLong' => Yii::t(_NP_TEXT_DOMAIN,'Phone must contain 10 digits')],
+            [['childLastInitial'],'match', 'pattern' => '/[a-zA-Z]/','message' => Yii::t(_NP_TEXT_DOMAIN,'Only from a-z A-Z')],
+            [['childLastInitial'],'string', 'max' => 1,'message' => Yii::t(_NP_TEXT_DOMAIN,'Maximum of one alpha character can be entered')],
+            [['age'],'integer', 'min' => 6,'max' => 18, 'tooSmall' => Yii::t(_NP_TEXT_DOMAIN,'Must be 6 years or older'),'tooBig' => Yii::t(_NP_TEXT_DOMAIN,'Age must be no greater than 18')],
+            [['birthDate'],'integer', 'min' => 1,'max' => 31,'message' => Yii::t(_NP_TEXT_DOMAIN,'Please enter a valid').' {attribute}'],
+            [['birthMonth'],'integer', 'min' => 1,'max' => 12 ,'message' => Yii::t(_NP_TEXT_DOMAIN,'Please enter a valid').' {attribute}'],
+            [['birthYear'],'integer', 'min' => 1905, 'max' => 1998 ,'message' => Yii::t(_NP_TEXT_DOMAIN,'Please enter a valid').'{attribute}'],
             ['verificationCode', ReCaptchaValidator::className(), 'secret' => '6LddpCQTAAAAAPU27Z1X3nwsVnNed-9aDrk5moSA'],
-            [['birthDate', 'birthMonth', 'birthYear', 'agreeTerm'], 'required', 'message' => 'Require'],
+            [['birthDate', 'birthMonth', 'birthYear'], 'required',
+                'message' => '{attribute} ' . Yii::t(_NP_TEXT_DOMAIN, 'is a mandatory field.')
+            ],
+            [['agreeTerm'], 'required','requiredValue' => 1,
+                'message' =>  Yii::t(_NP_TEXT_DOMAIN, 'Required field')
+            ],
             [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg',  'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],
             [['email'], 'required'],
             [['email'], 'email'],
+            [['age'], 'required', 'message'=>'{attribute} '.Yii::t(_NP_TEXT_DOMAIN, 'is a mandatory field')],
 
         ];
     }
@@ -80,6 +104,7 @@ class RegisterForm extends Model
      *
      * @return User|null the saved model or null if saving fails
      */
+
     public function register()
     {
         $this->uploadFile = UploadedFile::getInstance($this, 'uploadFile');
@@ -131,7 +156,7 @@ class RegisterForm extends Model
 
             if ($flag) {
                 $contestSession->user_id = $user->id;
-                $contestSession->contest_item_id = ContestItem::getWeek()->id;
+                $contestSession->contest_item_id = ContestItem::getWeek()->week_number;
                 $contestSession->user_email = $this->email;
                 $contestSession->first_name = $this->childFirstName;
                 $contestSession->last_name = $this->childLastInitial;

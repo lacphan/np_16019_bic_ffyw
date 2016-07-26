@@ -26,7 +26,7 @@
     @include respond-to-custom-size(null, $mobile-break-point) {
       padding: 30px 0 0 0;
       .head-line-3 {
-        font-size: 116px;
+        font-size: 106px;
       }
     }
     @include respond-to-custom-size(null, 480px) {
@@ -117,6 +117,7 @@
         position: relative;
         line-height: 26px;
         text-transform: uppercase;
+        padding: 5px 10px;
         &:focus {
           outline: none;
         }
@@ -132,6 +133,9 @@
         background-size: cover;
       }
       @include respond-to-custom-size(null, $mobile-break-point) {
+        .item-float-left{
+          float: none;
+        }
         .form-group {
           float: none;
           margin: auto;
@@ -145,8 +149,9 @@
         button {
           float: none;
           margin: 10px auto auto;
-          width: 360px;
-          height: 93px;
+          width: auto;
+          height: auto;
+          padding: 10px 20px;
         }
       }
       @include respond-to-custom-size(null, 480px) {
@@ -361,10 +366,36 @@
     display: block;
     min-height: 126px;
     background-color: #1890f3;
-    background-image: url("../images/see-all.png");
+    font-size: 25px;
+    color: #ffffff;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 124px 24px;
+    line-height: 126px;
+    text-align: center;
+    text-decoration: none;
+    padding: 0 45px;
+    .see-all-inner{
+      position: relative;
+      &:before{
+        position: absolute;
+        top: 2px;
+        left: -30px;
+        width: 25px;
+        height: 25px;
+        content: '';
+        background: url("../images/left-see-all.png") no-repeat center;
+      }
+      &:after{
+        position: absolute;
+        top: 2px;
+        right: -30px;
+        width: 25px;
+        height: 25px;
+        content: '';
+        background: url("../images/right-see-all.png") no-repeat center;
+      }
+    }
   }
   @include respond-to-custom-size(null, $mobile-break-point) {
     padding: 0;
@@ -397,11 +428,11 @@
     }
     .see-all-btn {
       background-color: #7c428d;
-      background-image: url("../images/see-all.png");
       background-position: center;
       background-repeat: no-repeat;
       background-size: 329px 60px;
       height: 162px;
+      line-height: 151px;
     }
   }
   @include respond-to-custom-size(null, 480px) {
@@ -514,6 +545,16 @@
       text-align: center;
     }
   }
+  .feature_box {
+    color: #fff;
+    font-size: 15px;
+    margin-bottom: 10px;
+    h3 {
+      font-size: 23px;
+      font-weight: 700;
+      margin-top: 5px;
+    }
+  }
   .box1 {
     background: #039ff8;
     padding: 10px;
@@ -534,6 +575,10 @@
     background: #f4a40f url(../images/bg_orange.png) center center no-repeat;
     padding: 10px;
     text-align: center;
+    font-size: 13px;
+    h3 {
+      margin-bottom: 0;
+    }
     .inner {
       border: 1px solid #fff;
       padding: 10px 30px;
@@ -552,16 +597,7 @@
       height: 158px;
     }
   }
-  .feature_box {
-    color: #fff;
-    font-size: 15px;
-    margin-bottom: 10px;
-    h3 {
-      font-size: 23px;
-      font-weight: 700;
-      margin-top: 5px;
-    }
-  }
+
   .join_button {
     border: 0;
     padding: 10px 30px;

@@ -31,7 +31,7 @@ use common\enpii\components\NpItemDataSub;
 
                     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-                    <?= $form->field($model, 'description')->textarea(['maxlength' => true,'rows' => 10]) ?>
+                    <?= $form->field($model, 'description')->textarea(['rows' => 10]) ?>
 
                     <?= $form->field($model, 'locale_id')->dropDownList(
                     ArrayHelper::map(Locale::find()->all(), 'id', 'locale'),
@@ -67,7 +67,7 @@ use common\enpii\components\NpItemDataSub;
                             'options' => [
                                 'multiple' => false,
                                 'accept' => 'image/*',
-                                'class' => 'optionvalue-img'
+                                'class' => 'attachment-img'
                             ],
                             'pluginOptions' => [
                                 'previewFileType' => 'image',
@@ -98,7 +98,7 @@ use common\enpii\components\NpItemDataSub;
                             'options' => [
                                 'multiple' => false,
                                 'accept' => 'image/*',
-                                'class' => 'optionvalue-img'
+                                'class' => 'popup-img'
                             ],
                             'pluginOptions' => [
                                 'previewFileType' => 'image',
@@ -118,6 +118,8 @@ use common\enpii\components\NpItemDataSub;
                             ]
                         ]); ?>
                     <?php endif;?>
+                    <?= $form->field($model,'attachment_id')->hiddenInput(['id' => 'attachment-id'])->label(false)?>
+                    <?= $form->field($model,'popup_id')->hiddenInput(['id' => 'popup-id'])->label(false)?>
                     <div class="form-group">
                         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
                     </div>
@@ -130,3 +132,19 @@ use common\enpii\components\NpItemDataSub;
         </div>
     </div>
 </div>
+
+<?php
+$js = <<<JS
+
+$(".attachment-img").on("filecleared", function(event) {
+    $('#attachment-id').val('');
+});
+
+$(".popup-img").on("filecleared", function(event) {
+    $('#popup-id').val('');
+});
+
+
+JS;
+
+$this->registerJs($js);

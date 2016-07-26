@@ -13,19 +13,19 @@ use yii\helpers\Html;
 
 $this->title = 'Gallery';
 $this->params['breadcrumbs'][] = $this->title;
+$locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : DEFAULT_LOCALE;
 ?>
 <div class="site-signup">
     <div class="container">
         <div class="registration-content gallery-tmpl">
-            <div class="home-gallery success-content">
+            <div class="success-content">
                 <div class="title">
-                    BIC'S <span>Handwriting</span> Challenge!<br>
-                    Gallery
+                    <?= Yii::t(_NP_TEXT_DOMAIN,'BIC\'S <span>Handwriting</span> Challenge!<br> Gallery')?>
                 </div>
                 <div class="gallery-intro">
-                    Check out the handwriting submissions from all across Canada!
+                    <?= Yii::t(_NP_TEXT_DOMAIN,'Check out the handwriting submissions from all across Canada!')?>
                     <span class="global-btn">
-                        <?= Html::a('ENTER NOW', Yii::$app->urlManager->createUrl(['site/index']), ['class' => 'global-btn-inner']) ?>
+                        <?= Html::a(Yii::t(_NP_TEXT_DOMAIN,'Enter Now'), $locale == DEFAULT_LOCALE  ? Yii::$app->urlManager->createUrl(['']) :  Yii::$app->urlManager->createUrl(['', 'locale' => 'fr']), ['class' => 'global-btn-inner']) ?>
                     </span>
                 </div>
                 <div class="gallery-wrapper">
@@ -50,7 +50,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 <?= $contestSession->first_name . ' ' . $contestSession->last_name . ', ' . $contestSession->user->profile->province ?>
                                             </div>
                                         </div>
-
                                     </div>
                                 <?php endif; ?>
                             <?php endforeach; ?>
@@ -65,7 +64,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         ]); ?>
 
                     </div>
-                    <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog"
+                    <div class="home-galerry"></div>
+                    <div class="modal fade site-gallery" id="image-gallery" tabindex="-1" role="dialog"
                          aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">

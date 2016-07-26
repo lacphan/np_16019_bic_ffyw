@@ -24,7 +24,7 @@ class SearchContestSession extends ContestSession
     public function rules()
     {
         return [
-            [['id', 'user_id', 'attachment_id'], 'integer'],
+            [['id', 'user_id', 'attachment_id','contest_item_id','is_winner'], 'integer'],
             [['first_name', 'last_name', 'birth_year'], 'safe'],
             [['globalSearch'],'safe'],
         ];
@@ -46,12 +46,15 @@ class SearchContestSession extends ContestSession
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $week = null, $winner = null)
     {
         $query = ContestSession::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort' => [
+                'defaultOrder' =>  ['created_at' => SORT_DESC]
+            ],
         ]);
 
         $this->load($params);
@@ -67,18 +70,18 @@ class SearchContestSession extends ContestSession
             'user_id' => $this->user_id,
             'birth_year' => $this->birth_year,
             'attachment_id' => $this->attachment_id,
+            'contest_item_id' => $this->contest_item_id ? $this->contest_item_id : 1,
         ]);
+        if($winner) {
+            $query->andFilterWhere(['is_winner' => $winner]);
+        }
 
         $query->andFilterWhere(['like', 'first_name', $this->first_name])
             ->andFilterWhere(['like', 'last_name', $this->last_name]);
 
-        $query->orFilterWhere(['like','id', $this->globalSearch]);
-        $query->orFilterWhere(['like','user_id', $this->globalSearch]);
         $query->orFilterWhere(['like','first_name', $this->globalSearch]);
         $query->orFilterWhere(['like','last_name', $this->globalSearch]);
         $query->orFilterWhere(['like','birth_year', $this->globalSearch]);
-        $query->orFilterWhere(['like','attachment_id', $this->globalSearch]);
-        
         return $dataProvider;
     }
 }

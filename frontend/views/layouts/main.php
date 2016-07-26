@@ -6,7 +6,7 @@
 use yii\helpers\Html;
 use frontend\assets\AppAsset;
 use frontend\assets\BootstrapPluginAsset;
-
+use frontend\models\CodeBlockItem;
 //User::hasLoginBE();
 BootstrapPluginAsset::register($this);
 AppAsset::register($this);
@@ -21,6 +21,10 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,700,800,300,600' rel='stylesheet' type='text/css'>
+    <script type="text/javascript">
+        var base = "<?= Yii::$app->urlManager->baseUrl?>"
+    </script>
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -45,16 +49,12 @@ AppAsset::register($this);
 </div>
 
 <?php $this->endBody() ?>
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-64247209-1', 'auto');
-    ga('send', 'pageview');
-
-</script>
+<?php
+$gaCode = CodeBlockItem::getCode('ga-code');
+if($gaCode) {
+    echo $gaCode->content;
+}
+?>
 </body>
 </html>
 <?php $this->endPage() ?>

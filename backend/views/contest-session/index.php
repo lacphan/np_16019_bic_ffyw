@@ -5,13 +5,17 @@ use yii\widgets\Breadcrumbs;
 use yii\bootstrap\Modal;
 use yii\widgets\ActiveForm;
 use kartik\export\ExportMenu;
+use yii\helpers\ArrayHelper;
+use backend\models\ContestItem;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\SearchContestSession */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Submissions');
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
+
 <div class="contest-session-index">
     <div class="page-bar">
         <?= Breadcrumbs::widget([
@@ -22,12 +26,18 @@ $this->params['breadcrumbs'][] = $this->title;
             ]
         ]) ?>
     </div>
+
     <h3 class="page-title">
         <?= Html::encode($this->title) ?>
     </h3>
     <?php if (Yii::$app->session->hasFlash('success')): ?>
         <div class="alert alert-block alert-success fade in">
             <?= Yii::$app->session->getFlash('success') ?>
+        </div>
+    <?php endif; ?>
+    <?php if (Yii::$app->session->hasFlash('error')): ?>
+        <div class="alert alert-block alert-danger fade in">
+            <?= Yii::$app->session->getFlash('error') ?>
         </div>
     <?php endif; ?>
     <div class="portlet light bordered">
@@ -41,13 +51,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <span class="caption-subject font-green-sharp bold uppercase">
                                     <?= Yii::t("app", "Submissions Listing") ?>
                                 </span>
-                                <span class="caption-helper">
+                            <span class="caption-helper">
                                     <?= Yii::t("app", "manage submissions") . "..." ?>
                                 </span>
                         </div>
 
                     </div>
-                  
+
                     <div class="form-group export-menu">
                         <?php
                         $gridColumn = [
@@ -74,8 +84,8 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                             [
                                 'attribute' => 'parent_birthday',
-                                'value' => function($model) {
-                                    return Yii::$app->formatter->asDate($model->user->profile->date_of_birth,'Y-M-d');
+                                'value' => function ($model) {
+                                    return Yii::$app->formatter->asDate($model->user->profile->date_of_birth, 'Y-M-d');
                                 },
                                 'label' => "Parent's Birthday"
                             ],
@@ -111,29 +121,69 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ExportMenu::FORMAT_EXCEL => false,
                                 ExportMenu::FORMAT_EXCEL_X => false,
                             ]
-                            
+
                         ])
                         ?>
                     </div>
 
                     <?= $this->render('_search', ['model' => $searchModel]) ?>
-                    <?php ActiveForm::begin([
-                        'action' => 'bulk'
-                    ]) ?>
-                    <div class="input-group select-wrapper">
-                        <div class="form-group">
-                            <?= Html::dropDownList('bulk-option', 'accept', [
-                                'accept' => 'Accept',
-                                'reject' => 'Reject'
-                            ], [
-                                'class' => 'select-box form-control select2-selection select2-selection--single',
-                                'onchange' => '$("select[name=\'bulk-option\']").not(this).val($(this).val())'
-                            ]) ?>
+
+                    <div class="filter-option">
+                        <div class="week-filter-option">
+                            <?php $form = ActiveForm::begin(['method' => 'GET']) ?>
+                            <div class="input-group select-wrapper">
+                                <?= $form->field($searchModel,'contest_item_id',['options' => ['tag' => false]])->dropDownList([
+                                    ArrayHelper::map(ContestItem::find()->where(['locale_id' => 1])->all(),'week_number','week_number')
+                                ], [
+                                    'prompt' => 'Select Week',
+                                    'class' => 'select2 select-week-item select-box form-control select2-selection select2-selection--single',
+                                    'onchange'=>'this.form.submit()',
+                                ])->label(false) ?>
+                            </div>
+                            <?php ActiveForm::end() ?>
                         </div>
-                        <span class="input-group-btn">
-                            <button type="submit" class="table-group-action-submit btn green-haze">Change <i class="m-icon-swapright m-icon-white"></i></button>
-                        </span>
+                        <div class="prize">
+
+                            <?php $form = ActiveForm::begin([]) ?>
+                            <?= Html::input('hidden','show-winner',1)?>
+                            <?= Html::input('hidden','week',$searchModel->contest_item_id)?>
+                            <?= Html::submitButton('Show Winner',['class' => 'btn green-haze'])?>
+                            <?php ActiveForm::end() ?>
+
+                            <?php $form = ActiveForm::begin([]) ?>
+                            <?= Html::input('hidden','pick-winner',1)?>
+                            <?= Html::input('hidden','week',$searchModel->contest_item_id)?>
+                            <?= Html::submitButton('Pick Winner',['class' => 'prize-btn btn green-haze'])?>
+                            <?php ActiveForm::end() ?>
+
+                            <?php $form = ActiveForm::begin([]) ?>
+                            <?= Html::input('hidden','pick-grand-prize',1)?>
+                            <?= Html::input('hidden','week',$searchModel->contest_item_id)?>
+                            <?= Html::submitButton('Pick Grand Prize',['class' => 'btn green-haze'])?>
+                            <?php ActiveForm::end() ?>
+                        </div>
+                        <div class="bulk-option">
+                            <?php ActiveForm::begin([
+                                'action' => 'bulk'
+                            ]) ?>
+                            <div class="input-group select-wrapper">
+                                <div class="form-group">
+                                    <?= Html::dropDownList('bulk-option', 'accept', [
+                                        'accept' => 'Accept',
+                                        'reject' => 'Reject'
+                                    ], [
+                                        'class' => 'select-box form-control select2-selection select2-selection--single',
+                                        'onchange' => '$("select[name=\'bulk-option\']").not(this).val($(this).val())'
+                                    ]) ?>
+                                </div>
+                                <span class="input-group-btn"><button type="submit" class="table-group-action-submit btn green-haze btn-bulk-option">Change <i
+                                    class="m-icon-swapright m-icon-white"></i></button></span>
+                            </div>
+                            <?php ActiveForm::end() ?>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
+
 
 
                     <div class="portlet-body">
@@ -164,16 +214,25 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ],
                                 [
                                     'attribute' => 'first_name',
-                                    'label' => "Child's First Name"
+                                    'label' => "Child's First Name",
+
                                 ],
                                 [
                                     'attribute' => 'last_name',
-                                    'label' => "Child's Initial"
+                                    'label' => "Child's Initial",
+                                    'headerOptions' => ['width' => '5%']
                                 ],
                                 [
                                     'attribute' => 'birth_year',
                                     'value' => 'age',
-                                    'label' => 'Age'
+                                    'label' => 'Age',
+                                    'headerOptions' => ['width' => '5%']
+                                ],
+                                [
+                                    'attribute' => 'contest_item_id',
+                                    'label' => 'Week',
+                                    'headerOptions' => ['width' => '10%'],
+                                    'filter' => array_combine(range(1, 6), range(1, 6))
                                 ],
                                 [
                                     'class' => 'common\enpii\components\grid\ActionColumn',
@@ -199,28 +258,12 @@ $this->params['breadcrumbs'][] = $this->title;
                                             return '';
 
                                         },
-
                                     ],
                                     'contentOptions' => ['class' => 'action-column'],
                                     'headerOptions' => ['class' => 'action-column']
                                 ],
                             ],
                         ]); ?>
-                        <div class="input-group select-wrapper">
-                            <div class="form-group">
-                                <?= Html::dropDownList('bulk-option', 'accept', [
-                                    'accept' => 'Accept',
-                                    'reject' => 'Reject'
-                                ], [
-                                    'class' => 'select-box form-control select2-selection select2-selection--single',
-                                    'onchange' => '$("select[name=\'bulk-option\']").not(this).val($(this).val())'
-                                ]) ?>
-                            </div>
-                        <span class="input-group-btn">
-                            <button type="submit" class="table-group-action-submit btn green-haze">Change <i class="m-icon-swapright m-icon-white"></i></button>
-                        </span>
-                        </div>
-                        <?php ActiveForm::end() ?>
                     </div>
                     <?php
                     Modal::begin([

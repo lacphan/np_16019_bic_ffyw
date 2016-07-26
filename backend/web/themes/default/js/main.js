@@ -4,7 +4,7 @@
 
 jQuery(document).on('ready pjax:success',function () {
     (function ($) {
-        jQuery('.table-group-action-submit').click(function(event){
+        jQuery('.btn-bulk-option').click(function(event){
 
             var form = jQuery(this).closest('form');
             var action = jQuery(this).closest('form').find('select[name="bulk-option"]').val();
@@ -35,7 +35,8 @@ jQuery(document).on('ready pjax:success',function () {
                 alert('Please select item','Waring');
                 return false;
             }
-        })
+        });
+
         $('.image-modal').click(function (e) {
             e.preventDefault();
             $('#modal').modal('show').find('#image-viewer').attr('src',$(this).attr('href'))  ;

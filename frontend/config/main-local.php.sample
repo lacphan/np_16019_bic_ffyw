@@ -12,7 +12,27 @@ $config = [
             'cookieValidationKey' => 'ndoojpBv-kdTZYGWHho51g5K-i-i2IFy',
             'baseUrl' => '',
         ],
+        'urlManager' => [
+            'class'=> 'yii\web\UrlManager',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'baseUrl' => '',
+            'rules'=>[
+                '/<locale:\w+>/product' => 'product',
+                '/<locale:\w+>/product/<slug:\w[\w\-]+>/' => 'product/show-single',
+                '/product/<slug:\w[\w\-]+>/' => 'product/show-single',
+                '/<locale:\w+>/page' => 'page',
+                '/<locale:\w+>/page/<slug:\w[\w\-]+>/<id:\d+>' => 'page/show-single',
+                '/<locale:\w+>/page/<slug:\w[\w\-]+>/' => 'page/show-single',
+                '/page/<slug:\w[\w\-]+>/<id:\d+>' => 'page/show-single',
+                '/page/<slug:\w[\w\-]+>/' => 'page/show-single',
+                '/<locale:\w+>/<alias:index|register|submission|gallery>' => 'site/<alias>',
+                '<alias:index|register|submission|gallery>' => 'site/<alias>',
+                '/<locale:\w+>' => '',
+            ]
+        ],
     ],
+
 ];
 
 if (!YII_ENV_TEST) {

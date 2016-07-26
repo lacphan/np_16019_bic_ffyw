@@ -2,18 +2,19 @@
 
 namespace backend\controllers;
 
+use common\models\CommonContestItem;
 use Yii;
 use backend\models\ContestSession;
 use backend\models\SearchContestSession;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\AccessControl;
 use backend\models\Attachment;
 use yii\web\UploadedFile;
+use backend\models\ContestItem;
 /**
  * ContestSessionController implements the CRUD actions for ContestSession model.
  */
-class ContestSessionController extends \common\enpii\components\NpController
+class ContestSessionController extends BackendController
 {
     public function behaviors()
     {
@@ -44,8 +45,28 @@ class ContestSessionController extends \common\enpii\components\NpController
     public function actionIndex()
     {
         $searchModel = new SearchContestSession();
+        $searchModel->contest_item_id = 1;
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        if(Yii::$app->request->post() && Yii::$app->request->post('show-winner') ) {
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams,Yii::$app->request->post('week'),1);
+        }
+        if(Yii::$app->request->post() && Yii::$app->request->post('pick-winner')) {
+            if(Yii::$app->request->post('week')) {
+                $week = Yii::$app->request->post('week');
+                $this->pickWinner($week);
+                $dataProvider = $searchModel->search(Yii::$app->request->queryParams,$week,1);
+            } else {
+                Yii::$app->session->setFlash('error', 'Please select a Week');
+            }
+
+        }
+
+        if(Yii::$app->request->post() && Yii::$app->request->post('pick-grand-prize')) {
+            $week = Yii::$app->request->post('week');
+            $this->pickGrandPrize($week);
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams,$week,1);
+        }
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -91,21 +112,26 @@ class ContestSessionController extends \common\enpii\components\NpController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $oldAttachment = null;
+        $oldAttachment = $model->attachment;
+        $flagAttachment = 0;
         if ($model->load(Yii::$app->request->post()) ) {
+
             $model->uploadFile = UploadedFile::getInstance($model, 'uploadFile');
             if ($model->uploadFile) {
-
-                $oldAttachment = $model->attachment;
-
+                $flagAttachment = 1;
                 $attachment = Attachment::uploadFile($model->uploadFile,'image');
                 $model->attachment_id = $attachment->id;
             }
+            if ($model->attachment_id == '') {
+                $flagAttachment = 1;
+            }
+
             $model->uploadFile = null;
             $model->save();
-            if($oldAttachment) {
+            if($flagAttachment && $oldAttachment) {
                 $oldAttachment->delete();
             }
+
             return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -197,5 +223,49 @@ class ContestSessionController extends \common\enpii\components\NpController
             ]);
         }
         return $this->redirect(['index']);
+    }
+
+    /**
+     * pick grand prize
+     */
+    public function pickWinner($week) {
+        $contestSessions = ContestSession::find()->where(['contest_item_id' => $week])->all();
+        if($contestSessions) {
+            foreach ($contestSessions as $contestSession) {
+                $contestSession->is_winner = 0;
+                $contestSession->save();
+            }
+            if(count($contestSessions) > 6) {
+                $winners = array_rand($contestSessions,6);
+                foreach ($winners as $key => $winner) {
+                    $contestSessions[$winner]->is_winner = 1;
+                    $contestSessions[$winner]->save();
+                }
+            } else {
+                foreach ($contestSessions as $key => $winner) {
+                    $winner->is_winner = 1;
+                    $winner->save();
+                }
+            }
+
+        }
+
+    }
+
+    /*
+     * pick grand prize
+     */
+    public function pickGrandPrize($week) {
+        $contestSessions = ContestSession::find()->all();
+        if($contestSessions) {
+            foreach ($contestSessions as $contestSession) {
+                $contestSession->is_winner = 0;
+                $contestSession->save();
+            }
+            $winner = array_rand($contestSessions,1);
+            $contestSessions[$winner]->is_winner = 1;
+            $contestSessions[$winner]->save();
+        }
+
     }
 }

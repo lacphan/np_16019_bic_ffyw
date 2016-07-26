@@ -11,6 +11,8 @@ use common\enpii\components\NpController;
 use yii;
 class FrontendController extends NpController
 {
+    public $enableCsrfValidation = false;
+
     public function init()
     {
         if(Yii::$app->request->get('locale') == 'fr') {
