@@ -1,7 +1,15 @@
 .site-header {
   position: relative;
   z-index: 1000;
+  @media (min-width: 768px){
+  .navbar-collapse.collapse {
+    height: 0 !important;
+    &.in{
+      height: auto !important;
+    }
+  }
 
+  }
   .header-inner {
     position: relative;
     background-color: $color3;

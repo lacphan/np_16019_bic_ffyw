@@ -133,6 +133,9 @@
         background-size: cover;
       }
       @include respond-to-custom-size(null, $mobile-break-point) {
+        .item-float-left{
+          float: none;
+        }
         .form-group {
           float: none;
           margin: auto;
@@ -146,8 +149,8 @@
         button {
           float: none;
           margin: 10px auto auto;
-          width: 360px;
-          height: 93px;
+          width: auto;
+          height: auto;
         }
       }
       @include respond-to-custom-size(null, 480px) {
