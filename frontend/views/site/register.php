@@ -196,7 +196,8 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                             ['template' => '<div class="form-check-box-inner">{input}{label}</div>{error}']
                         )->label(Yii::t(_NP_TEXT_DOMAIN, 'J\'ai lu et j\'accepte ') . Html::a(Yii::t(_NP_TEXT_DOMAIN, 'les règlements officiels'), Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules']),['target' => '_blank'])) ?>
                     <?php else:?>
-                        <?= $form->field($model, 'agreeTerm', ['options' => ['class' => 'form-check-box']])->checkbox(
+                        <?= $form->field($model, 'agreeTerm',
+                            ['options' => ['class' => 'form-check-box']])->checkbox(
                             ['template' => '<div class="form-check-box-inner">{input}{label}{error}</div>']
                         )->label(Yii::t(_NP_TEXT_DOMAIN, 'I have read and agree to the ') . Html::a(Yii::t(_NP_TEXT_DOMAIN, 'official rules'), Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules']),['target' => '_blank'])) ?>
                     <?php endif;?>
