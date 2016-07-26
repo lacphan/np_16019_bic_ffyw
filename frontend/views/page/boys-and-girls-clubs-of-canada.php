@@ -53,7 +53,8 @@ $this->title = 'Boys and Girls Clubs of Canada';
 
                         </div>
                     </div>
-                </div>            <?php else: ?>
+                </div>
+            <?php else: ?>
                 <div class="contents">
                     <div class="doodle doodle_1"><img
                             src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'doodle_bic_helping_1.png' ?>"
@@ -74,7 +75,7 @@ $this->title = 'Boys and Girls Clubs of Canada';
 
                     <h3>How BIC is Helping</h3>
                     <div class="logos">
-                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'BGCC_Logo.png' ?>"
+                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'BGCC_Logo_French.png' ?>"
                              alt="Boys and Girls Club of Canada"/>
                     </div>
                     <div class="row">
@@ -94,7 +95,8 @@ $this->title = 'Boys and Girls Clubs of Canada';
 
                         </div>
                     </div>
-                </div>            <?php endif; ?>
+                </div>
+            <?php endif; ?>
 
         </div>
         <!-- end content-wrapper -->
