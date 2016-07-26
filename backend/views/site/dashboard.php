@@ -2,14 +2,15 @@
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use backend\models\ContestSession;
-
+use infoweb\analytics\Analytics;
+use backend\models\ContestItem;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Dashboard');
 $this->params['breadcrumbs'][] = $this->title;
-
-$contestSessions = ContestSession::find()->all();
+$contestItem = ContestItem::getWeek();
+$contestSessions = ContestSession::find()->where(['>=','created_at',$contestItem->start_date])->andWhere(['<=','created_at',$contestItem->end_date])->all();
 $winner = ContestSession::find()->where(['is_winner' => 1])->all();
 
 ?>

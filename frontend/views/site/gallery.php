@@ -13,6 +13,7 @@ use yii\helpers\Html;
 
 $this->title = 'Gallery';
 $this->params['breadcrumbs'][] = $this->title;
+$locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : DEFAULT_LOCALE;
 ?>
 <div class="site-signup">
     <div class="container">
@@ -24,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="gallery-intro">
                     <?= Yii::t(_NP_TEXT_DOMAIN,'Check out the handwriting submissions from all across Canada!')?>
                     <span class="global-btn">
-                        <?= Html::a(Yii::t(_NP_TEXT_DOMAIN,'Enter Now'), Yii::$app->urlManager->createUrl(['site/index']), ['class' => 'global-btn-inner']) ?>
+                        <?= Html::a(Yii::t(_NP_TEXT_DOMAIN,'Enter Now'), $locale == DEFAULT_LOCALE  ? Yii::$app->urlManager->createUrl(['']) :  Yii::$app->urlManager->createUrl(['', 'locale' => 'fr']), ['class' => 'global-btn-inner']) ?>
                     </span>
                 </div>
                 <div class="gallery-wrapper">

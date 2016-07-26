@@ -6,12 +6,13 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model backend\models\SearchContestSession */
 /* @var $form yii\widgets\ActiveForm */
+$locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : DEFAULT_LOCALE;
 ?>
 
 <div class="contest-session-search">
 
     <?php $form = ActiveForm::begin([
-        'action' => ['gallery'],
+        'action' => $locale == DEFAULT_LOCALE ?  ['gallery'] : ['gallery','locale' => $locale],
         'method' => 'get',
     ]); ?>
     <?= $form->field($model, 'first_name')->textInput(['placeholder' => Yii::t(_NP_TEXT_DOMAIN, 'Your Child\'s Name'), 'class' => 'form-control'])->label(false); ?>
