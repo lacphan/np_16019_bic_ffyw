@@ -80,7 +80,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                             'items' => [
                                                 [
                                                     'label' => Yii::t(_NP_TEXT_DOMAIN, 'Boys and Girls Clubs of Canada'),
-                                                    'url' => PageItem::getPermalink(['boy-and-girl-of-canada']),
+                                                    'url' => PageItem::getPermalink(['boys-and-girls-clubs-of-canada']),
 
                                                 ],
 

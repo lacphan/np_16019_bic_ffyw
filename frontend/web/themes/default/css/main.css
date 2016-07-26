@@ -313,6 +313,11 @@ img {
   color: #cccccc;
 }
 
+.sans-bold {
+  font-family: 'Open Sans';
+  font-weight: 700;
+}
+
 .site-header {
   position: relative;
   z-index: 1000;
