@@ -39,9 +39,15 @@ class CommonPageItem extends \common\models\base\BasePageItem
         $page = self::findPageLocale($arg[0],$locale);
 
         if ($page) {
-            return Yii::$app->urlManager->createUrl(['page/show-single','locale' =>  $locale, 'slug' => $page->slug,'id'=> $page->id]);
+            if($locale != DEFAULT_LOCALE) {
+                return Yii::$app->urlManager->createUrl(['page/show-single','locale' =>  $locale, 'slug' => $page->slug,'id'=> $page->id]);
+            }
+            return Yii::$app->urlManager->createUrl(['page/show-single', 'slug' => $page->slug,'id'=> $page->id]);
         }
-        return Yii::$app->urlManager->createUrl(['page/show-single','locale' => $locale, 'slug' => $arg[0]]);
+        if($locale != DEFAULT_LOCALE) {
+            return Yii::$app->urlManager->createUrl(['page/show-single','locale' => $locale , 'slug' => $arg[0]]);
+        }
+        return Yii::$app->urlManager->createUrl(['page/show-single', 'slug' => $arg[0]]);
 
     }
 

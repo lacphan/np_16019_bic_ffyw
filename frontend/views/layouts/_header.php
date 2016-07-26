@@ -20,7 +20,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
         <div class="container">
             <div class="header-main-content">
                 <div class="main-logo">
-                    <a href="<?= Yii::$app->urlManager->createUrl(['','locale'=> $locale]) ?>">
+                    <a href="<?= $locale == DEFAULT_LOCALE ? Yii::$app->urlManager->baseUrl : Yii::$app->urlManager->createUrl(['','locale'=> $locale]) ?>">
                         <img src="<?= Yii::$app->urlManager->getBaseUrl() . '/themes/default/images/main-logo.png' ?>"
                              alt="">
                     </a>
@@ -55,11 +55,11 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                             'items' => [
                                                 [
                                                     'label' => Yii::t(_NP_TEXT_DOMAIN, 'Enter Now'),
-                                                    'url' => Yii::$app->urlManager->createUrl(['','locale'=> $locale])
+                                                    'url' => $locale == DEFAULT_LOCALE ? Yii::$app->urlManager->baseUrl : Yii::$app->urlManager->createUrl(['','locale'=> $locale])
                                                 ],
                                                 [
                                                     'label' => Yii::t(_NP_TEXT_DOMAIN, 'Gallery'),
-                                                    'url' => Yii::$app->urlManager->createUrl(['site/gallery','locale'=> $locale])
+                                                    'url' =>  $locale == DEFAULT_LOCALE ?  Yii::$app->urlManager->createUrl(['site/gallery']) : Yii::$app->urlManager->createUrl(['site/gallery','locale'=> $locale])
                                                 ],
                                                 [
                                                     'label' => Yii::t(_NP_TEXT_DOMAIN, 'Contest Prizes'),
@@ -108,7 +108,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                             'options' => [
                                                 'class' => 'language-switch',
                                             ],
-                                            'url' => Yii::$app->language == 'fr_FR' ? Yii::$app->urlManager->createUrl(['', 'locale' => DEFAULT_LOCALE]) :  Yii::$app->urlManager->createUrl(['', 'locale' => 'fr'])
+                                            'url' => $locale != DEFAULT_LOCALE  ? Yii::$app->urlManager->createUrl(['']) :  Yii::$app->urlManager->createUrl(['', 'locale' => 'fr'])
                                         ],
                                     ];
                                     echo Menu::widget([
