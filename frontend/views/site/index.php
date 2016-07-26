@@ -241,7 +241,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                 <div class="home-gallery-item item-see-all">
                     <div class="home-gallery-item-inner">
                         <a target="_blank" class="see-all-btn font-5"
-                           href="<?= Yii::$app->urlManager->createUrl(['site/gallery','locale' => $locale]) ?>">
+                           href="<?= $locale == DEFAULT_LOCALE ? Yii::$app->urlManager->createUrl(['site/gallery']) :  Yii::$app->urlManager->createUrl(['site/gallery','locale' => $locale]) ?>">
                             <span class="see-all-inner">
                                 <?= Yii::t(_NP_TEXT_DOMAIN, 'SEE ALL')?>
                             </span>

@@ -15,6 +15,7 @@ $this->title = 'Register';
 $this->params['breadcrumbs'][] = $this->title;
 $contestItem = ContestItem::getWeek();
 $weekNumber = $contestItem ? $contestItem->week_number : 1;
+$locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : DEFAULT_LOCALE;
 ?>
 <div class="site-signup">
     <div class="container">
@@ -101,7 +102,7 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                                 </p>
 
                                 <div class="global-btn">
-                                    <a target="_blank" class="global-btn-inner" href="<?= Yii::$app->urlManager->createUrl(['site/gallery'])?>"><?= Yii::t(_NP_TEXT_DOMAIN,'Gallery')?></a>
+                                    <a target="_blank" class="global-btn-inner" href="<?= $locale == DEFAULT_LOCALE ? Yii::$app->urlManager->createUrl(['site/gallery']) :  Yii::$app->urlManager->createUrl(['site/gallery','locale' => $locale]) ?>"><?= Yii::t(_NP_TEXT_DOMAIN,'Gallery')?></a>
                                 </div>
                             </div>
                         </div>
@@ -195,8 +196,9 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                             ['template' => '<div class="form-check-box-inner">{input}{label}</div>{error}']
                         )->label(Yii::t(_NP_TEXT_DOMAIN, 'J\'ai lu et j\'accepte ') . Html::a(Yii::t(_NP_TEXT_DOMAIN, 'les règlements officiels'), Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules']),['target' => '_blank'])) ?>
                     <?php else:?>
-                        <?= $form->field($model, 'agreeTerm', ['options' => ['class' => 'form-check-box']])->checkbox(
-                            ['template' => '<div class="form-check-box-inner">{input}{label}</div>{error}']
+                        <?= $form->field($model, 'agreeTerm',
+                            ['options' => ['class' => 'form-check-box']])->checkbox(
+                            ['template' => '<div class="form-check-box-inner">{input}{label}{error}</div>']
                         )->label(Yii::t(_NP_TEXT_DOMAIN, 'I have read and agree to the ') . Html::a(Yii::t(_NP_TEXT_DOMAIN, 'official rules'), Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules']),['target' => '_blank'])) ?>
                     <?php endif;?>
 

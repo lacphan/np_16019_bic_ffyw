@@ -8,7 +8,6 @@
 use yii\helpers\Html;
 use frontend\models\PageItem;
 $this->title = 'Contest Prizes';
-
 ?>
 <div class="site-signup">
     <div class="container">
