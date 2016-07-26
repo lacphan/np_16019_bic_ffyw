@@ -318,6 +318,17 @@ img {
   font-weight: 700;
 }
 
+/** submission page ******/
+.submission-guideline {
+  font-size: 16px;
+  font-family: sans-serif;
+  color: #000000;
+}
+
+.submission-guideline a {
+  color: #19998c;
+}
+
 .site-header {
   position: relative;
   z-index: 1000;
