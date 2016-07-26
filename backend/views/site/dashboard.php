@@ -3,12 +3,14 @@ use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use backend\models\ContestSession;
 use infoweb\analytics\Analytics;
+use backend\models\ContestItem;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Dashboard');
 $this->params['breadcrumbs'][] = $this->title;
-$contestSessions = ContestSession::find()->all();
+$contestItem = ContestItem::getWeek();
+$contestSessions = ContestSession::find()->where(['>=','created_at',$contestItem->start_date])->andWhere(['<=','created_at',$contestItem->end_date])->all();
 $winner = ContestSession::find()->where(['is_winner' => 1])->all();
 
 ?>
@@ -75,77 +77,7 @@ $winner = ContestSession::find()->where(['is_winner' => 1])->all();
                         <div class="tab-content">
                             <div class="tab-pane active" id="overview_1">
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-hover table-bordered">
 
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                <a href="javascript:;"> Apple iPhone 4s - 16GB - Black </a>
-                                            </td>
-                                            <td> $625.50 </td>
-                                            <td> 809 </td>
-                                            <td>
-                                                <a href="javascript:;" class="btn btn-sm btn-default">
-                                                    <i class="fa fa-search"></i> View </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="javascript:;"> Samsung Galaxy S III SGH-I747 - 16GB </a>
-                                            </td>
-                                            <td> $915.50 </td>
-                                            <td> 6709 </td>
-                                            <td>
-                                                <a href="javascript:;" class="btn btn-sm btn-default">
-                                                    <i class="fa fa-search"></i> View </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="javascript:;"> Motorola Droid 4 XT894 - 16GB - Black </a>
-                                            </td>
-                                            <td> $878.50 </td>
-                                            <td> 784 </td>
-                                            <td>
-                                                <a href="javascript:;" class="btn btn-sm btn-default">
-                                                    <i class="fa fa-search"></i> View </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="javascript:;"> Samsung Galaxy Note 4 </a>
-                                            </td>
-                                            <td> $925.50 </td>
-                                            <td> 21245 </td>
-                                            <td>
-                                                <a href="javascript:;" class="btn btn-sm btn-default">
-                                                    <i class="fa fa-search"></i> View </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="javascript:;"> Regatta Luca 3 in 1 Jacket </a>
-                                            </td>
-                                            <td> $25.50 </td>
-                                            <td> 1245 </td>
-                                            <td>
-                                                <a href="javascript:;" class="btn btn-sm btn-default">
-                                                    <i class="fa fa-search"></i> View </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="javascript:;"> Samsung Galaxy Note 3 </a>
-                                            </td>
-                                            <td> $925.50 </td>
-                                            <td> 21245 </td>
-                                            <td>
-                                                <a href="javascript:;" class="btn btn-sm btn-default">
-                                                    <i class="fa fa-search"></i> View </a>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -153,35 +85,6 @@ $winner = ContestSession::find()->where(['is_winner' => 1])->all();
                 </div>
             </div>
             <!-- End: life time stats -->
-        </div>
-    </div>
-</div>
-<div class="site-index">
-    <div class="body-content">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                    <?= Yii::t('app', 'Dashboard'); ?>
-                    <span class="pull-right report-period">
-                        <strong><?= Yii::$app->formatter->asDate(date('d-m-Y', strtotime('-1 month')), 'medium'); ?>&nbsp;-&nbsp;<?= Yii::$app->formatter->asDate(date('d-m-Y'), 'medium'); ?></strong>
-                    </span>
-                </h1>
-            </div>
-        </div>
-
-        <div class="row">
-            <?= Analytics::widget(['dataType' => Analytics::TOTAl_SESSIONS]); ?>
-            <?= Analytics::widget(['dataType' => Analytics::TOTAL_USERS]); ?>
-            <?= Analytics::widget(['dataType' => Analytics::TOTAL_PAGE_VIEWS]); ?>
-            <?= Analytics::widget(['dataType' => Analytics::AVERAGE_SESSION_LENGTH]); ?>
-        </div>
-
-        <div class="row">
-            <?= Analytics::widget(['dataType' => Analytics::SESSIONS]); ?>
-        </div>
-        <div class="row">
-            <?= Analytics::widget(['dataType' => Analytics::VISITORS]); ?>
-            <?= Analytics::widget(['dataType' => Analytics::COUNTRIES]); ?>
         </div>
     </div>
 </div>
