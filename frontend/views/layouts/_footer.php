@@ -16,6 +16,7 @@ use yii\bootstrap\Modal;
 ?>
 <?php
 $outDateBrowser =  PageItem::findPageLocale('out-date-browser',Yii::$app->request->get('locale'));
+$currentLocale = (Yii::$app->language=='fr_FR') ?'fr':'en';
 if($outDateBrowser) {
     Modal::begin([
         'closeButton' => [
@@ -52,20 +53,20 @@ if($outDateBrowser) {
 
                     $menuItems = [
                         [
-                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Press')
-                            , 'url' => PageItem::getPermalink(['press'])
+                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Press'),
+                            'url' => PageItem::getPermalink(['press']),
                         ],
                         [
-                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Term and Conditions'),
-                            'url' => Yii::$app->urlManager->createUrl([''])
+                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Terms and Conditions'),
+                            'url' => PageItem::getPermalink(['terms-and-conditions']),
                         ],
                         [
                             'label' => Yii::t(_NP_TEXT_DOMAIN, 'Privacy Policy'),
-                            'url' => Yii::$app->urlManager->createUrl([''])
+                            'url' => PageItem::getPermalink(['privacy-policy']),
                         ],
                         [
                             'label' => Yii::t(_NP_TEXT_DOMAIN, 'Contact Us'),
-                            'url' => Yii::$app->urlManager->createUrl([''])
+                            'url' => 'http://www.bicworld.com/'.$currentLocale.'/pages/contact/'
                         ],
                     ];
 

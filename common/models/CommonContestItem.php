@@ -32,7 +32,6 @@ class CommonContestItem extends \common\models\base\BaseContestItem
      */
     public static function getWeek() {
         $day = NpItemDataSub::getGMTTime();
-
         /**
          * Return in week
          */
@@ -44,7 +43,7 @@ class CommonContestItem extends \common\models\base\BaseContestItem
         /**
          * Return next week if out of time
          */
-        $contestItem = CommonContestItem::find()->where(['>=','start',$day])->andWhere(['locale_id' => 1])->orderBy('week_number ASC')->one();
+        $contestItem = CommonContestItem::find()->where(['>=','start_date',$day])->andWhere(['locale_id' => 1])->orderBy('week_number ASC')->one();
         if($contestItem) {
             return $contestItem;
         }
