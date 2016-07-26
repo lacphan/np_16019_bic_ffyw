@@ -65,9 +65,15 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                 <div class="col-md-9 intro-heading">
                     <div class="intro-heading-inner">
                         <h1 class="head-line">
-                            <?= Yii::t(_NP_TEXT_DOMAIN, '<span class="font-2 color-2 head-line-1">This Week\'s</span>
-                            <span class="font-5 color-3 head-line-2">Handwriting</span>
-                            <span class="font-2 color-2 head-line-3">Challenge!</span>')?>
+                            <?php if ((Yii::$app->language == 'fr_FR')): ?>
+                                <span class="font-2 color-2 head-line-1">Défid'écriture</span>
+                                <span class="font-5 color-3 head-line-2">de la</span>
+                                <span class="font-2 color-2 head-line-3">semaine!</span>
+                            <?php else:?>
+                                <span class="font-2 color-2 head-line-1">This Week's</span>
+                                <span class="font-5 color-3 head-line-2">Handwriting</span>
+                                <span class="font-2 color-2 head-line-3">Challenge!</span>
+                            <?php endif;?>
 
                         </h1>
                         <div class="intro">

@@ -78,6 +78,11 @@ return [
     "Correcting mistakes has never been so cool!"=>"La correction des erreurs, c’est cool!",
     "LEARN MORE"=>"EN SAVOIR PLUS",
     'Search' => 'Chercher',
-    'Parent’s email address' =>  'Adresse email des parents'
-
+    'Parent’s email address' =>  'Adresse email des parents',
+    '<span class="font-2 color-2 head-line-1">This Week\'s</span>
+                            <span class="font-5 color-3 head-line-2">Handwriting</span>
+                            <span class="font-2 color-2 head-line-3">Challenge!</span>' => '<span class="font-2 color-2 head-line-1">Défi </span>
+                            <span class="font-5 color-3 head-line-2">d\'écriture</span>
+                            <span class="font-2 color-2 head-line-3">de la semaine!</span>',
+    'BIC\'S <span>Handwriting</span> Challenge!<br> Gallery' => 'BIC\'S <span>d\'écriture</span> de la semaine!<br> Galerie'
 ];
