@@ -136,7 +136,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     ArrayHelper::map(ContestItem::find()->where(['locale_id' => 1])->all(),'week_number','week_number')
                                 ], [
                                     'prompt' => 'Select Week',
-                                    'class' => 'select-week-item select-box form-control select2-selection select2-selection--single',
+                                    'class' => 'select2 select-week-item select-box form-control select2-selection select2-selection--single',
                                     'onchange'=>'this.form.submit()',
                                 ])->label(false) ?>
                             </div>
