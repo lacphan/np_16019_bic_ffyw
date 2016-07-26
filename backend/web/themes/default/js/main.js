@@ -36,7 +36,7 @@ jQuery(document).on('ready pjax:success',function () {
                 return false;
             }
         });
-
+        // $(".select2").select2();
         $('.image-modal').click(function (e) {
             e.preventDefault();
             $('#modal').modal('show').find('#image-viewer').attr('src',$(this).attr('href'))  ;

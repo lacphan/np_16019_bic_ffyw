@@ -15,6 +15,7 @@ use yii\web\AssetBundle;
  */
 class AppAsset extends AssetBundle
 {
+    public $basePath = '@webroot';
     public $js = [
         'assets-enpii/global/plugins/js.cookie.min.js',
         'assets-enpii/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js',
@@ -26,6 +27,7 @@ class AppAsset extends AssetBundle
         'assets-enpii/global/plugins/jquery-ui/jquery-ui.min.js',
         'assets-enpii/global/plugins/morris/morris.min.js',
         'assets-enpii/global/plugins/raphael.min.js',
+
 //        'assets-enpii/global/plugins/counterup/jquery.waypoints.min.js',
 //        'assets-enpii/global/plugins/counterup/jquery.counterup.min.js',
 //        'assets-enpii/global/plugins/amcharts/amcharts/amcharts.js',
@@ -54,15 +56,15 @@ class AppAsset extends AssetBundle
 //        'assets-enpii/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js',
         'assets-enpii/global/plugins/jquery.session.js',
         'assets-enpii/global/plugins/jquery-confirm.js',
-
+        'assets-enpii/global/plugins/select2/js/select2.full.min.js',
         'assets-enpii/global/scripts/app.js',
+        'assets-enpii/pages/scripts/components-select2.min.js',
         'assets-enpii/pages/scripts/dashboard.js',
         'assets-enpii/layouts/layout/scripts/layout.min.js',
         'assets-enpii/layouts/layout/scripts/demo.min.js',
         'assets-enpii/layouts/global/scripts/quick-sidebar.min.js',
         'themes/default/js/main.js'
     ];
-    public $basePath = '@webroot';
     public $baseUrl = '@web/';
     public $css = [
         'assets-enpii/global/plugins/simple-line-icons/simple-line-icons.min.css',
@@ -74,6 +76,8 @@ class AppAsset extends AssetBundle
         'assets-enpii/global/plugins/fullcalendar/fullcalendar.min.css',
         'assets-enpii/global/plugins/jqvmap/jqvmap/jqvmap.css',
         'assets-enpii/global/plugins/jquery-nestable/jquery.nestable.css',
+        'assets-enpii/global/plugins/select2/css/select2.min.css',
+        'assets-enpii/global/plugins/select2/css/select2-bootstrap.min.css',
         'assets-enpii/global/css/components.min.css',
         'assets-enpii/global/css/plugins.min.css',
         'assets-enpii/global/css/plugins-md.min.css',
