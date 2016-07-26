@@ -20,9 +20,16 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
         <div class="container">
             <div class="header-main-content">
                 <div class="main-logo">
-                    <a href="<?= $locale == DEFAULT_LOCALE ? Yii::$app->urlManager->baseUrl : Yii::$app->urlManager->createUrl(['','locale'=> $locale]) ?>">
-                        <img src="<?= Yii::$app->urlManager->getBaseUrl() . '/themes/default/images/main-logo.png' ?>"
-                             alt="">
+                    <a href="<?= $locale == DEFAULT_LOCALE  ? Yii::$app->urlManager->createUrl(['']) :  Yii::$app->urlManager->createUrl(['', 'locale' => 'fr']) ?>">
+
+                        <?php if(Yii::$app->language == 'fr_FR'):?>
+                            <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/logo_header_fr.png' ?>"
+                                 alt="BIC: Ton pouvoir d’écrire">
+                        <?php else: ?>
+                            <img src="<?= Yii::$app->urlManager->getBaseUrl() . '/themes/default/images/main-logo.png' ?>"
+                                 alt="">
+                        <?php endif;?>
+
                     </a>
                 </div>
                 <div class="main-navigation">
@@ -92,7 +99,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                         ],
                                         [
                                             'label' => Yii::t(_NP_TEXT_DOMAIN, 'Products'),
-                                            'url' => Yii::$app->urlManager->createUrl(['product', 'locale' => $locale])
+                                            'url' =>  $locale == DEFAULT_LOCALE ? Yii::$app->urlManager->createUrl(['product']) : Yii::$app->urlManager->createUrl(['product', 'locale' => $locale])
                                         ],
                                         [
                                             'label' => false,
