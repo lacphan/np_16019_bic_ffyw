@@ -171,7 +171,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                     'class' => 'a-center small-input date-picker select2 hide-no-value hide-arrow'
                                 ])
                                 ->label(false) ?>
-                            <?= $form->field($model, 'birthYear', ['options' => ['class' => 'date-time-item']]) ->dropDownList([
+                            <?= $form->field($model, 'birthYear', ['options' => ['class' => 'date-time-item', '1950'=>['Selected'=>true]]]) ->dropDownList([
                                 array_combine(range(1905,1998), range(1905,1998))
                             ],[
                                 'prompt' => Yii::t(_NP_TEXT_DOMAIN, 'Year'),
