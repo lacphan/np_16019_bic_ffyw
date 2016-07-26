@@ -50,6 +50,7 @@ return [
     'Contest Prizes' => 'Description des prix',
     'Official Rules' => 'Règlement official',
     'is a mandatory field' => 'est un champ obligatoire.',
+    'Required field' => 'est un champ obligatoire.',
     'Must be 6 years or older' => 'Doit être de 6 ans ou plus',
     'Age must be no greater than 18' => 'Âge supérieur à 18 Chua',
     'Confirm Email' => 'Confirmez votre email',

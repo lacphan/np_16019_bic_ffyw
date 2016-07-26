@@ -43,11 +43,14 @@ class SubmissionForm extends Model
     {
         return [
 
-            [['childFirstName', 'childLastInitial', 'age', 'email','agreeTerm'], 'required'],
+            [['childFirstName', 'childLastInitial', 'age', 'email'], 'required'],
             [['childLastInitial'],'match', 'pattern' => '/[a-zA-Z]/','message' => Yii::t('app','Only from a-z A-Z')],
             [['childLastInitial'],'string', 'max' => 1,'message' => Yii::t('app','Maximum of one alpha character can be entered')],
             [['age'],'integer', 'min' => 6,'max' => 18, 'tooSmall' => Yii::t(_NP_TEXT_DOMAIN,'Must be 6 years or older'),'tooBig' => Yii::t(_NP_TEXT_DOMAIN,'Age must be no greater than 18')],
             [['rotateDegree'], 'integer'],
+            [['agreeTerm'], 'required',
+                'message' =>  Yii::t(_NP_TEXT_DOMAIN, 'Required field')
+            ],
             ['verificationCode', ReCaptchaValidator::className(), 'secret' => '6LddpCQTAAAAAPU27Z1X3nwsVnNed-9aDrk5moSA'],
             [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],
             ['isLimitSubmission','string', 'message' => Yii::t('app','Weekly Limit Reached')]

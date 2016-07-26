@@ -85,8 +85,11 @@ class RegisterForm extends Model
             [['birthMonth'],'integer', 'min' => 1,'max' => 12 ,'message' => Yii::t(_NP_TEXT_DOMAIN,'Please enter a valid').' {attribute}'],
             [['birthYear'],'integer', 'min' => 1905, 'max' => 1998 ,'message' => Yii::t(_NP_TEXT_DOMAIN,'Please enter a valid').'{attribute}'],
             ['verificationCode', ReCaptchaValidator::className(), 'secret' => '6LddpCQTAAAAAPU27Z1X3nwsVnNed-9aDrk5moSA'],
-            [['birthDate', 'birthMonth', 'birthYear', 'agreeTerm'], 'required',
+            [['birthDate', 'birthMonth', 'birthYear'], 'required',
                 'message' => '{attribute} ' . Yii::t(_NP_TEXT_DOMAIN, 'is a mandatory field.')
+            ],
+            [['agreeTerm'], 'required',
+                'message' =>  Yii::t(_NP_TEXT_DOMAIN, 'Required field')
             ],
             [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg',  'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],
             [['email'], 'required'],
