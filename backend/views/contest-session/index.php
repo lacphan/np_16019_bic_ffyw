@@ -131,15 +131,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="filter-option">
                         <div class="week-filter-option">
                             <?php $form = ActiveForm::begin(['method' => 'GET']) ?>
-                            <div class="input-group select-wrapper">
-                                <?= $form->field($searchModel,'contest_item_id',['options' => ['tag' => false]])->dropDownList([
-                                    ArrayHelper::map(ContestItem::find()->where(['locale_id' => 1])->all(),'week_number','week_number')
-                                ], [
+
+                                <?= $form->field($searchModel,'contest_item_id',['options' => ['tag' => false]])->dropDownList(
+                                    ArrayHelper::map(ContestItem::find()->where(['locale_id' => 1])->all(),'week_number',function($model){ return 'Week ' . $model->week_number ; })
+                                , [
                                     'prompt' => 'Select Week',
                                     'class' => 'select2 select-week-item select-box form-control select2-selection select2-selection--single',
                                     'onchange'=>'this.form.submit()',
                                 ])->label(false) ?>
-                            </div>
                             <?php ActiveForm::end() ?>
                         </div>
                         <div class="prize">
