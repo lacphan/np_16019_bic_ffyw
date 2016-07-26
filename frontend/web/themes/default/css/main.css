@@ -309,6 +309,14 @@ img {
   position: relative;
   z-index: 1000;
 }
+@media (min-width: 768px) {
+  .site-header .navbar-collapse.collapse {
+    height: 0 !important;
+  }
+  .site-header .navbar-collapse.collapse.in {
+    height: auto !important;
+  }
+}
 .site-header .header-inner {
   position: relative;
   background-color: #f8a421;
@@ -940,6 +948,9 @@ img {
   background-size: cover;
 }
 @media only screen and (max-width: 992px) {
+  .home-content .home-intro .subscribe-form .item-float-left {
+    float: none;
+  }
   .home-content .home-intro .subscribe-form .form-group {
     float: none;
     margin: auto;
@@ -953,8 +964,8 @@ img {
   .home-content .home-intro .subscribe-form button {
     float: none;
     margin: 10px auto auto;
-    width: 360px;
-    height: 93px;
+    width: auto;
+    height: auto;
   }
 }
 @media only screen and (max-width: 480px) {
