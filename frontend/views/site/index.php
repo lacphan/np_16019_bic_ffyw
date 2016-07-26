@@ -9,10 +9,11 @@ use yii\helpers\Html;
 use frontend\models\ContestItem;
 use yii\bootstrap\Modal;
 use frontend\models\PageItem;
-
-$this->title = 'BIC';
+$this->title = 'BIC FFYW';
 $contestItem = ContestItem::getWeek();
 $weekNumber = $contestItem ? $contestItem->week_number : 1;
+$locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : DEFAULT_LOCALE;
+
 ?>
 <div class="container">
 
@@ -240,7 +241,7 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                 <div class="home-gallery-item item-see-all">
                     <div class="home-gallery-item-inner">
                         <a target="_blank" class="see-all-btn font-5"
-                           href="<?= Yii::$app->urlManager->createUrl(['site/gallery']) ?>">
+                           href="<?= $locale == DEFAULT_LOCALE ? Yii::$app->urlManager->createUrl(['site/gallery']) :  Yii::$app->urlManager->createUrl(['site/gallery','locale' => $locale]) ?>">
                             <span class="see-all-inner">
                                 <?= Yii::t(_NP_TEXT_DOMAIN, 'SEE ALL')?>
                             </span>

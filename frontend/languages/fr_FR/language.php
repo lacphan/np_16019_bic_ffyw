@@ -76,6 +76,13 @@ return [
     "An amazing mechanical pencil that writes 2 ½ times longer than wood case pencils? Now that’s smart!"=>"Des porte-mines et crayons ordinaires robustes qui augmentent le plaisir d’écrire. C’est du fun Extra!",
     "Bold and brilliant coloured markers and highlighters for all of your marking needs."=>"Des marqueurs de couleur vives et audacieuses pour tous vos besoins de marquage.",
     "Correcting mistakes has never been so cool!"=>"La correction des erreurs, c’est cool!",
-    "LEARN MORE"=>"EN SAVOIR PLUS"
-
+    "LEARN MORE"=>"EN SAVOIR PLUS",
+    'Search' => 'Chercher',
+    'Parent’s email address' =>  'Adresse email des parents',
+    '<span class="font-2 color-2 head-line-1">This Week\'s</span>
+                            <span class="font-5 color-3 head-line-2">Handwriting</span>
+                            <span class="font-2 color-2 head-line-3">Challenge!</span>' => '<span class="font-2 color-2 head-line-1">Défi </span>
+                            <span class="font-5 color-3 head-line-2">d\'écriture</span>
+                            <span class="font-2 color-2 head-line-3">de la semaine!</span>',
+    'BIC\'S <span>Handwriting</span> Challenge!<br> Gallery' => 'BIC\'S <span>d\'écriture</span> de la semaine!<br> Galerie'
 ];

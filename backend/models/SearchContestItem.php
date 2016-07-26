@@ -25,7 +25,7 @@ class SearchContestItem extends ContestItem
     public function rules()
     {
         return [
-            [['id'], 'integer'],
+            [['id','locale_id'], 'integer'],
             [['start_date', 'end_date', 'title', 'description'], 'safe'],
             [['globalSearch'],'safe'],
         ];

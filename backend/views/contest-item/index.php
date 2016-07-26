@@ -62,19 +62,21 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'value' => function ($model) {
                                         return $model->locale->locale;
                                     },
-                                    'filter'=> ArrayHelper::map(Locale::find()->asArray()->all(),'id','locale'),
+                                    'headerOptions' => ['width' => '30px'],
                                 ],
                                 [
                                     'attribute' => 'start_date',
                                     'value' => function ($model) {
                                         return NpItemDataSub::convertToLocalTime($model->start_date);
                                     },
+                                    'headerOptions' => ['width' => '20%'],
                                 ],
                                 [
                                     'attribute' => 'end_date',
                                     'value' => function ($model) {
                                         return NpItemDataSub::convertToLocalTime($model->end_date);
                                     },
+                                    'headerOptions' => ['width' => '20%'],
                                 ],
                                 'title',
                                 [
@@ -90,3 +92,9 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
+<?php
+$js = <<<JS
+var keys = $('#w1').yiiGridView('getSelectedRows');
+JS;
+$this->registerJs($js);
+?>

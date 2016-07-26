@@ -1399,11 +1399,11 @@ img {
   }
   .home-gallery .see-all-btn {
     background-color: #7c428d;
-    background-image: url("../images/see-all.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 329px 60px;
     height: 162px;
+    line-height: 151px;
   }
 }
 

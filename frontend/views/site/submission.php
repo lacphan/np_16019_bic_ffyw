@@ -15,6 +15,7 @@ $this->title = 'Submission';
 $this->params['breadcrumbs'][] = $this->title;
 $contestItem = ContestItem::getWeek();
 $weekNumber = $contestItem ? $contestItem->week_number : 1;
+$locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : DEFAULT_LOCALE;
 ?>
 <div class="site-signup">
     <div class="container">
@@ -65,9 +66,16 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                 <div class="col-md-9 intro-heading">
                     <div class="intro-heading-inner">
                         <h1 class="head-line">
-                            <span class="font-2 color-2 head-line-1">This Week's</span>
-                            <span class="font-5 color-3 head-line-2">Handwriting</span>
-                            <span class="font-2 color-2 head-line-3">Challenge!</span>
+                            <?php if ((Yii::$app->language == 'fr_FR')): ?>
+                                <span class="font-2 color-2 head-line-1">Défid'écriture</span>
+                                <span class="font-5 color-3 head-line-2">de la</span>
+                                <span class="font-2 color-2 head-line-3">semaine!</span>
+                            <?php else:?>
+                                <span class="font-2 color-2 head-line-1">This Week's</span>
+                                <span class="font-5 color-3 head-line-2">Handwriting</span>
+                                <span class="font-2 color-2 head-line-3">Challenge!</span>
+                            <?php endif;?>
+
                         </h1>
                         <div class="intro">
                             <div class="intro-inner">
@@ -93,7 +101,7 @@ $weekNumber = $contestItem ? $contestItem->week_number : 1;
                                     <?php endif;?>
                                 </p>
                                 <div class="global-btn">
-                                    <a target="_blank" class="global-btn-inner" href="<?= Yii::$app->urlManager->createUrl(['site/gallery'])?>"><?= Yii::t(_NP_TEXT_DOMAIN,'Gallery')?></a>
+                                    <a target="_blank" class="global-btn-inner" href="<?= $locale == DEFAULT_LOCALE ? Yii::$app->urlManager->createUrl(['site/gallery']) :  Yii::$app->urlManager->createUrl(['site/gallery','locale' => $locale]) ?>"><?= Yii::t(_NP_TEXT_DOMAIN,'Gallery')?></a>
                                 </div>
                             </div>
                         </div>

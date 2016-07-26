@@ -80,14 +80,24 @@ class SiteController extends FrontendController
         $emailSubmission = new EmailSubmission();
         Yii::$app->session->remove('registerEmail');
         Yii::$app->session->remove('submissionEmail');
+        $locale = Yii::$app->request->get('locale');
         $contestSessions = ContestSession::find()->where(['accepted' => 1])->orderBy(new Expression('rand()'))->limit(9)->all();
+
         if($emailSubmission->load(Yii::$app->request->post()) && $emailSubmission->isEmailExists()) {
+
             Yii::$app->session->set('submissionEmail',$emailSubmission->email);
+            if($locale == DEFAULT_LOCALE) {
+                return $this->redirect(['site/submission']);
+            }
             return $this->redirect(['site/submission', 'locale' => Yii::$app->request->get('locale')]);
 
         } elseif ($emailSubmission->load(Yii::$app->request->post()) && !$emailSubmission->isEmailExists()) {
+
             Yii::$app->session->set('registerEmail',$emailSubmission->email);
-            return $this->redirect(['site/register','locale' => Yii::$app->request->get('locale')]);
+            if($locale == DEFAULT_LOCALE) {
+                return $this->redirect(['site/register']);
+            }
+            return $this->redirect(['site/register','locale' => $locale]);
         }
         return $this->render('index',[
                 'emailSubmission' => $emailSubmission,
