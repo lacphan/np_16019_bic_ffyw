@@ -11,11 +11,13 @@ use himiklab\yii2\recaptcha\ReCaptcha;
 use frontend\models\ContestItem;
 use kartik\file\FileInput;
 use yii\bootstrap\Modal;
+use frontend\models\PageItem;
 $this->title = 'Submission';
 $this->params['breadcrumbs'][] = $this->title;
 $contestItem = ContestItem::getWeek();
 $weekNumber = $contestItem ? $contestItem->week_number : 1;
 $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : DEFAULT_LOCALE;
+$submissionContent=PageItem::getContentByCode('submission-content', $locale);
 ?>
 <div class="site-signup">
     <div class="container">
@@ -183,16 +185,11 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                     </div>
                     <div class="col-md-5">
                         <div class="submission-guideline">
-                            <h3 class="form-title font-5 font-size-25">Submission Guidelines:</h3>
-                            <ul>
-                                <li>Must be created and handwritten by an Eligible Child</li>
-                                <li>Must contain no more than 75 words</li>
-                                <li>Must be written on a light colored 8.5” X 11” type paper</li>
-                                <li>Must not include personally-identifiable information</li>
-                                <li>Must not contain any images or photographs of any person</li>
-                                <li>Must not in any way contain any brand names, trademarks or product images other than those of Sponsor</li>
-                            </ul>
-                            <p>See <a href="http://metropolis.dev-srv.net/bic-ffyw/page/official-rules">Official Rules</a> for details.</p>
+                            <?php
+                            if(!empty($submissionContent[0]->description)):
+                                echo $submissionContent[0]->description;
+                            endif;
+                            ?>
                         </div>
                     </div>
                 </div>
