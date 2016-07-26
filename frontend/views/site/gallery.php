@@ -19,11 +19,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="registration-content gallery-tmpl">
             <div class="success-content">
                 <div class="title">
-                    BIC'S <span>Handwriting</span> Challenge!<br>
-                    Gallery
+                    <?= Yii::t(_NP_TEXT_DOMAIN,'BIC\'S <span>Handwriting</span> Challenge!<br> Gallery')?>
                 </div>
                 <div class="gallery-intro">
-                    Check out the handwriting submissions from all across Canada!
+                    <?= Yii::t(_NP_TEXT_DOMAIN,'Check out the handwriting submissions from all across Canada!')?>
                     <span class="global-btn">
                         <?= Html::a(Yii::t(_NP_TEXT_DOMAIN,'Enter Now'), Yii::$app->urlManager->createUrl(['site/index']), ['class' => 'global-btn-inner']) ?>
                     </span>
@@ -50,7 +49,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 <?= $contestSession->first_name . ' ' . $contestSession->last_name . ', ' . $contestSession->user->profile->province ?>
                                             </div>
                                         </div>
-
                                     </div>
                                 <?php endif; ?>
                             <?php endforeach; ?>

@@ -26,7 +26,7 @@ return [
     'Write Now' => 'Écrivez dès maintenant',
     'Products' => 'Produits',
     'Press' => 'Presse',
-    'Term and Conditions' => 'Conditions générales',
+    'Terms and Conditions' => 'Conditions générales',
     'Privacy Policy' => 'Politique de confidentialité',
     'Contact Us' => 'Communiquez avec nous',
     'Please fill out the form below to submit your entry:' => 'Veuillez remplir le formulaire ci-dessous pour soumettre votre participation :',
@@ -76,6 +76,8 @@ return [
     "An amazing mechanical pencil that writes 2 ½ times longer than wood case pencils? Now that’s smart!"=>"Des porte-mines et crayons ordinaires robustes qui augmentent le plaisir d’écrire. C’est du fun Extra!",
     "Bold and brilliant coloured markers and highlighters for all of your marking needs."=>"Des marqueurs de couleur vives et audacieuses pour tous vos besoins de marquage.",
     "Correcting mistakes has never been so cool!"=>"La correction des erreurs, c’est cool!",
-    "LEARN MORE"=>"EN SAVOIR PLUS"
+    "LEARN MORE"=>"EN SAVOIR PLUS",
+    'Search' => 'Chercher',
+    'Parent’s email address' =>  'Adresse email des parents'
 
 ];

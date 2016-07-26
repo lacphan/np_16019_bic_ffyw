@@ -1240,11 +1240,11 @@ img {
   }
   .home-gallery .see-all-btn {
     background-color: #7c428d;
-    background-image: url("../images/see-all.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 329px 60px;
     height: 162px;
+    line-height: 151px;
   }
 }
 @media only screen and (max-width: 480px) {
@@ -4288,6 +4288,37 @@ img {
 
 .product_type_page .contents {
   min-height: 0;
+}
+
+.press a {
+  color: #337ab7;
+}
+.press a.button_blue {
+  background: #009bd9;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 0;
+  color: #fff;
+  display: inline-block;
+  line-height: 22px;
+  width: auto;
+  text-decoration: none;
+}
+.press a.button_blue:hover {
+  background: #9151a0;
+}
+
+.term-and-condition .col-md-offset-2 {
+  text-align: left;
+  font-family: "Open Sans";
+}
+.term-and-condition p {
+  font-family: "Open Sans";
+}
+
+.privacy_policy a {
+  color: #337ab7;
 }
 
 /*# sourceMappingURL=main.css.map */

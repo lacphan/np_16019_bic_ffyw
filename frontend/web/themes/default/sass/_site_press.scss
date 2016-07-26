@@ -1,0 +1,20 @@
+.press{
+  a{
+    color: #337ab7;
+  }
+  a.button_blue{
+    background: #009bd9;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 0;
+    color: #fff;
+    display: inline-block;
+    line-height: 22px;
+    width: auto;
+    text-decoration: none;
+    &:hover{
+      background: #9151a0;
+    }
+  }
+}

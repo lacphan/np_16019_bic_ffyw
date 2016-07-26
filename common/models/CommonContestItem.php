@@ -25,7 +25,6 @@ class CommonContestItem extends \common\models\base\BaseContestItem
             [['attachment_id', 'locale_id', 'popup_id', 'parent_id', 'week_number'], 'integer'],
             [['title', 'description'], 'string', 'max' => 255],
             [['locale_id','parent_id'], 'unique', 'targetAttribute' => ['locale_id','parent_id'],'message' => 'This item already exists'],
-
         ];
     }
     /**
@@ -33,12 +32,26 @@ class CommonContestItem extends \common\models\base\BaseContestItem
      */
     public static function getWeek() {
         $day = NpItemDataSub::getGMTTime();
-
+        /**
+         * Return in week
+         */
         $contestItem = CommonContestItem::find()->where(['<=','start_date',$day])->andWhere(['>=','end_date',$day])->andWhere(['locale_id' => 1])->one();
         if($contestItem) {
             return $contestItem;
         }
-        return  CommonContestItem::find()->where(['id' => CommonContestItem::find()->max('id')])->one();
+
+        /**
+         * Return next week if out of time
+         */
+        $contestItem = CommonContestItem::find()->where(['>=','start_date',$day])->andWhere(['locale_id' => 1])->orderBy('week_number ASC')->one();
+        if($contestItem) {
+            return $contestItem;
+        }
+
+        /**
+         * Return last week if not found week
+         */
+        return  CommonContestItem::find()->where(['<=','end_date',$day])->andWhere(['locale_id' => 1])->orderBy('week_number DESC')->one();
     }
     
     /**
