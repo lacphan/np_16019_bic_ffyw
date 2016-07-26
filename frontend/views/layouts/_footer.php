@@ -38,8 +38,13 @@ if($outDateBrowser) {
         <div class="container">
             <div class="row">
                 <div class="col-md-3 footer-logo">
-                    <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/footer-logo.png' ?>"
+                    <?php if(Yii::$app->language == 'fr_FR'):?>
+                    <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/logo_footer_fr.png' ?>"
                          alt="footer-logo">
+                    <?php else: ?>
+                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/logo_footer.png' ?>"
+                             alt="More for your money...Always!">
+                    <?php endif;?>
                 </div>
                 <div class="col-md-5 footer-menu">
 

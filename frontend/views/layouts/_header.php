@@ -118,7 +118,6 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                         'items' => $menuItems,
                                     ]);
                                     ?>
-
                                 </div>
                             </nav>
 
