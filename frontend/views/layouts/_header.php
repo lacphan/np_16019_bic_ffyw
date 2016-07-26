@@ -59,7 +59,8 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                                 ],
                                                 [
                                                     'label' => Yii::t(_NP_TEXT_DOMAIN, 'Gallery'),
-                                                    'url' => Yii::$app->urlManager->createUrl(['site/gallery','locale'=> $locale])],
+                                                    'url' => Yii::$app->urlManager->createUrl(['site/gallery','locale'=> $locale])
+                                                ],
                                                 [
                                                     'label' => Yii::t(_NP_TEXT_DOMAIN, 'Contest Prizes'),
                                                     'url' => PageItem::getPermalink(['prize-details'])

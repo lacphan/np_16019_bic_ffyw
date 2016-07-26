@@ -52,12 +52,12 @@ if($outDateBrowser) {
 
                     $menuItems = [
                         [
-                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Press')
-                            , 'url' => Yii::$app->homeUrl
+                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Press'),
+                            'url' => PageItem::getPermalink(['press']),
                         ],
                         [
-                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Term and Conditions'),
-                            'url' => Yii::$app->urlManager->createUrl([''])
+                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Terms and Conditions'),
+                            'url' => PageItem::getPermalink(['terms-and-conditions']),
                         ],
                         [
                             'label' => Yii::t(_NP_TEXT_DOMAIN, 'Privacy Policy'),

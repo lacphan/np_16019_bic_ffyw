@@ -26,7 +26,7 @@ return [
     'Write Now' => 'Écrivez dès maintenant',
     'Products' => 'Produits',
     'Press' => 'Presse',
-    'Term and Conditions' => 'Conditions générales',
+    'Terms and Conditions' => 'Conditions générales',
     'Privacy Policy' => 'Politique de confidentialité',
     'Contact Us' => 'Communiquez avec nous',
     'Please fill out the form below to submit your entry:' => 'Veuillez remplir le formulaire ci-dessous pour soumettre votre participation :',
