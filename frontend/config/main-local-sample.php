@@ -20,11 +20,15 @@ $config = [
             'rules'=>[
                 '/<locale:\w+>/product' => 'product',
                 '/<locale:\w+>/product/<slug:\w[\w\-]+>/' => 'product/show-single',
+                '/product/<slug:\w[\w\-]+>/' => 'product/show-single',
+                '/<locale:\w+>/page' => 'page',
+                '/<locale:\w+>/page/<slug:\w[\w\-]+>/<id:\d+>' => 'page/show-single',
+                '/<locale:\w+>/page/<slug:\w[\w\-]+>/' => 'page/show-single',
+                '/page/<slug:\w[\w\-]+>/<id:\d+>' => 'page/show-single',
+                '/page/<slug:\w[\w\-]+>/' => 'page/show-single',
                 '/<locale:\w+>/<alias:index|register|submission|gallery>' => 'site/<alias>',
+                '<alias:index|register|submission|gallery>' => 'site/<alias>',
                 '/<locale:\w+>' => '',
-                '/<locale:\w+>/<slug:\w[\w\-]+>/<id:\d+>' => 'page/show-single',
-                '/<locale:\w+>/<slug:\w[\w\-]+>/' => 'page/show-single',
-
             ]
         ],
     ],
