@@ -2,7 +2,7 @@
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use backend\models\ContestSession;
-use infoweb\analytics\Analytics;
+
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
@@ -76,7 +76,7 @@ $winner = ContestSession::find()->where(['is_winner' => 1])->all();
                         <div class="tab-content">
                             <div class="tab-pane active" id="overview_1">
                                 <div class="table-responsive">
-                                    
+
                                 </div>
                             </div>
                         </div>
