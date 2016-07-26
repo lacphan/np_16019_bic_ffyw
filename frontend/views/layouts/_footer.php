@@ -53,7 +53,7 @@ if($outDateBrowser) {
                     $menuItems = [
                         [
                             'label' => Yii::t(_NP_TEXT_DOMAIN, 'Press')
-                            , 'url' => Yii::$app->homeUrl
+                            , 'url' => PageItem::getPermalink(['press'])
                         ],
                         [
                             'label' => Yii::t(_NP_TEXT_DOMAIN, 'Term and Conditions'),
