@@ -25,7 +25,6 @@ class CommonContestItem extends \common\models\base\BaseContestItem
             [['attachment_id', 'locale_id', 'popup_id', 'parent_id', 'week_number'], 'integer'],
             [['title', 'description'], 'string', 'max' => 255],
             [['locale_id','parent_id'], 'unique', 'targetAttribute' => ['locale_id','parent_id'],'message' => 'This item already exists'],
-
         ];
     }
     /**
@@ -38,7 +37,9 @@ class CommonContestItem extends \common\models\base\BaseContestItem
         if($contestItem) {
             return $contestItem;
         }
-        return  CommonContestItem::find()->where(['id' => CommonContestItem::find()->max('id')])->one();
+        $contestItem = CommonContestItem::find()->where(['<=','end_date',$day])->andWhere(['locale_id' => 1])->orderBy('week_number DESC')->one();
+        var_dump($contestItem);
+        return  CommonContestItem::find()->where(['<=','end_date',$day])->andWhere(['locale_id' => 1])->orderBy('week_number DESC')->one();
     }
     
     /**
