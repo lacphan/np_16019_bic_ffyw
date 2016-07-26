@@ -48,7 +48,7 @@ class SubmissionForm extends Model
             [['childLastInitial'],'string', 'max' => 1,'message' => Yii::t('app','Maximum of one alpha character can be entered')],
             [['age'],'integer', 'min' => 6,'max' => 18, 'tooSmall' => Yii::t(_NP_TEXT_DOMAIN,'Must be 6 years or older'),'tooBig' => Yii::t(_NP_TEXT_DOMAIN,'Age must be no greater than 18')],
             [['rotateDegree'], 'integer'],
-            [['agreeTerm'], 'required',
+            [['agreeTerm'], 'required','requiredValue' => 1,
                 'message' =>  Yii::t(_NP_TEXT_DOMAIN, 'Required field')
             ],
             ['verificationCode', ReCaptchaValidator::className(), 'secret' => '6LddpCQTAAAAAPU27Z1X3nwsVnNed-9aDrk5moSA'],
