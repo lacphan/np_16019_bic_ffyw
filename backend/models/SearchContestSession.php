@@ -70,7 +70,7 @@ class SearchContestSession extends ContestSession
             'user_id' => $this->user_id,
             'birth_year' => $this->birth_year,
             'attachment_id' => $this->attachment_id,
-            'contest_item_id' => $week ? $week : $this->contest_item_id,
+            'contest_item_id' => $this->contest_item_id ? $this->contest_item_id : 1,
         ]);
         if($winner) {
             $query->andFilterWhere(['is_winner' => $winner]);

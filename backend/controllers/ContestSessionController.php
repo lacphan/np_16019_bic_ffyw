@@ -45,6 +45,7 @@ class ContestSessionController extends BackendController
     public function actionIndex()
     {
         $searchModel = new SearchContestSession();
+        $searchModel->contest_item_id = 1;
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         if(Yii::$app->request->post() && Yii::$app->request->post('show-winner') ) {
