@@ -56,6 +56,7 @@ return [
             'class'=> 'yii\web\UrlManager',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'baseUrl' => APP_BASE_URL,
             'rules'=>[
                 '<alias:index|register|submission|gallery>' => 'site/<alias>',
                 '/<locale:\w+>/<slug:\w[\w\-]+>/<id:\d+>' => 'page/show-single',

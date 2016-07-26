@@ -1,10 +1,11 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: lacphan
- * Date: 3/2/16
+ * User: trac.nguyen@yahoo.com
+ * Date: 23/7/16
  * Time: 10:48 AM
  */
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
 defined('VENDOR_PATH') or define('VENDOR_PATH', dirname(__FILE__) .'/../../../yii2/vendor');
+defined('APP_BASE_URL') or define('APP_BASE_URL', '/php/enpii/16/np_16019_bic_ffyw_2');

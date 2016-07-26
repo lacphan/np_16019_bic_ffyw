@@ -1,21 +1,35 @@
 <IfModule mod_rewrite.c>
 
-# End the processing, if a rewrite already occurred
-RewriteEngine On
-# Include in the next line all folders to exclude
-# End the processing, if a rewrite already occurred
-RewriteRule ^(frontend|backend|api)/web/ - [L]
+    # End the processing, if a rewrite already occurred
+    RewriteEngine On
 
-# Handle the case of backend, skip ([S=1]) the following rule, if current matched
-RewriteRule ^api(/(.*))?$ api/web/$2 [S=1]
-RewriteRule ^admin(/(.*))?$ backend/web/$2 [S=1]
+    RewriteBase /php/enpii/16/np_16019_bic_ffyw_2/
 
-# handle the case of frontend
-RewriteCond %{REQUEST_URI}  !(uploads) [NC]
-RewriteRule .* frontend/web/$0
+    # the main rewrite rule for the frontend application
+    RewriteCond %{REQUEST_URI} !^/php/enpii/16/np_16019_bic_ffyw_2/(frontend/web|backend/web|admin)
+    RewriteRule ^(.*) /php/enpii/16/np_16019_bic_ffyw_2/frontend/web/$1 [L]
 
-# Uncomment the following, if you want speaking URL
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^/]+/web)/.*$ $1/index.php
+    # redirect to the page without a trailing slash (uncomment if necessary)
+    #RewriteCond %{REQUEST_URI} ^/demo/advanced/admin/$
+    #RewriteRule ^(admin)/ /demo/advanced/$1 [L,R=301]
+    # the main rewrite rule for the backend application
+    RewriteCond %{REQUEST_URI} ^/php/enpii/16/np_16019_bic_ffyw_2/admin
+    RewriteRule ^admin(.*) /php/enpii/16/np_16019_bic_ffyw_2/backend/web/$1 [L]
+
+    # if a directory or a file of the frontend application exists, use the request directly
+    RewriteCond %{REQUEST_URI} ^/php/enpii/16/np_16019_bic_ffyw_2/frontend/web
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # otherwise forward the request to index.php
+    RewriteRule . /php/enpii/16/np_16019_bic_ffyw_2/frontend/web/index.php [L]
+
+    # if a directory or a file of the backend application exists, use the request directly
+    RewriteCond %{REQUEST_URI} ^/php/enpii/16/np_16019_bic_ffyw_2/backend/web
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # otherwise forward the request to index.php
+    RewriteRule . /php/enpii/16/np_16019_bic_ffyw_2/backend/web/index.php [L]
+
+    RewriteCond %{REQUEST_URI} \.(htaccess|htpasswd|svn|git)
+    RewriteRule \.(htaccess|htpasswd|svn|git) - [F]
 </IfModule>

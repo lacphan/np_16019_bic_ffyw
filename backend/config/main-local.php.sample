@@ -6,18 +6,18 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'lA_Zj09v7R-189AhjEtSgM1lpom5X1jT',
-            'baseUrl' => '/admin',
+            'baseUrl' => APP_BASE_URL.'/admin',
 
         ],
         'urlManager' => [
             'class' => 'yii\web\UrlManager',
-            'baseUrl' => '/admin',
+            'baseUrl' => APP_BASE_URL.'/admin',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
         ],
         'urlManagerFrontEnd' => [
             'class' => 'yii\web\UrlManager',
-            'baseUrl' => '',
+            'baseUrl' => APP_BASE_URL.'',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
         ],
