@@ -153,7 +153,7 @@ use frontend\models\PageItem;
                             section on <a href="http://www.bicfightforyourwrite.ca">bicfightforyourwrite.ca</a> (the
                             “Contest Gallery”).  Sponsor reserves the right to post any and/or all Submissions in the
                             Contest Gallery at <a
-                                href="http://www.bicfightforyourwrite.com">www.bicfightforyourwrite.ca</a>. Sponsor does
+                                href="http://www.bicfightforyourwrite.ca">www.bicfightforyourwrite.ca</a>. Sponsor does
                             not guarantee the posting of any Submission and reserves the right to remove any posted
                             Submission at any time or for any reason. Sponsor reserves the right to delete and/or
                             disqualify any Submission for any reason, in Sponsor’s sole opinion and discretion, even if

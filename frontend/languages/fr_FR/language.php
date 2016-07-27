@@ -7,10 +7,10 @@
  */
 return [
     'Français' => 'English',
-    'string in abc' => 'string in abc ru',
-    'Please enter your email to participate.' => 'S\'il vous plaît entrer votre e-mail pour participer.',
+    'string in abc' => 'string in abc FR',
+    'Enter your email address to participate' => 'S\'il vous plaît entrer votre e-mail pour participer.',
     'Enter Now' => 'Participez maintenant',
-    'No Purch Nec., CAD only, Age of Majority in Prov./Territ. of Res. Ends 09/19/2016.' => 'Aucun achat requis, dollars canadiens seulement, âge de la majorité dans la province ou le territoire de rés. Prend fin le 12 septembre 2016.',
+    'No Purch Nec., CAD only, Age of Majority in Prov./Territ. of Res. Ends 09/19/2016.' => 'Aucun achat requis, dollars canadiens seulement, âge de la majorité dans la province ou le territoire de rés. Prend fin le 19 septembre 2016.',
     'Click Here for Official Rules.' => 'Sujet aux règlements officiels.',
     'Week' => 'Semaine',
     'Boys and Girls Club of Canada' => 'Repaires jeunesse du Canada',
@@ -34,6 +34,8 @@ return [
     "Parent's First Name" => 'Prénom du parent',
     "Parents Last Name" => "Nom de famille du parent",
     "Phone Number" => "Numéro de téléphone",
+	 "Please enter numbers only" => "Please enter numbers only (FR)",
+	 "Email address does not match" => "Email address does not match (FR)", 
     'Date of Birth' => "Date de naissance",
     "Month" => "Mois",
     "Day" => "Jour",
@@ -60,7 +62,7 @@ return [
     'Required' => 'Mandatory field',
     'Verification Code' => 'Code de vérification',
     'PRODUCTS'=>'PRODUITS',
-    "BIC<sup>&reg;</sup>PRODUCTS MAKE WRITING FUN!"=>"LES PRODUITS BIC<sup>®</sup> FONT DE L’ÉCRITURE UNE ACTIVITÉ RIGOLO !",
+    "BIC<sup>&reg;</sup> PRODUCTS MAKE WRITING FUN!"=>"LES PRODUITS BIC<sup>®</sup> FONT DE L’ÉCRITURE UNE ACTIVITÉ RIGOLO !",
     "The perfect BIC<sup>&reg;</sup> pen, pencil or marker can make a child feel inspired to write. We
                         offer so much variety and style; kids and adults will be amazed by what they find. Our products
                         offer:"=>"Le bon stylo, crayon ou marqueur de BIC<sup>&reg;</sup>  peut inspirer un enfant à écrire. Nous offrons toute une diversité de styles que les enfants et les adultes seront émerveillés à découvrir, notamment: ",

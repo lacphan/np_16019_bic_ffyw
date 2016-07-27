@@ -18,7 +18,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
             <div class="row">
                 <div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1">
                     <h2><span><?= Yii::t(_NP_TEXT_DOMAIN, "PRODUCTS") ?></span></h2>
-                    <h3><?= Yii::t(_NP_TEXT_DOMAIN, "BIC<sup>&reg;</sup>PRODUCTS MAKE WRITING FUN!") ?></h3>
+                    <h3><?= Yii::t(_NP_TEXT_DOMAIN, "BIC<sup>&reg;</sup> PRODUCTS MAKE WRITING FUN!") ?></h3>
 
                     <div>
                         <?php if ((Yii::$app->language == 'fr_FR')): ?>

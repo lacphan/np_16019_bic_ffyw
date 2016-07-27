@@ -343,9 +343,7 @@ $this->title = 'The Mission';
                 <span class=""></span>
 
                 <div id="mission-vid-wrap" class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
-                    <img
-                        src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-VidPlaceholder_11.png' ?>"
-                        class="vidLink" data-vidname="Bic_PSA_Broadcast_-_FINAL"/>
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/yx6tellQ5dk?rel=0&amp;controls=0&amp;showinfo=0;autoplay=0" frameborder="0" allowfullscreen></iframe>
 
                     <span class="hidden-xs visible-md-block visible-lg-block flyout"><h3 class="kg-fall-bd yellow-text">Watch
                         <span class="blk-text">Our</span> Video!
