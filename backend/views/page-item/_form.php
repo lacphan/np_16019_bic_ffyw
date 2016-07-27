@@ -2,9 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use dosamigos\tinymce\TinyMce;
 use yii\helpers\ArrayHelper;
 use backend\models\Locale;
+use common\enpii\components\NpTinyMCE;
 /* @var $this yii\web\View */
 /* @var $model backend\models\PageItem */
 /* @var $form yii\widgets\ActiveForm */
@@ -49,20 +49,9 @@ use backend\models\Locale;
 
                             </div>
                             <div class="col-md-12">
-                                <?= $form->field($model, 'description')->widget(TinyMce::className(), [
+                                <?= $form->field($model, 'description')->widget(NpTinyMCE::className(), [
                                     'options' => ['rows' => 20],
                                     'language' => 'en_CA',
-                                    'clientOptions' => [
-                                        'fontSize' => 15,
-                                        'convert_urls' => false,
-                                        'relative_urls' => false,
-                                        'plugins' => [
-                                            "advlist autolink lists link charmap print preview anchor",
-                                            "searchreplace visualblocks code fullscreen",
-                                            "insertdatetime media table contextmenu paste"
-                                        ],
-                                        'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-                                    ]
                                 ]);
 
                                 ?>
