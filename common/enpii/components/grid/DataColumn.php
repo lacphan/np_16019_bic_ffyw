@@ -109,7 +109,7 @@ class DataColumn extends Column
      */
     public $filterInputOptions = ['class' => 'form-control ', 'id' => null];
 
-    public $filterSelectOptions = ['class' => 'form-control input-small select2me','id' => null];
+    public $filterSelectOptions = ['class' => 'form-control input-small select2','id' => null];
 
     /**
      * @inheritdoc

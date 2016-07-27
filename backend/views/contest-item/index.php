@@ -63,6 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         return $model->locale->locale;
                                     },
                                     'headerOptions' => ['width' => '30px'],
+                                    'filter' => ArrayHelper::map(Locale::find()->asArray()->all(), 'id', 'locale')
                                 ],
                                 [
                                     'attribute' => 'start_date',

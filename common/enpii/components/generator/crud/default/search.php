@@ -33,6 +33,7 @@ use <?= ltrim($generator->modelClass, '\\') . (isset($modelAlias) ? " as $modelA
 
 /**
  * <?= $searchModelClass ?> represents the model behind the search form about `<?= $generator->modelClass ?>`.
+ * @property  $globalSearch
  */
 class <?= $searchModelClass ?> extends <?= isset($modelAlias) ? $modelAlias : $modelClass ?>
 
@@ -85,11 +86,11 @@ class <?= $searchModelClass ?> extends <?= isset($modelAlias) ? $modelAlias : $m
         }
 
         <?= implode("\n        ", $searchConditions) ?>
-
+        if($this->globalSearch) {
         <?php foreach($searchAttributes as $attribute) :?><?= ""
             ?>$query->orFilterWhere(['like','<?= $attribute ?>', $this->globalSearch]);
         <?php endforeach?>
-
+        }
         return $dataProvider;
     }
 }

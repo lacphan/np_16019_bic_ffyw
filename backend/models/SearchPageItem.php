@@ -80,21 +80,14 @@ class SearchPageItem extends PageItem
             ->andFilterWhere(['like', 'locale_id', $this->locale_id])
             ->andFilterWhere(['like', 'params', $this->params]);
 
-        $query->orFilterWhere(['like','id', $this->globalSearch]);
-        $query->orFilterWhere(['like','name', $this->globalSearch]);
-        $query->orFilterWhere(['like','slug', $this->globalSearch]);
-        $query->orFilterWhere(['like','code', $this->globalSearch]);
-        $query->orFilterWhere(['like','description', $this->globalSearch]);
-        $query->orFilterWhere(['like','locale_id', $this->globalSearch]);
-        $query->orFilterWhere(['like','created_at', $this->globalSearch]);
-        $query->orFilterWhere(['like','updated_at', $this->globalSearch]);
-        $query->orFilterWhere(['like','published_at', $this->globalSearch]);
-        $query->orFilterWhere(['like','creator_id', $this->globalSearch]);
-        $query->orFilterWhere(['like','is_deleted', $this->globalSearch]);
-        $query->orFilterWhere(['like','is_enabled', $this->globalSearch]);
-        $query->orFilterWhere(['like','ordering_weight', $this->globalSearch]);
-        $query->orFilterWhere(['like','params', $this->globalSearch]);
-        
+        if($this->globalSearch) {
+            $query->filterWhere(['like','name', $this->globalSearch]);
+            $query->orFilterWhere(['like','slug', $this->globalSearch]);
+            $query->orFilterWhere(['like','code', $this->globalSearch]);
+            $query->orFilterWhere(['like','description', $this->globalSearch]);
+            $query->orFilterWhere(['like','locale_id', $this->globalSearch]);
+        }
+
         return $dataProvider;
     }
 }

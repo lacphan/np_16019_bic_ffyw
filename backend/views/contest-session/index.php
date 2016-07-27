@@ -171,7 +171,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         'accept' => 'Accept',
                                         'reject' => 'Reject'
                                     ], [
-                                        'class' => 'select-box form-control select2-selection select2-selection--single',
+                                        'class' => 'select-box form-control select2 select2-selection--single',
                                         'onchange' => '$("select[name=\'bulk-option\']").not(this).val($(this).val())'
                                     ]) ?>
                                 </div>
@@ -190,6 +190,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?= GridView::widget([
                             'dataProvider' => $dataProvider,
                             'filterModel' => $searchModel,
+                            'tableOptions' => [
+                                'class' => 'table table-striped table-bordered table-hover table-checkable order-column dataTable no-footer'
+                            ],
                             'columns' => [
                                 ['class' => 'common\enpii\components\grid\CheckboxColumn'],
                                 ['class' => 'common\enpii\components\grid\SerialColumn'],

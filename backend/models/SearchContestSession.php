@@ -75,13 +75,15 @@ class SearchContestSession extends ContestSession
         if($winner) {
             $query->andFilterWhere(['is_winner' => $winner]);
         }
-
         $query->andFilterWhere(['like', 'first_name', $this->first_name])
             ->andFilterWhere(['like', 'last_name', $this->last_name]);
 
-        $query->orFilterWhere(['like','first_name', $this->globalSearch]);
-        $query->orFilterWhere(['like','last_name', $this->globalSearch]);
-        $query->orFilterWhere(['like','birth_year', $this->globalSearch]);
+        if($this->globalSearch) {
+            $query->filterWhere(['like','first_name', $this->globalSearch]);
+            $query->orFilterWhere(['like','last_name', $this->globalSearch]);
+            $query->orFilterWhere(['like','birth_year', $this->globalSearch]);
+        }
+
         return $dataProvider;
     }
 }

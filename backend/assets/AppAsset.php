@@ -26,7 +26,9 @@ class AppAsset extends AssetBundle
         'assets-enpii/global/plugins/moment.min.js',
         'assets-enpii/global/plugins/jquery-ui/jquery-ui.min.js',
         'assets-enpii/global/plugins/morris/morris.min.js',
-        'assets-enpii/global/plugins/raphael.min.js',
+        'assets-enpii/global/scripts/datatable.js',
+        'assets-enpii/global/plugins/datatables/datatables.min.js',
+        'assets-enpii/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js',
 
 //        'assets-enpii/global/plugins/counterup/jquery.waypoints.min.js',
 //        'assets-enpii/global/plugins/counterup/jquery.counterup.min.js',
