@@ -76,6 +76,10 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                                     'label' => Yii::t(_NP_TEXT_DOMAIN, 'Official Rules'),
                                                     'url' => PageItem::getPermalink(['official-rules'])
                                                 ],
+                                                [
+                                                    'label' => Yii::t(_NP_TEXT_DOMAIN, 'Extra Fun'),
+                                                    'url' => PageItem::getPermalink(['extra-fun'])
+                                                ],
 
                                             ],
                                         ],
@@ -99,7 +103,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                         ],
                                         [
                                             'label' => Yii::t(_NP_TEXT_DOMAIN, 'Products'),
-                                            'url' =>  $locale == DEFAULT_LOCALE ? Yii::$app->urlManager->createUrl(['product']) : Yii::$app->urlManager->createUrl(['product', 'locale' => $locale])
+                                            'url' =>  $locale == DEFAULT_LOCALE ? Yii::$app->urlManager->createUrl(['product']) : Yii::$app->urlManager->createUrl(['product', 'locale' => $locale]),
                                         ],
                                         [
                                             'label' => false,

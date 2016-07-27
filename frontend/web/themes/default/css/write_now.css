@@ -520,7 +520,6 @@ a.button_blue:hover { background: #9151a0; text-decoration: none}
     padding-right:0;
     padding-left:0;
 	}
-	#content_wrapper { padding-left: 10px; padding-right: 10px; }
 	.product_type_page .double_tile { max-width: 100%; margin-left: auto; margin-right: auto; }
 	.product_type_page .tile_wide { max-width: 90%; margin-left: auto; margin-right: auto;  height: 280px; }
 	.product_type_page .tile .title { max-width: 100%; padding: 5px; font-size: 21px; }

@@ -460,6 +460,7 @@ img {
   }
 }
 .site-header .main-navigation .menu li ul.dropdown-menu li > a {
+  border-left: 0;
   color: inherit;
   padding: 5px 10px;
   border-right: none;
@@ -4357,6 +4358,36 @@ img {
 
 .privacy_policy a {
   color: #337ab7;
+}
+
+.extra_fun .extra-fun-inner .contents {
+  padding-top: 20px;
+}
+.extra_fun .extra-fun-inner .box1 {
+  background: #fcb514;
+}
+.extra_fun .extra-fun-inner .box1 .inner {
+  height: 200px;
+  padding: 10px 0;
+}
+.extra_fun .extra-fun-inner .box2 {
+  background: #b1d43b;
+}
+.extra_fun .extra-fun-inner .box2 .inner {
+  height: 200px;
+  background: #b1d43b;
+  padding: 10px 0;
+}
+.extra_fun .extra-fun-inner .box3 .inner {
+  height: 200px;
+  padding: 10px 0;
+}
+.extra_fun.fr .extra-fun-inner .feature_box h4 {
+  text-transform: uppercase;
+  font-size: 13px;
+}
+.extra_fun.fr .extra-fun-inner .box3 .pledge_button {
+  margin-top: 0;
 }
 
 /*# sourceMappingURL=main.css.map */
