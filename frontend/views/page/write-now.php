@@ -18,11 +18,9 @@ $description = $model->description;
             <?php else: ?>
                 <?php if ((Yii::$app->language == 'fr_FR')): ?>
                     <div class="contents">
-                        <div class="doodle doodle_1"><img
-                                src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' ?>doodle_write_now_1.png"
-                                alt=""></div>
+                        <div class="doodle doodle_1"><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'doodle_write_now_1.png'?>" alt=""></div>
                         <div class="doodle doodle_2"><img
-                                src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' ?>doodle_write_now_2.png"
+                                src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'doodle_write_now_2.png' ?>"
                                 alt=""></div>
                         <div class="doodle doodle_3"><img
                                 src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' ?>doodle_write_now_3.png"

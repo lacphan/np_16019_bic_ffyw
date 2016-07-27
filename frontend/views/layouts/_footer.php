@@ -53,6 +53,10 @@ if($outDateBrowser) {
 
                     $menuItems = [
                         [
+                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Official Rules'),
+                            'url' => PageItem::getPermalink(['official-rules']),
+                        ],
+                        [
                             'label' => Yii::t(_NP_TEXT_DOMAIN, 'Press'),
                             'url' => PageItem::getPermalink(['press']),
                         ],

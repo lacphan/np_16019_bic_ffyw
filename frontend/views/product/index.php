@@ -36,7 +36,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                         offer:") ?>
                     </p>
                     <p>
-                        <?= Yii::t(_NP_TEXT_DOMAIN, "Smooth writing pens and pencils • Bold, classic and fashionable ink colors •
+                        <?= Yii::t(_NP_TEXT_DOMAIN, "Smooth writing pens and pencils • Bold, classic and fashionable ink colours •
                         Precise writing instruments • Variety of shapes and point sizes for that perfect fit •
                         Incredibly comfortable grips • Forgiving smudge-free and erasable mechanical pencils") ?>
                     </p>
