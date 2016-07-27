@@ -34,8 +34,8 @@ return [
     "Parent's First Name" => 'Prénom du parent',
     "Parents Last Name" => "Nom de famille du parent",
     "Phone Number" => "Numéro de téléphone",
-	 "Please enter numbers only" => "Please enter numbers only (FR)",
-	 "Email address does not match" => "Email address does not match (FR)", 
+	 "Please enter numbers only" => "Entrer seulment numéros s\'il vous plaît",
+	 "Email address does not match" => "Email ne correspond pas à l\'autre",
     'Date of Birth' => "Date de naissance",
     "Month" => "Mois",
     "Day" => "Jour",
@@ -66,7 +66,7 @@ return [
     "The perfect BIC<sup>&reg;</sup> pen, pencil or marker can make a child feel inspired to write. We
                         offer so much variety and style; kids and adults will be amazed by what they find. Our products
                         offer:"=>"Le bon stylo, crayon ou marqueur de BIC<sup>&reg;</sup>  peut inspirer un enfant à écrire. Nous offrons toute une diversité de styles que les enfants et les adultes seront émerveillés à découvrir, notamment: ",
-    "Smooth writing pens and pencils • Bold, classic and fashionable ink colors •
+    "Smooth writing pens and pencils • Bold, classic and fashionable ink colours •
                         Precise writing instruments • Variety of shapes and point sizes for that perfect fit •
                         Incredibly comfortable grips • Forgiving smudge-free and erasable mechanical pencils"=>"Des stylos et crayons pour une écriture en douceur • Encres de couleurs classiques et fantaisistes vives •
                   Instruments d’écriture précise • Offrant une variété de formes et de tailles de pointes pour trouver l’instrument parfait • Prises incroyablement confortables • Porte-mines effaçables pour une écriture aisée sans bavures",

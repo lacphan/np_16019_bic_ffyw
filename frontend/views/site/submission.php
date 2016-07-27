@@ -17,7 +17,8 @@ $this->params['breadcrumbs'][] = $this->title;
 $contestItem = ContestItem::getWeek();
 $weekNumber = $contestItem ? $contestItem->week_number : 1;
 $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : DEFAULT_LOCALE;
-$submissionContent=PageItem::getContentByCode('submission-content', $locale);
+//$submissionContent=PageItem::getContentByCode('submission-content', $locale);
+$submissionContent=PageItem::findPageLocale('submission-content',Yii::$app->request->get('locale'));
 ?>
 <div class="site-signup">
     <div class="container">
