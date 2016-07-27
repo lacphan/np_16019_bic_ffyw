@@ -200,17 +200,17 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'class' => 'backend\models\ImageThumbnailColumn'
                                 ],
                                 [
-                                    'attribute' => 'user_id',
+                                    'attribute' => 'userEmail',
                                     'value' => 'user.email',
                                     'label' => 'Parent\'s Email'
                                 ],
                                 [
-                                    'attribute' => 'parent_first_name',
+                                    'attribute' => 'userFirstName',
                                     'value' => 'user.first_name',
                                     'label' => "Parent's First Name"
                                 ],
                                 [
-                                    'attribute' => 'parent_last_name',
+                                    'attribute' => 'userLastName',
                                     'value' => 'user.last_name',
                                     'label' => "Parent's Last Name"
                                 ],
@@ -225,7 +225,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'headerOptions' => ['width' => '5%']
                                 ],
                                 [
-                                    'attribute' => 'birth_year',
+                                    'attribute' => 'age',
                                     'value' => 'age',
                                     'label' => 'Age',
                                     'headerOptions' => ['width' => '5%']
