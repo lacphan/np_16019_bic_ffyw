@@ -54,6 +54,8 @@ use backend\models\Locale;
                                     'language' => 'en_CA',
                                     'clientOptions' => [
                                         'fontSize' => 15,
+                                        'convert_urls' => false,
+                                        'relative_urls' => false,
                                         'plugins' => [
                                             "advlist autolink lists link charmap print preview anchor",
                                             "searchreplace visualblocks code fullscreen",
