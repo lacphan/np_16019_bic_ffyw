@@ -61,6 +61,7 @@ return [
     'Boys and Girls Clubs of Canada' => 'Repaires jeunesse du Canada',
     'Required' => 'Mandatory field',
     'Verification Code' => 'Code de vérification',
+	 'How BIC Is Helping' => 'Comment BIC Soutient',
     'PRODUCTS'=>'PRODUITS',
     "BIC<sup>&reg;</sup> PRODUCTS MAKE WRITING FUN!"=>"LES PRODUITS BIC<sup>®</sup> FONT DE L’ÉCRITURE UNE ACTIVITÉ RIGOLO !",
     "The perfect BIC<sup>&reg;</sup> pen, pencil or marker can make a child feel inspired to write. We

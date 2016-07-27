@@ -22,10 +22,10 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
 
                     <div>
                         <?php if ((Yii::$app->language == 'fr_FR')): ?>
-                            <a href="#"><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/'?>products_intro_fr.png"
+                            <a href="<?=Yii::$app->urlManager->createUrl(['/fr/page/extra-fun']);?>"><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/'?>products_intro_fr.png"
                                              alt="Introducing BIC Extra-fun pencils Click here"/></a>
                         <?php else: ?>
-                            <a href="#"><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/'?>products_intro.png"
+                            <a href="<?=Yii::$app->urlManager->createUrl(['/page/extra-fun']);?>"><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/'?>products_intro.png"
                                              alt="Introducing BIC Extra-fun pencils Click here"/></a>
                         <?php endif; ?>
 

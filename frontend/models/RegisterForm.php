@@ -76,7 +76,7 @@ class RegisterForm extends Model
             [['emailConfirm'], 'email'],
             [['rotateDegree'], 'integer'],
             [['emailConfirm'], 'compare', 'compareAttribute'=>'email', 'message'=> Yii::t(_NP_TEXT_DOMAIN,"Email address does not match")],
-            [['phoneNumber'],'match', 'pattern' => '/[0-9]/','message' => Yii::t(_NP_TEXT_DOMAIN,'Please enter numbers only')],
+            [['phoneNumber'],'match', 'pattern' => '/^[0-9]*$/','message' => Yii::t(_NP_TEXT_DOMAIN,'Please enter numbers only')],
             [['phoneNumber'],'string','min'=>10,'max' => 10,'tooShort' => Yii::t(_NP_TEXT_DOMAIN,'Phone must contain 10 digits'),'tooLong' => Yii::t(_NP_TEXT_DOMAIN,'Phone must contain 10 digits')],
             [['childLastInitial'],'match', 'pattern' => '/[a-zA-Z]/','message' => Yii::t(_NP_TEXT_DOMAIN,'Only from a-z A-Z')],
             [['childLastInitial'],'string', 'max' => 1,'message' => Yii::t(_NP_TEXT_DOMAIN,'Maximum of one alpha character can be entered')],

@@ -76,10 +76,6 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                                     'label' => Yii::t(_NP_TEXT_DOMAIN, 'Official Rules'),
                                                     'url' => PageItem::getPermalink(['official-rules'])
                                                 ],
-                                                [
-                                                    'label' => Yii::t(_NP_TEXT_DOMAIN, 'Extra Fun'),
-                                                    'url' => PageItem::getPermalink(['extra-fun'])
-                                                ],
 
                                             ],
                                         ],

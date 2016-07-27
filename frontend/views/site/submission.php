@@ -17,8 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 $contestItem = ContestItem::getWeek();
 $weekNumber = $contestItem ? $contestItem->week_number : 1;
 $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : DEFAULT_LOCALE;
-//$submissionContent=PageItem::getContentByCode('submission-content', $locale);
-$submissionContent=PageItem::findPageLocale('submission-content',Yii::$app->request->get('locale'));
+$submissionContent=PageItem::getContentByCode('submission-content', $locale);
 ?>
 <div class="site-signup">
     <div class="container">
@@ -130,6 +129,14 @@ $submissionContent=PageItem::findPageLocale('submission-content',Yii::$app->requ
                             <?= $form->field($model, 'age')->textInput(['class' => 'small-input', 'placeholder' => Yii::t(_NP_TEXT_DOMAIN, 'Age')])->label(false) ?>
                         </div>
                         <div class="form-row">
+                            <div class="submission-guideline">
+                                <?php
+                                if(!empty($submissionContent[0]->description)):
+                                    echo $submissionContent[0]->description;
+                                endif;
+                                ?>
+                            </div>
+
                             <?php
                             $layoutTemplate = [
                                 'main2' => '<div class="kv-upload-progress hide"></div>{browse}{preview}{remove}',
@@ -185,13 +192,6 @@ $submissionContent=PageItem::findPageLocale('submission-content',Yii::$app->requ
                         <?php ActiveForm::end(); ?>
                     </div>
                     <div class="col-md-5">
-                        <div class="submission-guideline">
-                            <?php
-                            if(!empty($submissionContent[0]->description)):
-                                echo $submissionContent[0]->description;
-                            endif;
-                            ?>
-                        </div>
                     </div>
                 </div>
             </div>
