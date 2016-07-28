@@ -21,9 +21,9 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                     BIC'S <span>Handwriting</span> Challenge!
                 </div>
                 <div class="content a-center">
-                    <p>Thank you! We have received your entry and if approved it will appear in the gallery within 1-2 business days.  Don’t forget to come back and submit a response for next week’s handwriting challenge! If selected as a potential winner, we will contact you via email provided.</p>
+                    <p>Thank you! We have received your entry. If approved, it will be placed into the Handwriting Challenge gallery within 2 business days. If rejected, make sure to check your inbox for an email notification. Don’t forget to come back and submit a response for next week’s handwriting challenge!</p>
 
-                    <p><?=  Html::a(Yii::t(_NP_TEXT_DOMAIN, '*' . 'Click here for Official Rules'), Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules']),['target' => '_blank','class' => 'color-1'])?></p>
+                    <p><?=  Html::a(Yii::t(_NP_TEXT_DOMAIN, '*' . 'Click here for Official Rules'), Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules']),['class' => 'color-1'])?></p>
                 </div>
                 <div class="global-btn">
                     <a target="_blank" class="global-btn-inner" href="<?= $locale == DEFAULT_LOCALE ? Yii::$app->urlManager->createUrl(['site/gallery']) :  Yii::$app->urlManager->createUrl(['site/gallery','locale' => $locale]) ?>">GALLERY</a>

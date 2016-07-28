@@ -75,4 +75,13 @@ class CommonPageItem extends \common\models\base\BasePageItem
         }
         return CommonPageItem::find()->where(['code' => $code])->one();
     }
+    public static function getContentByCode($code,$locale = null){
+        if (!$locale) $locale = DEFAULT_LOCALE;
+        $localeItem = CommonLocale::find()->where(['locale' => $locale])->one();
+        $content = CommonPageItem::find()->where(['code' => $code, 'locale_id' => $localeItem->id])->all();
+        if($content) {
+            return $content;
+        }
+        return CommonPageItem::find()->where(['code' => $code])->all();
+    }
 }

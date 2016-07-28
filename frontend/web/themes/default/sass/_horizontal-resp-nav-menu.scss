@@ -97,6 +97,7 @@
       li {
 
         & > a {
+          border-left: 0;
           color: $link-color;
           padding: 5px 10px;
           border-right: none;

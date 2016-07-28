@@ -171,7 +171,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         'accept' => 'Accept',
                                         'reject' => 'Reject'
                                     ], [
-                                        'class' => 'select-box form-control select2-selection select2-selection--single',
+                                        'class' => 'select-box form-control select2 select2-selection--single',
                                         'onchange' => '$("select[name=\'bulk-option\']").not(this).val($(this).val())'
                                     ]) ?>
                                 </div>
@@ -190,6 +190,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?= GridView::widget([
                             'dataProvider' => $dataProvider,
                             'filterModel' => $searchModel,
+                            'tableOptions' => [
+                                'class' => 'table table-striped table-bordered table-hover table-checkable order-column dataTable no-footer'
+                            ],
                             'columns' => [
                                 ['class' => 'common\enpii\components\grid\CheckboxColumn'],
                                 ['class' => 'common\enpii\components\grid\SerialColumn'],
@@ -197,17 +200,17 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'class' => 'backend\models\ImageThumbnailColumn'
                                 ],
                                 [
-                                    'attribute' => 'user_id',
+                                    'attribute' => 'userEmail',
                                     'value' => 'user.email',
                                     'label' => 'Parent\'s Email'
                                 ],
                                 [
-                                    'attribute' => 'parent_first_name',
+                                    'attribute' => 'userFirstName',
                                     'value' => 'user.first_name',
                                     'label' => "Parent's First Name"
                                 ],
                                 [
-                                    'attribute' => 'parent_last_name',
+                                    'attribute' => 'userLastName',
                                     'value' => 'user.last_name',
                                     'label' => "Parent's Last Name"
                                 ],
@@ -222,7 +225,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'headerOptions' => ['width' => '5%']
                                 ],
                                 [
-                                    'attribute' => 'birth_year',
+                                    'attribute' => 'age',
                                     'value' => 'age',
                                     'label' => 'Age',
                                     'headerOptions' => ['width' => '5%']

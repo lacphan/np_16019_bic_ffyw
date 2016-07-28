@@ -24,7 +24,7 @@ $description = $model->description;
                     <div class="pencils pencil_image"><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' ?>pencil_4.png" alt="" /></div>
                     <h3>La Presse</h3>
                     <h4 class="subtitle">Cliquez ci-dessous pour télécharger le communiqué de presse sur la mission Ton pouvoir d’écrire de BIC afin d’en apprendre davantage sur l’importance de l’écriture à la main!</h4>
-                    <div><a href="<?= Yii::$app->uploadUrl->baseUrl?>/BIC_FFYW_News_Release_2015_fr.pdf" target="_blank"  class="button_blue">TÉLÉCHARGER</a></div>
+                    <div><a href="<?= Yii::$app->uploadUrl->baseUrl?>/../BIC_FFYW_News_Release_2015_fr.pdf" target="_blank"  class="button_blue">TÉLÉCHARGER</a></div>
 
                     <div class="row news_links">
                         <div class="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3">

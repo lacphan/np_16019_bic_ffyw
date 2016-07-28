@@ -18,14 +18,14 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
             <div class="row">
                 <div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1">
                     <h2><span><?= Yii::t(_NP_TEXT_DOMAIN, "PRODUCTS") ?></span></h2>
-                    <h3><?= Yii::t(_NP_TEXT_DOMAIN, "BIC<sup>&reg;</sup>PRODUCTS MAKE WRITING FUN!") ?></h3>
+                    <h3><?= Yii::t(_NP_TEXT_DOMAIN, "BIC<sup>&reg;</sup> PRODUCTS MAKE WRITING FUN!") ?></h3>
 
                     <div>
                         <?php if ((Yii::$app->language == 'fr_FR')): ?>
-                            <a href="#"><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/'?>products_intro_fr.png"
+                            <a href="<?=Yii::$app->urlManager->createUrl(['/fr/page/extra-fun']);?>"><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/'?>products_intro_fr.png"
                                              alt="Introducing BIC Extra-fun pencils Click here"/></a>
                         <?php else: ?>
-                            <a href="#"><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/'?>products_intro.png"
+                            <a href="<?=Yii::$app->urlManager->createUrl(['/page/extra-fun']);?>"><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/'?>products_intro.png"
                                              alt="Introducing BIC Extra-fun pencils Click here"/></a>
                         <?php endif; ?>
 
@@ -36,7 +36,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                         offer:") ?>
                     </p>
                     <p>
-                        <?= Yii::t(_NP_TEXT_DOMAIN, "Smooth writing pens and pencils • Bold, classic and fashionable ink colors •
+                        <?= Yii::t(_NP_TEXT_DOMAIN, "Smooth writing pens and pencils • Bold, classic and fashionable ink colours •
                         Precise writing instruments • Variety of shapes and point sizes for that perfect fit •
                         Incredibly comfortable grips • Forgiving smudge-free and erasable mechanical pencils") ?>
                     </p>
@@ -50,8 +50,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                         <div class="title"><?= Yii::t(_NP_TEXT_DOMAIN, "PENS") ?></div>
                         <div><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/'?>products_pens.png" alt="Pens"/></div>
                         <div class="description">
-                            <?= Yii::t(_NP_TEXT_DOMAIN, "From ballpoint pen to gel to roller, these awesome varieties of pens
-                            provide endless hours of fun writing!") ?>
+                            <?= Yii::t(_NP_TEXT_DOMAIN, "From ballpoint pen to gel to roller, these awesome varieties of pens provide endless hours of fun writing!") ?>
                         </div>
                     </div>
                     <div><a href="<?=  $locale == DEFAULT_LOCALE ? Yii::$app->urlManager->createUrl(['product/show-single','slug' => 'pens']) :Yii::$app->urlManager->createUrl(['product/show-single','slug' => 'pens','locale' => $locale]) ?>" class="learn_more"><?= Yii::t(_NP_TEXT_DOMAIN, "LEARN MORE") ?></a></div>
@@ -62,8 +61,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                         <div class="title"><?=Yii::t(_NP_TEXT_DOMAIN, "PENCILS")  ?></div>
                         <div><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/'?>products_pencils.png" alt="Pencils"/></div>
                         <div class="description">
-                            <?= Yii::t(_NP_TEXT_DOMAIN, "An amazing mechanical pencil that writes 2 &frac12; times longer than
-                            wood case pencils? Now that’s smart!") ?>
+                            <?= Yii::t(_NP_TEXT_DOMAIN, "An amazing mechanical pencil that writes 2 &frac12; times longer than wood case pencils? Now that’s smart!") ?>
                         </div>
                     </div>
                     <div><a href="<?=  $locale == DEFAULT_LOCALE ? Yii::$app->urlManager->createUrl(['product/show-single','slug' => 'pencil']) :Yii::$app->urlManager->createUrl(['product/show-single','slug' => 'pencil','locale' => $locale]) ?>" class="learn_more"><?= Yii::t(_NP_TEXT_DOMAIN, "LEARN MORE") ?></a></div>
@@ -74,8 +72,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                         <div class="title"><?= Yii::t(_NP_TEXT_DOMAIN, "MARKING") ?></div>
                         <div><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/'?>products_marking.png" alt="Marking"/></div>
                         <div class="description">
-                            <?= Yii::t(_NP_TEXT_DOMAIN, "Bold and brilliant coloured markers and highlighters for all of your
-                            marking needs.") ?>
+                            <?= Yii::t(_NP_TEXT_DOMAIN, "Bold and brilliant coloured markers and highlighters for all of your marking needs.") ?>
                         </div>
                     </div>
                     <div><a href="<?=  $locale == DEFAULT_LOCALE ? Yii::$app->urlManager->createUrl(['product/show-single','slug' => 'marking']) :Yii::$app->urlManager->createUrl(['product/show-single','slug' => 'marking','locale' => $locale]) ?>" class="learn_more"><?= Yii::t(_NP_TEXT_DOMAIN, "LEARN MORE") ?></a></div>

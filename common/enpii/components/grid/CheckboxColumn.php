@@ -61,7 +61,9 @@ class CheckboxColumn extends Column
      *
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
      */
-    public $checkboxOptions = [];
+    public $checkboxOptions = [
+        'class' => 'checkboxes'
+    ];
     /**
      * @var boolean whether it is possible to select multiple rows. Defaults to `true`.
      */
@@ -98,12 +100,10 @@ class CheckboxColumn extends Column
             'multiple' => $this->multiple,
             'checkAll' => $name,
         ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-        $this->grid->getView()->registerJs("jQuery('#$id').yiiGridView('setSelectionColumn', $options);");
-
         if ($this->header !== null || !$this->multiple) {
             return parent::renderHeaderCellContent();
         } else {
-            return Html::checkBox($name, false, ['class' => 'select-on-check-all']);
+            return 1 ? '' : Html::checkbox($name, false, ['class' => 'select-on-check-all group-checkable', 'data-set' => "#{$id} .checkboxes"]);
         }
     }
 

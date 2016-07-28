@@ -275,7 +275,8 @@ img {
     }
   }
   .close-btn {
-    position: absolute;
+    display: none;
+    /* position: absolute;
     right: 10px;
     top: 17px;
     font-size: 50px;
@@ -287,7 +288,7 @@ img {
     line-height: 26px;
     &:focus {
       outline: none;
-    }
+    } */
   }
 }
 
@@ -329,4 +330,13 @@ img {
 .sans-bold{
   font-family: 'Open Sans';
   font-weight: 700;
+}
+/** submission page ******/
+.submission-guideline{
+  font-size: 16px;
+  font-family: sans-serif;
+  color: #000000;
+  a{
+    color: #19998c;
+  }
 }

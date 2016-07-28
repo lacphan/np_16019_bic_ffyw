@@ -10,13 +10,7 @@ use frontend\models\PageItem;
                 <?php
             else:
                 ?>
-                <b>NO PURCHASE NECESSARY TO ENTER OR
-                    WIN.</b> Void where prohibited. The Contest is strictly open to individuals who are legal residents of Canada, who are over the age of majority in their province or territory of residence and a parent and/or legal guardian of a child between the age of 4 and 18 at the time of entry ("Eligible Child"). The Eligible Child cannot by any means enter The Contest. The Contest will begin 8/09/16 at 12:00:01 PM Eastern Time ("ET") and ends 9/19/16 at 11:59:59 PM ET ("Contest Submission Period*). Winners must correctly answer a mathematical skill testing question to win a prize. Contest Winners will be determined solely by random draw. Odds of winning a random drawing depends upon the number of eligible entries received. One (1) Contest Submission per person, per week for each Eligible Child (up to a maximum of four (4) Eligible Children per person) during the entire Contest Submission Period. Weekly winners are selected at end of respective weekly period. Grand prize winner to be selected upon full completion of the Contest. You may only use one (1) email address to participate in this Contest. See
-                <a
-                    target="_blank"
-                    href="<?= PageItem::getPermalink(['official-rules']) ?>">
-                    <?= Yii::t(_NP_TEXT_DOMAIN, 'Official Rules.') ?>
-                </a> for details. Sponsor: BIC Inc.
+                <strong>NO PURCHASE NECESSARY TO ENTER OR WIN.</strong> The Contest is strictly open to individuals who are legal residents of Canada, who are over the age of majority in their province or territory of residence and a parent and/or legal guardian of a child between the age of 4 and 18 at the time of entry (“Eligible Child”). The Contest will begin August 9, 2016 at 12:00:01 PM Eastern Time (“ET”) and ends September 19, 2016 at 11:59:59 PM ET ("Contest Submission Period").  Contest Winners will be determined solely by random draw. Odds of winning in the random drawings depend upon the number of eligible entries received. One (1) Contest Submission per person, per week for each Eligible Child (up to a maximum of four (4) Eligible Children per person).  You may only use one (1) email address to participate in this Contest. Weekly winners are selected randomly at end of respective weekly period. Grand prize winner to be selected upon full completion of the Contest. Winners must correctly answer a mathematical skill testing question to win a prize. See <a target="_blank" href="<?= PageItem::getPermalink(['official-rules']) ?>"><?= Yii::t(_NP_TEXT_DOMAIN, 'Official Rules') ?></a> for details.  Sponsor: BIC Inc.
                 <?php
             endif;
             ?>

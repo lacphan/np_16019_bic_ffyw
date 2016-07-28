@@ -11,7 +11,7 @@ use himiklab\yii2\recaptcha\ReCaptchaValidator;
 class EmailSubmission extends Model
 {
     public $email;
-   
+
     /**
      * @inheritdoc
      */
@@ -19,7 +19,7 @@ class EmailSubmission extends Model
     {
         return [
 
-            [['email'],'required','message' => Yii::t(_NP_TEXT_DOMAIN,'Please enter your email to participate.')],
+            [['email'],'required','message' => Yii::t(_NP_TEXT_DOMAIN,'Enter your email address to participate')],
             [['email'],'email'],
         ];
     }

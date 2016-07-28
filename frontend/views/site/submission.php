@@ -11,11 +11,13 @@ use himiklab\yii2\recaptcha\ReCaptcha;
 use frontend\models\ContestItem;
 use kartik\file\FileInput;
 use yii\bootstrap\Modal;
+use frontend\models\PageItem;
 $this->title = 'Submission';
 $this->params['breadcrumbs'][] = $this->title;
 $contestItem = ContestItem::getWeek();
 $weekNumber = $contestItem ? $contestItem->week_number : 1;
 $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : DEFAULT_LOCALE;
+$submissionContent=PageItem::getContentByCode('submission-content', $locale);
 ?>
 <div class="site-signup">
     <div class="container">
@@ -110,74 +112,88 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                 <div class="clearfix"></div>
             </div>
             <div class="register-form">
-                <h3 class="form-title font-5 font-size-25">
-                    <?= Yii::t(_NP_TEXT_DOMAIN,'Please fill out the form below to submit your entry:')?></h3>
-                <p class="require-hint">* <?= Yii::t(_NP_TEXT_DOMAIN,'Required Fields')?></p>
-                <?php $form = ActiveForm::begin([
-                    'options' => [
-                        'enctype' => 'multipart/form-data',
-                        'id' => 'register-form']
-                ]); ?>
-                <?= $form->field($model, 'email')->hiddenInput(['value' => Yii::$app->session->get('submissionEmail')])->label(false) ?>
-                <div class="form-row">
-                    <?= $form->field($model, 'childFirstName')->textInput(['placeholder' => '*' . Yii::t(_NP_TEXT_DOMAIN, 'Your Child\'s Name')])->label(false) ?>
-                    <?= $form->field($model, 'childLastInitial')->textInput(['placeholder' =>'*' . Yii::t(_NP_TEXT_DOMAIN, 'Your Child\'s Last Initial')])->label(false) ?>
-                    <?= $form->field($model, 'age')->textInput(['class' => 'small-input', 'placeholder' => Yii::t(_NP_TEXT_DOMAIN, 'Age')])->label(false) ?>
-                </div>
-                <div class="form-row">
-                    <?php
-                    $layoutTemplate = [
-                        'main2' => '<div class="kv-upload-progress hide"></div>{browse}{preview}{remove}',
-                        'footer' => ''
-                    ]
-                    ?>
-
-                    <?= $form->field($model,'rotateDegree')->hiddenInput(['id' => 'rotate-degree'])->label(false)?>
-                    <?= $form->field($model, 'uploadFile',[
-                        'options' => ['class' => 'form-upload'],
-                        'template' => '<div class="form-upload-inner">' .
-                            '<div class="input-instruction">' .
-                            Yii::t(_NP_TEXT_DOMAIN, 'Upload photo instructions') . ':<br/>' .
-                            Yii::t(_NP_TEXT_DOMAIN, 'No larger than 5MB and only accept .jpg and .png files') .
-                            '</div>' .
-                            '<button class="btn btn-default global-btn btn-file"><span>'.Yii::t(_NP_TEXT_DOMAIN,'Upload').'{input}</span></button>' .
-                            '{label}{error}'.
-                            '<div class="preview-wrapper">'.
-                            '<div class="file-preview"><div class="file-preview-frame"><canvas id="canvas"></canvas></div></div>'.
-                            '<button class="img-rotate-left" ><i class="fa fa-undo" aria-hidden="true"></i></button>'.
-                            '<button class="img-rotate-right"><i class="fa fa-repeat"></i></button>'.
-                            '</div></div>'
-                    ])->fileInput(['id' => 'imageLoader'])->label(false); ?>
-                </div>
-                <div class="form-row">
-                    <?= $form->field($model, 'agreeTerm', ['options' => ['class' => 'form-check-box']])->checkbox(
-                        ['template' => '<div class="form-check-box-inner">{input}{label}{error}</div>']
-                    )->label(Yii::t(_NP_TEXT_DOMAIN, 'I have read and agree to the ') . Html::a(Yii::t(_NP_TEXT_DOMAIN, 'official rules'), Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules']),['target' => '_blank'])) ?>
-
-                </div>
-                <div class="form-row">
-                    <?= $form->field($model, 'verificationCode', [
-                        'options' => ['class' => 'form-recaptcha'],
-                    ])->widget(
-                        ReCaptcha::className(),
-                        [
-                            'siteKey' => '6LddpCQTAAAAADkMcb59wigYVIq7n1Y9jKE4HCS3',
+                <div class="row">
+                    <div class="col-md-7">
+                        <h3 class="form-title font-5 font-size-25">
+                            <?= Yii::t(_NP_TEXT_DOMAIN,'Please fill out the form below to submit your entry:')?></h3>
+                        <p class="require-hint">* <?= Yii::t(_NP_TEXT_DOMAIN,'Required Fields')?></p>
+                        <?php $form = ActiveForm::begin([
                             'options' => [
-                                'class' => 'global-input'
-                            ],
-                        ])->label(false) ?>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <div class="global-btn btn-submit">
-                            <?= Html::submitButton(Yii::t(_NP_TEXT_DOMAIN,'SUBMIT'), ['class' => 'global-btn-inner', 'name' => 'signup-button']) ?>
+                                'enctype' => 'multipart/form-data',
+                                'id' => 'register-form']
+                        ]); ?>
+                        <?= $form->field($model, 'email')->hiddenInput(['value' => Yii::$app->session->get('submissionEmail')])->label(false) ?>
+                        <div class="form-row">
+                            <?= $form->field($model, 'childFirstName')->textInput(['placeholder' => '*' . Yii::t(_NP_TEXT_DOMAIN, 'Your Child\'s Name')])->label(false) ?>
+                            <?= $form->field($model, 'childLastInitial')->textInput(['placeholder' =>'*' . Yii::t(_NP_TEXT_DOMAIN, 'Your Child\'s Last Initial')])->label(false) ?>
+                            <?= $form->field($model, 'age')->textInput(['class' => 'small-input', 'placeholder' => Yii::t(_NP_TEXT_DOMAIN, 'Age')])->label(false) ?>
+                        </div>
+                        <div class="form-row">
+                            <div class="submission-guideline">
+                                <?php
+                                if(!empty($submissionContent[0]->description)):
+                                    echo $submissionContent[0]->description;
+                                endif;
+                                ?>
+                            </div>
+
+                            <?php
+                            $layoutTemplate = [
+                                'main2' => '<div class="kv-upload-progress hide"></div>{browse}{preview}{remove}',
+                                'footer' => ''
+                            ]
+                            ?>
+
+                            <?= $form->field($model,'rotateDegree')->hiddenInput(['id' => 'rotate-degree'])->label(false)?>
+                            <?= $form->field($model, 'uploadFile',[
+                                'options' => ['class' => 'form-upload'],
+                                'template' => '<div class="form-upload-inner">' .
+                                    '<div class="input-instruction">' .
+                                    Yii::t(_NP_TEXT_DOMAIN, 'Upload photo instructions') . ':<br/>' .
+                                    Yii::t(_NP_TEXT_DOMAIN, 'No larger than 5MB and only accept .jpg and .png files') .
+                                    '</div>' .
+                                    '<button class="btn btn-default global-btn btn-file"><span>'.Yii::t(_NP_TEXT_DOMAIN,'Upload').'{input}</span></button>' .
+                                    '{label}{error}'.
+                                    '<div class="preview-wrapper">'.
+                                    '<div class="file-preview"><div class="file-preview-frame"><canvas id="canvas"></canvas></div></div>'.
+                                    '<button class="img-rotate-left" ><i class="fa fa-undo" aria-hidden="true"></i></button>'.
+                                    '<button class="img-rotate-right"><i class="fa fa-repeat"></i></button>'.
+                                    '</div></div>'
+                            ])->fileInput(['id' => 'imageLoader'])->label(false); ?>
+                        </div>
+                        <div class="form-row">
+                            <?= $form->field($model, 'agreeTerm', ['options' => ['class' => 'form-check-box']])->checkbox(
+                                ['template' => '<div class="form-check-box-inner">{input}{label}{error}</div>']
+                            )->label(Yii::t(_NP_TEXT_DOMAIN, 'I have read and agree to the ') . Html::a(Yii::t(_NP_TEXT_DOMAIN, 'official rules'), Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules']),['target' => '_blank'])) ?>
+
+                        </div>
+                        <div class="form-row">
+                            <?= $form->field($model, 'verificationCode', [
+                                'options' => ['class' => 'form-recaptcha'],
+                            ])->widget(
+                                ReCaptcha::className(),
+                                [
+                                    'siteKey' => '6LddpCQTAAAAADkMcb59wigYVIq7n1Y9jKE4HCS3',
+                                    'options' => [
+                                        'class' => 'global-input'
+                                    ],
+                                ])->label(false) ?>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <div class="global-btn btn-submit">
+                                    <?= Html::submitButton(Yii::t(_NP_TEXT_DOMAIN,'SUBMIT'), ['class' => 'global-btn-inner', 'name' => 'signup-button']) ?>
+                                </div>
+
+                            </div>
                         </div>
 
+
+                        <?php ActiveForm::end(); ?>
+                    </div>
+                    <div class="col-md-5">
                     </div>
                 </div>
-
-
-                <?php ActiveForm::end(); ?>
             </div>
         </div>
         <div class="home-content">

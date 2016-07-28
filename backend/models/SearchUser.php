@@ -10,6 +10,7 @@ use backend\models\User;
 
 /**
  * SearchUser represents the model behind the search form about `backend\models\User`.
+ * @property  $globalSearch
  */
 class SearchUser extends User
 {
@@ -88,29 +89,13 @@ class SearchUser extends User
             ->andFilterWhere(['like', 'password_reset_token', $this->password_reset_token])
             ->andFilterWhere(['like', 'auth_key', $this->auth_key])
             ->andFilterWhere(['like', 'params', $this->params]);
+        if($this->globalSearch) {
+            $query->filterWhere(['like','username', $this->globalSearch]);
+            $query->orFilterWhere(['like','email', $this->globalSearch]);
+            $query->orFilterWhere(['like','first_name', $this->globalSearch]);
+            $query->orFilterWhere(['like','last_name', $this->globalSearch]);
+        }
 
-        $query->orFilterWhere(['like','id', $this->globalSearch]);
-        $query->orFilterWhere(['like','username', $this->globalSearch]);
-        $query->orFilterWhere(['like','email', $this->globalSearch]);
-        $query->orFilterWhere(['like','first_name', $this->globalSearch]);
-        $query->orFilterWhere(['like','last_name', $this->globalSearch]);
-        $query->orFilterWhere(['like','profile_id', $this->globalSearch]);
-        $query->orFilterWhere(['like','parent_id', $this->globalSearch]);
-        $query->orFilterWhere(['like','level', $this->globalSearch]);
-        $query->orFilterWhere(['like','password_hash', $this->globalSearch]);
-        $query->orFilterWhere(['like','password_reset_token', $this->globalSearch]);
-        $query->orFilterWhere(['like','auth_key', $this->globalSearch]);
-        $query->orFilterWhere(['like','status', $this->globalSearch]);
-        $query->orFilterWhere(['like','building_id', $this->globalSearch]);
-        $query->orFilterWhere(['like','created_at', $this->globalSearch]);
-        $query->orFilterWhere(['like','updated_at', $this->globalSearch]);
-        $query->orFilterWhere(['like','published_at', $this->globalSearch]);
-        $query->orFilterWhere(['like','creator_id', $this->globalSearch]);
-        $query->orFilterWhere(['like','is_deleted', $this->globalSearch]);
-        $query->orFilterWhere(['like','is_enabled', $this->globalSearch]);
-        $query->orFilterWhere(['like','ordering_weight', $this->globalSearch]);
-        $query->orFilterWhere(['like','params', $this->globalSearch]);
-        
         return $dataProvider;
     }
 }

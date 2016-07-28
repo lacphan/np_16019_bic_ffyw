@@ -53,7 +53,10 @@ use backend\models\Locale;
                                     'options' => ['rows' => 20],
                                     'language' => 'en_CA',
                                     'clientOptions' => [
-                                        'fontSize' => 15,
+                                        'fontSize' => 30,
+                                        'content_css' => Yii::getAlias('@web') . '/assets-enpii/tiny-mce/editor-style.css',
+                                        'convert_urls' => false,
+                                        'relative_urls' => false,
                                         'plugins' => [
                                             "advlist autolink lists link charmap print preview anchor",
                                             "searchreplace visualblocks code fullscreen",
