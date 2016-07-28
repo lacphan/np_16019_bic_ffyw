@@ -428,6 +428,7 @@ img {
 
 .site-header .main-navigation {
   background: #f8a421;
+  margin-top: 100px !important;
 }
 
 .site-header .main-navigation ul {

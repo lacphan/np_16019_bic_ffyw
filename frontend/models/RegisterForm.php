@@ -83,7 +83,7 @@ class RegisterForm extends Model
             [['age'],'integer', 'min' => 6,'max' => 18, 'tooSmall' => Yii::t(_NP_TEXT_DOMAIN,'Must be 6 years or older'),'tooBig' => Yii::t(_NP_TEXT_DOMAIN,'Age must be no greater than 18')],
             [['birthDate'],'integer', 'min' => 1,'max' => 31,'message' => Yii::t(_NP_TEXT_DOMAIN,'Please enter a valid').' {attribute}'],
             [['birthMonth'],'integer', 'min' => 1,'max' => 12 ,'message' => Yii::t(_NP_TEXT_DOMAIN,'Please enter a valid').' {attribute}'],
-            [['birthYear'],'integer', 'min' => 1905, 'max' => 1998 ,'message' => Yii::t(_NP_TEXT_DOMAIN,'Please enter a valid').'{attribute}'],
+            [['birthYear'],'integer', 'min' => 1920, 'max' => 1998 ,'message' => Yii::t(_NP_TEXT_DOMAIN,'Please enter a valid').'{attribute}'],
             ['verificationCode', ReCaptchaValidator::className(), 'secret' => '6LddpCQTAAAAAPU27Z1X3nwsVnNed-9aDrk5moSA'],
             [['birthDate', 'birthMonth', 'birthYear'], 'required',
                 'message' => '{attribute} ' . Yii::t(_NP_TEXT_DOMAIN, 'is a mandatory field')
@@ -91,7 +91,7 @@ class RegisterForm extends Model
             [['agreeTerm'], 'required','requiredValue' => 1,
                 'message' =>  Yii::t(_NP_TEXT_DOMAIN, 'Required field')
             ],
-            [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg',  'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],
+            [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpeg, jpg',  'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],
             [['email'], 'required'],
             [['email'], 'email'],
             [['age'], 'required', 'message'=>'{attribute} '.Yii::t(_NP_TEXT_DOMAIN, 'is a mandatory field')],
