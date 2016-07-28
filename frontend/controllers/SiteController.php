@@ -43,6 +43,11 @@ class SiteController extends FrontendController
                         'allow' => true,
                         'roles' => ['@'],
                     ],
+                    [
+                        'actions' => ['login'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
                 ],
             ],
             'verbs' => [
