@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 27, 2016 at 05:13 AM
+-- Generation Time: Jul 27, 2016 at 07:27 AM
 -- Server version: 5.5.50
 -- PHP Version: 5.5.37
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `bic_ffyw_attachment` (
   `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `bic_ffyw_attachment`
@@ -81,7 +81,14 @@ INSERT INTO `bic_ffyw_attachment` (`id`, `title`, `size`, `image`, `caption`, `d
 (69, NULL, '[{"full":{"width":500,"height":500}},{"medium":{"width":480,"height":480}},{"thumbnail":{"width":300,"height":300}}]', 'week-4-popup4.jpg', NULL, NULL, '2016-07-26 10:43:21', '2016-07-26 10:43:21'),
 (70, NULL, '[{"full":{"width":500,"height":500}},{"medium":{"width":480,"height":480}},{"thumbnail":{"width":300,"height":300}}]', 'week-4-popup5.jpg', NULL, NULL, '2016-07-26 10:44:53', '2016-07-26 10:44:53'),
 (71, NULL, '[{"full":{"width":259,"height":194}}]', 'garfield.jpg', NULL, NULL, '2016-07-27 01:43:16', '2016-07-27 01:43:16'),
-(72, NULL, '[{"full":{"width":2448,"height":2448}},{"large":{"width":1024,"height":1024}},{"medium":{"width":480,"height":480}},{"thumbnail":{"width":300,"height":300}}]', 'photo-12.jpg', NULL, NULL, '2016-07-27 01:46:14', '2016-07-27 01:46:14');
+(72, NULL, '[{"full":{"width":2448,"height":2448}},{"large":{"width":1024,"height":1024}},{"medium":{"width":480,"height":480}},{"thumbnail":{"width":300,"height":300}}]', 'photo-12.jpg', NULL, NULL, '2016-07-27 01:46:14', '2016-07-27 01:46:14'),
+(73, NULL, '[{"full":{"width":400,"height":400}},{"thumbnail":{"width":300,"height":300}}]', 'yes-correct1.jpg', NULL, NULL, '2016-07-27 10:18:22', '2016-07-27 10:18:22'),
+(74, NULL, '[{"full":{"width":400,"height":400}},{"thumbnail":{"width":300,"height":300}}]', 'yes-correct2.jpg', NULL, NULL, '2016-07-27 10:21:12', '2016-07-27 10:21:12'),
+(75, NULL, '[{"full":{"width":400,"height":400}},{"thumbnail":{"width":300,"height":300}}]', 'yes-correct3.jpg', NULL, NULL, '2016-07-27 10:34:21', '2016-07-27 10:34:21'),
+(76, NULL, '[{"full":{"width":259,"height":194}}]', 'garfield1.jpg', NULL, NULL, '2016-07-27 11:15:38', '2016-07-27 11:15:38'),
+(77, NULL, '[{"full":{"width":259,"height":194}}]', 'garfield2.jpg', NULL, NULL, '2016-07-27 11:37:26', '2016-07-27 11:37:26'),
+(78, NULL, '[{"full":{"width":499,"height":499}},{"medium":{"width":480,"height":480}},{"thumbnail":{"width":300,"height":300}}]', 'sample.jpg', NULL, NULL, '2016-07-27 11:51:21', '2016-07-27 11:51:21'),
+(79, NULL, '[{"full":{"width":259,"height":194}}]', 'garfield3.jpg', NULL, NULL, '2016-07-27 12:01:02', '2016-07-27 12:01:02');
 
 -- --------------------------------------------------------
 
@@ -110,6 +117,10 @@ INSERT INTO `bic_ffyw_auth_assignment` (`item_name`, `user_id`, `created_at`) VA
 ('standard-member', '11', 1468899199),
 ('standard-member', '16', 1469529064),
 ('standard-member', '17', 1469529368),
+('standard-member', '18', 1469614702),
+('standard-member', '19', 1469614872),
+('standard-member', '20', 1469615661),
+('standard-member', '21', 1469619446),
 ('standard-member', '3', 1468860453),
 ('standard-member', '4', 1468883586),
 ('standard-member', '5', 1468883650),
@@ -275,7 +286,7 @@ CREATE TABLE IF NOT EXISTS `bic_ffyw_contest_session` (
   `params` text,
   `accepted` int(11) DEFAULT '0',
   `is_winner` int(11) DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `bic_ffyw_contest_session`
@@ -299,7 +310,14 @@ INSERT INTO `bic_ffyw_contest_session` (`id`, `contest_item_id`, `user_id`, `use
 (21, 1, 16, 'testen@gmail.com', 'child fn', 'A', '2002-07-26 00:00:00', 67, '2016-07-26 10:31:05', '2016-07-26 10:31:05', NULL, 1, 0, 1, NULL, NULL, 0, 0),
 (22, 1, 17, 'testfr@gmail.com', 'child fn', 'C', '2002-07-26 00:00:00', 68, '2016-07-26 10:36:09', '2016-07-26 10:36:09', NULL, 1, 0, 1, NULL, NULL, 0, 0),
 (23, 1, 16, 'testen@gmail.com', 'Lac', 'P', '2002-07-26 00:00:00', 69, '2016-07-26 10:43:21', '2016-07-26 10:43:21', NULL, 1, 0, 1, NULL, NULL, 0, 1),
-(24, 1, 17, 'testfr@gmail.com', 'Lac', 'F', '2002-07-26 00:00:00', 70, '2016-07-26 10:44:53', '2016-07-26 10:44:53', NULL, 1, 0, 1, NULL, NULL, 0, 0);
+(24, 1, 17, 'testfr@gmail.com', 'Lac', 'F', '2002-07-26 00:00:00', 70, '2016-07-26 10:44:53', '2016-07-26 10:44:53', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(27, 2, 18, 'deleteme4@me.com', 'jimmy', 'J', '2008-07-27 00:00:00', 73, '2016-07-27 10:18:22', '2016-07-27 10:18:22', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(28, 2, 19, 'deleteme5@me.com', 'jimmy', 'J', '2009-07-27 00:00:00', 74, '2016-07-27 10:21:12', '2016-07-27 10:21:12', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(29, 2, 20, 'deleteme6@me.com', 'jimmy', 'J', '2009-07-27 00:00:00', 75, '2016-07-27 10:34:22', '2016-07-27 10:34:22', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(30, 2, 6, 'dsasa@gmail.com', 'TEST', 'A', '2004-07-27 00:00:00', 76, '2016-07-27 11:15:38', '2016-07-27 11:15:38', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(31, 2, 21, 'allanvu@gmail.com', 'Bo', 'B', '2010-07-27 00:00:00', 77, '2016-07-27 11:37:26', '2016-07-27 11:37:26', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(32, 2, 15, 'kharding@metropolis.ca', 'Jacui', 'S', '2008-07-27 00:00:00', 78, '2016-07-27 11:51:21', '2016-07-27 11:51:21', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(33, 2, 17, 'testfr@gmail.com', 'Bo2', 'B', '2009-07-27 00:00:00', 79, '2016-07-27 12:01:02', '2016-07-27 12:01:02', NULL, 1, 0, 1, NULL, NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -468,7 +486,7 @@ CREATE TABLE IF NOT EXISTS `bic_ffyw_user` (
   `is_enabled` tinyint(1) DEFAULT '1',
   `ordering_weight` int(11) DEFAULT NULL,
   `params` text COLLATE utf8_unicode_ci
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `bic_ffyw_user`
@@ -491,7 +509,11 @@ INSERT INTO `bic_ffyw_user` (`id`, `username`, `email`, `first_name`, `last_name
 (14, 'Michael.Jones@matchmg.com', 'Michael.Jones@matchmg.com', 'Michael', 'Jones', 12, NULL, NULL, '$2y$13$UiK7oSQdmn.gbPsXk3iIt.ceiBURLZH2Lmv2bEEfeS5bSFmXf2fWq', NULL, '5gXn7FT2YG3PH0NO26DcZTzN2zdDO6BG', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-22 04:10:24', 1, 0, 1, NULL, NULL),
 (15, 'kharding@metropolis.ca', 'kharding@metropolis.ca', 'kharding', 'kharding', 13, NULL, NULL, '$2y$13$bs9XPVS9wth5vcQxiv0IXOMET60X39gr6WUubJzw.ydQgmIZKW23O', NULL, 'rOMG-oi50nemwDs-7JR6QzFjLx8ITi0-', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-22 04:12:24', 1, 0, 1, NULL, NULL),
 (16, 'testen@gmail.com', 'testen@gmail.com', 'lac', 'Phan', 14, NULL, NULL, '', NULL, 'rGq9ZCnTxO4v-ieJ7ploQDGW_LEq0Woa', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-26 10:31:04', 1, 0, 1, NULL, NULL),
-(17, 'testfr@gmail.com', 'testfr@gmail.com', 'Peter', 'Phan', 15, NULL, NULL, '', NULL, 'i80ePvKrw7DwD1BLXojm1QFH-BZQKJoy', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-26 10:36:08', 1, 0, 1, NULL, NULL);
+(17, 'testfr@gmail.com', 'testfr@gmail.com', 'Peter', 'Phan', 15, NULL, NULL, '', NULL, 'i80ePvKrw7DwD1BLXojm1QFH-BZQKJoy', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-26 10:36:08', 1, 0, 1, NULL, NULL),
+(18, 'deleteme4@me.com', 'deleteme4@me.com', 'Delete', 'Delete', 16, NULL, NULL, '', NULL, 'J9oSinwO4enwvNTJTHbnTp3NMXse07Le', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-27 10:18:22', 1, 0, 1, NULL, NULL),
+(19, 'deleteme5@me.com', 'deleteme5@me.com', 'Delete', 'Delete', 17, NULL, NULL, '', NULL, 'Zvrq_C0npkDOwTWhV-4Vfv164BN5A-Pk', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-27 10:21:11', 1, 0, 1, NULL, NULL),
+(20, 'deleteme6@me.com', 'deleteme6@me.com', 'Delete', 'Delete', 18, NULL, NULL, '', NULL, 'I9w7qXAE23NmgzqkF5uCLGJ7etXJqbxt', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-27 10:34:21', 1, 0, 1, NULL, NULL),
+(21, 'allanvu@gmail.com', 'allanvu@gmail.com', 'Allan', 'TEST', 19, NULL, NULL, '', NULL, 'vLL80WQT6iYbFk43IsjGrRndTEz2wPj6', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-27 11:37:26', 1, 0, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -511,7 +533,7 @@ CREATE TABLE IF NOT EXISTS `bic_ffyw_user_profile` (
   `date_of_birth` datetime DEFAULT NULL,
   `parent_first_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `parent_last_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `bic_ffyw_user_profile`
@@ -532,7 +554,11 @@ INSERT INTO `bic_ffyw_user_profile` (`id`, `address`, `city`, `street`, `provinc
 (12, NULL, NULL, NULL, NULL, NULL, '', NULL, '2016-07-22 00:00:00', NULL, NULL),
 (13, NULL, NULL, NULL, NULL, NULL, '', NULL, '2016-07-22 00:00:00', NULL, NULL),
 (14, NULL, NULL, NULL, 'British Columbia', NULL, '0919231222', NULL, '1907-03-03 00:00:00', 'lac', 'Phan'),
-(15, NULL, NULL, NULL, 'British Columbia', NULL, '0919231222', NULL, '1907-02-03 00:00:00', 'Peter', 'Phan');
+(15, NULL, NULL, NULL, 'British Columbia', NULL, '0919231222', NULL, '1907-02-03 00:00:00', 'Peter', 'Phan'),
+(16, NULL, NULL, NULL, 'New Brunswick', NULL, '1234567890', NULL, '1920-01-01 00:00:00', 'Delete', 'Delete'),
+(17, NULL, NULL, NULL, 'New Brunswick', NULL, '1234567890', NULL, '1921-01-01 00:00:00', 'Delete', 'Delete'),
+(18, NULL, NULL, NULL, 'Alberta', NULL, '1234567890', NULL, '1922-01-01 00:00:00', 'Delete', 'Delete'),
+(19, NULL, NULL, NULL, 'Newfoundland and Labrador', NULL, 'ee83272-22', NULL, '1970-04-04 00:00:00', 'Allan', 'TEST');
 
 --
 -- Indexes for dumped tables
@@ -655,7 +681,7 @@ ALTER TABLE `bic_ffyw_user_profile`
 -- AUTO_INCREMENT for table `bic_ffyw_attachment`
 --
 ALTER TABLE `bic_ffyw_attachment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=73;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=80;
 --
 -- AUTO_INCREMENT for table `bic_ffyw_code_block_item`
 --
@@ -670,7 +696,7 @@ ALTER TABLE `bic_ffyw_contest_item`
 -- AUTO_INCREMENT for table `bic_ffyw_contest_session`
 --
 ALTER TABLE `bic_ffyw_contest_session`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT for table `bic_ffyw_locale`
 --
@@ -685,12 +711,12 @@ ALTER TABLE `bic_ffyw_page_item`
 -- AUTO_INCREMENT for table `bic_ffyw_user`
 --
 ALTER TABLE `bic_ffyw_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `bic_ffyw_user_profile`
 --
 ALTER TABLE `bic_ffyw_user_profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
 -- Constraints for dumped tables
 --

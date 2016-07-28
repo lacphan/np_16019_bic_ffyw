@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\ContestSession;
 use common\enpii\components\NpItemDataSub;
 use Yii;
 use backend\models\ContestItem;
@@ -170,6 +171,11 @@ class ContestItemController extends BackendController
      */
     public function actionDelete($id)
     {
+        $contestSessions = ContestSession::find()->where(['contest_item_id' => $id])->all();
+        foreach($contestSessions as $contestSession) {
+            $contestSession->contest_item_id = null;
+            $contestSession->save();
+        }
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
