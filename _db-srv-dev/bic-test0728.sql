@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 28, 2016 at 12:07 AM
+-- Generation Time: Jul 28, 2016 at 11:09 AM
 -- Server version: 5.5.50
 -- PHP Version: 5.5.37
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `bic_ffyw_attachment` (
   `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `bic_ffyw_attachment`
@@ -88,7 +88,43 @@ INSERT INTO `bic_ffyw_attachment` (`id`, `title`, `size`, `image`, `caption`, `d
 (76, NULL, '[{"full":{"width":259,"height":194}}]', 'garfield1.jpg', NULL, NULL, '2016-07-27 11:15:38', '2016-07-27 11:15:38'),
 (77, NULL, '[{"full":{"width":259,"height":194}}]', 'garfield2.jpg', NULL, NULL, '2016-07-27 11:37:26', '2016-07-27 11:37:26'),
 (78, NULL, '[{"full":{"width":499,"height":499}},{"medium":{"width":480,"height":480}},{"thumbnail":{"width":300,"height":300}}]', 'sample.jpg', NULL, NULL, '2016-07-27 11:51:21', '2016-07-27 11:51:21'),
-(79, NULL, '[{"full":{"width":259,"height":194}}]', 'garfield3.jpg', NULL, NULL, '2016-07-27 12:01:02', '2016-07-27 12:01:02');
+(79, NULL, '[{"full":{"width":259,"height":194}}]', 'garfield3.jpg', NULL, NULL, '2016-07-27 12:01:02', '2016-07-27 12:01:02'),
+(80, NULL, '[{"full":{"width":1264,"height":1448}},{"large":{"width":894,"height":1024}},{"medium":{"width":419,"height":480}},{"thumbnail":{"width":300,"height":300}}]', 'IMG_2170.jpg', NULL, NULL, '2016-07-28 05:55:14', '2016-07-28 05:55:14'),
+(81, NULL, '[{"full":{"width":1264,"height":1448}},{"large":{"width":894,"height":1024}},{"medium":{"width":419,"height":480}},{"thumbnail":{"width":300,"height":300}}]', 'IMG_21701.jpg', NULL, NULL, '2016-07-28 06:15:06', '2016-07-28 06:15:06'),
+(82, NULL, '[{"full":{"width":1024,"height":768}},{"medium":{"width":480,"height":360}},{"thumbnail":{"width":300,"height":300}}]', 'Desert.jpg', NULL, NULL, '2016-07-28 06:18:47', '2016-07-28 06:18:47'),
+(83, NULL, '[{"full":{"width":1361,"height":701}},{"medium":{"width":480,"height":247}}]', '7-28-2016 11-07-17 AM.png', NULL, NULL, '2016-07-28 06:24:00', '2016-07-28 06:24:00'),
+(84, NULL, '[{"full":{"width":1024,"height":768}},{"medium":{"width":480,"height":360}},{"thumbnail":{"width":300,"height":300}}]', 'Penguins.jpg', NULL, NULL, '2016-07-28 06:43:15', '2016-07-28 06:43:15'),
+(85, NULL, '[{"full":{"width":1264,"height":1448}},{"large":{"width":894,"height":1024}},{"medium":{"width":419,"height":480}},{"thumbnail":{"width":300,"height":300}}]', 'IMG_21702.jpg', NULL, NULL, '2016-07-28 07:27:23', '2016-07-28 07:27:23'),
+(86, NULL, '[{"full":{"width":1264,"height":1448}},{"large":{"width":894,"height":1024}},{"medium":{"width":419,"height":480}},{"thumbnail":{"width":300,"height":300}}]', 'IMG_21703.jpg', NULL, NULL, '2016-07-28 07:29:32', '2016-07-28 07:29:32'),
+(87, NULL, '[{"full":{"width":1264,"height":1448}},{"large":{"width":894,"height":1024}},{"medium":{"width":419,"height":480}},{"thumbnail":{"width":300,"height":300}}]', 'IMG_21704.jpg', NULL, NULL, '2016-07-28 07:30:18', '2016-07-28 07:30:18'),
+(88, NULL, '[{"full":{"width":1024,"height":768}},{"medium":{"width":480,"height":360}},{"thumbnail":{"width":300,"height":300}}]', 'Tulips.jpg', NULL, NULL, '2016-07-28 07:31:59', '2016-07-28 07:31:59'),
+(89, NULL, '[{"full":{"width":1024,"height":768}},{"medium":{"width":480,"height":360}},{"thumbnail":{"width":300,"height":300}}]', 'Jellyfish.jpg', NULL, NULL, '2016-07-28 07:43:56', '2016-07-28 07:43:56'),
+(90, NULL, '[{"full":{"width":1361,"height":701}},{"medium":{"width":480,"height":247}}]', '7-28-2016 11-07-17 AM1.png', NULL, NULL, '2016-07-28 07:47:23', '2016-07-28 07:47:23'),
+(91, NULL, '[{"full":{"width":1024,"height":768}},{"medium":{"width":480,"height":360}},{"thumbnail":{"width":300,"height":300}}]', 'Chrysanthemum.jpg', NULL, NULL, '2016-07-28 07:50:26', '2016-07-28 07:50:26'),
+(92, NULL, '[{"full":{"width":1024,"height":768}},{"medium":{"width":480,"height":360}},{"thumbnail":{"width":300,"height":300}}]', 'Tulips1.jpg', NULL, NULL, '2016-07-28 07:52:19', '2016-07-28 07:52:19'),
+(93, NULL, '[{"full":{"width":1024,"height":768}},{"medium":{"width":480,"height":360}},{"thumbnail":{"width":300,"height":300}}]', 'Tulips2.jpg', NULL, NULL, '2016-07-28 07:54:26', '2016-07-28 07:54:26'),
+(94, NULL, '[{"full":{"width":1024,"height":768}},{"medium":{"width":480,"height":360}},{"thumbnail":{"width":300,"height":300}}]', 'Jellyfish1.jpg', NULL, NULL, '2016-07-28 08:04:35', '2016-07-28 08:04:35'),
+(95, NULL, '[{"full":{"width":1024,"height":768}},{"medium":{"width":480,"height":360}},{"thumbnail":{"width":300,"height":300}}]', 'Tulips3.jpg', NULL, NULL, '2016-07-28 09:25:34', '2016-07-28 09:25:34'),
+(96, NULL, '[{"full":{"width":1024,"height":768}},{"medium":{"width":480,"height":360}},{"thumbnail":{"width":300,"height":300}}]', 'Tulips4.jpg', NULL, NULL, '2016-07-28 09:26:58', '2016-07-28 09:26:58'),
+(97, NULL, '[{"full":{"width":1600,"height":900}},{"medium":{"width":480,"height":270}}]', 'looking_up_at_buildings-wallpaper-1600x900.jpg', NULL, NULL, '2016-07-28 10:15:43', '2016-07-28 10:15:43'),
+(98, NULL, '[{"full":{"width":1600,"height":900}},{"medium":{"width":480,"height":270}}]', 'need-more-coffee-1600x900-wallpaper-10270.jpg', NULL, NULL, '2016-07-28 10:18:00', '2016-07-28 10:18:00'),
+(99, NULL, '[{"full":{"width":1600,"height":900}},{"medium":{"width":480,"height":270}}]', 'big_brother-wallpaper-1600x900.jpg', NULL, NULL, '2016-07-28 10:22:42', '2016-07-28 10:22:42'),
+(100, NULL, '[{"full":{"width":1600,"height":900}},{"medium":{"width":480,"height":270}}]', 'need-more-coffee-1600x900-wallpaper-102701.jpg', NULL, NULL, '2016-07-28 10:33:50', '2016-07-28 10:33:50'),
+(101, NULL, '[{"full":{"width":1920,"height":1080}},{"large":{"width":1024,"height":576}},{"medium":{"width":480,"height":270}}]', 'Screen Shot 2016-07-28 at 3.29.57 PM.png', NULL, NULL, '2016-07-28 10:34:58', '2016-07-28 10:34:58'),
+(102, NULL, '[{"full":{"width":1600,"height":900}},{"medium":{"width":480,"height":270}}]', 'need-more-coffee-1600x900-wallpaper-102702.jpg', NULL, NULL, '2016-07-28 10:37:01', '2016-07-28 10:37:01'),
+(103, NULL, '[{"full":{"width":1024,"height":768}},{"medium":{"width":480,"height":360}},{"thumbnail":{"width":300,"height":300}}]', 'Koala.jpg', NULL, NULL, '2016-07-28 11:21:28', '2016-07-28 11:21:28'),
+(104, NULL, '[{"full":{"width":1024,"height":768}},{"medium":{"width":480,"height":360}},{"thumbnail":{"width":300,"height":300}}]', 'Koala1.jpg', NULL, NULL, '2016-07-28 11:22:27', '2016-07-28 11:22:27'),
+(105, NULL, '[{"full":{"width":1918,"height":931}},{"medium":{"width":480,"height":233}}]', 'settings.png', NULL, NULL, '2016-07-28 11:31:22', '2016-07-28 11:31:22'),
+(106, NULL, '[{"full":{"width":1920,"height":1080}},{"large":{"width":1024,"height":576}},{"medium":{"width":480,"height":270}}]', 'Screen Shot 2016-07-28 at 3.29.57 PM1.png', NULL, NULL, '2016-07-28 11:36:56', '2016-07-28 11:36:56'),
+(107, NULL, '[{"full":{"width":1600,"height":900}},{"medium":{"width":480,"height":270}}]', 'big_brother-wallpaper-1600x9001.jpg', NULL, NULL, '2016-07-28 12:05:52', '2016-07-28 12:05:52'),
+(108, NULL, '[{"full":{"width":750,"height":1334}},{"medium":{"width":270,"height":480}}]', 'Notification not sent.jpg', NULL, NULL, '2016-07-28 12:08:16', '2016-07-28 12:08:16'),
+(109, NULL, '[{"full":{"width":1366,"height":768}},{"medium":{"width":480,"height":270}}]', 'Windows 8.1 firefox Toos apply.png', NULL, NULL, '2016-07-28 12:11:47', '2016-07-28 12:11:47'),
+(110, NULL, '[{"full":{"width":1600,"height":900}},{"medium":{"width":480,"height":270}}]', 'need-more-coffee-1600x900-wallpaper-102703.jpg', NULL, NULL, '2016-07-28 12:26:28', '2016-07-28 12:26:28'),
+(111, NULL, '[{"full":{"width":1600,"height":900}},{"medium":{"width":480,"height":270}}]', 'need-more-coffee-1600x900-wallpaper-102704.jpg', NULL, NULL, '2016-07-28 12:34:28', '2016-07-28 12:34:28'),
+(112, NULL, '[{"full":{"width":1024,"height":768}},{"medium":{"width":480,"height":360}},{"thumbnail":{"width":300,"height":300}}]', 'Desert1.jpg', NULL, NULL, '2016-07-28 12:53:10', '2016-07-28 12:53:10'),
+(113, NULL, '[{"full":{"width":259,"height":194}}]', 'garfield4.jpg', NULL, NULL, '2016-07-28 14:02:27', '2016-07-28 14:02:27'),
+(114, NULL, '[{"full":{"width":1280,"height":960}},{"medium":{"width":480,"height":360}},{"thumbnail":{"width":300,"height":300}}]', 'image.jpeg', NULL, NULL, '2016-07-28 14:46:54', '2016-07-28 14:46:54'),
+(115, NULL, '[{"full":{"width":1080,"height":1920}},{"large":{"width":576,"height":1024}},{"medium":{"width":270,"height":480}}]', 'Screenshot_2016-07-28-11-08-37.png', NULL, NULL, '2016-07-28 15:09:01', '2016-07-28 15:09:01');
 
 -- --------------------------------------------------------
 
@@ -124,8 +160,24 @@ INSERT INTO `bic_ffyw_auth_assignment` (`item_name`, `user_id`, `created_at`) VA
 ('standard-member', '20', 1469615661),
 ('standard-member', '21', 1469619446),
 ('standard-member', '24', 1469680485),
+('standard-member', '25', 1469685312),
+('standard-member', '26', 1469686504),
+('standard-member', '27', 1469686727),
+('standard-member', '28', 1469687039),
+('standard-member', '29', 1469688194),
 ('standard-member', '3', 1468860453),
+('standard-member', '30', 1469691119),
+('standard-member', '31', 1469697934),
+('standard-member', '32', 1469700943),
+('standard-member', '33', 1469701079),
+('standard-member', '34', 1469702029),
+('standard-member', '35', 1469702094),
+('standard-member', '36', 1469704887),
+('standard-member', '37', 1469707552),
+('standard-member', '38', 1469707696),
+('standard-member', '39', 1469710390),
 ('standard-member', '4', 1468883586),
+('standard-member', '40', 1469714547),
 ('standard-member', '5', 1468883650),
 ('standard-member', '6', 1468883749),
 ('standard-member', '7', 1468891258),
@@ -232,14 +284,14 @@ CREATE TABLE IF NOT EXISTS `bic_ffyw_contest_item` (
   `popup_id` int(11) DEFAULT NULL,
   `parent_id` int(11) DEFAULT NULL,
   `week_number` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `bic_ffyw_contest_item`
 --
 
 INSERT INTO `bic_ffyw_contest_item` (`id`, `start_date`, `end_date`, `title`, `description`, `attachment_id`, `locale_id`, `popup_id`, `parent_id`, `week_number`) VALUES
-(1, '2016-07-26 04:00:00', '2016-07-27 03:59:59', 'Ask your child what THEY would do if they were a principal for a day...', 'It’s the future and your child is the head of their school. The possibilities are endless! Ask your child to complete the following sentence and upload a photo of their handwritten response: "If I were principal for a day…" ', NULL, 1, NULL, NULL, 1),
+(1, '2016-07-29 04:00:00', '2016-07-30 03:59:59', 'Ask your child what THEY would do if they were a principal for a day...', 'It’s the future and your child is the head of their school. The possibilities are endless! Ask your child to complete the following sentence and upload a photo of their handwritten response: "If I were principal for a day…" ', NULL, 1, 105, NULL, 4),
 (2, '2016-08-16 04:00:01', '2016-08-23 03:59:59', 'Ask your child what they want to be when they grow up…', 'Your kids are more likely to achieve their goals if they write them down, whether that’s a doctor, a rock star, an astronaut, or a professional baseball player! Ask your child to complete the following sentence and upload a photo of their handwritten response: "When I grow up, I want to…" ', NULL, 1, NULL, NULL, 2),
 (3, '2016-08-23 04:00:01', '2016-08-30 03:59:59', 'Ask your child to write out "I love handwriting" in 3 languages', 'No matter where you go, handwriting will always be important. Ask your child to write out “I love handwriting” in three different languages and upload a photo of their handwritten response!', NULL, 1, NULL, NULL, 3),
 (4, '2016-08-30 04:00:01', '2016-09-06 03:59:59', 'Ask your child to include these 10 words in their next story', 'Creativity is key! Ask your child to include these 10 words in their next story and upload a photo of their masterpiece!', NULL, 1, 59, NULL, 4),
@@ -254,15 +306,17 @@ INSERT INTO `bic_ffyw_contest_item` (`id`, `start_date`, `end_date`, `title`, `d
 (13, '2016-07-26 04:00:00', '2016-07-27 03:59:59', 'Demandez à votre enfant ce qu''IL ferait s''il était directeur pour une journée...', 'Vous êtes dans le futur et votre enfant est le directeur de son école. Les possibilités sont infinies! Demandez à votre enfant de compléter la phrase suivante et téléchargez une photo de sa réponse écrite à la main : « Si j''étais directeur ou directrice pour une journée... »', NULL, 3, NULL, 1, 1),
 (14, '2016-07-27 04:00:00', '2016-07-28 03:59:59', 'Ask your child what they want to be when they grow up…', 'Your kids are more likely to achieve their goals if they write them down, whether that’s a doctor, a rock star, an astronaut, or a professional baseball player! Ask your child to complete the following sentence and upload a photo of their handwritten response: "When I grow up, I want to…" ', NULL, 1, NULL, NULL, 2),
 (15, '2016-07-27 04:00:00', '2016-07-28 03:59:59', 'Demandez à votre enfant ce qu''il veut être lorsqu''il sera grand!', 'Vos enfants ont plus de chances d''atteindre leurs objectifs s''ils les écrivent, qu''il s''agisse de devenir médecin, vedette de rock, astronaute ou joueur de baseball professionnel! Demandez à votre enfant de compléter la phrase suivante et téléchargez une photo de sa réponse écrite à la main : « Lorsque je serai grand, je veux... »', NULL, 3, NULL, 14, 2),
-(16, '2016-07-28 04:00:00', '2016-07-29 03:59:59', 'Ask your child to write out "I love handwriting" in 3 languages', 'No matter where you go, handwriting will always be important. Ask your child to write out “I love handwriting” in three different languages and upload a photo of their handwritten response!', NULL, 1, NULL, NULL, 3),
-(17, '2016-07-28 04:00:00', '2016-07-29 03:59:59', 'Demandez à votre enfant d''écrire à la main « J''aime écrire à la main » dans trois langues différentes ', 'Demandez à votre enfant d''écrire à la main « J''aime écrire à la main » dans trois langues différentes et téléchargez une photo de sa réponse écrite à la main!', NULL, 3, NULL, 16, 3),
+(16, '2016-07-28 04:00:00', '2016-07-29 03:59:59', 'Ask your child to write out "I love handwriting" in 4 languages', 'No matter where you go, handwriting will always be important. Ask your child to write out “I love handwriting” in three different languages and upload a photo of their handwritten response!\r\n\r\nBy omer', NULL, 1, 106, NULL, 3),
+(17, '2016-07-26 04:00:00', '2016-07-29 03:59:59', 'Demandez à votre enfant d''écrire à la main « J''aime écrire à la main » dans trois langues différentes ', 'Demandez à votre enfant d''écrire à la main « J''aime écrire à la main » dans trois langues différentes et téléchargez une photo de sa réponse écrite à la main!', NULL, 3, NULL, 16, 3),
 (18, '2016-07-29 04:00:00', '2016-07-30 03:59:59', 'Ask your child to include these 10 words in their next story', 'Creativity is key! Ask your child to include these 10 words in their next story and upload a photo of their masterpiece!', NULL, 1, 62, NULL, 4),
 (19, '2016-07-29 04:00:00', '2016-07-30 03:59:59', 'Demandez à votre enfant d''inclure ces 10 mots dans sa prochaine histoire', 'Peu importe où vous allez, écrire à la main sera toujours important. . Demandez à votre enfant d''inclure ces 10 mots dans sa prochaine histoire et téléchargez une photo de son chef d''œuvre!', NULL, 3, NULL, 18, 4),
 (20, '2016-07-30 04:00:00', '2016-07-31 03:59:59', ' Click the image to enlarge and ask your child to transcribe the handwritten message', 'Good penmanship is important. Click the image to enlarge and ask your child to transcribe the handwritten message, then submit a photo of their handwritten response.', NULL, 1, 63, NULL, 5),
 (21, '2016-07-30 04:00:00', '2016-07-31 03:59:59', 'Demandez à votre enfant de transcrire le message et envoyez une photo de sa réponse écrite à la main', 'La créativité est la clé! Demandez à votre enfant d''inclure ces 10 mots dans sa prochaine histoire et téléchargez une photo de son chef d''œuvre!', NULL, 3, NULL, 20, 5),
 (22, '2016-07-31 04:00:00', '2016-08-09 03:59:59', 'Ask your child what is the first thing they would do when school finishes', 'It''s the last day of school and the bell just rang! Ask your child what is the first thing they would do when school finishes and upload a photo of their handwritten response!', NULL, 1, NULL, NULL, 6),
 (23, '2016-07-31 04:00:00', '2016-08-09 03:59:59', 'Demandez à votre enfant quelle est la première chose qu''il fera lorsque l''école sera terminée', 'C''est le dernier jour d''école et la cloche vient juste de sonner! Demandez à votre enfant quelle est la première chose qu''il fera lorsque l''école sera terminée et téléchargez une photo de sa réponse écrite à la main.', NULL, 3, NULL, 22, 6),
-(24, '2016-08-09 04:00:00', '2016-08-16 03:59:59', 'Ask your child what THEY would do if they were a principal for a day...', 'It’s the future and your child is the head of their school. The possibilities are endless! Ask your child to complete the following sentence and upload a photo of their handwritten response: "If I were principal for a day…" ', NULL, 1, NULL, NULL, 1);
+(24, '2016-08-09 04:00:00', '2016-08-16 03:59:59', 'Ask your child what THEY would do if they were a principal for a day...', 'It’s the future and your child is the head of their school. The possibilities are endless! Ask your child to complete the following sentence and upload a photo of their handwritten response: "If I were principal for a day…" ', NULL, 1, NULL, NULL, 1),
+(27, '2016-07-28 04:00:00', '2016-08-05 03:59:59', 'weekly challenge by omer ', 'tan also participate', NULL, 1, NULL, 1, 1),
+(28, '2016-08-09 04:00:00', '2016-08-16 03:59:59', 'my new challenge', 'hello this is testing challenge', NULL, 1, NULL, 24, 1);
 
 -- --------------------------------------------------------
 
@@ -289,7 +343,7 @@ CREATE TABLE IF NOT EXISTS `bic_ffyw_contest_session` (
   `params` text,
   `accepted` int(11) DEFAULT '0',
   `is_winner` int(11) DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `bic_ffyw_contest_session`
@@ -297,30 +351,60 @@ CREATE TABLE IF NOT EXISTS `bic_ffyw_contest_session` (
 
 INSERT INTO `bic_ffyw_contest_session` (`id`, `contest_item_id`, `user_id`, `user_email`, `first_name`, `last_name`, `birth_year`, `attachment_id`, `created_at`, `updated_at`, `published_at`, `creator_id`, `is_deleted`, `is_enabled`, `ordering_weight`, `params`, `accepted`, `is_winner`) VALUES
 (2, 1, 4, 'j.bastawrous@gmail.com', 'Jacob', 'D', '2011-07-19 00:00:00', 57, '2016-07-18 23:13:07', '2016-07-18 23:13:07', NULL, 1, 0, 1, NULL, NULL, 1, 0),
-(3, 1, 5, 'j@gmail.com', 'Jeremy', 'F', '2010-07-19 00:00:00', 37, '2016-07-18 23:14:11', '2016-07-18 23:14:11', NULL, 1, 0, 1, NULL, NULL, 1, 1),
+(3, 1, 5, 'j@gmail.com', 'Jeremy', 'F', '2010-07-19 00:00:00', 37, '2016-07-18 23:14:11', '2016-07-18 23:14:11', NULL, 1, 0, 1, NULL, NULL, 1, 0),
 (4, 1, 6, 'dsasa@gmail.com', 'Jessica', 'S', '2010-07-19 00:00:00', 38, '2016-07-18 23:15:50', '2016-07-18 23:15:50', NULL, 1, 0, 1, NULL, NULL, 1, 0),
-(5, 1, 7, 'test@test.com', 'Jack', 'J', '2005-07-19 00:00:00', 39, '2016-07-19 01:20:59', '2016-07-19 01:20:59', NULL, 1, 0, 1, NULL, NULL, 1, 1),
+(5, 1, 7, 'test@test.com', 'Jack', 'J', '2005-07-19 00:00:00', 39, '2016-07-19 01:20:59', '2016-07-19 01:20:59', NULL, 1, 0, 1, NULL, NULL, 1, 0),
 (6, 1, 7, 'test@test.com', 'Abby ', 'H', '2006-07-19 00:00:00', 40, '2016-07-19 01:22:22', '2016-07-19 01:22:22', NULL, 1, 0, 1, NULL, NULL, 1, 0),
 (7, 1, 7, 'test@test.com', 'Alex', 'R', '2007-07-19 00:00:00', 41, '2016-07-19 01:22:56', '2016-07-19 01:22:56', NULL, 1, 0, 1, NULL, NULL, 1, 0),
-(8, 1, 7, 'test@test.com', 'Lilly', 'H', '2002-07-19 00:00:00', 42, '2016-07-19 01:24:01', '2016-07-19 01:24:01', NULL, 1, 0, 1, NULL, NULL, 1, 1),
+(8, 1, 7, 'test@test.com', 'Lilly', 'H', '2002-07-19 00:00:00', 42, '2016-07-19 01:24:01', '2016-07-19 01:24:01', NULL, 1, 0, 1, NULL, NULL, 1, 0),
 (9, 1, 8, 'psimpson@metropolis.ca', 'Jimmy', 'H', '1999-07-19 00:00:00', 45, '2016-07-19 01:25:36', '2016-07-19 01:25:36', NULL, 1, 0, 1, NULL, NULL, 1, 0),
 (10, 1, 8, 'psimpson@metropolis.ca', 'Scott', 'S', '2004-07-19 00:00:00', 46, '2016-07-19 01:26:19', '2016-07-19 01:26:19', NULL, 1, 0, 1, NULL, NULL, 1, 0),
-(14, 1, 9, 'pthanhlac@gmail.com', 'Ging', 'F', '2002-07-19 00:00:00', 47, '2016-07-19 10:19:30', '2016-07-19 10:19:30', NULL, 1, 0, 1, NULL, NULL, 1, 1),
+(14, 1, 9, 'pthanhlac@gmail.com', 'Ging', 'F', '2002-07-19 00:00:00', 47, '2016-07-19 10:19:30', '2016-07-19 10:19:30', NULL, 1, 0, 1, NULL, NULL, 1, 0),
 (15, 1, 9, 'pthanhlac@gmail.com', 'Don', 'F', '2009-07-19 00:00:00', 48, '2016-07-19 10:21:03', '2016-07-19 10:21:03', NULL, 1, 0, 1, NULL, NULL, 1, 0),
-(18, 1, 9, 'pthanhlac@gmail.com', 'Tony', 'P', '2002-07-24 00:00:00', 64, '2016-07-24 10:04:29', '2016-07-24 10:04:29', NULL, 1, 0, 1, NULL, NULL, 0, 1),
+(18, 1, 9, 'pthanhlac@gmail.com', 'Tony', 'P', '2002-07-24 00:00:00', 64, '2016-07-24 10:04:29', '2016-07-24 10:04:29', NULL, 1, 0, 1, NULL, NULL, 0, 0),
 (19, 1, 3, 'npbtrac@yahoo.com', 'My son', 'T', '2004-07-26 00:00:00', 65, '2016-07-26 05:31:51', '2016-07-26 05:31:51', NULL, 1, 0, 1, NULL, NULL, 0, 0),
 (20, 1, 3, 'npbtrac@yahoo.com', 'sadf', 't', '2009-07-26 00:00:00', 66, '2016-07-26 05:33:01', '2016-07-26 05:33:01', NULL, 1, 0, 1, NULL, NULL, 0, 0),
 (21, 1, 16, 'testen@gmail.com', 'child fn', 'A', '2002-07-26 00:00:00', 67, '2016-07-26 10:31:05', '2016-07-26 10:31:05', NULL, 1, 0, 1, NULL, NULL, 0, 0),
 (22, 1, 17, 'testfr@gmail.com', 'child fn', 'C', '2002-07-26 00:00:00', 68, '2016-07-26 10:36:09', '2016-07-26 10:36:09', NULL, 1, 0, 1, NULL, NULL, 0, 0),
-(23, 1, 16, 'testen@gmail.com', 'Lac', 'P', '2002-07-26 00:00:00', 69, '2016-07-26 10:43:21', '2016-07-26 10:43:21', NULL, 1, 0, 1, NULL, NULL, 0, 1),
+(23, 1, 16, 'testen@gmail.com', 'Lac', 'P', '2002-07-26 00:00:00', 69, '2016-07-26 10:43:21', '2016-07-26 10:43:21', NULL, 1, 0, 1, NULL, NULL, 0, 0),
 (24, 1, 17, 'testfr@gmail.com', 'Lac', 'F', '2002-07-26 00:00:00', 70, '2016-07-26 10:44:53', '2016-07-26 10:44:53', NULL, 1, 0, 1, NULL, NULL, 0, 0),
-(27, 2, 18, 'deleteme4@me.com', 'jimmy', 'J', '2008-07-27 00:00:00', 73, '2016-07-27 10:18:22', '2016-07-27 10:18:22', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(27, 2, 18, 'deleteme4@me.com', 'jimmy', 'J', '2008-07-27 00:00:00', 73, '2016-07-27 10:18:22', '2016-07-27 10:18:22', NULL, 1, 0, 1, NULL, NULL, 0, 1),
 (28, 2, 19, 'deleteme5@me.com', 'jimmy', 'J', '2009-07-27 00:00:00', 74, '2016-07-27 10:21:12', '2016-07-27 10:21:12', NULL, 1, 0, 1, NULL, NULL, 0, 0),
 (29, 2, 20, 'deleteme6@me.com', 'jimmy', 'J', '2009-07-27 00:00:00', 75, '2016-07-27 10:34:22', '2016-07-27 10:34:22', NULL, 1, 0, 1, NULL, NULL, 0, 0),
 (30, 2, 6, 'dsasa@gmail.com', 'TEST', 'A', '2004-07-27 00:00:00', 76, '2016-07-27 11:15:38', '2016-07-27 11:15:38', NULL, 1, 0, 1, NULL, NULL, 0, 0),
 (31, 2, 21, 'allanvu@gmail.com', 'Bo', 'B', '2010-07-27 00:00:00', 77, '2016-07-27 11:37:26', '2016-07-27 11:37:26', NULL, 1, 0, 1, NULL, NULL, 0, 0),
 (32, 2, 15, 'kharding@metropolis.ca', 'Jacui', 'S', '2008-07-27 00:00:00', 78, '2016-07-27 11:51:21', '2016-07-27 11:51:21', NULL, 1, 0, 1, NULL, NULL, 0, 0),
-(33, 2, 17, 'testfr@gmail.com', 'Bo2', 'B', '2009-07-27 00:00:00', 79, '2016-07-27 12:01:02', '2016-07-27 12:01:02', NULL, 1, 0, 1, NULL, NULL, 0, 0);
+(33, 2, 17, 'testfr@gmail.com', 'Bo2', 'B', '2009-07-27 00:00:00', 79, '2016-07-27 12:01:02', '2016-07-27 12:01:02', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(34, 3, 25, 'ranawatpurvi@gmail.com', 'arham', 'r', '2010-07-28 00:00:00', 80, '2016-07-28 05:55:14', '2016-07-28 05:55:14', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(36, 3, 27, 'dfdsgfdgfdghfdhfdhfg@fdf.com', 'test', 'm', '2006-07-28 00:00:00', 82, '2016-07-28 06:18:47', '2016-07-28 06:18:47', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(37, 3, 28, 'omerbhatti019@gmail.com', 'Naqash', 'N', '2010-07-28 00:00:00', 83, '2016-07-28 06:24:01', '2016-07-28 06:24:01', NULL, 1, 0, 1, NULL, NULL, 1, 0),
+(38, 3, 29, 'testiingp2@gmail.com', 'testerjohn', 'P', '2006-07-28 00:00:00', 84, '2016-07-28 06:43:15', '2016-07-28 06:43:15', NULL, 1, 0, 1, NULL, NULL, 1, 0),
+(39, 3, 25, 'ranawatpurvi@gmail.com', 'arham', 'r', '2009-07-28 00:00:00', 85, '2016-07-28 07:27:23', '2016-07-28 07:27:23', NULL, 1, 0, 1, NULL, NULL, 1, 0),
+(40, 3, 25, 'ranawatpurvi@gmail.com', 'arham', 'r', '2009-07-28 00:00:00', 86, '2016-07-28 07:29:32', '2016-07-28 07:29:32', NULL, 1, 0, 1, NULL, NULL, -1, 0),
+(41, 3, 25, 'ranawatpurvi@gmail.com', 'arham', 'r', '2009-07-28 00:00:00', 87, '2016-07-28 07:30:19', '2016-07-28 07:30:19', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(42, 3, 30, 'testiingp4t@gmail.com', 'testerAbeeha', 'Z', '2000-07-28 00:00:00', 88, '2016-07-28 07:32:00', '2016-07-28 07:32:00', NULL, 1, 0, 1, NULL, NULL, 1, 0),
+(43, 3, 30, 'testiingp4t@gmail.com', 'Tester Abeeha', 'Z', '2001-07-28 00:00:00', 89, '2016-07-28 07:43:56', '2016-07-28 07:43:56', NULL, 1, 0, 1, NULL, NULL, 1, 0),
+(44, 3, 28, 'omerbhatti019@gmail.com', '12345', 'N', '2010-07-28 00:00:00', 90, '2016-07-28 07:47:23', '2016-07-28 07:47:23', NULL, 1, 0, 1, NULL, NULL, 1, 0),
+(45, 3, 28, 'omerbhatti019@gmail.com', 'asdsadasdasdasdasdsdsadqewqewq1232132', 'N', '2008-07-28 00:00:00', 91, '2016-07-28 07:50:26', '2016-07-28 07:50:26', NULL, 1, 0, 1, NULL, NULL, 1, 0),
+(46, 3, 28, 'omerbhatti019@gmail.com', 'talha', 'T', '2004-07-28 00:00:00', 92, '2016-07-28 07:52:19', '2016-07-28 07:52:19', NULL, 1, 0, 1, NULL, NULL, 1, 0),
+(47, 3, 30, 'testiingp4t@gmail.com', 'Talha', 'T', '2000-07-28 00:00:00', 93, '2016-07-28 07:54:26', '2016-07-28 07:54:26', NULL, 1, 0, 1, NULL, NULL, 1, 0),
+(48, 3, 30, 'testiingp4t@gmail.com', 'Tester Abeeha', 'Z', '2004-07-28 00:00:00', 94, '2016-07-28 08:04:35', '2016-07-28 08:04:35', NULL, 1, 0, 1, NULL, NULL, 1, 0),
+(49, 3, 31, 'abcd@abc.com', 'test', 'Z', '1999-07-28 00:00:00', 95, '2016-07-28 09:25:35', '2016-07-28 09:25:35', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(50, 3, 31, 'abcd@abc.com', 'test', 'Z', '2000-07-28 00:00:00', 96, '2016-07-28 09:26:58', '2016-07-28 09:26:58', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(51, 3, 32, 'kualiteetester1@gmail.com', 'Neverthought', 'N', '2002-07-28 00:00:00', 97, '2016-07-28 10:15:43', '2016-07-28 10:15:43', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(52, 3, 33, 'htesterqa@gmail.com', 'Neverthought', 'N', '2002-07-28 00:00:00', 98, '2016-07-28 10:18:01', '2016-07-28 10:18:01', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(53, 3, 33, 'htesterqa@gmail.com', 'Neverthought', 'n', '2002-07-28 00:00:00', 99, '2016-07-28 10:22:42', '2016-07-28 10:22:42', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(54, 3, 34, 'htesterqa+3@gmail.com', 'Test1', 't', '2002-07-28 00:00:00', 100, '2016-07-28 10:33:50', '2016-07-28 10:33:50', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(55, 3, 35, 'testkualitatem1@gmail.com', 'Zeeshan', 'Z', '2010-07-28 00:00:00', 101, '2016-07-28 10:34:58', '2016-07-28 10:34:58', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(56, 3, 34, 'htesterqa+3@gmail.com', 'test1', 't', '2002-07-28 00:00:00', 102, '2016-07-28 10:37:02', '2016-07-28 10:37:02', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(57, 3, 36, 'selitestingp1@gmail.com', 'bunny', 'Z', '1999-07-28 00:00:00', 103, '2016-07-28 11:21:28', '2016-07-28 11:21:28', NULL, 1, 0, 1, NULL, NULL, -1, 0),
+(59, 3, 37, 'htesterqa+20@gmail.com', 'pulpy', 'o', '2010-07-28 00:00:00', 107, '2016-07-28 12:05:52', '2016-07-28 12:05:52', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(62, 3, 37, 'htesterqa+20@gmail.com', 'Pulpy', 'o', '2002-07-28 00:00:00', 110, '2016-07-28 12:26:29', '2016-07-28 12:26:29', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(63, 3, 37, 'htesterqa+20@gmail.com', 'Pulpy', 'o', '2002-07-28 00:00:00', 111, '2016-07-28 12:34:28', '2016-07-28 12:34:28', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(64, 3, 39, 'testkualitatem3@gmail.com', 'Naqash', 'N', '2010-07-28 00:00:00', 112, '2016-07-28 12:53:10', '2016-07-28 12:53:10', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(65, 3, 40, 'allanvu2@gmail.com', 'BoBo', 'C', '2004-07-28 00:00:00', 113, '2016-07-28 14:02:27', '2016-07-28 14:02:27', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(66, 3, 21, 'Allanvu@gmail.com', 'Test', 'T', '2004-07-28 00:00:00', 114, '2016-07-28 14:46:54', '2016-07-28 14:46:54', NULL, 1, 0, 1, NULL, NULL, 0, 0),
+(67, 3, 15, 'kharding@metropolis.ca', 'Jana', 'K', '2007-07-28 00:00:00', 115, '2016-07-28 15:09:01', '2016-07-28 15:09:01', NULL, 1, 0, 1, NULL, NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -488,7 +572,7 @@ CREATE TABLE IF NOT EXISTS `bic_ffyw_user` (
   `is_enabled` tinyint(1) DEFAULT '1',
   `ordering_weight` int(11) DEFAULT NULL,
   `params` text COLLATE utf8_unicode_ci
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `bic_ffyw_user`
@@ -518,7 +602,23 @@ INSERT INTO `bic_ffyw_user` (`id`, `username`, `email`, `first_name`, `last_name
 (21, 'allanvu@gmail.com', 'allanvu@gmail.com', 'Allan', 'TEST', 19, NULL, NULL, '', NULL, 'vLL80WQT6iYbFk43IsjGrRndTEz2wPj6', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-27 11:37:26', 1, 0, 1, NULL, NULL),
 (22, 'purvishah.u@gmail.com', 'purvishah.u@gmail.com', 'Purvi', 'Shah', 20, NULL, NULL, '$2y$13$4hS.Ea0lRwTFYIfWWylwSOZ6I.XfXCTKLzyF9S/WIoNP/RczsuKuy', NULL, 'Phl5MPwuXCWJPSWQVEpbZXUJ2RwaLYqh', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-27 16:17:36', 1, 0, 1, NULL, NULL),
 (23, 'farzeen.abbas@kualitatem.com', 'farzeen.abbas@kualitatem.com', 'Farzeen', 'Abbas', 21, NULL, NULL, '$2y$13$wlWi17JsueyEGKgNqBKzAOO5LIAHeaM/c6uKLFrP9GG2d0hSwN1ji', NULL, 'ozJRubdw9T8n4SE25ifdjK5RV1NLYb2N', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-27 16:40:29', 15, 0, 1, NULL, NULL),
-(24, 'test@gmail.com', 'test@gmail.com', 'John', 'Bastawrous', 22, NULL, NULL, '', NULL, '2sYK5dKG7MYJtGJdcXE38GajaaSNiaSp', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-28 04:34:45', 1, 0, 1, NULL, NULL);
+(24, 'test@gmail.com', 'test@gmail.com', 'John', 'Bastawrous', 22, NULL, NULL, '', NULL, '2sYK5dKG7MYJtGJdcXE38GajaaSNiaSp', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-28 04:34:45', 1, 0, 1, NULL, NULL),
+(25, 'ranawatpurvi@gmail.com', 'ranawatpurvi@gmail.com', 'Purvi', 'Ranawat', 23, NULL, NULL, '', NULL, 'igjZoUKqdMw2YluGt-U96iA_afa8C24y', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-28 05:55:12', 1, 0, 1, NULL, NULL),
+(26, 'ranawatdinesh@gmail.com', 'ranawatdinesh@gmail.com', 'Purveee', 'Ranawat', 24, NULL, NULL, '', NULL, '_x8qags_oLb2S6N_F-t3GK_VlA_1R8dR', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-28 06:15:04', 1, 0, 1, NULL, NULL),
+(27, 'dfdsgfdgfdghfdhfdhfg@fdf.com', 'dfdsgfdgfdghfdhfdhfg@fdf.com', 'abs', 'ssd', 25, NULL, NULL, '', NULL, 'nfuYAZGADMur-JTGQbNlfHJTJmwOA9zj', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-28 06:18:47', 1, 0, 1, NULL, NULL),
+(28, 'omerbhatti019@gmail.com', 'omerbhatti019@gmail.com', '1234', '3213', 26, NULL, NULL, '', NULL, 'XQnkYoOeYtXP8eDYsnWpl3shEDZNdYJ6', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-28 06:23:59', 1, 0, 1, NULL, NULL),
+(29, 'testiingp2@gmail.com', 'testiingp2@gmail.com', 'john', 'peter', 27, NULL, NULL, '', NULL, 'DVsFrk8bob9MnVRYI9NY8aHjt-se2QyA', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-28 06:43:14', 1, 0, 1, NULL, NULL),
+(30, 'testiingp4t@gmail.com', 'testiingp4t@gmail.com', 'Abeeha', 'zain', 28, NULL, NULL, '', NULL, 'aHRiSlCrc09OrPFltbPf2uzyckoweJd6', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-28 07:31:59', 1, 0, 1, NULL, NULL),
+(31, 'abcd@abc.com', 'abcd@abc.com', 'fdfdf', 'fdd', 29, NULL, NULL, '', NULL, 'w1Xc5b4aRumxkGJayGjjoSM-js2LN2q9', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-28 09:25:34', 1, 0, 1, NULL, NULL),
+(32, 'kualiteetester1@gmail.com', 'kualiteetester1@gmail.com', 'Test', 'Test', 30, NULL, NULL, '', NULL, 'bz6kPB2F9dYjWFJy4EXXq4BPoxL23nMb', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-28 10:15:43', 1, 0, 1, NULL, NULL),
+(33, 'htesterqa@gmail.com', 'htesterqa@gmail.com', 'Test', 'Test', 31, NULL, NULL, '', NULL, 'dsJ40UPgG5UXHe96eO2tE0N2Euq5x8vj', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-28 10:17:59', 1, 0, 1, NULL, NULL),
+(34, 'htesterqa+3@gmail.com', 'htesterqa+3@gmail.com', 'Test1', 'test1', 32, NULL, NULL, '', NULL, 'Uy82_RqA1trSxkNOgz-vFy38Wc8DdlnM', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-28 10:33:49', 1, 0, 1, NULL, NULL),
+(35, 'testkualitatem1@gmail.com', 'testkualitatem1@gmail.com', '1256', '12345', 33, NULL, NULL, '', NULL, 'DYk5n-Q6FDENoz6HE58_BjKVcHABZQBl', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-28 10:34:54', 1, 0, 1, NULL, NULL),
+(36, 'selitestingp1@gmail.com', 'selitestingp1@gmail.com', 'Tonny', 'John', 34, NULL, NULL, '', NULL, 'noJ0Z25JqJkngww648kh312_cZCSp4Cg', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-28 11:21:27', 1, 0, 1, NULL, NULL),
+(37, 'htesterqa+20@gmail.com', 'htesterqa+20@gmail.com', 'Pulpy', 'Orange', 35, NULL, NULL, '', NULL, 'NXb0upW-Vpe5lv0UhnFnx8oknXwf7kcy', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-28 12:05:52', 1, 0, 1, NULL, NULL),
+(38, 'jndinesh2@gmail.com', 'jndinesh2@gmail.com', 'Purvieee', 'Ranawat', 36, NULL, NULL, '', NULL, '5sKIQ_a-kJvcU4a-0pPHyv2lR8CTm5p4', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-28 12:08:15', 1, 0, 1, NULL, NULL),
+(39, 'testkualitatem3@gmail.com', 'testkualitatem3@gmail.com', '123123', '31253126', 37, NULL, NULL, '', NULL, 'LkYUwiAnq8FoFQE-UP9MKJ_DHhAwKeL2', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-28 12:53:10', 1, 0, 1, NULL, NULL),
+(40, 'allanvu2@gmail.com', 'allanvu2@gmail.com', 'AV', 'TEST', 38, NULL, NULL, '', NULL, 'Swr3Aq3q5G9Td7xXND2v6XrRJSgwa1js', 10, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2016-07-28 14:02:27', 1, 0, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -538,7 +638,7 @@ CREATE TABLE IF NOT EXISTS `bic_ffyw_user_profile` (
   `date_of_birth` datetime DEFAULT NULL,
   `parent_first_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `parent_last_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `bic_ffyw_user_profile`
@@ -565,8 +665,24 @@ INSERT INTO `bic_ffyw_user_profile` (`id`, `address`, `city`, `street`, `provinc
 (18, NULL, NULL, NULL, 'Alberta', NULL, '1234567890', NULL, '1922-01-01 00:00:00', 'Delete', 'Delete'),
 (19, NULL, NULL, NULL, 'Newfoundland and Labrador', NULL, 'ee83272-22', NULL, '1970-04-04 00:00:00', 'Allan', 'TEST'),
 (20, NULL, NULL, NULL, NULL, NULL, '', NULL, '2016-07-27 00:00:00', NULL, NULL),
-(21, NULL, NULL, NULL, NULL, NULL, '', NULL, '2016-07-27 00:00:00', NULL, NULL),
-(22, NULL, NULL, NULL, 'Ontario', NULL, '4167265230', NULL, '1921-04-05 00:00:00', 'John', 'Bastawrous');
+(21, NULL, NULL, NULL, NULL, NULL, '', NULL, '2016-07-28 00:00:00', NULL, NULL),
+(22, NULL, NULL, NULL, 'Ontario', NULL, '4167265230', NULL, '1921-04-05 00:00:00', 'John', 'Bastawrous'),
+(23, NULL, NULL, NULL, 'British Columbia', NULL, '9033812759', NULL, '1949-01-01 00:00:00', 'Purvi', 'Ranawat'),
+(24, NULL, NULL, NULL, 'New Brunswick', NULL, '9033812759', NULL, '1924-05-05 00:00:00', 'Purveee', 'Ranawat'),
+(25, NULL, NULL, NULL, 'New Brunswick', NULL, '4325678906', NULL, '1920-02-01 00:00:00', 'abs', 'ssd'),
+(26, NULL, NULL, NULL, 'Ontario', NULL, '1234567890', NULL, '1921-07-28 00:00:00', '1234', '3213'),
+(27, NULL, NULL, NULL, 'New Brunswick', NULL, '1234567890', NULL, '1998-01-01 00:00:00', 'john', 'peter'),
+(28, NULL, NULL, NULL, 'Alberta', NULL, '1234567890', NULL, '1997-02-01 00:00:00', 'Abeeha', 'zain'),
+(29, NULL, NULL, NULL, 'Alberta', NULL, '1234567890', NULL, '1920-01-01 00:00:00', 'fdfdf', 'fdd'),
+(30, NULL, NULL, NULL, 'Alberta', NULL, '5555555555', NULL, '1990-10-03 00:00:00', 'Test', 'Test'),
+(31, NULL, NULL, NULL, 'Alberta', NULL, '5555555555', NULL, '1990-10-03 00:00:00', 'Test', 'Test'),
+(32, NULL, NULL, NULL, 'Alberta', NULL, '4444444444', NULL, '1990-10-03 00:00:00', 'Test1', 'test1'),
+(33, NULL, NULL, NULL, 'Ontario', NULL, '1234567890', NULL, '1920-10-14 00:00:00', '1256', '12345'),
+(34, NULL, NULL, NULL, 'Alberta', NULL, '0987654321', NULL, '1924-02-04 00:00:00', 'Tonny', 'John'),
+(35, NULL, NULL, NULL, 'Quebec', NULL, '6665554447', NULL, '1990-10-03 00:00:00', 'Pulpy', 'Orange'),
+(36, NULL, NULL, NULL, 'Newfoundland and Labrador', NULL, '9999999999', NULL, '1923-05-05 00:00:00', 'Purvieee', 'Ranawat'),
+(37, NULL, NULL, NULL, 'Ontario', NULL, '1234567890', NULL, '1923-12-28 00:00:00', '123123', '31253126'),
+(38, NULL, NULL, NULL, 'Newfoundland and Labrador', NULL, '4163211234', NULL, '1924-01-04 00:00:00', 'AV', 'TEST');
 
 --
 -- Indexes for dumped tables
@@ -689,7 +805,7 @@ ALTER TABLE `bic_ffyw_user_profile`
 -- AUTO_INCREMENT for table `bic_ffyw_attachment`
 --
 ALTER TABLE `bic_ffyw_attachment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=80;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=116;
 --
 -- AUTO_INCREMENT for table `bic_ffyw_code_block_item`
 --
@@ -699,12 +815,12 @@ ALTER TABLE `bic_ffyw_code_block_item`
 -- AUTO_INCREMENT for table `bic_ffyw_contest_item`
 --
 ALTER TABLE `bic_ffyw_contest_item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `bic_ffyw_contest_session`
 --
 ALTER TABLE `bic_ffyw_contest_session`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=68;
 --
 -- AUTO_INCREMENT for table `bic_ffyw_locale`
 --
@@ -719,12 +835,12 @@ ALTER TABLE `bic_ffyw_page_item`
 -- AUTO_INCREMENT for table `bic_ffyw_user`
 --
 ALTER TABLE `bic_ffyw_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT for table `bic_ffyw_user_profile`
 --
 ALTER TABLE `bic_ffyw_user_profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
 --
 -- Constraints for dumped tables
 --
