@@ -52,7 +52,7 @@ class SubmissionForm extends Model
                 'message' =>  Yii::t(_NP_TEXT_DOMAIN, 'Required field')
             ],
             ['verificationCode', ReCaptchaValidator::className(), 'secret' => '6LddpCQTAAAAAPU27Z1X3nwsVnNed-9aDrk5moSA'],
-            [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],
+            [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpeg, jpg', 'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],
             ['isLimitSubmission','string', 'message' => Yii::t('app','Weekly Limit Reached')]
         ];
     }
@@ -112,5 +112,5 @@ class SubmissionForm extends Model
 
         return null;
     }
-  
+
 }

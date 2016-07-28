@@ -50,7 +50,7 @@ return [
     'Handwriting Challenge' => 'Défi d\'ecriture',
     'Gallery' => 'Galerie',
     'Contest Prizes' => 'Description des prix',
-    'Official Rules' => 'Règlement official',
+    'Official Rules' => 'Règlement officielle',
     'is a mandatory field' => 'est un champ obligatoire.',
     'Required field' => 'est un champ obligatoire.',
     'Must be 6 years or older' => 'Doit être de 6 ans ou plus',
