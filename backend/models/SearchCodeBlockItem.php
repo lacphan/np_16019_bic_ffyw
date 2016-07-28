@@ -69,10 +69,12 @@ class SearchCodeBlockItem extends CodeBlockItem
         $query->andFilterWhere(['like', 'code', $this->code])
             ->andFilterWhere(['like', 'content', $this->content]);
 
-        $query->orFilterWhere(['like','id', $this->globalSearch]);
-        $query->orFilterWhere(['like','code', $this->globalSearch]);
-        $query->orFilterWhere(['like','content', $this->globalSearch]);
-        
+        if($this->globalSearch) {
+            $query->filterWhere(['like','id', $this->globalSearch]);
+            $query->orFilterWhere(['like','code', $this->globalSearch]);
+            $query->orFilterWhere(['like','content', $this->globalSearch]);
+        }
+
         return $dataProvider;
     }
 }

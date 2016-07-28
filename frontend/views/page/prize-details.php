@@ -26,13 +26,13 @@ $this->title = 'Contest Prizes';
                         <?= $model->description ?>
                     <?php endif;?>
                     <p>
-                        <?=  Html::a(Yii::t('app', '*' . 'Click here for Official Rules'), PageItem::getPermalink(['official-rules']),['target' => '_blank','class' => 'color-1'])?>
+                        <?=  Html::a(Yii::t('app', '*' . 'Click here for Official Rules'), PageItem::getPermalink(['official-rules']),['target' => '_self','class' => 'color-1'])?>
                     </p> 
                 </div>
 
 
             </div>
         </div>
-      
+
     </div>
 </div>

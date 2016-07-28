@@ -261,6 +261,8 @@ img {
 }
 
 #out-date-browser .close-btn {
+  display: none;
+  /*
   position: absolute;
   right: 10px;
   top: 17px;
@@ -271,6 +273,7 @@ img {
   box-shadow: none;
   z-index: 15;
   line-height: 26px;
+  */
 }
 
 #out-date-browser .close-btn:focus {

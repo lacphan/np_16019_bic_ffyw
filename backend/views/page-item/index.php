@@ -5,6 +5,7 @@ use yii\widgets\Breadcrumbs;
 use yii\helpers\ArrayHelper;
 use backend\models\Locale;
 use common\enpii\components\NpItemDataSub;
+
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\SearchPageItem */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -34,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <span class="caption-subject font-green-sharp bold uppercase">
                                     <?= Yii::t("app", "page-item Listing") ?>
                                 </span>
-                                <span class="caption-helper">
+                            <span class="caption-helper">
                                     <?= Yii::t("app", "manage page-item") . "..." ?>
                                 </span>
                         </div>
@@ -48,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                     <div class="portlet-body">
 
-                        <?= GridView::widget([
+                        <?= $grid = GridView::widget([
                             'dataProvider' => $dataProvider,
                             'filterModel' => $searchModel,
                             'columns' => [
@@ -60,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'value' => function ($model) {
                                         return $model->locale->locale;
                                     },
-                                    'filter'=> ArrayHelper::map(Locale::find()->asArray()->all(),'id','locale')
+                                    'filter' => ArrayHelper::map(Locale::find()->asArray()->all(), 'id', 'locale')
                                 ],
                                 'name',
                                 'slug',
@@ -68,9 +69,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                 [
                                     'attribute' => 'published_at',
-                                    'headerOptions' =>  [
-                                        'rowspan'   => '1',
-                                        'width'     => "20%"
+                                    'headerOptions' => [
+                                        'rowspan' => '1',
+                                        'width' => "20%"
                                     ],
 
                                 ],

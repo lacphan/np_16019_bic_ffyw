@@ -72,12 +72,12 @@ class SearchContestItem extends ContestItem
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'description', $this->description]);
 
-        $query->orFilterWhere(['like','id', $this->globalSearch]);
-        $query->orFilterWhere(['like','start_date', $this->globalSearch]);
-        $query->orFilterWhere(['like','end_date', $this->globalSearch]);
-        $query->orFilterWhere(['like','title', $this->globalSearch]);
-        $query->orFilterWhere(['like','description', $this->globalSearch]);
-
+        if($this->globalSearch) {
+            $query->filterWhere(['like', 'start_date', $this->globalSearch]);
+            $query->orFilterWhere(['like', 'end_date', $this->globalSearch]);
+            $query->orFilterWhere(['like', 'title', $this->globalSearch]);
+            $query->orFilterWhere(['like', 'description', $this->globalSearch]);
+        }
         return $dataProvider;
     }
 }

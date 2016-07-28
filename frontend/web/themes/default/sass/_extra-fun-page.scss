@@ -1,0 +1,39 @@
+.extra_fun {
+  .extra-fun-inner {
+    .contents {
+      padding-top: 20px;
+    }
+    .box1 {
+      background: #fcb514;
+      .inner {
+        height: 200px;
+        padding: 10px 0;
+      }
+    }
+    .box2 {
+      background: #b1d43b;
+      .inner {
+        height: 200px;
+        background: #b1d43b;
+        padding: 10px 0;
+      }
+    }
+    .box3 {
+      .inner {
+        height: 200px;
+        padding: 10px 0;
+      }
+    }
+  }
+  &.fr {
+    .extra-fun-inner {
+      .feature_box h4 {
+        text-transform: uppercase;
+        font-size: 13px;
+      }
+      .box3 .pledge_button {
+        margin-top: 0;
+      }
+    }
+  }
+}

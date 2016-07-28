@@ -27,7 +27,9 @@ if($outDateBrowser) {
         'size' => 'modal-lg',
         'id' => 'out-date-browser',
         'options' => [
-            'class' => 'fade modal'
+            'class' => 'fade modal',
+            'data-backdrop' => 'static',
+            'data-keyboard' => 'false'
         ]
     ]);
     echo '<div id="modalContent">'. $outDateBrowser->description .'</div>';
@@ -52,6 +54,10 @@ if($outDateBrowser) {
                     <?php
 
                     $menuItems = [
+                        [
+                            'label' => Yii::t(_NP_TEXT_DOMAIN, 'Official Rules'),
+                            'url' => PageItem::getPermalink(['official-rules']),
+                        ],
                         [
                             'label' => Yii::t(_NP_TEXT_DOMAIN, 'Press'),
                             'url' => PageItem::getPermalink(['press']),

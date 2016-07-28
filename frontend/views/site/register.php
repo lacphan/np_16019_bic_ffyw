@@ -10,12 +10,16 @@ use yii\bootstrap\ActiveForm;
 use himiklab\yii2\recaptcha\ReCaptcha;
 use frontend\models\ContestItem;
 use yii\bootstrap\Modal;
+use frontend\models\PageItem;
 
 $this->title = 'Register';
 $this->params['breadcrumbs'][] = $this->title;
 $contestItem = ContestItem::getWeek();
 $weekNumber = $contestItem ? $contestItem->week_number : 1;
 $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : DEFAULT_LOCALE;
+//$submissionContent=PageItem::getContentByCode('submission-content', $locale);
+$submissionContent=PageItem::findPageLocale('submission-content',Yii::$app->request->get('locale'));
+
 ?>
 <div class="site-signup">
     <div class="container">
@@ -171,8 +175,8 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                     'class' => 'a-center small-input date-picker select2 hide-no-value hide-arrow'
                                 ])
                                 ->label(false) ?>
-                            <?= $form->field($model, 'birthYear', ['options' => ['class' => 'date-time-item']]) ->dropDownList([
-                                array_combine(range(1905,1998), range(1905,1998))
+                            <?= $form->field($model, 'birthYear', ['options' => ['class' => 'date-time-item', '1950'=>['Selected'=>true]]]) ->dropDownList([
+                                array_combine(range(1920,1998), range(1920,1998))
                             ],[
                                 'prompt' => Yii::t(_NP_TEXT_DOMAIN, 'Year'),
                                 'class' => 'a-center small-input date-picker select2 hide-no-value hide-arrow'
@@ -212,6 +216,14 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                     <?= $form->field($model, 'age')->textInput(['class' => 'small-input', 'placeholder' => Yii::t(_NP_TEXT_DOMAIN, 'Age')])->label(false) ?>
                 </div>
                 <div class="form-row">
+                    <div class="submission-guideline">
+                        <?php
+                        if(!empty($submissionContent->description)):
+                            echo $submissionContent->description;
+                        endif;
+                        ?>
+                    </div>
+
                     <?php
                     $layoutTemplate = [
                         'main2' => '<div class="kv-upload-progress hide"></div>{browse}{preview}{remove}',
@@ -265,6 +277,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
 
                 <?php ActiveForm::end(); ?>
             </div>
+
         </div>
         <?= $this->render('_mini-rules')?>
     </div>

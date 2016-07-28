@@ -7,6 +7,7 @@
  */
 
 $this->title = 'The Mission';
+$locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : DEFAULT_LOCALE;
 ?>
 <?php if ((Yii::$app->language == 'fr_FR')): ?>
     <section id="mission" class="container mission-bk relative">
@@ -24,9 +25,7 @@ $this->title = 'The Mission';
                 <span class=""></span>
 
                 <div id="mission-vid-wrap" class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
-                    <img
-                        src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-VidPlaceholder_11.png' ?>"
-                        class="vidLink" data-vidname="Bic_PSA_Broadcast_-_FINAL"/>
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/GWpMlfGbj-c?rel=0&amp;controls=0&amp;showinfo=0;autoplay=0" frameborder="0" allowfullscreen></iframe>
 
                     <span class="hidden-xs visible-md-block visible-lg-block flyout"><h3 class="kg-fall-bd yellow-text">Visionnez
                         <span class="blk-text">notre</span> vidéo!
@@ -143,15 +142,13 @@ $this->title = 'The Mission';
                 </div>
 
                 <div id="mission-gauges" class="col-xs-12 show-grid">
-                <span class="flyout hidden-xs visible-md-inline visible-lg-inline"><img
-                        src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-arrow-grn_03.png' ?>"/></span>
                     <h2 class="kg-fall-bd center relative turq-text">PRENEZ CONNAISSANCE DES FAITS:
                         <span class="absolute" style="bottom: -14px;width: 100%;left: 0;">
 						<img
                             src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'experts_06.png' ?>"/>
 					</span>
                     </h2>
-                    <div id="gauges" class="clearfix">
+                    <div id="gauges" class="clearfix" style="display:none;">
                         <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-0">
                             <div class="gauge_box g1">
                                 <div class="gauge">
@@ -208,7 +205,7 @@ $this->title = 'The Mission';
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div style="display:none;">
                         <small class="center full-width"><span class="turq-text">Source:</span>
                             <a target="_blank"
                                href="http://lib.dr.iastate.edu/cgi/viewcontent.cgi?article=2432&context=etd">http://lib.dr.iastate.edu/cgi/viewcontent.cgi?article=2432&context=etd</a>
@@ -217,22 +214,9 @@ $this->title = 'The Mission';
                 </div>
 
                 <div id="mission-facts" class="col-xs-12 show-grid relative">
-                    <div id="factFrame" class="hidden-xs visible-md-block visible-lg-block full-width">
-                        <img
-                            src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-fact-frame_03.png' ?>"/>
-                    </div>
-                    <span class="flyout hidden-xs visible-md-inline visible-lg-inline"><img
-                            src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-arrow-grn_03.png' ?>"/></span>
-
-                    <div class="mission-fact show-grid col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 show-grid">
-                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-fact_22.png' ?>"
+                    <div class="mission-fact show-grid col-xs-12">
+                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-fact_22_fr.png' ?>"
                              class="blockCenter"/>
-                        <!--<a href="https://www.zaner-bloser.com/media/zb/zaner-bloser/pdf/hw_hanover.pdf" class="btn btn-primary col-xs-5 col-sm-6" target="_blank">LEARN MORE</a>-->
-                    </div>
-                    <div class="mission-fact show-grid col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 show-grid">
-                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-fact_24.png' ?>"
-                             class="blockCenter"/>
-                        <!--    <a href="https://www.zaner-bloser.com/media/zb/zaner-bloser/pdf/hw_hanover.pdf" class="btn btn-primary col-xs-5 col-sm-6" target="_blank">LEARN MORE</a>-->
                     </div>
                     <div>
                         <small class="center col-xs-12" style="margin-top: 10px;" ;>
@@ -314,7 +298,7 @@ $this->title = 'The Mission';
             <div class="col-xs-12 col-sm-3">
                 <a href="<?= Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'boy-and-girl-of-canada','locale' => Yii::$app->request->get('locale')])?>">
                     <div id="howBic" class="col-xs-6 col-xs-offset-3 col-sm-12 col-sm-offset-0 sidebarBox">
-                        <h4 class="center yellow-text kg-fall-bd col-xs-12">How BIC Is Helping</h4>
+                        <h4 class="center yellow-text kg-fall-bd col-xs-12"><?=Yii::t(_NP_TEXT_DOMAIN, "How BIC Is Helping")?></h4>
                         <img class="blockCenter"
                              src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'BGCC_Logo_French.jpg' ?>"/>
                     </div>
@@ -332,20 +316,11 @@ $this->title = 'The Mission';
             <div class="col-xs-12 col-sm-9">
                 <h1 class="uppercase center">The Mission</h1>
                 <h2 class="center">Why Fight For Your Write with BIC?</h2>
-                <p class="col-xs-12 center sans-semi top">Join
-                    <span class="sans-bold">BIC</span> on our mission to celebrate handwriting and
-                    <span class="sans-bold">Fight For Your Write</span>. Writing is an
-                    important vehicle for communication because it distinguishes us and promotes individuality.
-                    Did you know that writing is also a critical learning tool for children? Writing helps kids become
-                    better readers, boosts their confidence and sparks their creativity. Together we want to
-                    show children just how great writing can be... and how great they can be!</p>
-
+					 <p class="col-xs-12 center sans-semi top">Join <span class="sans-bold">BIC</span> on our mission to save handwriting and <span class="sans-bold">Fight For Your Write</span>. Writing is an important vehicle for communication because it distinguishes us and promotes individuality. Did you know that writing is also a critical learning tool for children? Writing helps kids become better readers, boosts their confidence and sparks their creativity. Together we want to show children just how great writing can be... and how great they can be!</p>
                 <span class=""></span>
 
                 <div id="mission-vid-wrap" class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
-                    <img
-                        src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-VidPlaceholder_11.png' ?>"
-                        class="vidLink" data-vidname="Bic_PSA_Broadcast_-_FINAL"/>
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/yx6tellQ5dk?rel=0&amp;controls=0&amp;showinfo=0;autoplay=0" frameborder="0" allowfullscreen></iframe>
 
                     <span class="hidden-xs visible-md-block visible-lg-block flyout"><h3 class="kg-fall-bd yellow-text">Watch
                         <span class="blk-text">Our</span> Video!
@@ -487,15 +462,13 @@ $this->title = 'The Mission';
                 </div>
 
                 <div id="mission-gauges" class="col-xs-12 show-grid">
-                <span class="flyout hidden-xs visible-md-inline visible-lg-inline"><img
-                        src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-arrow-grn_03.png' ?>"/></span>
                     <h2 class="kg-fall-bd center relative turq-text">Know The Facts:
                         <span class="absolute" style="bottom: -14px;width: 100%;left: 0;">
 						<img
                             src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'experts_06.png' ?>"/>
 					</span>
                     </h2>
-                    <div id="gauges" class="clearfix">
+                    <div id="gauges" class="clearfix" style="display:none;">
                         <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-0">
                             <div class="gauge_box g1">
                                 <div class="gauge">
@@ -552,7 +525,7 @@ $this->title = 'The Mission';
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div style="display:none;">
                         <small class="center full-width"><span class="turq-text">Source:</span>
                             <a target="_blank"
                                href="http://lib.dr.iastate.edu/cgi/viewcontent.cgi?article=2432&context=etd">http://lib.dr.iastate.edu/cgi/viewcontent.cgi?article=2432&context=etd</a>
@@ -561,22 +534,9 @@ $this->title = 'The Mission';
                 </div>
 
                 <div id="mission-facts" class="col-xs-12 show-grid relative">
-                    <div id="factFrame" class="hidden-xs visible-md-block visible-lg-block full-width">
-                        <img
-                            src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-fact-frame_03.png' ?>"/>
-                    </div>
-                    <span class="flyout hidden-xs visible-md-inline visible-lg-inline"><img
-                            src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-arrow-grn_03.png' ?>"/></span>
-
-                    <div class="mission-fact show-grid col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 show-grid">
-                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-fact_22.png' ?>"
+                    <div class="mission-fact show-grid col-xs-12">
+                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-fact_22_en.png' ?>"
                              class="blockCenter"/>
-                        <!--<a href="https://www.zaner-bloser.com/media/zb/zaner-bloser/pdf/hw_hanover.pdf" class="btn btn-primary col-xs-5 col-sm-6" target="_blank">LEARN MORE</a>-->
-                    </div>
-                    <div class="mission-fact show-grid col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 show-grid">
-                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-fact_24.png' ?>"
-                             class="blockCenter"/>
-                        <!--    <a href="https://www.zaner-bloser.com/media/zb/zaner-bloser/pdf/hw_hanover.pdf" class="btn btn-primary col-xs-5 col-sm-6" target="_blank">LEARN MORE</a>-->
                     </div>
                     <div>
                         <small class="center col-xs-12" style="margin-top: 10px;" ;>
@@ -658,7 +618,7 @@ $this->title = 'The Mission';
             <div class="col-xs-12 col-sm-3">
                 <a href="<?= Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'boy-and-girl-of-canada','locale' => Yii::$app->request->get('locale')])?>">
                     <div id="howBic" class="col-xs-6 col-xs-offset-3 col-sm-12 col-sm-offset-0 sidebarBox">
-                        <h4 class="center yellow-text kg-fall-bd col-xs-12">How BIC Is Helping</h4>
+                        <h4 class="center yellow-text kg-fall-bd col-xs-12"><?=Yii::t(_NP_TEXT_DOMAIN, "How BIC Is Helping")?></h4>
                         <img class="blockCenter"
                              src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'BGCC_Logo.png' ?>"/>
                     </div>

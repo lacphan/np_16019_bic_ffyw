@@ -51,7 +51,14 @@ jQuery(document).on('ready pjax:success',function () {
         }
 
         if($oldBrowserFlag) {
-            $('#out-date-browser').modal('show');
+				//$('#out-date-browser').modal('show');
+				$('#out-date-browser').modal({
+					 backdrop: 'static',
+					 keyboard: false,
+					 escapeClose: false,
+					 clickClose: false,
+					 showClose: false
+				});
         }
 
 
@@ -195,7 +202,7 @@ jQuery(document).on('ready pjax:success',function () {
             function updateGallery(selector) {
                 var $sel = selector;
                 current_image = $sel.data('image-id');
-               
+
                 $('#image-gallery-caption').text($sel.data('caption'));
                 $('#image-gallery-title').text($sel.data('title'));
                 $('#image-gallery-image').attr('src', $sel.data('image'));

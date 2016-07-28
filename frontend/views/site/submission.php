@@ -129,6 +129,14 @@ $submissionContent=PageItem::getContentByCode('submission-content', $locale);
                             <?= $form->field($model, 'age')->textInput(['class' => 'small-input', 'placeholder' => Yii::t(_NP_TEXT_DOMAIN, 'Age')])->label(false) ?>
                         </div>
                         <div class="form-row">
+                            <div class="submission-guideline">
+                                <?php
+                                if(!empty($submissionContent[0]->description)):
+                                    echo $submissionContent[0]->description;
+                                endif;
+                                ?>
+                            </div>
+
                             <?php
                             $layoutTemplate = [
                                 'main2' => '<div class="kv-upload-progress hide"></div>{browse}{preview}{remove}',
@@ -184,13 +192,6 @@ $submissionContent=PageItem::getContentByCode('submission-content', $locale);
                         <?php ActiveForm::end(); ?>
                     </div>
                     <div class="col-md-5">
-                        <div class="submission-guideline">
-                            <?php
-                            if(!empty($submissionContent[0]->description)):
-                                echo $submissionContent[0]->description;
-                            endif;
-                            ?>
-                        </div>
                     </div>
                 </div>
             </div>

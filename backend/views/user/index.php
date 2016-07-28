@@ -121,7 +121,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'dataProvider' => $dataProvider,
                             'filterModel' => $searchModel,
                             'columns' => [
-                                ['class' => 'common\enpii\components\grid\CheckboxColumn'], ['class' => 'common\enpii\components\grid\SerialColumn'], 'id',
+                                ['class' => 'common\enpii\components\grid\SerialColumn'],
                                 'username',
                                 'email:email',
                                 'first_name',

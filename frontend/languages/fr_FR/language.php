@@ -7,10 +7,10 @@
  */
 return [
     'Français' => 'English',
-    'string in abc' => 'string in abc ru',
-    'Please enter your email to participate.' => 'S\'il vous plaît entrer votre e-mail pour participer.',
+    'string in abc' => 'string in abc FR',
+    'Enter your email address to participate' => 'S\'il vous plaît entrer votre e-mail pour participer.',
     'Enter Now' => 'Participez maintenant',
-    'No Purch Nec., CAD only, Age of Majority in Prov./Territ. of Res. Ends 09/19/2016.' => 'Aucun achat requis, dollars canadiens seulement, âge de la majorité dans la province ou le territoire de rés. Prend fin le 12 septembre 2016.',
+    'No Purch Nec., CAD only, Age of Majority in Prov./Territ. of Res. Ends 09/19/2016.' => 'Aucun achat requis, dollars canadiens seulement, âge de la majorité dans la province ou le territoire de rés. Prend fin le 19 septembre 2016.',
     'Click Here for Official Rules.' => 'Sujet aux règlements officiels.',
     'Week' => 'Semaine',
     'Boys and Girls Club of Canada' => 'Repaires jeunesse du Canada',
@@ -19,8 +19,8 @@ return [
     '<span class="font-1">This week\'s</span><span class="font-2">handwriting</span><span class="font-1">challenge!</span>' => '<span class="font-1">Défi d\'écriture</span><span class="font-2">de la</span><span class="font-1">semaine!</span>',
     'THE MISSION' => 'LA MISSION',
     'The Mission' => 'La Mission',
-    'FEATURED TIP TO INSPIRE WRITING' => 'TRUC POUR INSPIRER L’ÉCRITURE',
-    'TAKE ACTION' => 'PASSEZ À L’ACTION',
+    'FEATURED TIP TO INSPIRE WRITING' => 'TRUC POUR INSPIRER L\'ÉCRITURE',
+    'TAKE ACTION' => 'PASSEZ À L\'ACTION',
     'JOIN NOW' => 'NSCRIVEZ-VOUS MAITENANT',
     'SEE ALL' => 'VOIR TOUS',
     'Write Now' => 'Écrivez dès maintenant',
@@ -34,6 +34,8 @@ return [
     "Parent's First Name" => 'Prénom du parent',
     "Parents Last Name" => "Nom de famille du parent",
     "Phone Number" => "Numéro de téléphone",
+	 "Please enter numbers only" => "Entrer seulment numéros s'il vous plaît",
+	 "Email address does not match" => "Email ne correspond pas à l'autre",
     'Date of Birth' => "Date de naissance",
     "Month" => "Mois",
     "Day" => "Jour",
@@ -45,7 +47,7 @@ return [
     'No larger than 5MB and only accept .jpg and .png files' => 'Ne doit pas dépasser 5 MB et nous acceptons uniquement les fichiers .jpg et .png',
     'Upload' => 'TÉLÉCHARGER',
     'SUBMIT' => 'SOUMETTRE',
-    'Handwriting Challenge' => 'Défi d’ecriture',
+    'Handwriting Challenge' => 'Défi d\'ecriture',
     'Gallery' => 'Galerie',
     'Contest Prizes' => 'Description des prix',
     'Official Rules' => 'Règlement official',
@@ -59,12 +61,13 @@ return [
     'Boys and Girls Clubs of Canada' => 'Repaires jeunesse du Canada',
     'Required' => 'Mandatory field',
     'Verification Code' => 'Code de vérification',
+	 'How BIC Is Helping' => 'Comment BIC Soutient',
     'PRODUCTS'=>'PRODUITS',
-    "BIC<sup>&reg;</sup>PRODUCTS MAKE WRITING FUN!"=>"LES PRODUITS BIC<sup>®</sup> FONT DE L’ÉCRITURE UNE ACTIVITÉ RIGOLO !",
+    "BIC<sup>&reg;</sup> PRODUCTS MAKE WRITING FUN!"=>"LES PRODUITS BIC<sup>®</sup> FONT DE L’ÉCRITURE UNE ACTIVITÉ RIGOLO !",
     "The perfect BIC<sup>&reg;</sup> pen, pencil or marker can make a child feel inspired to write. We
                         offer so much variety and style; kids and adults will be amazed by what they find. Our products
                         offer:"=>"Le bon stylo, crayon ou marqueur de BIC<sup>&reg;</sup>  peut inspirer un enfant à écrire. Nous offrons toute une diversité de styles que les enfants et les adultes seront émerveillés à découvrir, notamment: ",
-    "Smooth writing pens and pencils • Bold, classic and fashionable ink colors •
+    "Smooth writing pens and pencils • Bold, classic and fashionable ink colours •
                         Precise writing instruments • Variety of shapes and point sizes for that perfect fit •
                         Incredibly comfortable grips • Forgiving smudge-free and erasable mechanical pencils"=>"Des stylos et crayons pour une écriture en douceur • Encres de couleurs classiques et fantaisistes vives •
                   Instruments d’écriture précise • Offrant une variété de formes et de tailles de pointes pour trouver l’instrument parfait • Prises incroyablement confortables • Porte-mines effaçables pour une écriture aisée sans bavures",
@@ -74,12 +77,12 @@ return [
     "MARKING"=>"MARQUEURS",
     "CORRECTION"=>"CORRECTEURS",
     "From ballpoint pen to gel to roller, these awesome varieties of pens provide endless hours of fun writing!"=>"Notre variété incroyable de stylos à bille, de stylos à encre gel et de stylos roller assure des heures et des heures de fun en écrivant!",
-    "An amazing mechanical pencil that writes 2 ½ times longer than wood case pencils? Now that’s smart!"=>"Des porte-mines et crayons ordinaires robustes qui augmentent le plaisir d’écrire. C’est du fun Extra!",
+    "An amazing mechanical pencil that writes 2 &frac12; times longer than wood case pencils? Now that’s smart!"=>"Des porte-mines et crayons ordinaires robustes qui augmentent le plaisir d’écrire. C’est du fun Extra!",
     "Bold and brilliant coloured markers and highlighters for all of your marking needs."=>"Des marqueurs de couleur vives et audacieuses pour tous vos besoins de marquage.",
     "Correcting mistakes has never been so cool!"=>"La correction des erreurs, c’est cool!",
     "LEARN MORE"=>"EN SAVOIR PLUS",
     'Search' => 'Chercher',
-    'Parent’s email address' =>  'Adresse email des parents',
+    'Parent\'s email address' =>  'Adresse email des parents',
     '<span class="font-2 color-2 head-line-1">This Week\'s</span>
                             <span class="font-5 color-3 head-line-2">Handwriting</span>
                             <span class="font-2 color-2 head-line-3">Challenge!</span>' => '<span class="font-2 color-2 head-line-1">Défi </span>

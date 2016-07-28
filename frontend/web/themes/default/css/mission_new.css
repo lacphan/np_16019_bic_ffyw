@@ -84,10 +84,10 @@ mark, .mark {
     font-family: 'kg_fall_for_you', sans-serif;
 }
 .kg-fall-bd {
-    font-family: 'kg_fall_for_you_bold', sans-serif;
+    font-family: 'kg_fall_for_youbold', sans-serif;
 }
 .kg-fall-it {
-    font-family: 'kg_fall_for_you_italic', sans-serif;
+    font-family: 'kg_fall_for_youitalic', sans-serif;
 }
 .sans-lt {
     font-family: 'OpenSansLight', sans-serif;
@@ -1574,7 +1574,7 @@ select .form-control-old::-ms-value {
 }
 #mission-facts span.flyout {
     position: absolute;
-    left: 10px;
+    left: 200px;
     top: 0px;
 }
 #factFrame {
@@ -2622,7 +2622,7 @@ select .form-control-old::-ms-value {
         left: 75px;
     }
     .panel .top span {
-        font-size: 18px;
+        font-size: 21px;
     }
     #whatExpertsSay img {
         display: block;
@@ -2828,7 +2828,3 @@ select .form-control-old::-ms-value {
         margin-top: 37px;
     }
 }
-
-
-
-
