@@ -298,7 +298,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
             <div class="col-xs-12 col-sm-3">
                 <a href="<?= Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'boy-and-girl-of-canada','locale' => Yii::$app->request->get('locale')])?>">
                     <div id="howBic" class="col-xs-6 col-xs-offset-3 col-sm-12 col-sm-offset-0 sidebarBox">
-                        <h4 class="center yellow-text kg-fall-bd col-xs-12">How BIC Is Helping</h4>
+                        <h4 class="center yellow-text kg-fall-bd col-xs-12"><?=Yii::t(_NP_TEXT_DOMAIN, "How BIC Is Helping")?></h4>
                         <img class="blockCenter"
                              src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'BGCC_Logo_French.jpg' ?>"/>
                     </div>
@@ -618,7 +618,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
             <div class="col-xs-12 col-sm-3">
                 <a href="<?= Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'boy-and-girl-of-canada','locale' => Yii::$app->request->get('locale')])?>">
                     <div id="howBic" class="col-xs-6 col-xs-offset-3 col-sm-12 col-sm-offset-0 sidebarBox">
-                        <h4 class="center yellow-text kg-fall-bd col-xs-12"><?=Yii::t(_NP_TEXT_DOMAIN, "How BIC Is Helping")  ?></h4>
+                        <h4 class="center yellow-text kg-fall-bd col-xs-12"><?=Yii::t(_NP_TEXT_DOMAIN, "How BIC Is Helping")?></h4>
                         <img class="blockCenter"
                              src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'BGCC_Logo.png' ?>"/>
                     </div>

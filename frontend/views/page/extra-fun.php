@@ -60,7 +60,7 @@ $description = $model->description;
                                 <div class="feature_box box3">
                                     <div class="inner">
                                         <h4>Joignez-vous à la mission BIC de sauver l’écriture à la main !</h4>
-                                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images' . '/logo_header.png'?>" class="logo_small">
+                                        <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images' . '/logo_header_fr.png'?>" class="logo_small">
                                         <div class="text">
                                             Cliquez ici pour voir comment vous impliquer !
                                             <a href="<?=  Yii::$app->urlManager->createUrl(['', 'locale' => 'fr'])?>"><input type="button" class="pledge_button" value="ENGAGEZ-VOUS MAINTENANT !"><span style="display:none">ENGAGEZ-VOUS MAINTENANT !</span></a>

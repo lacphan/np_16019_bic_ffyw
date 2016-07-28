@@ -27,7 +27,9 @@ if($outDateBrowser) {
         'size' => 'modal-lg',
         'id' => 'out-date-browser',
         'options' => [
-            'class' => 'fade modal'
+            'class' => 'fade modal',
+            'data-backdrop' => 'static',
+            'data-keyboard' => 'false'
         ]
     ]);
     echo '<div id="modalContent">'. $outDateBrowser->description .'</div>';
