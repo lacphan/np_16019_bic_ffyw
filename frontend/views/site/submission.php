@@ -69,13 +69,13 @@ $submissionContent=PageItem::getContentByCode('submission-content', $locale);
                     <div class="intro-heading-inner">
                         <h1 class="head-line">
                             <?php if ((Yii::$app->language == 'fr_FR')): ?>
-                                <span class="font-2 color-2 head-line-1">Défid'écriture</span>
+                                <span class="Cufon-KGSecondChancesSketch color-2 head-line-1">Défid'écriture</span>
                                 <span class="font-5 color-3 head-line-2">de la</span>
-                                <span class="font-2 color-2 head-line-3">semaine!</span>
+                                <span class="Cufon-KGSecondChancesSketch color-2 head-line-3">semaine!</span>
                             <?php else:?>
-                                <span class="font-2 color-2 head-line-1">This Week's</span>
+                                <span class="Cufon-KGSecondChancesSketch color-2 head-line-1">This Week's</span>
                                 <span class="font-5 color-3 head-line-2">Handwriting</span>
-                                <span class="font-2 color-2 head-line-3">Challenge!</span>
+                                <span class="Cufon-KGSecondChancesSketch color-2 head-line-3">Challenge!</span>
                             <?php endif;?>
 
                         </h1>

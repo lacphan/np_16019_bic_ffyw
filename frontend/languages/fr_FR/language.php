@@ -16,13 +16,14 @@ return [
     'Boys and Girls Club of Canada' => 'Repaires jeunesse du Canada',
     'LEARN MORE ABOUT BREAKFAST CLUB OF CANADA' => 'En apprendre davantage sur Repaires jeunesse du Canada',
     'Email Address' => 'Adresse courriel',
-    '<span class="font-1">This week\'s</span><span class="font-2">handwriting</span><span class="font-1">challenge!</span>' => '<span class="font-1">Défi d\'écriture</span><span class="font-2">de la</span><span class="font-1">semaine!</span>',
+    '<span class="Cufon-KGSecondChancesSketch font-1">This week\'s</span><span class="font-2">handwriting</span><span class="Cufon-KGSecondChancesSketch font-1">challenge!</span>' => '<span class="Cufon-KGSecondChancesSketch font-1">Défi d\'écriture</span><span class="font-2">de la</span><span class="Cufon-KGSecondChancesSketch font-1">semaine!</span>',
     'THE MISSION' => 'LA MISSION',
     'The Mission' => 'La Mission',
     'FEATURED TIP TO INSPIRE WRITING' => 'TRUC POUR INSPIRER L\'ÉCRITURE',
     'TAKE ACTION' => 'PASSEZ À L\'ACTION',
     'JOIN NOW' => 'NSCRIVEZ-VOUS MAITENANT',
     'SEE ALL' => 'VOIR TOUS',
+    'Check out the handwriting submissions from all across Canada!' => 'Consultez les participations à l\'initiative d\'écriture à la main au Canada!',
     'Write Now' => 'Écrivez dès maintenant',
     'Products' => 'Produits',
     'Press' => 'Presse',
@@ -53,6 +54,7 @@ return [
     'Official Rules' => 'Règlement officielle',
     'is a mandatory field' => 'est un champ obligatoire.',
     'Required field' => 'est un champ obligatoire.',
+    'Please accept the official rules' => 'est un champ obligatoire',
     'Must be 6 years or older' => 'Doit être de 6 ans ou plus',
     'Age must be no greater than 18' => 'Âge supérieur à 18 Chua',
     'Confirm Email' => 'Confirmez votre email',
@@ -82,11 +84,12 @@ return [
     "Correcting mistakes has never been so cool!"=>"La correction des erreurs, c’est cool!",
     "LEARN MORE"=>"EN SAVOIR PLUS",
     'Search' => 'Chercher',
-    'Parent\'s email address' =>  'Adresse email des parents',
+    'Parent\'s email address' =>  'Adresse couriel des parents',
     '<span class="font-2 color-2 head-line-1">This Week\'s</span>
                             <span class="font-5 color-3 head-line-2">Handwriting</span>
                             <span class="font-2 color-2 head-line-3">Challenge!</span>' => '<span class="font-2 color-2 head-line-1">Défi </span>
                             <span class="font-5 color-3 head-line-2">d\'écriture</span>
                             <span class="font-2 color-2 head-line-3">de la semaine!</span>',
-    'BIC\'S <span>Handwriting</span> Challenge!<br> Gallery' => 'BIC\'S <span>d\'écriture</span> de la semaine!<br> Galerie'
+    'BIC\'S <span class="nocufon">Handwriting</span> Challenge!<br>Gallery' => 'BIC\'S <span class="nocufon">d\'écriture</span> de la semaine!<br>Galerie',
+	 '<span class="Cufon-KGSecondChancesSketch">BIC\'S</span> <span>Handwriting</span> <span class="Cufon-KGSecondChancesSketch">Challenge!<br> Gallery</span>' => '<span class="Cufon-KGSecondChancesSketch">BIC\'S</span> <span>d\'écriture</span> <span class="Cufon-KGSecondChancesSketch">de la semaine!<br>Galerie</span>'
 ];

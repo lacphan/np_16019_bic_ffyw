@@ -19,8 +19,8 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
     <div class="container">
         <div class="registration-content gallery-tmpl">
             <div class="success-content">
-                <div class="title">
-                    <?= Yii::t(_NP_TEXT_DOMAIN,'BIC\'S <span>Handwriting</span> Challenge!<br> Gallery')?>
+                <div class="Cufon-KGSecondChancesSketch title">
+                    <?= Yii::t(_NP_TEXT_DOMAIN,'BIC\'S <span class="nocufon">Handwriting</span> Challenge!<br>Gallery')?>
                 </div>
                 <div class="gallery-intro">
                     <?= Yii::t(_NP_TEXT_DOMAIN,'Check out the handwriting submissions from all across Canada!')?>

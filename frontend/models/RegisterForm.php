@@ -89,7 +89,7 @@ class RegisterForm extends Model
                 'message' => '{attribute} ' . Yii::t(_NP_TEXT_DOMAIN, 'is a mandatory field')
             ],
             [['agreeTerm'], 'required','requiredValue' => 1,
-                'message' =>  Yii::t(_NP_TEXT_DOMAIN, 'Required field')
+                'message' =>  Yii::t(_NP_TEXT_DOMAIN, 'Please accept the official rules')
             ],
             [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpeg, jpg',  'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],
             [['email'], 'required'],

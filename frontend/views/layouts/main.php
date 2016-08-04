@@ -25,6 +25,16 @@ AppAsset::register($this);
     <script type="text/javascript">
         var base = "<?= Yii::$app->urlManager->baseUrl?>"
     </script>
+<script src="//cufon.shoqolate.com/js/cufon-yui.js" type="text/javascript"></script>
+<script src="/bic-ffyw/themes/default/fonts/Cufon-KGSecondChancesSketch_400.font.js" type="text/javascript"></script>
+<script type="text/javascript">
+Cufon.replace('.Cufon-KGSecondChancesSketch:not(.nocufon)');
+//Cufon.replace('.Cufon-KGSecondChancesSketch', {
+//    ignore: {
+//        span: true
+//    }
+//});
+</script>
 </head>
 <body>
 <?php $this->beginBody() ?>
