@@ -239,12 +239,12 @@ $submissionContent=PageItem::findPageLocale('submission-content',Yii::$app->requ
                             Yii::t(_NP_TEXT_DOMAIN, 'Upload photo instructions') . ':<br/>' .
                             Yii::t(_NP_TEXT_DOMAIN, 'No larger than 5MB and only accept .jpg and .png files') .
                             '</div>' .
-                            '<button class="btn btn-default global-btn btn-file"><span>'.Yii::t(_NP_TEXT_DOMAIN,'Upload').'{input}</span></button>' .
+                            '<div class="btn btn-default global-btn btn-file"><span>'.Yii::t(_NP_TEXT_DOMAIN,'Upload').'{input}</span></div>' .
                             '{label}{error}'.
                             '<div class="preview-wrapper">'.
                             '<div class="file-preview"><div class="file-preview-frame"><canvas id="canvas"></canvas></div></div>'.
-                            '<button class="img-rotate-left" ><i class="fa fa-undo" aria-hidden="true"></i></button>'.
-                            '<button class="img-rotate-right"><i class="fa fa-repeat"></i></button>'.
+                            '<button type="button" class="img-rotate-left" ><i class="fa fa-undo" aria-hidden="true"></i></button>'.
+                            '<button type="button" class="img-rotate-right"><i class="fa fa-repeat"></i></button>'.
                             '</div></div>'
                     ])->fileInput(['id' => 'imageLoader'])->label(false); ?>
 
