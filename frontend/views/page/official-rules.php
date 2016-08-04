@@ -18,9 +18,18 @@ use frontend\models\PageItem;
             <div class="doodle-4"></div>
             <div class="doodle-5"></div>
             <div class="success-content ">
+              <?php if ((Yii::$app->language == 'fr_FR')): ?>
+                <h1 class="font-5 color-3">BIC's HANDWRITING CHALLENGE PROMOTION (FR)</h1>
+                <div class="title">
+                    <span><?= Yii::t(_NP_TEXT_DOMAIN,'Official Rules')?></span>
+                </div>
+                <div class="a-left has-table official-tmp">
+                    <p>(pending French content)</p>
+                </div>
+              <?php else: ?>
                 <h1 class="font-5 color-3">BIC's HANDWRITING CHALLENGE PROMOTION</h1>
                 <div class="title">
-                    <span><?= Yii::t('app', 'Official Rules') ?></span>
+                    <span><?= Yii::t(_NP_TEXT_DOMAIN,'Official Rules')?></span>
                 </div>
                 <div class="a-left has-table official-tmp">
                     <p><strong>NO PURCHASE NECESSARY TO ENTER OR WIN. A PURCHASE WILL NOT INCREASE YOUR CHANCES OF WINNING.  VOID WHERE PROHIBITED OR RESTRICTED BY LAW. </strong></p>
@@ -213,6 +222,7 @@ use frontend\models\PageItem;
                     <p>&nbsp;</p>
 
                 </div>
+              <?php endif; ?>
             </div>
         </div>
 
