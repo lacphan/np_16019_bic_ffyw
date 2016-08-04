@@ -12,6 +12,7 @@ return [
     'Enter Now' => 'Participez maintenant',
     'No Purch Nec., CAD only, Age of Majority in Prov./Territ. of Res. Ends 09/19/2016.' => 'Aucun achat requis, dollars canadiens seulement, âge de la majorité dans la province ou le territoire de rés. Prend fin le 19 septembre 2016.',
     'Click Here for Official Rules.' => 'Sujet aux règlements officiels.',
+    'Click Here for Official Rules' => 'Sujet aux règlements officiels',
     'Week' => 'Semaine',
     'Boys and Girls Club of Canada' => 'Repaires jeunesse du Canada',
     'LEARN MORE ABOUT BREAKFAST CLUB OF CANADA' => 'En apprendre davantage sur Repaires jeunesse du Canada',

@@ -9,7 +9,6 @@
 use yii\helpers\Html;
 use frontend\models\PageItem;
 $this->title = 'Contest Prizes';
-$locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') : DEFAULT_LOCALE;
 ?>
 <div class="site-signup">
     <div class="container">
@@ -26,12 +25,8 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                     <?php if($model): ?>
                         <?= $model->description ?>
                     <?php endif;?>
-                    <p><?=  Html::a(Yii::t(_NP_TEXT_DOMAIN, 'Click here for Official Rules'), PageItem::getPermalink(['official-rules']),['target' => '_self','class' => 'color-1'])?></p>
                 </div>
-
-
             </div>
         </div>
-
     </div>
 </div>
