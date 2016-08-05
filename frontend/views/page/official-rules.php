@@ -59,6 +59,7 @@ use frontend\models\PageItem;
                                         <li>Must not exceed 5 MB; </li>
                                         <li>Must not have been submitted previously in a promotion of any kind and has not been exhibited or distributed previously in any media;</li>
                                         <li>Must not contain material that violates or infringes another's rights, including but not limited to privacy, publicity or intellectual property rights, including trademark or copyright infringement;</li>
+                                        <li>Must not contain hashtags;</li>
                                         <li>Must not disparage Sponsor, Administrator, or any other person or party affiliated with the Contest and administration of the Contest or any third party, or Sponsor's products or services;</li>
                                         <li>Must not in any way contain any brand names, trademarks or product images other than those of Sponsor;</li>
                                         <li>Must not include personally-identifiable information;</li>
@@ -66,10 +67,11 @@ use frontend\models\PageItem;
                                         <li>Must not contain images or artwork not created by Eligible Child;</li>
                                         <li>Must not contain material that is inappropriate, indecent, profane, lewd, pornographic, vulgar, obscene, offensive, hateful, tortious, derogatory, insulting, abusive, harassing, racist, threatening, defamatory, slanderous or libelous or otherwise unsuitable for display/publication;</li>
                                         <li>Must not contain material that promotes bigotry, racism, hatred or harm against any group or individual or promotes discrimination based on race, gender, religion, nationality, disability, sexual orientation or age;</li>
+                                        <li>Must not contain political or religious statements;</li>
                                         <li>Must not contain material that is unlawful, in violation of, or contrary to the laws or regulations in any jurisdiction where the Submission is created; and</li>
                                         <li>Must not contain any images or references to celebrities and/or other public figures, living or dead.</li>
                                     </ul>
-                                    <p>You understand that Sponsor, in its sole discretion, may disqualify any Submission for any reason, including if it determines, in its sole discretion, that the Submission fails to conform to these Official Rules in any way or otherwise contains unacceptable content as determined by Sponsor, in its sole discretion.</p>
+                                    <p>You understand that Sponsor, in its sole discretion, may disqualify any Submission for any reason, including if it determines that the Submission fails to conform to these Official Rules in any way or otherwise contains unacceptable or sensitive content as determined by Sponsor, in its sole discretion. If your Submission is not approved you will receive an email by the Sponsor advising that your Submission did not adhere to the Submission Guidelines. You can still participate in the Contest by making the necessary adjustments to your Submission and reentering your Submission for that Contest Submission Period.</p>
                                 </li>
                                 <li><p><strong><u>RIGHTS IN AND USE OF SUBMISSION</u></strong>:</p>
                                     <ol type="1">

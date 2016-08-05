@@ -358,11 +358,11 @@ img {
     padding-bottom: 30px;
   }
   .site-header .main-logo img {
-		width:85% !important;  
+		width:85% !important;
 	}
 	.home-gallery-item {
 		display:block !important;
-		margin:10px 0 !important;	
+		margin:10px 0 !important;
 	}
 }
 @media only screen and (max-width: 480px) {
@@ -374,7 +374,7 @@ img {
 }
 @media only screen and (max-width: 360px) {
 	.site-header .header-inner {
-		padding:0px !important;	
+		padding:0px !important;
 		margin-top:25px;
 	}
 	.site-header .main-logo {
@@ -395,7 +395,7 @@ img {
 .site-header .main-logo {
   position: absolute;
   left: 0;
-  top: -60px;
+  top: 0;
   width: 180px;
   height: 136px;
   bottom: 0;
@@ -884,10 +884,10 @@ img {
 	top:90px !important;
   }
   .container {
-		width:100% !important;  
+		width:100% !important;
    }
    .extra_fun h3 {
-		background:url(../images/underline_7.png) bottom center no-repeat;   
+		background:url(../images/underline_7.png) bottom center no-repeat;
 	}
 	.official-tmp ol { padding-left:5px !important;}
 }
