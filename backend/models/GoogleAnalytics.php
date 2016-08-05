@@ -38,7 +38,7 @@ class GoogleAnalytics extends \yii\base\Action
         $analyticsID = CodeBlockItem::getCode('analytics-id');
 
         $this->clientID = $clientID ? $clientID->content : '64247209.apps.googleusercontent.com';
-        $this->serviceAccountName = $serviceAccountName->content ? $serviceAccountName : '35226049920-dhfa4qa40noimn0klufkqrddjsk1s6rc@developer.gserviceaccount.com';
+        $this->serviceAccountName = $serviceAccountName ? $serviceAccountName->content : '35226049920-dhfa4qa40noimn0klufkqrddjsk1s6rc@developer.gserviceaccount.com';
         $this->analyticsID = $analyticsID ? $analyticsID->content : 'ga:104012318';
 
         $this->connectToAnalytics();
