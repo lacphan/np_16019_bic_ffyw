@@ -234,7 +234,7 @@ $submissionContent=PageItem::findPageLocale('submission-content',Yii::$app->requ
                     <?php if ((Yii::$app->language == 'fr_FR')): ?>
                         <?= $form->field($model, 'agreeTerm', ['options' => ['class' => 'form-check-box']])->checkbox(
                             ['template' => '<div class="form-check-box-inner">{input}{label}</div>{error}']
-                        )->label(Yii::t(_NP_TEXT_DOMAIN, 'J\'ai lu et j\'accepte ') . Html::a(Yii::t(_NP_TEXT_DOMAIN, 'les règlements officiels'), Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules']),['target' => '_blank'])) ?>
+                        )->label(Yii::t(_NP_TEXT_DOMAIN, 'J\'ai lu et j\'accepte ') . Html::a(Yii::t(_NP_TEXT_DOMAIN, 'le règlements officiel'), Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'official-rules']),['target' => '_blank'])) ?>
                     <?php else:?>
                         <?= $form->field($model, 'agreeTerm',
                             ['options' => ['class' => 'form-check-box']])->checkbox(
