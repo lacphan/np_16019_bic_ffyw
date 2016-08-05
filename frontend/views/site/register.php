@@ -40,8 +40,8 @@ $submissionContent=PageItem::findPageLocale('submission-content',Yii::$app->requ
                                     <?php endif; ?>
                                 </a>
                             <?php else: ?>
-                                <?php if ($contestItem->attachment): ?>
-                                    <?= $contestItem->attachment->getAttachmentImage() ?>
+                                <?php if ($contestItem->children->attachment): ?>
+                                    <?= $contestItem->children->attachment->getAttachmentImage() ?>
                                 <?php elseif ($weekNumber): ?>
                                     <img
                                         src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
