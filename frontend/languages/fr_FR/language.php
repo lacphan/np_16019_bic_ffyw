@@ -7,7 +7,7 @@
  */
 return [
     'Français' => 'English',
-	 ':' => ' :', 
+	 ':' => ' :',
     'string in abc' => 'string in abc FR',
     'Enter your email address to participate' => 'Veuillez saisir votre courriel pour participer',
     'Enter Now' => 'Participez maintenant',
@@ -37,8 +37,9 @@ return [
     "Parent's First Name" => 'Prénom du parent',
     "Parents Last Name" => "Nom de famille du parent",
     "Phone Number" => "Numéro de téléphone",
+    "Phone must contain 10 digits" => "Le numéro de téléphone doit contenir 10 chiffres",
 	 "Please enter numbers only" => "Entrer seulment numéros s'il vous plaît",
-	 "Email address does not match" => "Email ne correspond pas à l'autre",
+	 "Email address does not match" => "Les courriels ne correspondent pas",
     'Date of Birth' => "Date de naissance",
     "Month" => "Mois",
     "Day" => "Jour",
@@ -61,7 +62,7 @@ return [
     'Age must be no greater than 18' => 'Ne doit pas avoir plus de 18 ans',
     'Confirm Email' => 'Confirmez votre email',
     'I have read and agree to the ' => 'J\'ai lu et j\'accepte ',
-    'official rules' => 'les règlements officiels',
+    'official rules' => 'le règlements officiel',
     'Boys and Girls Clubs of Canada' => 'Repaires jeunesse du Canada',
     'Required' => 'Mandatory field',
     'Verification Code' => 'Code de vérification',
