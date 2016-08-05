@@ -10,5 +10,5 @@ return [
             'timeFormat' => 'php:H:i A',
             'defaultTimeZone' OR 'timeZone' => 'America/Toronto', //global date formats for display for your locale.
         ],
-    'viewDateFormat' => 'Y-m-d'
+    'viewDateFormat' => 'Y-m-d',
 ];
