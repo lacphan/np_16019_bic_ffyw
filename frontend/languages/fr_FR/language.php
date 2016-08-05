@@ -7,6 +7,7 @@
  */
 return [
     'Français' => 'English',
+	 ':' => ' :', 
     'string in abc' => 'string in abc FR',
     'Enter your email address to participate' => 'Veuillez saisir votre courriel pour participer',
     'Enter Now' => 'Participez maintenant',
@@ -22,9 +23,9 @@ return [
     'The Mission' => 'La Mission',
     'FEATURED TIP TO INSPIRE WRITING' => 'COMMENT DONNER ENVIE D\'ÉCRIRE',
     'TAKE ACTION' => 'PASSEZ À L\'ACTION',
-    'JOIN NOW' => 'NSCRIVEZ-VOUS MAITENANT',
+    'JOIN NOW' => 'INSCRIVEZ-VOUS MAINTENANT',
     'SEE ALL' => 'VOIR TOUS',
-    'Check out the handwriting submissions from all across Canada!' => 'Consultez les participations à l\'initiative d\'écriture à la main au Canada!',
+    'Check out the handwriting submissions from all across Canada!' => 'Consultez les soumissions pour le concours d\'écriture à la main au Canada!',
     'Write Now' => 'Écrivez dès maintenant',
     'Products' => 'Produits',
     'Press' => 'Presse',
@@ -45,14 +46,14 @@ return [
     'Your Child\'s Name' => 'Prénom de l\'enfant',
     'Your Child\'s Last Initial' => 'Initiale du nom de famille de l\'enfant',
     'Age' => 'Âge',
-    'Upload photo instructions' => 'Instructions pour le téléchargement de photos',
-    'No larger than 5MB and only accept .jpg and .png files' => 'Ne doit pas dépasser 5 MB et nous acceptons uniquement les fichiers .jpg et .png',
-    'Upload' => 'TÉLÉCHARGER',
+    'Upload photo instructions' => 'Instructions pour le téléversement de photos ',
+    'No larger than 5MB and only accept .jpg and .png files' => '=> 5 Mo maximum aux formats .jpg et .png uniquement',
+    'Upload' => 'TÉLÉVERSER',
     'SUBMIT' => 'SOUMETTRE',
     'Handwriting Challenge' => 'Défi d\'ecriture',
     'Gallery' => 'Galerie',
     'Contest Prizes' => 'Description des prix',
-    'Official Rules' => 'Règlement officielle',
+    'Official Rules' => 'Règlement officiel',
     'is a mandatory field' => 'est un champ obligatoire.',
     'Required field' => 'est un champ obligatoire.',
     'Please accept the official rules' => 'est un champ obligatoire',
@@ -91,6 +92,6 @@ return [
                             <span class="font-2 color-2 head-line-3">Challenge!</span>' => '<span class="font-2 color-2 head-line-1">Défi </span>
                             <span class="font-5 color-3 head-line-2">d\'écriture</span>
                             <span class="font-2 color-2 head-line-3">de la semaine!</span>',
-    'BIC\'S <span class="nocufon">Handwriting</span> Challenge!<br>Gallery' => 'BIC\'S <span class="nocufon">d\'écriture</span> de la semaine!<br>Galerie',
+    'BIC\'S <span class="nocufon">Handwriting</span> Challenge!<br>Gallery' => 'Galerie du défi <span class="nocufon">d\'écriture</span> de BIC!',
 	 '<span class="Cufon-KGSecondChancesSketch">BIC\'S</span> <span>Handwriting</span> <span class="Cufon-KGSecondChancesSketch">Challenge!<br> Gallery</span>' => '<span class="Cufon-KGSecondChancesSketch">BIC\'S</span> <span>d\'écriture</span> <span class="Cufon-KGSecondChancesSketch">de la semaine!<br>Galerie</span>'
 ];

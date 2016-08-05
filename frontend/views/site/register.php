@@ -107,7 +107,7 @@ $submissionContent=PageItem::findPageLocale('submission-content',Yii::$app->requ
                     <div class="intro-heading-inner">
                         <h1 class="head-line">
                             <?php if ((Yii::$app->language == 'fr_FR')): ?>
-                                <span class="Cufon-KGSecondChancesSketch color-2 head-line-1">Défid'écriture</span>
+                                <span class="Cufon-KGSecondChancesSketch color-2 head-line-1">Défi d'écriture</span>
                                 <span class="font-5 color-3 head-line-2">de la</span>
                                 <span class="Cufon-KGSecondChancesSketch color-2 head-line-3">semaine!</span>
                             <?php else:?>
@@ -121,7 +121,7 @@ $submissionContent=PageItem::findPageLocale('submission-content',Yii::$app->requ
                             <div class="intro-inner">
                                 <h3>
                                     <span class="font-5 color-1">
-                                        <?= Yii::t(_NP_TEXT_DOMAIN,'Week') . ' ' . $weekNumber ?>:
+                                        <?= Yii::t(_NP_TEXT_DOMAIN,'Week') . ' ' . $weekNumber . Yii::t(_NP_TEXT_DOMAIN,':') ?>
                                         <?php if ($contestItem ): ?>
                                             <?php if($contestItem->children && Yii::$app->language == 'fr_FR') :?>
                                                 <?= $contestItem->children->title;?>

@@ -378,7 +378,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                 <tr>
                                     <td class="v-top join-wrapper">
                                         <h3><?= Yii::t(_NP_TEXT_DOMAIN,'TAKE ACTION')?></h3>
-                                        <a target="_blank" href="https://www.facebook.com/BICWritingCanada" class="join_button"><?= Yii::t(_NP_TEXT_DOMAIN,'JOIN NOW')?></a>
+                                        <a target="_blank" href="https://www.facebook.com/BICWritingCanada/" class="join_button"><?= Yii::t(_NP_TEXT_DOMAIN,'JOIN NOW')?></a>
                                     </td>
                                 </tr>
                             </table>

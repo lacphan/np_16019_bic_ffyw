@@ -19,18 +19,18 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                 <h1 class="uppercase center">LA MISSION</h1>
                 <h2 class="center">Pourquoi lutter pour Ton pouvoir d’écrire avec BIC?</h2>
                 <p class="col-xs-12 center sans-semi top">Joignez-vous à
-                    <span class="sans-bold">BIC</span> pour faire avancer notre mission de sauver l’écriture à la main et promouvoir
-                    <span class="sans-bold">Ton pouvoir d’écrire</span>. L’écriture est un important mécanisme de communication qui nous distingue et qui favorise l'individualité. Saviez-vous que l’écriture constitue un outil d’apprentissage crucial pour les enfants? L’écriture aide les jeunes à devenir de meilleurs lecteurs; elle accroît leur confiance en eux-mêmes et elle stimule leur créativité. Ensemble, nous voulons montrer aux enfants la joie d'écrire... et de découvrir leurs propres immenses talents!</p>
+                    <span class="sans-bold">BIC</span> pour faire avancer notre mission de sauvetage de l’écriture à la main et la promotion de <span class="sans-bold">Ton pouvoir d’écrire</span>. L’écriture est un important mécanisme de communication qui nous distingue et qui favorise l'individualité. Saviez-vous que l’écriture constitue un outil d’apprentissage crucial pour les enfants? L’écriture aide les jeunes à devenir de meilleurs lecteurs; elle accroît leur confiance en eux-mêmes et elle stimule leur créativité. Ensemble, nous voulons transmettre aux enfants la joie d'écrire... et de découvrir leurs propres immenses talents!</p>
 
                 <span class=""></span>
 
                 <div id="mission-vid-wrap" class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/GWpMlfGbj-c?rel=0&amp;controls=0&amp;showinfo=0;autoplay=0" frameborder="0" allowfullscreen></iframe>
+						  <a href="<?= Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'video-transcript','locale' => Yii::$app->request->get('locale')])?>">Transcription des textes</a>
 
-                    <span class="hidden-xs visible-md-block visible-lg-block flyout"><h3 class="kg-fall-bd yellow-text">Visionnez
-                        <span class="blk-text">notre</span> vidéo!
-                    </h3><img
-                            src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-arrows_14.png' ?>"/></span>
+                    <span class="hidden-xs visible-md-block visible-lg-block flyout">
+							<h3 class="kg-fall-bd yellow-text">Visionnez <span class="blk-text">notre</span> vidéo!</h3>
+                     <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-arrows_14.png' ?>"/>
+						  </span>
                 </div>
 
                 <div id="mission-accordion-wrap" class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
@@ -39,13 +39,12 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                             <a href="#list-itembody-1" class="top col-xs-12" data-parent="#mission-accordion"
                                data-toggle="collapse"><i class="fa fa-2x fa-caret-right col-xs-1 center"></i>
                                 <div class="col-xs-1">
-                                    <img
-                                        src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-icon_03.png' ?>"/>
+                                    <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-icon_03.png' ?>"/>
                                 </div>
-                                <span class="col-xs-10 kg-fall-bd"> Améliore le développement cognitif</span></a>
+                                <span class="col-xs-10 kg-fall-bd">Améliorer le développement cognitif</span></a>
                             <div class="col-xs-12 panel-collapse collapse in" id="list-itembody-1">
                                 <div class="well-sm panel-body center">
-                                    <p class="sans-semi">Les experts recommandent au moins 15 minutes d’instruction en écriture à la main par jour pour les étudiants. Les recherches ont démontré que des compétences améliorées en écriture présentent des avantages pour le développement cognitif et les capacités motrices et qu’elles favorisent l'amélioration des compétences en rédaction et de la compréhension.</p>
+                                    <p class="sans-semi">Les experts recommandent au moins 15 minutes d’instruction en écriture à la main par jour pour les étudiants. Les recherches ont démontré que des compétences améliorées en écriture présentent des avantages pour le développement cognitif et les capacités motrices et qu’elles favorisent l'amélioration des compétences en rédaction et compréhension.</p>
                                     <!--<a href="https://www.zaner-bloser.com/media/zb/zaner-bloser/pdf/hw_hanover.pdf" target="_blank" class="sans-bold learn-more" style="text-decoration:underline">Learn More</a></div>-->
                                     <small>
                                         <span class="turq-text">Source :</span> Hanover Research (2012). « The Importance of Teaching Handwriting in the 21st Century ». Washington, DC: Hanover Research
@@ -60,10 +59,10 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                     <img
                                         src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-icon_06.png' ?>"/>
                                 </div>
-                                <span class="col-xs-10 kg-fall-bd">Favorise la confiance en soi</span></a>
+                                <span class="col-xs-10 kg-fall-bd">Favoriser la confiance en soi</span></a>
                             <div class="btm col-xs-12 panel-collapse collapse" id="list-itembody-2">
                                 <div class="well-sm panel-body center">
-                                    <p class="sans-semi">"Les études démontrent que les enfants qui font de l'écriture fréquemment, tant à l’école que chez eux, se sentent plus confiants dans leurs aptitudes d'écriture. Cette confiance se traduit par de meilleurs résultats dans toutes les matières scolaires et par le succès dans des activités non scolaires aussi." – Pam Allyn, « Your Child’s Writing Life » et « Prepare My Child for School: Early Childhood Education », ministère de l'Éducation des États-Unis</p>
+                                    <p class="sans-semi">" Les études démontrent que les enfants qui écrivent fréquemment, tant à l’école que chez eux, se sentent plus confiants dans leurs aptitudes à l’écrit. Cette confiance se traduit par de meilleurs résultats dans toutes les matières scolaires, mais aussi plus de succès dans les activités non scolaires." – Pam Allyn, « Your Child’s Writing Life » et « Prepare My Child for School: Early Childhood<br />Education », ministère de l'Éducation des États-Unis</p>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +73,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                     <img
                                         src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-icon_08.png' ?>"/>
                                 </div>
-                                <span class="col-xs-10 kg-fall-bd">Améliore les résultats scolaires</span></a>
+                                <span class="col-xs-10 kg-fall-bd">Améliorer les résultats scolaires</span></a>
                             <div class="btm panel-collapse collapse col-xs-12" id="list-itembody-3">
                                 <div class="well-sm panel-body center">
                                     <p class="sans-semi">Les compétences en écriture à la main jettent des bases solides pour le succès scolaire. Les recherches démontrent que l’écriture à la main est une compétence fondamentale pouvant influencer les aptitudes en lecture, en écriture et en langues ainsi que la pensée critique.</p>
@@ -90,10 +89,10 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                     <img
                                         src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-icon_10.png' ?>"/>
                                 </div>
-                                <span class="col-xs-10 kg-fall-bd">Renforce les compétences en lecture</span></a>
+                                <span class="col-xs-10 kg-fall-bd">Renforcer les compétences en lecture</span></a>
                             <div class="btm panel-collapse collapse col-xs-12" id="list-itembody-4">
                                 <div class="well-sm panel-body center">
-                                    <p class="sans-semi">Les recherches ont démontré qu’il existe une corrélation positive entre des compétences améliorées en écriture à la main et un rendement scolaire amélioré à l’égard de la lecture et de l’écriture. Lorsque les élèves passent moins de temps à se concentrer pour maîtriser la forme des lettres, ils ont plus de temps pour la planification et l’organisation des idées, évidemment essentielles pour une rédaction efficace."</p>
+                                    <p class="sans-semi">Les recherches ont démontré qu’il existe une corrélation positive entre des compétences améliorées en écriture à la main et un rendement scolaire amélioré en termes de lecture et d’écriture. Lorsque les élèves passent moins de temps à se concentrer pour maîtriser la forme des lettres, ils ont plus de temps pour la planification et l’organisation des idées, ce qui est essentiel pour une bonne rédaction.</p>
                                     <a href="https://www.hw21summit.com/media/zb/hw21/H2948_HW_Summit_White_Paper_eVersion.pdf"
                                        target="_blank" class="sans-bold learn-more" style="text-decoration:underline">En savoir plus</a>
                                 </div>
@@ -106,13 +105,13 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                     <img
                                         src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-icon_12.png' ?>"/>
                                 </div>
-                                <span class="col-xs-10 kg-fall-bd">Stimule la créativité</span></a>
+                                <span class="col-xs-10 kg-fall-bd">Stimuler la créativité</span></a>
                             <div class="btm panel-collapse collapse col-xs-12" id="list-itembody-5">
                                 <div class="well-sm panel-body center">
-                                    <p class="sans-semi">Selon un expert dans la psychologie pédagogique à l’université de Washington, l’instruction en écriture à la main favorise le développement cognitif ainsi que la motricité. À titre d’exemple, voici quelques tâches motrices et cognitives associées à l’écriture à la main : idéation, la production de textes, la ponctuation, la planification, l'orthographe, la grammaire.
+                                    <p class="sans-semi">Selon un expert en psychologie pédagogique à l’Université de Washington, l’instruction en écriture à la main favorise le développement cognitif ainsi que la motricité. À titre d’exemple, voici quelques tâches motrices et cognitives associées à l’écriture à la main : idéation, production de textes, ponctuation, planification, orthographe, grammaire.
                                     </p>
                                     <small>
-                                        <span class="turq-text">Source:</span> Hanover Research (2012), « The Importance of Teaching Handwriting in the 21st Century ». Washington, DC: Hanover Research
+                                        <span class="turq-text">Source :</span> Hanover Research (2012), « The Importance of Teaching Handwriting in the 21st Century ». Washington, DC: Hanover Research
                                     </small>
                                 </div>
                             </div>
@@ -124,10 +123,10 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                     <img
                                         src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'mission-icon_14.png' ?>"/>
                                 </div>
-                                <span class="col-xs-10 kg-fall-bd">Affine les aptitudes de pensée critique</span></a>
+                                <span class="col-xs-10 kg-fall-bd">Affiner les aptitudes de pensée critique</span></a>
                             <div class="btm panel-collapse collapse col-xs-12" id="list-itembody-6">
                                 <div class="well-sm panel-body center">
-                                    <p class="sans-semi">IEn termes de développement cognitif des élèves, les recherches fondées sur des données probantes ont démontré que les compétences en écriture à la main peuvent influer sur la maîtrise des aptitudes comme la lecture, l’écriture, les langues et la pensée critique.</p>
+                                    <p class="sans-semi">En termes de développement cognitif des élèves, les recherches fondées sur des données probantes ont démontré que les compétences en écriture à la main peuvent influer sur la maîtrise des aptitudes comme la lecture, l’écriture, les langues et la pensée critique.</p>
                                     <a href="https://www.hw21summit.com/media/zb/hw21/H2948_HW_Summit_White_Paper_eVersion.pdf"
                                        target="_blank" class="sans-bold learn-more" style="text-decoration:underline">En savoir plus</a>
                                 </div>
@@ -142,7 +141,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                 </div>
 
                 <div id="mission-gauges" class="col-xs-12 show-grid">
-                    <h2 class="kg-fall-bd center relative turq-text">PRENEZ CONNAISSANCE DES FAITS:
+                    <h2 class="kg-fall-bd center relative turq-text">PRENEZ CONNAISSANCE LES FAITS :
                         <span class="absolute" style="bottom: -14px;width: 100%;left: 0;">
 						<img
                             src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'experts_06.png' ?>"/>
@@ -230,7 +229,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
 
                     <div id="ability-list" class="col-xs-12">
                         <div class="show-grid relative">
-                            <h3 class="sans-bold">Handwriting engages 14 different abilities<span class="absolute"
+                            <h3 class="sans-bold">L’écriture à la main nécessite 14 aptitudes :<span class="absolute"
                                                                                                   style="bottom: -14px;width: 100%;left: 0;"><img
                                         src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/' . 'experts_06.png' ?>"
                                         class=""/></span>
@@ -241,33 +240,33 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
 
                         <div>
                             <p class="center kg-fall-bd">
-                                <mark><span class="abilityNum">1)</span> Visual Focusing</mark>
+                                <mark><span class="abilityNum">1)</span> Concentration visuelle</mark>
                             </p>
-                            <p class="center kg-fall-bd"><span class="abilityNum">2)</span> Mental Attention</p>
+                            <p class="center kg-fall-bd"><span class="abilityNum">2)</span> Concentration mentale</p>
                             <p class="center kg-fall-bd">
-                                <mark><span class="abilityNum">3)</span> Organized Physical Movements</mark>
+                                <mark><span class="abilityNum">3)</span> Mouvements physiques coordonnées</mark>
                             </p>
-                            <p class="center kg-fall-bd"><span class="abilityNum">4)</span> Receptive Language</p>
+                            <p class="center kg-fall-bd"><span class="abilityNum">4)</span> Langage réceptif</p>
                             <p class="center kg-fall-bd">
-                                <mark><span class="abilityNum">5)</span> Inner Expressive Language</mark>
+                                <mark><span class="abilityNum">5)</span> Langage expressif intérieur</mark>
                             </p>
-                            <p class="center kg-fall-bd"><span class="abilityNum">6)</span> Memory Recall</p>
+                            <p class="center kg-fall-bd"><span class="abilityNum">6)</span> Mémoire</p>
                             <p class="center kg-fall-bd">
-                                <mark><span class="abilityNum">7)</span> Concentration with Awareness</mark>
+                                <mark><span class="abilityNum">7)</span> Concentration et perception</mark>
                             </p>
-                            <p class="center kg-fall-bd"><span class="abilityNum">8)</span> Spatial Perception</p>
+                            <p class="center kg-fall-bd"><span class="abilityNum">8)</span> Orientation dans l'espace</p>
                             <p class="center kg-fall-bd">
-                                <mark><span class="abilityNum">9)</span> Organization</mark>
+                                <mark><span class="abilityNum">9)</span> Organisation</mark>
                             </p>
-                            <p class="center kg-fall-bd"><span class="abilityNum">10)</span> Integration</p>
+                            <p class="center kg-fall-bd"><span class="abilityNum">10)</span> Intégration</p>
                             <p class="center kg-fall-bd">
-                                <mark><span class="abilityNum">11)</span> Eye-Hand Coordination</mark>
+                                <mark><span class="abilityNum">11)</span> Coordination œil-main</mark>
                             </p>
-                            <p class="center kg-fall-bd"><span class="abilityNum">12)</span> Motor Planning</p>
+                            <p class="center kg-fall-bd"><span class="abilityNum">12)</span> Planification motrice</p>
                             <p class="center kg-fall-bd">
-                                <mark><span class="abilityNum">13)</span> Tactile Input</mark>
+                                <mark><span class="abilityNum">13)</span> Toucher</mark>
                             </p>
-                            <p class="center kg-fall-bd"><span class="abilityNum">14)</span> Crossing Midline</p>
+                            <p class="center kg-fall-bd"><span class="abilityNum">14)</span> Coordination bilatérale</p>
                         </div>
 
                         <span id="rightPen" class="absolute hidden-xs visible-md-block visible-lg-block">
@@ -321,6 +320,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
 
                 <div id="mission-vid-wrap" class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/yx6tellQ5dk?rel=0&amp;controls=0&amp;showinfo=0;autoplay=0" frameborder="0" allowfullscreen></iframe>
+						  <a href="<?= Yii::$app->urlManager->createUrl(['page/show-single','slug' => 'video-transcript','locale' => Yii::$app->request->get('locale')])?>">Text Transcript</a>
 
                     <span class="hidden-xs visible-md-block visible-lg-block flyout"><h3 class="kg-fall-bd yellow-text">Watch
                         <span class="blk-text">Our</span> Video!
