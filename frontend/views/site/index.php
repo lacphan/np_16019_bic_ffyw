@@ -125,8 +125,8 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                     <?php endif; ?>
                                 </a>
                             <?php else: ?>
-                                <?php if ($contestItem->attachment): ?>
-                                    <?= $contestItem->attachment->getAttachmentImage() ?>
+                                <?php if ($contestItem->children->attachment): ?>
+                                    <?= $contestItem->children->attachment->getAttachmentImage() ?>
                                 <?php elseif ($weekNumber): ?>
                                     <img
                                         src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
@@ -193,8 +193,8 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                     <?php endif; ?>
                                 </a>
                             <?php else: ?>
-                                <?php if ($contestItem->attachment): ?>
-                                    <?= $contestItem->attachment->getAttachmentImage() ?>
+                                <?php if ($contestItem->children->attachment): ?>
+                                    <?= $contestItem->children->attachment->getAttachmentImage() ?>
                                 <?php elseif ($weekNumber): ?>
                                     <img
                                         src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
