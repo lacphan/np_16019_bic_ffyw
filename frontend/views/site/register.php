@@ -27,7 +27,28 @@ $submissionContent=PageItem::findPageLocale('submission-content',Yii::$app->requ
             <div class="registration-content-row">
                 <div class="col-md-3 image-heading">
                     <div class="heading-content">
-                        <?php if ($contestItem): ?>
+                        <?php if (Yii::$app->language == 'fr_FR' && $contestItem->children ): ?>
+
+                            <?php if($contestItem->children->popup): ?>
+                                <a class="weekly-image" href="#">
+                                    <?php if ($contestItem->children->attachment): ?>
+                                        <?= $contestItem->children->attachment->getAttachmentImage() ?>
+                                    <?php elseif ($weekNumber): ?>
+                                        <img
+                                            src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
+                                            alt="Feature" width="364" height="326">
+                                    <?php endif; ?>
+                                </a>
+                            <?php else: ?>
+                                <?php if ($contestItem->attachment): ?>
+                                    <?= $contestItem->attachment->getAttachmentImage() ?>
+                                <?php elseif ($weekNumber): ?>
+                                    <img
+                                        src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
+                                        alt="Feature" width="364" height="326">
+                                <?php endif; ?>
+                            <?php endif;?>
+                        <?php elseif ($contestItem): ?>
                             <?php if($contestItem->popup): ?>
                                 <a class="weekly-image" href="#">
                                     <?php if ($contestItem->attachment): ?>
@@ -49,7 +70,22 @@ $submissionContent=PageItem::findPageLocale('submission-content',Yii::$app->requ
                             <?php endif;?>
                         <?php endif; ?>
                         <?php
-                        if($contestItem->popup) {
+                        if(Yii::$app->language == 'fr_FR' && $contestItem->children && $contestItem->children->popup) {
+                            Modal::begin([
+                                'closeButton' => [
+                                    'label' => '&times;',
+                                    'class' => 'close-btn',
+                                ],
+                                'size' => 'modal-lg',
+                                'id' => 'weekly-image-popup',
+                                'options' => [
+                                    'class' => 'fade modal'
+                                ]
+                            ]);
+                            echo '<div id="modalContent"> <img src="'.$contestItem->children->popup ->getAttachmentUrl().'"></div>';
+                            Modal::end();
+                        }
+                        else if($contestItem->popup) {
                             Modal::begin([
                                 'closeButton' => [
                                     'label' => '&times;',
