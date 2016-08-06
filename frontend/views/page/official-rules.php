@@ -19,7 +19,7 @@ use frontend\models\PageItem;
             <div class="doodle-5"></div>
             <div class="success-content ">
               <?php if ((Yii::$app->language == 'fr_FR')): ?>
-                <h1 class="font-5 color-3">BIC's HANDWRITING CHALLENGE PROMOTION (FR)</h1>
+                <h1 class="font-5 color-3">PROMOTION DÉFI D'ÉCRITURE DE BIC</h1>
                 <div class="title">
                     <span><?= Yii::t(_NP_TEXT_DOMAIN,'Official Rules')?></span>
                 </div>

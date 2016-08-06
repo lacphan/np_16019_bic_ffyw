@@ -344,10 +344,9 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                         <div class="inner">
                             <h3><?= Yii::t(_NP_TEXT_DOMAIN, "THE MISSION")?></h3>
                             <div class="image-inner">
-                                <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/mission.png' ?>"
-                                     alt="">
+                                <a class="font-5"
+                           href="<?= $locale == DEFAULT_LOCALE ? Yii::$app->urlManager->createUrl(['page/mission']) :  Yii::$app->urlManager->createUrl(['page/mission','locale' => $locale]) ?>"><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/mission.png' ?>" alt=""></a>
                             </div>
-
                         </div>
                     </div>
                 </div>

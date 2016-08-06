@@ -48,7 +48,7 @@ return [
     'Your Child\'s Last Initial' => 'Initiale du nom de famille de l\'enfant',
     'Age' => 'Âge',
     'Upload photo instructions' => 'Instructions pour le téléversement de photos ',
-    'No larger than 5MB and only accept .jpg and .png files' => '=> 5 Mo maximum aux formats .jpg et .png uniquement',
+    'No larger than 5MB and only accept .jpg and .png files' => '5 Mo maximum aux formats .jpg et .png uniquement',
     'Upload' => 'TÉLÉVERSER',
     'SUBMIT' => 'SOUMETTRE',
     'Handwriting Challenge' => 'Défi d\'ecriture',
