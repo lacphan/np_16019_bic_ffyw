@@ -293,7 +293,7 @@ $submissionContent=PageItem::findPageLocale('submission-content',Yii::$app->requ
                     ])->widget(
                         ReCaptcha::className(),
                         [
-                            'siteKey' => '6LddpCQTAAAAADkMcb59wigYVIq7n1Y9jKE4HCS3',
+                            'siteKey' => '6Lc9EicTAAAAAAQ4U1CS70PEoaL0g2xFhF4Ods_l',
                             'options' => [
                                 'class' => 'global-input'
                             ],

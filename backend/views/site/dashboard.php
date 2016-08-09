@@ -3,7 +3,6 @@ use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use backend\models\ContestSession;
 use backend\models\ContestItem;
-use backend\models\GoogleAnalytics;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
@@ -13,16 +12,7 @@ $contestItem = ContestItem::getWeek();
 $contestSessions = ContestSession::find()->where(['>=','created_at',$contestItem->start_date])->andWhere(['<=','created_at',$contestItem->end_date])->all();
 
 $winner = ContestSession::find()->where(['is_winner' => 1])->all();
-$googleAnalytics = new GoogleAnalytics();
-$googleAnalytics->startDate = '2013-12-25';
-$googleAnalytics->endDate = date('Y-m-d');
 
-$visits = $googleAnalytics->getVisitors();
-$pageTotalView = $googleAnalytics->getTotalPageViews();
-$bounceRate = $googleAnalytics->getBounceRate();
-$newUserVisits = $googleAnalytics->getNewVisits();
-$uniquePageView = $googleAnalytics->getUniquePageView();
-$newVisits = round(floatval($newUserVisits/$pageTotalView)*100,1);
 ?>
 <div class="user-index">
     <div class="page-bar">
@@ -87,54 +77,6 @@ $newVisits = round(floatval($newUserVisits/$pageTotalView)*100,1);
                         <div class="tab-content">
                             <div class="tab-pane active" id="overview_1">
                                 <div class="table-responsive">
-                                    <div class="table-scrollable">
-                                        <table class="table table-hover">
-
-                                            <tbody>
-                                            <tr>
-                                                <td>
-                                                    <b>Visits</b><br/>
-                                                    (The total number of visits.)
-                                                </td>
-                                                <td> <?php echo number_format($visits, 0, ',', '.')  ?></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <b>Pageviews: </b><br/>
-                                                    (The total number of pageviews.)
-                                                </td>
-                                                <td> <?php echo number_format($pageTotalView, 0, ',', '.')  ?></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <b>Unique Pageviews: </b><br/>
-                                                    (The number of different (unique) pages within a visit, summed up across all visits.)
-                                                </td>
-                                                <td> <?php echo number_format( $uniquePageView , 0, ',', '.')  ?></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <b>Bounce Rate: </b><br/>
-                                                    (The total number of single-page visits.)
-                                                </td>
-                                                <td><?php echo $bounceRate ?></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <b>% New Visits:</b><br/>
-                                                    (Percentage of Unique Visitors over Total Visits)
-                                                </td>
-                                                <td> <?php echo $newVisits ?> %</td>
-
-                                            </tr>
-
-                                            </tbody>
-                                        </table>
-                                    </div>
 
                                 </div>
                             </div>
@@ -142,7 +84,7 @@ $newVisits = round(floatval($newUserVisits/$pageTotalView)*100,1);
                     </div>
                 </div>
             </div>
-
+            <!-- End: life time stats -->
         </div>
     </div>
 </div>

@@ -16,12 +16,11 @@ $config = [
             'class'=> 'yii\web\UrlManager',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-
+            'baseUrl' => '',
             'rules'=>[
                 '/<locale:\w+>/product' => 'product',
                 '/<locale:\w+>/product/<slug:\w[\w\-]+>/' => 'product/show-single',
                 '/product/<slug:\w[\w\-]+>/' => 'product/show-single',
-                '/product' => 'product',
                 '/<locale:\w+>/page' => 'page',
                 '/<locale:\w+>/page/<slug:\w[\w\-]+>/<id:\d+>' => 'page/show-single',
                 '/<locale:\w+>/page/<slug:\w[\w\-]+>/' => 'page/show-single',

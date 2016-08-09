@@ -51,7 +51,7 @@ class SubmissionForm extends Model
             [['agreeTerm'], 'required','requiredValue' => 1,
                 'message' =>  Yii::t(_NP_TEXT_DOMAIN, 'Please accept the official rules')
             ],
-            ['verificationCode', ReCaptchaValidator::className(), 'secret' => '6LddpCQTAAAAAPU27Z1X3nwsVnNed-9aDrk5moSA'],
+            ['verificationCode', ReCaptchaValidator::className(), 'secret' => '6Lc9EicTAAAAAEbHzwRjIf_-GDHYiTHfYU1Hg-g2'],
             [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpeg, jpg', 'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],
             ['isLimitSubmission','string', 'message' => Yii::t('app','Weekly Limit Reached')]
         ];
@@ -91,7 +91,7 @@ class SubmissionForm extends Model
             }
 
             $contestSession->user_id = $user->id;
-            $contestSession->contest_item_id = ContestItem::getWeek()->id;
+            $contestSession->contest_item_id = ContestItem::getWeek()->week_number;
             $contestSession->user_email = $this->email;
             $contestSession->first_name = $this->childFirstName;
             $contestSession->last_name = $this->childLastInitial;

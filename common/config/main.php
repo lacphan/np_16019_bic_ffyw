@@ -28,7 +28,7 @@ return [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.sendgrid.net',
-                'username' => 'hung.tran@enpii.com',
+                'username' => 'hung.tran@gmail.com',
                 'password' => 'eNpii@123',
                 'port' => '587'
             ],
