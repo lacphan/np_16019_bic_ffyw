@@ -115,6 +115,14 @@ frontend/config/main-local.php
                      'request' => [                       
                          'baseUrl' => '',
                      ],
+                     
+--------------------                     
+frontend/config/param-local.php 
+ ===> Setting google captcha
+      EX:   'googleCaptcha' => [
+                   'siteKey' =>  '6LddpCQTAAAAADkMcb59wigYVIq7n1Y9jKE4HCS3',
+                   'secretKey' => '6LddpCQTAAAAAPU27Z1X3nwsVnNed-9aDrk5moSA'
+               ]
 --------------------         
 backend/config/main-local.php 
 ===> Setting base url
