@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use backend\models\User;
+use frontend\models\Attachment;
 use frontend\models\ContestSession;
 
 
@@ -159,6 +160,8 @@ class SiteController extends FrontendController
         if(Yii::$app->session->hasFlash('registerEmail')) {
             $model->email = Yii::$app->session->getFlash('registerEmail');
         }
+
+        $user = new User();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->register()) {
                 return $this->render('success');
@@ -166,6 +169,7 @@ class SiteController extends FrontendController
         }
         return $this->render('register', [
             'model' => $model,
+            'user' => $user
         ]);
     }
 
@@ -200,7 +204,50 @@ class SiteController extends FrontendController
 
         return $this->render('submission', [
             'model' => $model,
+            'user' => $user,
         ]);
+    }
+
+    public function actionRegisterUpload()
+    {
+        $model = new RegisterForm();
+        $model->scenario = RegisterForm::_UPLOAD;
+        $model->uploadFile = yii\web\UploadedFile::getInstance($model, 'uploadFile');
+
+        if ($model->validate(['uploadFile'])) {
+            $attachment = new Attachment();
+            if (!empty($model->uploadFile)) {
+                $attachment = Attachment::uploadFile($model->uploadFile, 'image');
+                $output = ['attachment_id'=>$attachment->id];
+            } else {
+                $output = ['error'=>'Uploading failed.'];
+            }
+        } else {
+            $output = ['error'=>$model->getFirstError('uploadFile')];
+        }
+
+        echo yii\helpers\Json::encode($output);
+    }
+
+    public function actionSubmissionUpload()
+    {
+        $model = new SubmissionForm();
+        $model->scenario = SubmissionForm::_UPLOAD;
+        $model->uploadFile = yii\web\UploadedFile::getInstance($model, 'uploadFile');
+
+        if ($model->validate(['uploadFile'])) {
+            $attachment = new Attachment();
+            if (!empty($model->uploadFile)) {
+                $attachment = Attachment::uploadFile($model->uploadFile, 'image');
+                $output = ['attachment_id'=>$attachment->id];
+            } else {
+                $output = ['error'=>'Uploading failed.'];
+            }
+        } else {
+            $output = ['error'=>$model->getFirstError('uploadFile')];
+        }
+
+        echo yii\helpers\Json::encode($output);
     }
 
     /**

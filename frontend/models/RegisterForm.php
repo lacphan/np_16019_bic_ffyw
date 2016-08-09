@@ -45,6 +45,10 @@ class RegisterForm extends Model
     public $verificationCode;
     public $agreeTerm;
     public $rotateDegree;
+    public $attachment_id;
+
+    const _SUBMIT = 'submit';
+    const _UPLOAD = 'upload';
 
     /**
      * @inheritdoc
@@ -72,6 +76,7 @@ class RegisterForm extends Model
         return [
 
             [['email','emailConfirm', 'province', 'parentFirstName', 'parentLastName', 'phoneNumber', 'childFirstName', 'childLastInitial'], 'required','message'=>'{attribute} '.Yii::t(_NP_TEXT_DOMAIN, 'is a mandatory field')],
+            [['attachment_id'], 'required', 'message' => Yii::t('yii', 'Please upload a file.')],
             [['email'], 'validateUsername'],
             [['emailConfirm'], 'email'],
             [['rotateDegree'], 'integer'],
@@ -91,7 +96,7 @@ class RegisterForm extends Model
             [['agreeTerm'], 'required','requiredValue' => 1,
                 'message' =>  Yii::t(_NP_TEXT_DOMAIN, 'Please accept the official rules')
             ],
-            [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpeg, jpg',  'maxSize' => 1048576, 'tooBig' => 'Limit is 1MB'],
+            [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpeg, jpg',  'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB', 'on' => static::_UPLOAD],
             [['email'], 'required'],
             [['email'], 'email'],
             [['age'], 'required', 'message'=>'{attribute} '.Yii::t(_NP_TEXT_DOMAIN, 'is a mandatory field')],
@@ -107,13 +112,11 @@ class RegisterForm extends Model
 
     public function register()
     {
-        $this->uploadFile = UploadedFile::getInstance($this, 'uploadFile');
         if ($this->validate()) {
 
             $user = new User();
             $profile = new UserProfile();
             $contestSession = new ContestSession();
-            $attachment = new Attachment();
 
             $flag = 1;
 
@@ -149,20 +152,13 @@ class RegisterForm extends Model
                 $auth->assign($standard, $user->id);
             }
 
-
-            if ($this->uploadFile) {
-
-                $attachment = Attachment::uploadFile($this->uploadFile,'image');
-
-            }
-
             if ($flag) {
                 $contestSession->user_id = $user->id;
                 $contestSession->contest_item_id = ContestItem::getWeek()->week_number;
                 $contestSession->user_email = $this->email;
                 $contestSession->first_name = $this->childFirstName;
                 $contestSession->last_name = $this->childLastInitial;
-                $contestSession->attachment_id = $attachment->id;
+                $contestSession->attachment_id = $this->attachment_id;
                 $contestSession->setCreatedDate();
                 $contestSession->setUpdatedDate();
                 $contestSession->creator_id = 1;
@@ -171,10 +167,6 @@ class RegisterForm extends Model
                     $contestSession->locale_id = 3;
                 }
                 $contestSession->save();
-            }
-
-            if($this->rotateDegree != 0) {
-                $attachment->rotateImage($this->rotateDegree);
             }
 
             if ($flag) {

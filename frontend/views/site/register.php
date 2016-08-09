@@ -11,6 +11,7 @@ use himiklab\yii2\recaptcha\ReCaptcha;
 use frontend\models\ContestItem;
 use yii\bootstrap\Modal;
 use frontend\models\PageItem;
+use kartik\file\FileInput;
 
 $this->title = 'Register';
 $this->params['breadcrumbs'][] = $this->title;
@@ -157,7 +158,6 @@ $submissionContent=PageItem::findPageLocale('submission-content',Yii::$app->requ
                 <p class="require-hint">* <?=Yii::t(_NP_TEXT_DOMAIN, 'Required Fields')?></p>
                 <?php $form = ActiveForm::begin([
                     'options' => [
-                        'enctype' => 'multipart/form-data',
                         'id' => 'register-form'
                     ]
                 ]); ?>
@@ -267,22 +267,55 @@ $submissionContent=PageItem::findPageLocale('submission-content',Yii::$app->requ
                                     Html::button('<i class="fa fa-repeat"></i>',['class' => 'img-rotate-right'])
                     ]
                     ?>
-                    <?= $form->field($model,'rotateDegree')->hiddenInput(['id' => 'rotate-degree'])->label(false)?>
-                    <?= $form->field($model, 'uploadFile',[
-                        'options' => ['class' => 'form-upload'],
-                        'template' => '<div class="form-upload-inner">' .
-                            '<div class="input-instruction">' .
-                            Yii::t(_NP_TEXT_DOMAIN, 'Upload photo instructions') . ':<br/>' .
-                            Yii::t(_NP_TEXT_DOMAIN, 'No larger than 1MB and only accept .jpg and .png files') .
-                            '</div>' .
-                            '<div class="btn btn-default global-btn btn-file"><span>'.Yii::t(_NP_TEXT_DOMAIN,'Upload').'{input}</span></div>' .
-                            '{label}{error}'.
-                            '<div class="preview-wrapper">'.
-                            '<div class="file-preview"><div class="file-preview-frame"><canvas id="canvas"></canvas></div></div>'.
-                            '<button type="button" class="img-rotate-left" ><i class="fa fa-undo" aria-hidden="true"></i></button>'.
-                            '<button type="button" class="img-rotate-right"><i class="fa fa-repeat"></i></button>'.
-                            '</div></div>'
-                    ])->fileInput(['id' => 'imageLoader'])->label(false); ?>
+
+                    <div class="form-upload">
+                        <div class="form-upload-inner">
+                            <div class="input-instruction">
+                                <?= Yii::t(_NP_TEXT_DOMAIN, 'Upload photo instructions') ?> <br/>
+                                <?=  Yii::t(_NP_TEXT_DOMAIN, 'No larger than 5MB and only accept .jpg and .png files') ?>
+                            </div>
+
+                            <?= $form->field($model, 'attachment_id')->hiddenInput()->label(false) ?>
+                            <?= $form->field($model, 'uploadFile')->widget(FileInput::classname(),
+                                [
+                                    'options' => [
+                                        'multiple' => false,
+                                        'accept' => 'image/*',
+                                        'class' => 'optionvalue-img'
+                                    ],
+                                    'pluginOptions' => [
+                                        'uploadUrl' => Yii::$app->urlManager->createUrl(['site/register-upload']),
+                                        'uploadExtraData' => [
+                                            'user_id' => $user->id
+                                        ],
+                                        'previewFileType' => 'image',
+                                        'showCaption' => false,
+                                        'showUpload' => false,
+                                        'browseClass' => 'btn btn-default global-btn',
+                                        'browseLabel' => Yii::t(_NP_TEXT_DOMAIN,'Upload'),
+                                        'browseIcon' => '',
+                                        'removeClass' => 'btn global-btn',
+                                        'removeLabel' => '',
+                                        'removeIcon' => '<i class="fa fa-trash"></i>',
+                                        'previewSettings' => [
+                                            'image' => ['width' => 'auto', 'height' => 'auto']
+                                        ],
+                                        'initialPreview' => '',
+                                    ],
+                                    'pluginEvents' => [
+                                        'filebatchselected' => 'function(event, element, arg2){
+                                                    jQuery(this).fileinput("upload");
+                                                }',
+                                        'fileuploaded' => 'function(event, element, arg2){
+                                                    
+                                                    jQuery("#'.'registerform-attachment_id'.'").val(element.response.attachment_id);
+                                                }'
+                                    ]
+                                ])->label(false); ?>
+                        </div>
+                    </div>
+
+
 
                 </div>
 

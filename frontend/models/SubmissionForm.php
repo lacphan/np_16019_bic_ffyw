@@ -36,6 +36,12 @@ class SubmissionForm extends Model
     public $agreeTerm;
     public $rotateDegree;
     public $isLimitSubmission;
+    public $attachment_id;
+
+
+    const _SUBMIT = 'submit';
+    const _UPLOAD = 'upload';
+
     /**
      * @inheritdoc
      */
@@ -44,6 +50,7 @@ class SubmissionForm extends Model
         return [
 
             [['childFirstName', 'childLastInitial', 'age', 'email'], 'required'],
+            [['attachment_id'], 'required', 'message' => Yii::t('yii', 'Please upload a file.')],
             [['childLastInitial'],'match', 'pattern' => '/[a-zA-Z]/','message' => Yii::t('app','Only from a-z A-Z')],
             [['childLastInitial'],'string', 'max' => 1,'message' => Yii::t('app','Maximum of one alpha character can be entered')],
             [['age'],'integer', 'min' => 6,'max' => 18, 'tooSmall' => Yii::t(_NP_TEXT_DOMAIN,'Must be 6 years or older'),'tooBig' => Yii::t(_NP_TEXT_DOMAIN,'Age must be no greater than 18')],
@@ -52,7 +59,7 @@ class SubmissionForm extends Model
                 'message' =>  Yii::t(_NP_TEXT_DOMAIN, 'Please accept the official rules')
             ],
             ['verificationCode', ReCaptchaValidator::className(), 'secret' => Yii::$app->params['googleCaptcha']['secretKey']],
-            [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpeg, jpg', 'maxSize' => 1048576, 'tooBig' => 'Limit is 1MB'],
+            [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpeg, jpg', 'maxSize' => 5*1024*1024, 'tooBig' => 'Limit is 5MB', 'on' => static::_UPLOAD],
             ['isLimitSubmission','string', 'message' => Yii::t('app','Weekly Limit Reached')]
         ];
     }
@@ -76,26 +83,18 @@ class SubmissionForm extends Model
      */
     public function submission()
     {
-        $this->uploadFile = UploadedFile::getInstance($this, 'uploadFile');
-
         if ($this->validate()) {
 
             $user = User::findByUsername($this->email);
             $contestSession = new ContestSession();
-            $attachment = new Attachment();
 
-            if ($this->uploadFile) {
-
-                $attachment = Attachment::uploadFile($this->uploadFile,'image');
-
-            }
 
             $contestSession->user_id = $user->id;
             $contestSession->contest_item_id = ContestItem::getWeek()->week_number;
             $contestSession->user_email = $this->email;
             $contestSession->first_name = $this->childFirstName;
             $contestSession->last_name = $this->childLastInitial;
-            $contestSession->attachment_id = $attachment->id;
+            $contestSession->attachment_id = $this->attachment_id;
             $contestSession->setCreatedDate();
             $contestSession->setUpdatedDate();
             $contestSession->creator_id = 1;
@@ -104,10 +103,7 @@ class SubmissionForm extends Model
                 $contestSession->locale_id = 3;
             }
             $contestSession->save();
-
-            if($this->rotateDegree != 0) {
-                $attachment->rotateImage($this->rotateDegree);
-            }
+            
             return $user;
 
 
