@@ -289,7 +289,7 @@ $submissionContent=PageItem::findPageLocale('submission-content',Yii::$app->requ
                                         'browseClass' => 'btn btn-default global-btn',
                                         'browseLabel' => Yii::t(_NP_TEXT_DOMAIN,'Upload'),
                                         'browseIcon' => '',
-                                        'removeClass' => 'btn btn-danger btn-sm global-btn',
+                                        'removeClass' => 'btn global-btn',
                                         'removeLabel' => '',
                                         'removeIcon' => '<i class="fa fa-trash"></i>',
                                         'previewSettings' => [
