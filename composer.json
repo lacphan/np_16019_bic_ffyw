@@ -27,6 +27,7 @@
         "yiisoft/yii2-gii": "*",
         "yiisoft/yii2-faker": "*",
         "2amigos/yii2-tinymce-widget" : "*",
+        "2amigos/yii2-file-upload-widget" : "~1.0",
         "himiklab/yii2-recaptcha-widget" : "*",
         "kartik-v/yii2-grid": "@dev",
         "kartik-v/yii2-editable": "@dev",

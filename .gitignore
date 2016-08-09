@@ -38,6 +38,9 @@ robot.txt
 
 #prepros file
 prepros.cfg
+.sass-cache
+config.codekit
+composer.lock
 
 #css map
 .css.map

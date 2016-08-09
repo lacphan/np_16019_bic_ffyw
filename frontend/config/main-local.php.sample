@@ -10,13 +10,13 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'ndoojpBv-kdTZYGWHho51g5K-i-i2IFy',
-            'baseUrl' => '',
+            'baseUrl' => APP_BASE_URL,
         ],
         'urlManager' => [
             'class'=> 'yii\web\UrlManager',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'baseUrl' => '',
+            'baseUrl' => APP_BASE_URL,
             'rules'=>[
                 '/<locale:\w+>/product' => 'product',
                 '/<locale:\w+>/product/<slug:\w[\w\-]+>/' => 'product/show-single',
