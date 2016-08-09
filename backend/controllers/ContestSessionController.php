@@ -64,8 +64,8 @@ class ContestSessionController extends BackendController
 
         if(Yii::$app->request->post() && Yii::$app->request->post('pick-grand-prize')) {
             $week = Yii::$app->request->post('week');
-            $this->pickGrandPrize($week);
-            $dataProvider = $searchModel->search(Yii::$app->request->queryParams,$week,1);
+            $this->pickGrandPrize();
+            $dataProvider = $searchModel->searchGrandPrize(Yii::$app->request->queryParams);
         }
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -229,12 +229,17 @@ class ContestSessionController extends BackendController
      * pick grand prize
      */
     public function pickWinner($week) {
-        $contestSessions = ContestSession::find()->where(['contest_item_id' => $week])->all();
-        if($contestSessions) {
-            foreach ($contestSessions as $contestSession) {
+
+        $contestSessionsReset = ContestSession::find()->where(['contest_item_id' => $week])->all();
+        if($contestSessionsReset) {
+            foreach ($contestSessionsReset as $contestSession) {
                 $contestSession->is_winner = 0;
                 $contestSession->save();
             }
+        }
+
+        $contestSessions = ContestSession::find()->where(['contest_item_id' => $week])->groupBy('user_id')->all();
+        if($contestSessions) {
             if(count($contestSessions) > 6) {
                 $winners = array_rand($contestSessions,6);
                 foreach ($winners as $key => $winner) {
@@ -255,17 +260,16 @@ class ContestSessionController extends BackendController
     /*
      * pick grand prize
      */
-    public function pickGrandPrize($week) {
+    public function pickGrandPrize() {
         $contestSessions = ContestSession::find()->all();
         if($contestSessions) {
             foreach ($contestSessions as $contestSession) {
-                $contestSession->is_winner = 0;
+                $contestSession->is_grand_prize = 0;
                 $contestSession->save();
             }
             $winner = array_rand($contestSessions,1);
-            $contestSessions[$winner]->is_winner = 1;
+            $contestSessions[$winner]->is_grand_prize = 1;
             $contestSessions[$winner]->save();
         }
-
     }
 }

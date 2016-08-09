@@ -186,7 +186,7 @@ $submissionContent=PageItem::getContentByCode('submission-content', $locale);
                                 'template' => '<div class="form-upload-inner">' .
                                     '<div class="input-instruction">' .
                                     Yii::t(_NP_TEXT_DOMAIN, 'Upload photo instructions') . ':<br/>' .
-                                    Yii::t(_NP_TEXT_DOMAIN, 'No larger than 5MB and only accept .jpg and .png files') .
+                                    Yii::t(_NP_TEXT_DOMAIN, 'No larger than 1MB and only accept .jpg and .png files') .
                                     '</div>' .
                                     '<div class="btn btn-default global-btn btn-file"><span>'.Yii::t(_NP_TEXT_DOMAIN,'Upload').'{input}</span></div>' .
                                     '{label}{error}'.
@@ -209,7 +209,7 @@ $submissionContent=PageItem::getContentByCode('submission-content', $locale);
                             ])->widget(
                                 ReCaptcha::className(),
                                 [
-                                    'siteKey' => '6Lc9EicTAAAAAAQ4U1CS70PEoaL0g2xFhF4Ods_l',
+                                    'siteKey' => Yii::$app->params['googleCaptcha']['siteKey'],
                                     'options' => [
                                         'class' => 'global-input'
                                     ],

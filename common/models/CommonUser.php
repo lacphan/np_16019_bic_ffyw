@@ -27,7 +27,7 @@ class CommonUser extends \common\models\base\BaseUser implements IdentityInterfa
     {
         return [
             [['username', 'email', 'first_name', 'auth_key', 'created_at', 'updated_at', 'creator_id'], 'required', 'message' => Yii::t('app', '{attribute} must has a value!')],
-            [['profile_id', 'parent_id', 'level', 'status', 'creator_id', 'is_deleted', 'is_enabled', 'ordering_weight'], 'integer'],
+            [['profile_id', 'parent_id', 'level', 'status', 'building_id', 'creator_id', 'is_deleted', 'is_enabled', 'ordering_weight', 'locale_id'], 'integer'],
             [['created_at', 'updated_at', 'published_at'], 'safe'],
             [['params'], 'string'],
             [['username', 'email', 'password_hash', 'password_reset_token'], 'string', 'max' => 255],
@@ -48,7 +48,7 @@ class CommonUser extends \common\models\base\BaseUser implements IdentityInterfa
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
+
         ];
     }
 

@@ -6,4 +6,8 @@
  */
 
 return [
+    'googleCaptcha' => [
+        'siteKey' =>  '6Lc9EicTAAAAAAQ4U1CS70PEoaL0g2xFhF4Ods_l',
+        'secretKey' => '6Lc9EicTAAAAAEbHzwRjIf_-GDHYiTHfYU1Hg-g2'
+    ]
 ];
