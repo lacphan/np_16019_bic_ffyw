@@ -28,6 +28,7 @@ use yii;
  * @property integer $is_enabled
  * @property integer $ordering_weight
  * @property string $params
+ * @property integer $locale_id
  *
  * @property BaseContestSession[] $contestSessions
  * @property BaseUserProfile $profile
@@ -49,7 +50,7 @@ class BaseUser extends \common\enpii\components\NpActiveRecord
     {
         return [
             [['username', 'email', 'password_hash', 'auth_key', 'created_at', 'updated_at', 'creator_id'], 'required'],
-            [['profile_id', 'parent_id', 'level', 'status', 'building_id', 'creator_id', 'is_deleted', 'is_enabled', 'ordering_weight'], 'integer'],
+            [['profile_id', 'parent_id', 'level', 'status', 'building_id', 'creator_id', 'is_deleted', 'is_enabled', 'ordering_weight', 'locale_id'], 'integer'],
             [['created_at', 'updated_at', 'published_at'], 'safe'],
             [['params'], 'string'],
             [['username', 'email', 'first_name', 'last_name', 'password_hash', 'password_reset_token'], 'string', 'max' => 255],
@@ -85,6 +86,7 @@ class BaseUser extends \common\enpii\components\NpActiveRecord
             'is_enabled' => Yii::t('app', 'Is Enabled'),
             'ordering_weight' => Yii::t('app', 'Ordering Weight'),
             'params' => Yii::t('app', 'Params'),
+            'locale_id' => Yii::t('app', 'Locale ID'),
         ];
     }
 

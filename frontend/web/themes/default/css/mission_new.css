@@ -1343,7 +1343,7 @@ select .form-control-old::-ms-value {
 #mission-accordion-wrap span.flyout {
     position: absolute;
     top: -80px;
-    right: -140px;
+    right: -180px;
 }
 #mission-vid-wrap h3, #mission-accordion-wrap h3 {
     font-family: 'kg_fall_for_you';

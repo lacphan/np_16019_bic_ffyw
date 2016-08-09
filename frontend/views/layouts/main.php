@@ -22,10 +22,19 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,700,800,300,600' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <script type="text/javascript">
         var base = "<?= Yii::$app->urlManager->baseUrl?>"
     </script>
+<script src="//cufon.shoqolate.com/js/cufon-yui.js" type="text/javascript"></script>
+<script src="/themes/default/fonts/Cufon-KGSecondChancesSketch_400.font.js" type="text/javascript"></script>
+<script type="text/javascript">
+Cufon.replace('.Cufon-KGSecondChancesSketch:not(.nocufon)');
+//Cufon.replace('.Cufon-KGSecondChancesSketch', {
+//    ignore: {
+//        span: true
+//    }
+//});
+</script>
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -56,6 +65,9 @@ if($gaCode) {
     echo $gaCode->content;
 }
 ?>
+<!--NON-SECURE IMAGE PIXEL CODE START-->
+<img alt="" src="http://acuityplatform.com/Adserver/pxl/7370744689334932728" width="1" height="1" />
+<!--NON-SECURE IMAGE PIXEL CODE END-->
 </body>
 </html>
 <?php $this->endPage() ?>

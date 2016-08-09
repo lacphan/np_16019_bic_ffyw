@@ -100,4 +100,49 @@ class SearchContestSession extends ContestSession
 
         return $dataProvider;
     }
+    public function searchGrandPrize($params,$week = null)
+    {
+        $query = ContestSession::find();
+
+        $query->join('LEFT JOIN', '{{%user}}', '{{%user}}.id = user_id');
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'sort' => [
+                'defaultOrder' =>  ['created_at' => SORT_DESC]
+            ],
+        ]);
+
+        $this->load($params);
+
+        if (!$this->validate()) {
+            // uncomment the following line if you do not want to return any records when validation fails
+            // $query->where('0=1');
+            return $dataProvider;
+        }
+
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'user_id' => $this->user_id,
+            'birth_year' => $this->birth_year,
+            'attachment_id' => $this->attachment_id,
+            'contest_item_id' => $this->contest_item_id ? $this->contest_item_id : 1,
+            '{{%contest_session}}.first_name' => $this->first_name,
+            '{{%contest_session}}.last_name' => $this->last_name,
+        ]);
+
+        $query->andFilterWhere(['is_grand_prize' => 1]);
+
+        $query->andFilterWhere(['like', '{{%user}}.email', $this->userEmail])
+            ->andFilterWhere(['like', '{{%user}}.first_name', $this->userFirstName])
+            ->andFilterWhere(['like', '{{%user}}.last_name', $this->userLastName]);
+
+        if($this->globalSearch) {
+            $query->filterWhere(['like','first_name', $this->globalSearch]);
+            $query->orFilterWhere(['like','last_name', $this->globalSearch]);
+            $query->orFilterWhere(['like','birth_year', $this->globalSearch]);
+        }
+
+        return $dataProvider;
+    }
 }

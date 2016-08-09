@@ -2352,15 +2352,15 @@
 
 @font-face {
   font-family: 'KGSecondChancesSketch';
-  src: url("../fonts/KGSecondChancesSketch.eot");
-  src: local("☺"), url("../fonts/KGSecondChancesSketch.woff") format("woff"), url("../fonts/KGSecondChancesSketch.ttf") format("truetype"), url("../fonts/KGSecondChancesSketch.svg") format("svg");
+  src: url("../fonts/KGSecondChancesSketch.eot") format('eot');
+  src: url("../fonts/KGSecondChancesSketch.woff") format("woff"), url("../fonts/KGSecondChancesSketch.ttf") format("truetype"), url("../fonts/KGSecondChancesSketch.svg") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'KGSecondChancesSolid';
-  src: url("../fonts/KGSecondChancesSolid.eot");
+  src: url("../fonts/KGSecondChancesSolid.eot") format('eot');
   src: local("☺"), url("../fonts/KGSecondChancesSolid.woff") format("woff"), url("../fonts/KGSecondChancesSolid.ttf") format("truetype"), url("../fonts/KGSecondChancesSolid.svg") format("svg");
   font-weight: normal;
   font-style: normal;
@@ -2404,4 +2404,11 @@
   src: url("../fonts/kgfallforyou-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/kgfallforyou-webfont.woff2") format("woff2"), url("../fonts/kgfallforyou-webfont.woff") format("woff"), url("../fonts/kgfallforyou-webfont.ttf") format("truetype"), url("../fonts/kgfallforyou-webfont.svg#kg_fall_for_youregular") format("svg");
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family: '[free version] Sketch Block Bold OLD';
+  font-style: normal;
+  font-weight: normal;
+  src: local('[free version] Sketch Block Bold'), url('../fonts/Sketch_Block.woff') format('woff');
 }

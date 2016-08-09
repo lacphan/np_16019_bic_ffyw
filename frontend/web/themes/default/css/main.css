@@ -38,7 +38,13 @@ img {
 }
 
 .font-2 {
-  font-family: "KGSecondChancesSketch";
+  font-family: "Cufon-KGSecondChancesSketch";
+  /*
+  font-family: "KGSecondChancesSketch";[free version] Sketch Block Bold
+   *-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  */
+
 }
 
 .font-3 {
@@ -86,6 +92,7 @@ img {
 .global-btn:hover {
   background-color: transparent;
 }
+
 .global-btn:before {
   content: "";
   width: 13px;
@@ -344,6 +351,20 @@ img {
     padding-bottom: 60px;
   }
 }
+@media only screen and (max-width: 768px) {
+  .site-header .header-inner {
+    margin-top: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .site-header .main-logo img {
+		width:85% !important;
+	}
+	.home-gallery-item {
+		display:block !important;
+		margin:10px 0 !important;
+	}
+}
 @media only screen and (max-width: 480px) {
   .site-header .header-inner {
     margin-top: 0;
@@ -351,14 +372,30 @@ img {
     padding-bottom: 30px;
   }
 }
+@media only screen and (max-width: 360px) {
+	.site-header .header-inner {
+		padding:0px !important;
+		margin-top:25px;
+	}
+	.site-header .main-logo {
+		top:100px !important;
+	}
+	.site-header .main-navigation {
+		margin-top:-30px !important;
+		padding:10px 0 !important;
+	}
+}
 .site-header .header-main-content {
   position: relative;
   padding-left: 180px;
 }
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .site-header .main-logo{top: 8px !important; }
+}
 .site-header .main-logo {
   position: absolute;
   left: 0;
-  top: 8px;
+  top: 0;
   width: 180px;
   height: 136px;
   bottom: 0;
@@ -391,6 +428,10 @@ img {
   .site-header .main-logo {
     top: 70px;
   }
+  .site-header .main-navigation {
+	 margin-top: 5px !important;
+  }
+
 }
 .site-header .site-title {
   font-size: 22px;
@@ -622,7 +663,7 @@ img {
 }
 .site-header .main-navigation .navbar-nav > li a {
   color: #19998c;
-  padding: 1px 43px;
+  padding: 1px 30px;
 }
 .site-header .main-navigation .navbar-nav > li:hover a, .site-header .main-navigation .navbar-nav > li.active a, .site-header .main-navigation .navbar-nav > li.current-menu-item a {
   color: #000;
@@ -806,6 +847,9 @@ img {
     width: 28.3%;
     text-align: right;
   }
+  .site-footer .footer-text {
+	font-size:10px !important;
+  }
 }
 
 .home-content .home-intro {
@@ -836,6 +880,16 @@ img {
   .home-content .home-intro .head-line .font-size-68 {
     font-size: 40px;
   }
+  .site-header .main-logo {
+	top:90px !important;
+  }
+  .container {
+		width:100% !important;
+   }
+   .extra_fun h3 {
+		background:url(../images/underline_7.png) bottom center no-repeat;
+	}
+	.official-tmp ol { padding-left:5px !important;}
 }
 @media only screen and (max-width: 992px) {
   .home-content .home-intro {
@@ -855,6 +909,8 @@ img {
   .home-content .home-intro {
     padding: 30px 0 0 0;
   }
+  .modal-content { max-width:95%;}
+  .has-table table { overflow:auto;}
   .home-content .home-intro .head-line-1, .home-content .home-intro .head-line-2, .home-content .home-intro .head-line-3 {
     display: block;
     font-size: 40px;
@@ -1093,7 +1149,7 @@ img {
 .home-content .home-intro .hand-writing .hand-writing-content .left-content .font-1 {
   display: block;
   margin: 0;
-  font-family: "KGSecondChancesSketch";
+  font-family: "Cufon-KGSecondChancesSketch";
   font-size: 26px;
   line-height: 30px;
 }
@@ -1890,7 +1946,7 @@ img {
   text-align: center;
 }
 .success-content .title {
-  font-family: "KGSecondChancesSketch";
+  font-family: "Cufon-KGSecondChancesSketch";
   font-size: 40px;
   text-align: center;
   color: #000;
@@ -1953,6 +2009,7 @@ img {
 .contest-session-search .global-btn {
   margin-top: 0;
   margin-bottom: 15px;
+  vertical-align:top;
 }
 
 .gallery-intro {

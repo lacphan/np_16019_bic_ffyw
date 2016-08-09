@@ -21,9 +21,26 @@ DIRECTORY STRUCTURE
 
 ```
 common
-    config/              contains shared configurations
-    mail/                contains view files for e-mails
-    models/              contains model classes used in both backend and frontend
+    config/                     contains shared configurations
+        bootstrap.php           set aliases for config files
+        main.php                store global settings of application
+        main-local.php          store common settings of application only on current machine
+                                exclude from the repo
+        main-local-sample.php   sample settings for the machine which runs the application
+                                this file for generating main-local.php
+        params.php              store global params of application
+        params-local.php        store global params of application only on current machine
+                                exclude from the repo
+        params-local-sample.php sample params for the machine which runs the application
+                                this file for generating params-local.php
+
+    mail/               contains view files for e-mails (templates for send email to users)
+    models/             contains model classes used in both backend and frontend
+                            model classes here extended from base model
+        base/               contains basic model classes for all ActiveRecords
+                            do not manually update these files, generated using Code generator
+    widgets/            widgets used for both frontend, backend
+
 console
     config/              contains console configurations
     controllers/         contains console controllers (commands)
@@ -33,6 +50,17 @@ console
 backend
     assets/              contains application assets such as JavaScript and CSS
     config/              contains backend configurations
+        main.php                store global settings of backend
+        main-local.php          store common settings of backend only on current machine
+                                exclude from the repo
+        main-local-sample.php   sample settings for the machine which runs the backend
+                                this file for generating main-local.php
+        params.php              store global params of backend
+        params-local.php        store global params of backend only on current machine
+                                exclude from the repo
+        params-local-sample.php sample params for the machine which runs the backend
+                                this file for generating params-local.php
+
     controllers/         contains Web controller classes
     models/              contains backend-specific model classes
     runtime/             contains files generated during runtime
@@ -51,4 +79,59 @@ vendor/                  contains dependent 3rd-party packages
 environments/            contains environment-based overrides
 tests                    contains various tests for the advanced application
     codeception/         contains tests developed with Codeception PHP Testing Framework
+```
+DEPLOY INSTRUCTION
+-------------------
+```
+
+For deploy bic-ffyw, please config setting in these file:
+
+environment.php 
+    ===> Change define vendor path to your vendor folder location. EX: defined('VENDOR_PATH') or define('VENDOR_PATH', dirname(__FILE__) . '/vendor');
+--------------------    
+common/config/main-local.php 
+    ===> Setting database connection.
+         EX: 'components' => [
+                'db' => [
+                    'class' => 'yii\db\Connection',
+                    'dsn' => 'mysql:host=127.0.0.1;dbname=bic_ffyw',
+                    'username' => 'testuser',
+                    'password' => '****',
+                    'charset' => 'utf8',
+                    'tablePrefix' => 'bic_ffyw_'
+                ],
+    ===> Setting base upload url
+         EX: 'components' => [
+                'uploadUrl' => [
+                         'class' => 'yii\web\UrlManager',
+                         'baseUrl' => '/uploads',
+                         'enablePrettyUrl' => true,
+                         'showScriptName' => false,
+                     ],
+--------------------         
+frontend/config/main-local.php 
+    ===> Setting base url
+         EX:  'components' => [
+                     'request' => [                       
+                         'baseUrl' => '',
+                     ],
+                     
+--------------------                     
+frontend/config/param-local.php 
+ ===> Setting google captcha
+      EX:   'googleCaptcha' => [
+                   'siteKey' =>  '6LddpCQTAAAAADkMcb59wigYVIq7n1Y9jKE4HCS3',
+                   'secretKey' => '6LddpCQTAAAAAPU27Z1X3nwsVnNed-9aDrk5moSA'
+               ]
+--------------------         
+backend/config/main-local.php 
+===> Setting base url
+    EX:  'components' => [
+              'request' => [
+                        // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
+                        'cookieValidationKey' => 'lA_Zj09v7R-189AhjEtSgM1lpom5X1jT',
+                        'baseUrl' => '/admin',
+            
+                    ],
+
 ```

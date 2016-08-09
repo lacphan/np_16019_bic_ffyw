@@ -22,15 +22,15 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
 
             <?php if ((Yii::$app->language == 'fr_FR')): ?>
                 <h1 class="head-line">
-                    <span class="font-2 color-2 head-line-1">Participez au défi</span><br/>
+                    <span class="Cufon-KGSecondChancesSketch color-2 head-line-1">Participez au défi</span><br/>
                     <span class="font-5 color-3 font-size-68 head-line-2">d'écriture</span>
-                    <span class="font-2 color-2 head-line-3">de BIC!</span>
+                    <span class="Cufon-KGSecondChancesSketch color-2 head-line-3">de BIC!</span>
                 </h1>
             <?php else: ?>
                 <h1 class="head-line">
-                    <span class="font-2 color-2 head-line-1">Take BIC's</span>
+                    <span class="Cufon-KGSecondChancesSketch color-2 head-line-1">Take BIC's</span>
                     <span class="font-5 color-3 font-size-68 head-line-2">Handwriting</span>
-                    <span class="font-2 color-2 head-line-3">Challenge!</span>
+                    <span class="Cufon-KGSecondChancesSketch color-2 head-line-3">Challenge!</span>
                 </h1>
             <?php endif; ?>
 
@@ -44,12 +44,12 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                         Nous vous donnons donc la chance de
                     </p>
                     <p>
-                        <span class="font-2 color-1 font-size-25">GAGNER 5 000 $ pour l'éducation de votre enfant ainsi que des </span><br/>
-                        <span class="font-2 color-3 font-size-25">prix hebdomadaires.</span> De plus, pour chaque
+                        <span class="Cufon-KGSecondChancesSketch color-1 font-size-25">GAGNER 5 000 $ pour l'éducation de votre enfant ainsi que des </span><br/>
+                        <span class="Cufon-KGSecondChancesSketch color-3 font-size-25">prix hebdomadaires.<br /></span> De plus, pour chaque
                         participation,
                     </p>
                     <p>
-                        BIC fera un <span class="font-2 color-1 font-size-25">DON de 10 $</span> à <a target="_blank"
+                        BIC fera un <span class="Cufon-KGSecondChancesSketch color-1 font-size-25">DON de 10 $</span> à <a target="_blank"
                                                                                                       href="https://www.bgccan.com/FR/Pages/default.aspx">Repaires
                             jeunesse du Canada.</a><br/>
                         <small>(Dons jusqu'à un maximum de 10 000 $ avec un minimum de 5 000 $!)</small>
@@ -60,12 +60,12 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                         more, so we’re giving you a chance to
                     </p>
                     <p>
-                        <span class="font-2 color-1 font-size-25">WIN $5,000 towards your child’s education,</span><br/>
-                        <span class="font-2 color-3 font-size-25">weekly prizing,</span> and for every submission YOU
+                        <span class="Cufon-KGSecondChancesSketch color-1 font-size-25">WIN $5,000 towards your child’s education,</span><br/>
+                        <span class="Cufon-KGSecondChancesSketch color-3 font-size-25">weekly prizing,</span> and for every submission YOU
                         make
                     </p>
                     <p>
-                        BIC will <span class="font-2 color-1 font-size-25">DONATE $10</span> to the <a target="_blank"
+                        BIC will <span class="Cufon-KGSecondChancesSketch color-1 font-size-25">DONATE $10</span> to the <a target="_blank"
                                                                                                        href="https://www.bgccan.com/EN/Pages/default.aspx">Boys
                             & Girls Clubs of
                             Canada</a><br/>
@@ -107,13 +107,33 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                 <div class="hand-writing-content">
                     <div class="left-content">
                         <a href="#" class="title weekly-text-nav">
-                            <?= Yii::t(_NP_TEXT_DOMAIN, "<span class=\"font-1\">This week's</span><span class=\"font-2\">handwriting</span><span class=\"font-1\">challenge!</span>") ?>
+                            <?= Yii::t(_NP_TEXT_DOMAIN, "<span class=\"Cufon-KGSecondChancesSketch font-1\">This week's</span><span class=\"font-2\">handwriting</span><span class=\"Cufon-KGSecondChancesSketch font-1\">challenge!</span>") ?>
                         </a>
                     </div>
 
                     <div class="right-content">
+                        <?php if (Yii::$app->language == 'fr_FR' && $contestItem->children ): ?>
 
-                        <?php if ($contestItem): ?>
+                            <?php if($contestItem->children->popup): ?>
+                                <a class="weekly-image" href="#">
+                                    <?php if ($contestItem->children->attachment): ?>
+                                        <?= $contestItem->children->attachment->getAttachmentImage() ?>
+                                    <?php elseif ($weekNumber): ?>
+                                        <img
+                                            src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
+                                            alt="Feature" width="364" height="326">
+                                    <?php endif; ?>
+                                </a>
+                            <?php else: ?>
+                                <?php if ($contestItem->children->attachment): ?>
+                                    <?= $contestItem->children->attachment->getAttachmentImage() ?>
+                                <?php elseif ($weekNumber): ?>
+                                    <img
+                                        src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
+                                        alt="Feature" width="364" height="326">
+                                <?php endif; ?>
+                            <?php endif;?>
+                        <?php elseif ($contestItem): ?>
                             <?php if($contestItem->popup): ?>
                                 <a class="weekly-image" href="#">
                                 <?php if ($contestItem->attachment): ?>
@@ -159,7 +179,29 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
 
                     </div>
                     <div class="right-content">
-                        <?php if ($contestItem): ?>
+
+                        <?php if (Yii::$app->language == 'fr_FR' && $contestItem->children ): ?>
+
+                            <?php if($contestItem->children->popup): ?>
+                                <a class="weekly-image" href="#">
+                                    <?php if ($contestItem->children->attachment): ?>
+                                        <?= $contestItem->children->attachment->getAttachmentImage() ?>
+                                    <?php elseif ($weekNumber): ?>
+                                        <img
+                                            src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
+                                            alt="Feature" width="364" height="326">
+                                    <?php endif; ?>
+                                </a>
+                            <?php else: ?>
+                                <?php if ($contestItem->children->attachment): ?>
+                                    <?= $contestItem->children->attachment->getAttachmentImage() ?>
+                                <?php elseif ($weekNumber): ?>
+                                    <img
+                                        src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
+                                        alt="Feature" width="364" height="326">
+                                <?php endif; ?>
+                            <?php endif;?>
+                        <?php elseif ($contestItem): ?>
                             <?php if($contestItem->popup): ?>
                                 <a class="weekly-image" href="#">
                                     <?php if ($contestItem->attachment): ?>
@@ -195,7 +237,22 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
             </div>
         </div>
         <?php
-        if($contestItem->popup) {
+        if(Yii::$app->language == 'fr_FR' && $contestItem->children && $contestItem->children->popup) {
+            Modal::begin([
+                'closeButton' => [
+                    'label' => '&times;',
+                    'class' => 'close-btn',
+                ],
+                'size' => 'modal-lg',
+                'id' => 'weekly-image-popup',
+                'options' => [
+                    'class' => 'fade modal'
+                ]
+            ]);
+            echo '<div id="modalContent"> <img src="'.$contestItem->children->popup ->getAttachmentUrl().'"></div>';
+            Modal::end();
+        }
+        else if($contestItem->popup) {
             Modal::begin([
                 'closeButton' => [
                     'label' => '&times;',
@@ -287,10 +344,9 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                         <div class="inner">
                             <h3><?= Yii::t(_NP_TEXT_DOMAIN, "THE MISSION")?></h3>
                             <div class="image-inner">
-                                <img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/mission.png' ?>"
-                                     alt="">
+                                <a class="font-5"
+                           href="<?= $locale == DEFAULT_LOCALE ? Yii::$app->urlManager->createUrl(['page/mission']) :  Yii::$app->urlManager->createUrl(['page/mission','locale' => $locale]) ?>"><img src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/mission.png' ?>" alt=""></a>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -321,7 +377,7 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
                                 <tr>
                                     <td class="v-top join-wrapper">
                                         <h3><?= Yii::t(_NP_TEXT_DOMAIN,'TAKE ACTION')?></h3>
-                                        <a target="_blank" href="https://www.facebook.com/BICWritingCanada" class="join_button"><?= Yii::t(_NP_TEXT_DOMAIN,'JOIN NOW')?></a>
+                                        <a target="_blank" href="https://www.facebook.com/BICWritingCanada/" class="join_button"><?= Yii::t(_NP_TEXT_DOMAIN,'JOIN NOW')?></a>
                                     </td>
                                 </tr>
                             </table>

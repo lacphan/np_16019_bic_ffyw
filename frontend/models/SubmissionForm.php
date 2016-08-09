@@ -49,10 +49,10 @@ class SubmissionForm extends Model
             [['age'],'integer', 'min' => 6,'max' => 18, 'tooSmall' => Yii::t(_NP_TEXT_DOMAIN,'Must be 6 years or older'),'tooBig' => Yii::t(_NP_TEXT_DOMAIN,'Age must be no greater than 18')],
             [['rotateDegree'], 'integer'],
             [['agreeTerm'], 'required','requiredValue' => 1,
-                'message' =>  Yii::t(_NP_TEXT_DOMAIN, 'Required field')
+                'message' =>  Yii::t(_NP_TEXT_DOMAIN, 'Please accept the official rules')
             ],
-            ['verificationCode', ReCaptchaValidator::className(), 'secret' => '6LddpCQTAAAAAPU27Z1X3nwsVnNed-9aDrk5moSA'],
-            [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],
+            ['verificationCode', ReCaptchaValidator::className(), 'secret' => Yii::$app->params['googleCaptcha']['secretKey']],
+            [['uploadFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpeg, jpg', 'maxSize' => 1048576, 'tooBig' => 'Limit is 1MB'],
             ['isLimitSubmission','string', 'message' => Yii::t('app','Weekly Limit Reached')]
         ];
     }
@@ -100,6 +100,9 @@ class SubmissionForm extends Model
             $contestSession->setUpdatedDate();
             $contestSession->creator_id = 1;
             $contestSession->setAge($this->age);
+            if(Yii::$app->language == 'fr_FR') {
+                $contestSession->locale_id = 3;
+            }
             $contestSession->save();
 
             if($this->rotateDegree != 0) {
@@ -112,5 +115,5 @@ class SubmissionForm extends Model
 
         return null;
     }
-  
+
 }

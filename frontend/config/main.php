@@ -56,8 +56,8 @@ return [
         'reCaptcha' => [
             'name' => 'reCaptcha',
             'class' => 'himiklab\yii2\recaptcha\ReCaptcha',
-            'siteKey' => '6LddpCQTAAAAADkMcb59wigYVIq7n1Y9jKE4HCS3',
-            'secret' => '6LddpCQTAAAAAPU27Z1X3nwsVnNed-9aDrk5moSA',
+            'siteKey' => '6Lc9EicTAAAAAAQ4U1CS70PEoaL0g2xFhF4Ods_l',
+            'secret' => '6Lc9EicTAAAAAEbHzwRjIf_-GDHYiTHfYU1Hg-g2',
         ],
     ],
     'params' => $params,

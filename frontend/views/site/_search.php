@@ -16,8 +16,8 @@ $locale = Yii::$app->request->get('locale') ? Yii::$app->request->get('locale') 
         'method' => 'get',
     ]); ?>
     <?= $form->field($model, 'first_name')->textInput(['placeholder' => Yii::t(_NP_TEXT_DOMAIN, 'Your Child\'s Name'), 'class' => 'form-control'])->label(false); ?>
-    <?= $form->field($model, 'last_name')->textInput(['placeholder' => Yii::t(_NP_TEXT_DOMAIN, 'Your Child\'s Last Initial'), 'class' => 'form-control'])->label(false); ?>
-    <?= $form->field($model, 'user_email')->textInput(['placeholder' => Yii::t(_NP_TEXT_DOMAIN, "Parent’s email address"), 'class' => 'form-control'])->label(false); ?>
+    <?= $form->field($model, 'last_name')->textInput(['placeholder' => Yii::t(_NP_TEXT_DOMAIN, 'Your Child\'s Last Initial'), 'class' => 'form-control', 'style'=>'width:270px;'])->label(false); ?>
+    <?= $form->field($model, 'user_email')->textInput(['placeholder' => Yii::t(_NP_TEXT_DOMAIN, 'Parent\'s email address'), 'class' => 'form-control', 'style'=>'width:230px;'])->label(false); ?>
     <div class="global-btn">
         <?= Html::submitButton(Yii::t(_NP_TEXT_DOMAIN, 'Search') . ' <i class="m-icon-swapright m-icon-white"></i>', ['class' => 'global-btn-inner']) ?>
 

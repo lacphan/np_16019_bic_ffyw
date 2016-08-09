@@ -25,7 +25,28 @@ $submissionContent=PageItem::getContentByCode('submission-content', $locale);
             <div class="registration-content-row">
                 <div class="col-md-3 image-heading">
                     <div class="heading-content">
-                        <?php if ($contestItem): ?>
+                        <?php if (Yii::$app->language == 'fr_FR' && $contestItem->children ): ?>
+
+                            <?php if($contestItem->children->popup): ?>
+                                <a class="weekly-image" href="#">
+                                    <?php if ($contestItem->children->attachment): ?>
+                                        <?= $contestItem->children->attachment->getAttachmentImage() ?>
+                                    <?php elseif ($weekNumber): ?>
+                                        <img
+                                            src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
+                                            alt="Feature" width="364" height="326">
+                                    <?php endif; ?>
+                                </a>
+                            <?php else: ?>
+                                <?php if ($contestItem->children->attachment): ?>
+                                    <?= $contestItem->children->attachment->getAttachmentImage() ?>
+                                <?php elseif ($weekNumber): ?>
+                                    <img
+                                        src="<?= Yii::$app->urlManager->baseUrl . '/themes/default/images/week-' . $weekNumber . '/week.png' ?>"
+                                        alt="Feature" width="364" height="326">
+                                <?php endif; ?>
+                            <?php endif;?>
+                        <?php elseif ($contestItem): ?>
                             <?php if($contestItem->popup): ?>
                                 <a class="weekly-image" href="#">
                                     <?php if ($contestItem->attachment): ?>
@@ -47,7 +68,22 @@ $submissionContent=PageItem::getContentByCode('submission-content', $locale);
                             <?php endif;?>
                         <?php endif; ?>
                         <?php
-                        if($contestItem->popup) {
+                        if(Yii::$app->language == 'fr_FR' && $contestItem->children && $contestItem->children->popup) {
+                            Modal::begin([
+                                'closeButton' => [
+                                    'label' => '&times;',
+                                    'class' => 'close-btn',
+                                ],
+                                'size' => 'modal-lg',
+                                'id' => 'weekly-image-popup',
+                                'options' => [
+                                    'class' => 'fade modal'
+                                ]
+                            ]);
+                            echo '<div id="modalContent"> <img src="'.$contestItem->children->popup ->getAttachmentUrl().'"></div>';
+                            Modal::end();
+                        }
+                        else if($contestItem->popup) {
                             Modal::begin([
                                 'closeButton' => [
                                     'label' => '&times;',
@@ -69,13 +105,13 @@ $submissionContent=PageItem::getContentByCode('submission-content', $locale);
                     <div class="intro-heading-inner">
                         <h1 class="head-line">
                             <?php if ((Yii::$app->language == 'fr_FR')): ?>
-                                <span class="font-2 color-2 head-line-1">Défid'écriture</span>
+                                <span class="Cufon-KGSecondChancesSketch color-2 head-line-1">Défid'écriture</span>
                                 <span class="font-5 color-3 head-line-2">de la</span>
-                                <span class="font-2 color-2 head-line-3">semaine!</span>
+                                <span class="Cufon-KGSecondChancesSketch color-2 head-line-3">semaine!</span>
                             <?php else:?>
-                                <span class="font-2 color-2 head-line-1">This Week's</span>
+                                <span class="Cufon-KGSecondChancesSketch color-2 head-line-1">This Week's</span>
                                 <span class="font-5 color-3 head-line-2">Handwriting</span>
-                                <span class="font-2 color-2 head-line-3">Challenge!</span>
+                                <span class="Cufon-KGSecondChancesSketch color-2 head-line-3">Challenge!</span>
                             <?php endif;?>
 
                         </h1>
@@ -150,14 +186,14 @@ $submissionContent=PageItem::getContentByCode('submission-content', $locale);
                                 'template' => '<div class="form-upload-inner">' .
                                     '<div class="input-instruction">' .
                                     Yii::t(_NP_TEXT_DOMAIN, 'Upload photo instructions') . ':<br/>' .
-                                    Yii::t(_NP_TEXT_DOMAIN, 'No larger than 5MB and only accept .jpg and .png files') .
+                                    Yii::t(_NP_TEXT_DOMAIN, 'No larger than 1MB and only accept .jpg and .png files') .
                                     '</div>' .
-                                    '<button class="btn btn-default global-btn btn-file"><span>'.Yii::t(_NP_TEXT_DOMAIN,'Upload').'{input}</span></button>' .
+                                    '<div class="btn btn-default global-btn btn-file"><span>'.Yii::t(_NP_TEXT_DOMAIN,'Upload').'{input}</span></div>' .
                                     '{label}{error}'.
                                     '<div class="preview-wrapper">'.
                                     '<div class="file-preview"><div class="file-preview-frame"><canvas id="canvas"></canvas></div></div>'.
-                                    '<button class="img-rotate-left" ><i class="fa fa-undo" aria-hidden="true"></i></button>'.
-                                    '<button class="img-rotate-right"><i class="fa fa-repeat"></i></button>'.
+                                    '<button type="button" class="img-rotate-left" ><i class="fa fa-undo" aria-hidden="true"></i></button>'.
+                                    '<button type="button" class="img-rotate-right"><i class="fa fa-repeat"></i></button>'.
                                     '</div></div>'
                             ])->fileInput(['id' => 'imageLoader'])->label(false); ?>
                         </div>
@@ -173,7 +209,7 @@ $submissionContent=PageItem::getContentByCode('submission-content', $locale);
                             ])->widget(
                                 ReCaptcha::className(),
                                 [
-                                    'siteKey' => '6LddpCQTAAAAADkMcb59wigYVIq7n1Y9jKE4HCS3',
+                                    'siteKey' => Yii::$app->params['googleCaptcha']['siteKey'],
                                     'options' => [
                                         'class' => 'global-input'
                                     ],
