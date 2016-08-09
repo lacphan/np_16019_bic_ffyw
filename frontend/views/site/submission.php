@@ -173,29 +173,38 @@ $submissionContent=PageItem::getContentByCode('submission-content', $locale);
                                 ?>
                             </div>
 
-                            <?php
-                            $layoutTemplate = [
-                                'main2' => '<div class="kv-upload-progress hide"></div>{browse}{preview}{remove}',
-                                'footer' => ''
-                            ]
-                            ?>
-
-                            <?= $form->field($model,'rotateDegree')->hiddenInput(['id' => 'rotate-degree'])->label(false)?>
-                            <?= $form->field($model, 'uploadFile',[
-                                'options' => ['class' => 'form-upload'],
-                                'template' => '<div class="form-upload-inner">' .
-                                    '<div class="input-instruction">' .
-                                    Yii::t(_NP_TEXT_DOMAIN, 'Upload photo instructions') . ':<br/>' .
-                                    Yii::t(_NP_TEXT_DOMAIN, 'No larger than 1MB and only accept .jpg and .png files') .
-                                    '</div>' .
-                                    '<div class="btn btn-default global-btn btn-file"><span>'.Yii::t(_NP_TEXT_DOMAIN,'Upload').'{input}</span></div>' .
-                                    '{label}{error}'.
-                                    '<div class="preview-wrapper">'.
-                                    '<div class="file-preview"><div class="file-preview-frame"><canvas id="canvas"></canvas></div></div>'.
-                                    '<button type="button" class="img-rotate-left" ><i class="fa fa-undo" aria-hidden="true"></i></button>'.
-                                    '<button type="button" class="img-rotate-right"><i class="fa fa-repeat"></i></button>'.
-                                    '</div></div>'
-                            ])->fileInput(['id' => 'imageLoader'])->label(false); ?>
+                            <div class="form-upload">
+                                <div class="form-upload-inner">
+                                    <div class="input-instruction">
+                                        <?= Yii::t(_NP_TEXT_DOMAIN, 'Upload photo instructions') ?> <br/>
+                                        <?=  Yii::t(_NP_TEXT_DOMAIN, 'No larger than 5MB and only accept .jpg and .png files') ?>
+                                    </div>
+                                    <?= $form->field($model, 'uploadFile')->widget(FileInput::classname(),
+                                        [
+                                            'options' => [
+                                                'multiple' => false,
+                                                'accept' => 'image/*',
+                                                'class' => 'optionvalue-img'
+                                            ],
+                                            'pluginOptions' => [
+                                                'previewFileType' => 'image',
+                                                'showCaption' => false,
+                                                'showUpload' => false,
+                                                'browseClass' => 'btn btn-default global-btn',
+                                                'browseLabel' => Yii::t(_NP_TEXT_DOMAIN,'Upload'),
+                                                'browseIcon' => '',
+                                                'removeClass' => 'btn btn-danger btn-sm global-btn',
+                                                'removeLabel' => '',
+                                                'removeIcon' => '<i class="fa fa-trash"></i>',
+                                                'previewSettings' => [
+                                                    'image' => ['width' => 'auto', 'height' => 'auto']
+                                                ],
+                                                'initialPreview' => '',
+                                                'layoutTemplates' => ['footer' => '']
+                                            ]
+                                        ])->label(false); ?>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-row">
                             <?= $form->field($model, 'agreeTerm', ['options' => ['class' => 'form-check-box']])->checkbox(

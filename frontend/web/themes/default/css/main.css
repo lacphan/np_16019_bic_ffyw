@@ -1789,6 +1789,13 @@ img {
 .registration-content .register-form .form-upload {
   margin-bottom: 17px;
 }
+.registration-content .register-form .form-upload .form-group{
+  width: 100%;
+  margin-right: 0;
+}
+.global-btn  .hidden-xs {
+  display: block !important;
+}
 .registration-content .register-form .form-upload-inner {
   border: 1px solid #a4a5a9;
   padding: 9px 15px;
