@@ -223,7 +223,7 @@ class SiteController extends FrontendController
                 $output = ['error'=>'Uploading failed.'];
             }
         } else {
-            $output = ['error'=>$model->getFirstError('uploadFile')];
+            $output = ['error'=>$model->getFirstError('uploadFile')."\n".Yii::t(_NP_TEXT_DOMAIN, 'No larger than 5MB and only accept .jpg and .png files')];
         }
 
         echo yii\helpers\Json::encode($output);
@@ -244,7 +244,7 @@ class SiteController extends FrontendController
                 $output = ['error'=>'Uploading failed.'];
             }
         } else {
-            $output = ['error'=>$model->getFirstError('uploadFile')];
+            $output = ['error'=>$model->getFirstError('uploadFile')."\n".Yii::t(_NP_TEXT_DOMAIN, 'No larger than 5MB and only accept .jpg and .png files')];
         }
 
         echo yii\helpers\Json::encode($output);

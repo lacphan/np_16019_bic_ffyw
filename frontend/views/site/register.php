@@ -299,9 +299,6 @@ $submissionContent=PageItem::findPageLocale('submission-content',Yii::$app->requ
                                         'removeIcon' => '<i class="fa fa-trash"></i>',
                                         'maxFileSize' => 5*1024,
                                         'maxFilePreviewSize' => 25600, // 25 MB
-                                        'minFileCount' => 1,
-                                        'maxFileCount' => 1,
-
                                         'previewSettings' => [
                                             'image' => ['width' => 'auto', 'height' => 'auto']
                                         ],
@@ -310,8 +307,19 @@ $submissionContent=PageItem::findPageLocale('submission-content',Yii::$app->requ
                                     'pluginEvents' => [
                                         'filebatchselected' => 'function(event, element, arg2){
                                             jQuery(".file-drop-zone .file-preview-success").remove();
+                                            jQuery("#'.'registerform-attachment_id'.'").val("");
                                             jQuery(this).fileinput("upload");
                                         }',
+                                        'filesuccessremove' => 'function(event, element){
+                                                    jQuery("#'.'registerform-attachment_id'.'").val("");
+                                                }',
+                                        'fileclear' => 'function(event, element){
+                                                    jQuery("#'.'registerform-attachment_id'.'").val("");
+                                                }',
+                                        'filecleared' => 'function(event, element){
+                                                    jQuery("#'.'registerform-attachment_id'.'").val("");
+                                                }',
+
                                         'fileuploaded' => 'function(event, element, arg2){
                                                     
                                                     jQuery("#'.'registerform-attachment_id'.'").val(element.response.attachment_id);

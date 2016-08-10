@@ -205,8 +205,6 @@ $submissionContent=PageItem::getContentByCode('submission-content', $locale);
                                                 'removeIcon' => '<i class="fa fa-trash"></i>',
                                                 'maxFileSize' => 5*1024,
                                                 'maxFilePreviewSize' => 25600, // 25 MB
-                                                'minFileCount' => 1,
-                                                'maxFileCount' => 1,
                                                 'previewSettings' => [
                                                     'image' => ['width' => 'auto', 'height' => 'auto']
                                                 ],
@@ -214,9 +212,19 @@ $submissionContent=PageItem::getContentByCode('submission-content', $locale);
 
                                             ],
                                             'pluginEvents' => [
-                                                'filebatchselected' => 'function(event, element, arg2){
+                                                'filebatchselected' => 'function(event, element){
                                                     jQuery(".file-drop-zone .file-preview-success").remove();
+                                                    jQuery("#'.'submissionform-attachment_id'.'").val("");
                                                     jQuery(this).fileinput("upload");
+                                                }',
+                                                'filesuccessremove' => 'function(event, element){
+                                                    jQuery("#'.'submissionform-attachment_id'.'").val("");
+                                                }',
+                                                'fileclear' => 'function(event, element){
+                                                    jQuery("#'.'submissionform-attachment_id'.'").val("");
+                                                }',
+                                                'filecleared' => 'function(event, element){
+                                                    jQuery("#'.'submissionform-attachment_id'.'").val("");
                                                 }',
                                                 'fileuploaded' => 'function(event, element, arg2){
                                                     
