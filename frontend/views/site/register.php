@@ -309,7 +309,9 @@ $submissionContent=PageItem::findPageLocale('submission-content',Yii::$app->requ
                                     ],
                                     'pluginEvents' => [
                                         'filebatchselected' => 'function(event, element, arg2){
-                                                }',
+                                            jQuery(".file-drop-zone .file-preview-success").remove();
+                                            jQuery(this).fileinput("upload");
+                                        }',
                                         'fileuploaded' => 'function(event, element, arg2){
                                                     
                                                     jQuery("#'.'registerform-attachment_id'.'").val(element.response.attachment_id);

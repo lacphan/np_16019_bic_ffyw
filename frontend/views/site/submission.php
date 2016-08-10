@@ -210,11 +210,13 @@ $submissionContent=PageItem::getContentByCode('submission-content', $locale);
                                                 'previewSettings' => [
                                                     'image' => ['width' => 'auto', 'height' => 'auto']
                                                 ],
-                                                'initialPreview' => [],
+                                                'initialPreview' => '',
 
                                             ],
                                             'pluginEvents' => [
                                                 'filebatchselected' => 'function(event, element, arg2){
+                                                    jQuery(".file-drop-zone .file-preview-success").remove();
+                                                    jQuery(this).fileinput("upload");
                                                 }',
                                                 'fileuploaded' => 'function(event, element, arg2){
                                                     
