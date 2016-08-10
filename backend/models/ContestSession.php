@@ -20,7 +20,7 @@ class ContestSession extends \common\models\CommonContestSession
             [['created_at', 'updated_at', 'creator_id'], 'required'],
             [['params'], 'string'],
             [['user_email', 'first_name', 'last_name'], 'string', 'max' => 255],
-            [['uploadFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg',  'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],
+            [['uploadFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg',  'maxSize' => 5242880, 'tooBig' => 'Limit is 5MB'],
         ];
     }
 }
