@@ -28,8 +28,8 @@ class CommonAttachment extends \common\models\base\BaseAttachment
     {
         parent::__construct();
         $this->arrSize = [
-            'large' => ['width' => 1024, 'height' => 1024, 'crop' => false],
-            'medium' => ['width' => 480, 'height' => 480, 'crop' => false],
+//            'large' => ['width' => 1024, 'height' => 1024, 'crop' => false],
+//            'medium' => ['width' => 480, 'height' => 480, 'crop' => false],
             'thumbnail' => ['width' => 300, 'height' => 300, 'crop' => true]
         ];
     }
@@ -114,13 +114,17 @@ class CommonAttachment extends \common\models\base\BaseAttachment
 
     public function getSize()
     {
+
         $originSizes = Json::decode($this->size);
         $prepareSize = [];
-        foreach ($originSizes as $key => $sizes) {
+        if($originSizes) {
+            foreach ($originSizes as $key => $sizes) {
 
-            $prepareSize[array_keys($sizes)[0]] = array_values($sizes)[0];
+                $prepareSize[array_keys($sizes)[0]] = array_values($sizes)[0];
 
+            }
         }
+
         return $prepareSize;
     }
 

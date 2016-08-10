@@ -407,10 +407,19 @@ class SiteController extends FrontendController
             rename("{$filePath}.part", $filePath);
 
             $attachment = new Attachment();
-            $attachment->prepareFile(basename($filePath));
+            $attachment->image = basename($filePath);
+            $imageSize = @getimagesize($filePath);
             $attachment->setCreatedDate();
             $attachment->setUpdatedDate();
-            $attachment->save();
+
+            $size = [
+                'full' => [
+                    'width' => $imageSize[0],
+                    'height' => $imageSize[1]
+                ]
+            ];
+            $attachment->size = yii\helpers\Json::encode($size);
+            $attachment->save(false);
             $output = [
                 'status' => 200,
                 'attachment_id' => $attachment->id

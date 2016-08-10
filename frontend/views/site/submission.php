@@ -247,7 +247,7 @@ $js = <<<JS
         runtimes: "html5",
         browse_button : 'ajax-pick-image', // you can pass in id...
         url : "{$PUploadAction}",
-        chunk_size: "1mb",
+        chunk_size: "2mb",
         unique_names : true,
        
          headers: {"Accept": "application\/json", "X-CSRF-TOKEN": $('input[name="_token"]').val()},
@@ -279,7 +279,7 @@ $js = <<<JS
             },
 
             UploadComplete: function(up, files) {
-                    $('#input-waiting').html("");
+                 $('#input-waiting').html("");
                  $('#image-preview').html('<img src="{$uploadUrl}/' + files[0].target_name +'">')
             },
 

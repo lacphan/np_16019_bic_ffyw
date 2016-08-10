@@ -337,7 +337,7 @@ $js = <<<JS
         runtimes: "html5",
         browse_button : 'ajax-pick-image', // you can pass in id...
         url : "{$PUploadAction}",
-        chunk_size: "1mb",
+        chunk_size: "2mb",
         unique_names : true,
        
          headers: {"Accept": "application\/json", "X-CSRF-TOKEN": $('input[name="_token"]').val()},

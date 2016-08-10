@@ -159,6 +159,9 @@ class ContestSessionController extends BackendController
     {
         $model = $this->findModel($id);
         $model->accepted = 1;
+        $attachment = $model->attachment;
+        $attachment->prepareFile($attachment->image);
+        $attachment->save();
         $model->save();
         return $this->redirect(['index']);
     }
