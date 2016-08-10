@@ -34,7 +34,7 @@ class CommonAttachment extends \common\models\base\BaseAttachment
         ];
     }
 
-    public function prepareFile($file, $rotate = null)
+    public function prepareFile($file, $path = null)
     {
 
         $fileLocation = Yii::$app->uploadDir . DIRECTORY_SEPARATOR . $file;

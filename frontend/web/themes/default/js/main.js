@@ -16,6 +16,7 @@ jQuery(document).on('ready pjax:success',function () {
         }
         return $version;
     }
+
     (function ($) {
         $siteHtml = $("html");
         $siteClasses = $siteHtml.attr('class').split(" ");
@@ -236,4 +237,5 @@ jQuery(document).on('ready pjax:success',function () {
 
 
     })(jQuery);
+
 });

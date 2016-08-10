@@ -176,63 +176,25 @@ $submissionContent=PageItem::getContentByCode('submission-content', $locale);
                                 <div class="form-upload-inner">
                                     <div class="input-instruction">
                                         <?= Yii::t(_NP_TEXT_DOMAIN, 'Upload photo instructions') ?> <br/>
-                                        <?=  Yii::t(_NP_TEXT_DOMAIN, 'No larger than 5MB and only accept .jpg and .png files') ?>
+                                        <?= Yii::t(_NP_TEXT_DOMAIN, 'No larger than 5MB and only accept .jpg and .png files') ?>
                                     </div>
+
                                     <?= $form->field($model, 'attachment_id')->hiddenInput()->label(false) ?>
-                                    <?= $form->field($model, 'uploadFile')->widget(FileInput::classname(),
-                                        [
-                                            'options' => [
-                                                'multiple' => false,
-                                                'accept' => 'image/*',
-                                                'class' => 'optionvalue-img'
-                                            ],
-                                            'pluginOptions' => [
-                                                'uploadUrl' => Yii::$app->urlManager->createUrl(['site/submission-upload']),
-                                                'uploadExtraData' => [
-                                                    'user_id' => $user->id
-                                                ],
-                                                'previewFileType' => 'image',
-                                                'language' => Yii::$app->language,
-                                                'allowedFileExtensions'=>['jpg', 'png', 'jpeg'],
-                                                'showCaption' => false,
-                                                'showPreview' => true,
-                                                'showUpload' => true,
-                                                'browseClass' => 'btn btn-default global-btn',
-                                                'browseLabel' => Yii::t(_NP_TEXT_DOMAIN,'Upload'),
-                                                'browseIcon' => '',
-                                                'removeClass' => 'btn global-btn',
-                                                'removeLabel' => '',
-                                                'removeIcon' => '<i class="fa fa-trash"></i>',
-                                                'maxFileSize' => 5*1024,
-                                                'maxFilePreviewSize' => 25600, // 25 MB
-                                                'previewSettings' => [
-                                                    'image' => ['width' => 'auto', 'height' => 'auto']
-                                                ],
-                                                'initialPreview' => '',
+                                    <div id="ajax-pick-image" tabindex="500" class="btn btn-default global-btn btn-file"><span
+                                            class="hidden-xs">Upload</span>
+                                    </div>
+                                    <div class="file-input file-input-ajax-new">
 
-                                            ],
-                                            'pluginEvents' => [
-                                                'filebatchselected' => 'function(event, element){
-                                                    jQuery(".file-drop-zone .file-preview-success").remove();
-                                                    jQuery("#'.'submissionform-attachment_id'.'").val("");
-                                                    jQuery(this).fileinput("upload");
-                                                }',
-                                                'filesuccessremove' => 'function(event, element){
-                                                    jQuery("#'.'submissionform-attachment_id'.'").val("");
-                                                }',
-                                                'fileclear' => 'function(event, element){
-                                                    jQuery("#'.'submissionform-attachment_id'.'").val("");
-                                                }',
-                                                'filecleared' => 'function(event, element){
-                                                    jQuery("#'.'submissionform-attachment_id'.'").val("");
-                                                }',
-                                                'fileuploaded' => 'function(event, element, arg2){
-                                                    
-                                                    jQuery("#'.'submissionform-attachment_id'.'").val(element.response.attachment_id);
-                                                }'
-                                            ]
-                                        ])->label(false); ?>
+                                        <div class="file-preview hidden">
+                                            <div id="input-waiting"></div>
+                                            <div id="image-preview"></div>
 
+
+                                        </div>
+                                        <div class="has-error">
+                                            <p id="error-message" class="help-block help-block-error"></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -275,3 +237,61 @@ $submissionContent=PageItem::getContentByCode('submission-content', $locale);
             <?= $this->render('_mini-rules')?>
         </div>
     </div>
+<?php
+$PUploadAction = Yii::$app->urlManager->createUrl(['site/p-upload']);
+$uploadUrl = Yii::$app->uploadUrl->baseUrl;
+$fileSizeLimit = Yii::t(_NP_TEXT_DOMAIN,'Limit 5MB');
+$js = <<<JS
+ var uploader = new plupload.Uploader({
+        // General settings
+        runtimes: "html5",
+        browse_button : 'ajax-pick-image', // you can pass in id...
+        url : "{$PUploadAction}",
+        chunk_size: "1mb",
+        unique_names : true,
+       
+         headers: {"Accept": "application\/json", "X-CSRF-TOKEN": $('input[name="_token"]').val()},
+     
+        filters : {
+            mime_types: [
+                {title: "Image files", extensions: "jpg,jpeg,png"}
+            ],
+            max_file_size: "5mb",
+            prevent_duplicates: true
+        },
+
+        // Post init events, bound after the internal events
+        init : {
+        
+            FilesAdded: function(up, files) {
+                $('.file-preview').removeClass('hidden');
+                $('#error-message').html('');
+                $('#input-waiting').html("<i class='fa fa-spinner fa-pulse' aria-hidden='true'></i> Uploading...");
+                up.start();
+            },
+
+            FileUploaded: function(up, file, info) {
+             
+               data = jQuery.parseJSON(info.response);
+               console.log(jQuery.parseJSON(data.attachment_id));
+               jQuery("#submissionform-attachment_id").val(data.attachment_id);
+              
+            },
+
+            UploadComplete: function(up, files) {
+                    $('#input-waiting').html("");
+                 $('#image-preview').html('<img src="{$uploadUrl}/' + files[0].target_name +'">')
+            },
+
+            Error: function(up, args) {
+               
+                if(args.code == -600) {
+                    $('#error-message').html("{$fileSizeLimit}").show();
+                }
+            }
+        }
+    });
+
+    uploader.init();
+JS;
+$this->registerJs($js);

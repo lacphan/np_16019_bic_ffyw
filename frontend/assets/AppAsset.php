@@ -39,6 +39,7 @@ class AppAsset extends AssetBundle
         'assets-enpii/global/plugins/detectizr/dist/detectizr.min.js',
         'assets-enpii/global/plugins/select2/js/select2.min.js',
         'assets-enpii/global/plugins/colorbox-master/jquery.colorbox-min.js',
+        'assets-enpii/global/plugins/p-upload/plupload.full.min.js',
         'assets-enpii/global/plugins/jQueryRotate.js',
         'themes/default/libs/jquery-ui/jquery-ui.min.js',
         'themes/default/libs/timepicker/jquery.timepicker.min.js',

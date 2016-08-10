@@ -20,6 +20,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\db\Expression;
 use frontend\models\SearchContestSession;
+
 /**
  * Site controller
  */
@@ -89,29 +90,28 @@ class SiteController extends FrontendController
         $locale = Yii::$app->request->get('locale');
         $contestSessions = ContestSession::find()->where(['accepted' => 1])->orderBy(new Expression('rand()'))->limit(9)->all();
 
-        if($emailSubmission->load(Yii::$app->request->post()) && $emailSubmission->isEmailExists()) {
+        if ($emailSubmission->load(Yii::$app->request->post()) && $emailSubmission->isEmailExists()) {
 
-            Yii::$app->session->set('submissionEmail',$emailSubmission->email);
-            if($locale == DEFAULT_LOCALE) {
+            Yii::$app->session->set('submissionEmail', $emailSubmission->email);
+            if ($locale == DEFAULT_LOCALE) {
                 return $this->redirect(['site/submission']);
             }
             return $this->redirect(['site/submission', 'locale' => Yii::$app->request->get('locale')]);
 
         } elseif ($emailSubmission->load(Yii::$app->request->post()) && !$emailSubmission->isEmailExists()) {
 
-            Yii::$app->session->set('registerEmail',$emailSubmission->email);
-            if($locale == DEFAULT_LOCALE) {
+            Yii::$app->session->set('registerEmail', $emailSubmission->email);
+            if ($locale == DEFAULT_LOCALE) {
                 return $this->redirect(['site/register']);
             }
-            return $this->redirect(['site/register','locale' => $locale]);
+            return $this->redirect(['site/register', 'locale' => $locale]);
         }
-        return $this->render('index',[
+        return $this->render('index', [
                 'emailSubmission' => $emailSubmission,
                 'contestSessions' => $contestSessions
             ]
         );
     }
-
 
 
     /**
@@ -148,7 +148,6 @@ class SiteController extends FrontendController
     }
 
 
-
     /**
      * Signs user up.
      *
@@ -157,7 +156,7 @@ class SiteController extends FrontendController
     public function actionRegister()
     {
         $model = new RegisterForm();
-        if(Yii::$app->session->hasFlash('registerEmail')) {
+        if (Yii::$app->session->hasFlash('registerEmail')) {
             $model->email = Yii::$app->session->getFlash('registerEmail');
         }
 
@@ -180,12 +179,12 @@ class SiteController extends FrontendController
      */
     public function actionSubmission()
     {
-        if(!Yii::$app->session->get('submissionEmail')) {
+        if (!Yii::$app->session->get('submissionEmail')) {
             return $this->redirect(Yii::$app->urlManager->createUrl('site/register'));
         }
 
         $model = new SubmissionForm();
-        if(Yii::$app->session->hasFlash('submissionEmail')) {
+        if (Yii::$app->session->hasFlash('submissionEmail')) {
             $model->email = Yii::$app->session->get('submissionEmail');
         }
         $user = User::findByUsername(Yii::$app->session->get('submissionEmail'));
@@ -197,7 +196,7 @@ class SiteController extends FrontendController
             }
         }
 
-        if(count($contestSessions) >= 4) {
+        if (count($contestSessions) >= 4) {
             return $this->render('weekly-limit-reached');
         }
 
@@ -218,12 +217,12 @@ class SiteController extends FrontendController
             $attachment = new Attachment();
             if (!empty($model->uploadFile)) {
                 $attachment = Attachment::uploadFile($model->uploadFile, 'image');
-                $output = ['attachment_id'=>$attachment->id];
+                $output = ['attachment_id' => $attachment->id];
             } else {
-                $output = ['error'=>'Uploading failed.'];
+                $output = ['error' => 'Uploading failed.'];
             }
         } else {
-            $output = ['error'=>$model->getFirstError('uploadFile')."\n".Yii::t(_NP_TEXT_DOMAIN, 'No larger than 5MB and only accept .jpg and .png files')];
+            $output = ['error' => $model->getFirstError('uploadFile') . "\n" . Yii::t(_NP_TEXT_DOMAIN, 'No larger than 5MB and only accept .jpg and .png files')];
         }
 
         echo yii\helpers\Json::encode($output);
@@ -239,12 +238,12 @@ class SiteController extends FrontendController
             $attachment = new Attachment();
             if (!empty($model->uploadFile)) {
                 $attachment = Attachment::uploadFile($model->uploadFile, 'image');
-                $output = ['attachment_id'=>$attachment->id];
+                $output = ['attachment_id' => $attachment->id];
             } else {
-                $output = ['error'=>'Uploading failed.'];
+                $output = ['error' => 'Uploading failed.'];
             }
         } else {
-            $output = ['error'=>$model->getFirstError('uploadFile')."\n".Yii::t(_NP_TEXT_DOMAIN, 'No larger than 5MB and only accept .jpg and .png files')];
+            $output = ['error' => $model->getFirstError('uploadFile') . "\n" . Yii::t(_NP_TEXT_DOMAIN, 'No larger than 5MB and only accept .jpg and .png files')];
         }
 
         echo yii\helpers\Json::encode($output);
@@ -311,5 +310,119 @@ class SiteController extends FrontendController
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+    }
+
+    public function actionPUpload()
+    {
+
+        // 5 minutes execution time
+        @set_time_limit(5 * 60);
+
+        // Uncomment this one to fake upload time
+        // usleep(5000);
+
+        // Settings
+        $targetDir = Yii::$app->uploadDir;
+
+        //$targetDir = 'uploads';
+        $cleanupTargetDir = true; // Remove old files
+        $maxFileAge = 5 * 3600; // Temp file age in seconds
+
+
+        // Create target dir
+        if (!file_exists($targetDir)) {
+            @mkdir($targetDir);
+        }
+
+        // Get a file name
+        if (isset($_REQUEST["name"])) {
+            $fileName = $_REQUEST["name"];
+        } elseif (!empty($_FILES)) {
+            $fileName = $_FILES["file"]["name"];
+        } else {
+            $fileName = uniqid("file_");
+        }
+
+        $filePath = $targetDir . DIRECTORY_SEPARATOR . $fileName;
+
+        // Chunking might be enabled
+        $chunk = isset($_REQUEST["chunk"]) ? intval($_REQUEST["chunk"]) : 0;
+        $chunks = isset($_REQUEST["chunks"]) ? intval($_REQUEST["chunks"]) : 0;
+
+
+        // Remove old temp files
+        if ($cleanupTargetDir) {
+            if (!is_dir($targetDir) || !$dir = opendir($targetDir)) {
+                die('{"jsonrpc" : "2.0", "error" : {"code": 100, "message": "Failed to open temp directory."}, "id" : "id"}');
+            }
+
+            while (($file = readdir($dir)) !== false) {
+                $tmpfilePath = $targetDir . DIRECTORY_SEPARATOR . $file;
+
+                // If temp file is current file proceed to the next
+                if ($tmpfilePath == "{$filePath}.part") {
+                    continue;
+                }
+
+                // Remove temp file if it is older than the max age and is not the current file
+                if (preg_match('/\.part$/', $file) && (filemtime($tmpfilePath) < time() - $maxFileAge)) {
+                    @unlink($tmpfilePath);
+                }
+            }
+            closedir($dir);
+        }
+
+
+        // Open temp file
+        if (!$out = @fopen("{$filePath}.part", $chunks ? "ab" : "wb")) {
+            die('{"jsonrpc" : "2.0", "error" : {"code": 102, "message": "Failed to open output stream."}, "id" : "id"}');
+        }
+
+
+        if (!empty($_FILES)) {
+            if ($_FILES["file"]["error"] || !is_uploaded_file($_FILES["file"]["tmp_name"])) {
+                die('{"jsonrpc" : "2.0", "error" : {"code": 103, "message": "Failed to move uploaded file."}, "id" : "id"}');
+            }
+
+            // Read binary input stream and append it to temp file
+            if (!$in = @fopen($_FILES["file"]["tmp_name"], "rb")) {
+                die('{"jsonrpc" : "2.0", "error" : {"code": 101, "message": "Failed to open input stream."}, "id" : "id"}');
+            }
+        } else {
+            if (!$in = @fopen("php://input", "rb")) {
+                die('{"jsonrpc" : "2.0", "error" : {"code": 101, "message": "Failed to open input stream."}, "id" : "id"}');
+            }
+        }
+
+        while ($buff = fread($in, 4096)) {
+            fwrite($out, $buff);
+        }
+
+        @fclose($out);
+        @fclose($in);
+
+        // Check if file has been uploaded
+        if (!$chunks || $chunk == $chunks - 1) {
+            // Strip the temp .part suffix off
+            rename("{$filePath}.part", $filePath);
+
+            $attachment = new Attachment();
+            $attachment->prepareFile(basename($filePath));
+            $attachment->setCreatedDate();
+            $attachment->setUpdatedDate();
+            $attachment->save();
+            $output = [
+                'status' => 200,
+                'attachment_id' => $attachment->id
+            ];
+            return yii\helpers\Json::encode($output);
+        }
+
+        ;
+
+
+        // Return Success JSON-RPC response
+        die('{"jsonrpc" : "2.0", "result" : null, "id" : "id"}');
+
     }
 }
