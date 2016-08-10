@@ -136,7 +136,9 @@ class ContestSessionController extends BackendController
 
             return $this->redirect(['update', 'id' => $model->id]);
         } else {
-            $oldAttachment->prepareFile($oldAttachment->image);
+            $attachment = $model->attachment;
+            $attachment->prepareFile($attachment->image);
+            $attachment->save();
             return $this->render('update', [
                 'model' => $model,
             ]);
