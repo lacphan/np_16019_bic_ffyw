@@ -41,5 +41,33 @@ jQuery(document).on('ready pjax:success',function () {
             e.preventDefault();
             $('#modal').modal('show').find('#image-viewer').attr('src',$(this).attr('href'))  ;
         });
+
+        $('#rotate-image').find('button').click(function () {
+            buttonText = $(this).html();
+            button = $(this);
+            form = $(this).closest('form');
+            jQuery.ajax({
+                url: $(this).data('action'),
+                type: 'post',
+                beforeSend: function () {
+
+                    form.find('button').attr("disabled", true);
+                    button.html('Processing...');
+                },
+                complete: function () {
+                    form.find('button').attr("disabled", false);
+                    button.html(buttonText);
+                },
+                success: function (response) {
+                    obj = jQuery.parseJSON(response);
+                    if(obj.status == 200) {
+                        window.location.reload();
+                    } else {
+
+                    }
+                }
+            });
+            return false;
+        });
     })(jQuery);
 });

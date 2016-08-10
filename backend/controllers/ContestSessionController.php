@@ -11,6 +11,7 @@ use yii\filters\AccessControl;
 use backend\models\Attachment;
 use yii\web\UploadedFile;
 use backend\models\ContestItem;
+use yii\helpers\Json;
 /**
  * ContestSessionController implements the CRUD actions for ContestSession model.
  */
@@ -271,5 +272,26 @@ class ContestSessionController extends BackendController
             $contestSessions[$winner]->is_grand_prize = 1;
             $contestSessions[$winner]->save();
         }
+    }
+
+    public function actionRotateImage($id,$degree) {
+        $attachment = Attachment::findOne($id);
+        if($attachment) {
+            if($degree) {
+                $attachment->rotateImage($degree);
+                $output = [
+                    'status' => 200,
+                    'message' => 'Rotate success'
+                ];
+                return Json::encode($output);
+
+            }
+
+        }
+        $output = [
+            'status' => 400,
+            'message' => 'Rotate fail'
+        ];
+        return Json::encode($output);
     }
 }
