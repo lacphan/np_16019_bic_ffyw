@@ -203,15 +203,18 @@ $submissionContent=PageItem::getContentByCode('submission-content', $locale);
                                                 'removeClass' => 'btn global-btn',
                                                 'removeLabel' => '',
                                                 'removeIcon' => '<i class="fa fa-trash"></i>',
+                                                'maxFileSize' => 5*1024,
+                                                'maxFilePreviewSize' => 25600, // 25 MB
+                                                'minFileCount' => 1,
+                                                'maxFileCount' => 1,
                                                 'previewSettings' => [
                                                     'image' => ['width' => 'auto', 'height' => 'auto']
                                                 ],
-                                                'initialPreview' => '',
+                                                'initialPreview' => [],
 
                                             ],
                                             'pluginEvents' => [
                                                 'filebatchselected' => 'function(event, element, arg2){
-                                                    jQuery(this).fileinput("upload");
                                                 }',
                                                 'fileuploaded' => 'function(event, element, arg2){
                                                     
