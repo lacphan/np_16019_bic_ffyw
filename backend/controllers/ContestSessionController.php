@@ -114,6 +114,7 @@ class ContestSessionController extends BackendController
     {
         $model = $this->findModel($id);
         $oldAttachment = $model->attachment;
+
         $flagAttachment = 0;
         if ($model->load(Yii::$app->request->post()) ) {
 
@@ -135,6 +136,9 @@ class ContestSessionController extends BackendController
 
             return $this->redirect(['update', 'id' => $model->id]);
         } else {
+            $attachment = $model->attachment;
+            $attachment->prepareFile($attachment->image);
+            $attachment->save();
             return $this->render('update', [
                 'model' => $model,
             ]);
