@@ -38,7 +38,8 @@
         "yurkinx/yii2-image": "dev-master",
 	   "kartik-v/yii2-widget-fileinput": "@dev",
        "kartik-v/yii2-export": "*",
-        "yiisoft/yii2-imagine": "~2.0.0"
+        "yiisoft/yii2-imagine": "~2.0.0",
+        "tpmanc/yii2-imagick": "*"
     },
     "config": {
         "process-timeout": 1800

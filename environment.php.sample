@@ -12,3 +12,4 @@ defined('APP_BASE_URL') or define('APP_BASE_URL', '/php/enpii/16/np_16019_bic_ff
 
 defined('DEFAULT_LOCALE') or define('DEFAULT_LOCALE', 'en');
 defined('_NP_TEXT_DOMAIN') || define('_NP_TEXT_DOMAIN', 'enpii');
+defined('_FR_DOMAIN') || define('_FR_DOMAIN', 'bictonpouvoirdecrire.ca');
