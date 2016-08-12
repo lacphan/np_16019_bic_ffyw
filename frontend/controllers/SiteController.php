@@ -85,7 +85,11 @@ class SiteController extends FrontendController
     public function actionIndex()
     {
         if (!isset($_SERVER['HTTP_HOST']) || $_SERVER['HTTP_HOST'] == _FR_DOMAIN && Yii::$app->language != 'fr_FR') {
-            $this->redirect( Yii::$app->urlManager->createUrl(['','locale'=> 'fr']));
+            if(!Yii::$app->session->get('visited')) {
+                Yii::$app->session->set('visited',1);
+                $this->redirect( Yii::$app->urlManager->createUrl(['','locale'=> 'fr']));
+            }
+
         }
         $emailSubmission = new EmailSubmission();
         Yii::$app->session->remove('registerEmail');
