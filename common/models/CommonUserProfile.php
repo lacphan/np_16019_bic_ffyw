@@ -4,8 +4,10 @@ namespace common\models;
 
 use Yii;
 use DateTime;
+use common\helpers\HashHelper;
 /**
  * This is the model class for table "kelle_user_profile".
+ * @property CommonUser $user
  */
 class CommonUserProfile extends \common\models\base\BaseUserProfile
 {
@@ -21,6 +23,38 @@ class CommonUserProfile extends \common\models\base\BaseUserProfile
             [['address', 'city', 'street', 'province', 'post_code', 'parent_first_name', 'parent_last_name'], 'string', 'max' => 255],
             [['phone_number', 'united'], 'string', 'max' => 32]
         ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if(!$this->user->is_encrypted) {
+                $this->parent_first_name = HashHelper::encrypt($this->parent_first_name);
+                $this->parent_last_name = HashHelper::encrypt($this->parent_last_name);
+                $this->phone_number = HashHelper::encrypt($this->phone_number);
+            }
+
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    /**
+     * Decrypt data to view on backend
+     */
+    public function afterFind() {
+        parent::afterFind();
+        if($this->user->is_encrypted) {
+            $this->parent_first_name =  HashHelper::decrypt($this->parent_first_name);
+            $this->parent_last_name =  HashHelper::decrypt($this->parent_last_name);
+            $this->phone_number =  HashHelper::decrypt($this->phone_number);
+        }
+
     }
     /**
      * @return \yii\db\ActiveQuery
@@ -40,5 +74,13 @@ class CommonUserProfile extends \common\models\base\BaseUserProfile
     public function setAge($age) {
         $date = new DateTime("today -{$age} years");
         $this->date_of_birth = $date->format('Y-m-d');
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUser()
+    {
+        return $this->hasOne(CommonUser::className(), ['profile_id' => 'id']);
     }
 }

@@ -9,4 +9,7 @@ use Yii;
  */
 class Attachment extends \common\models\CommonAttachment
 {
+    public function acaw() {
+        Yii::$app->security->encryptByKey('','','');
+    }
 }

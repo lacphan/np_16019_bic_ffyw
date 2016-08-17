@@ -7,7 +7,7 @@ use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\web\IdentityInterface;
-
+use common\helpers\HashHelper;
 
 /**
  * This is the model class for table "yii2demo_user".
@@ -55,6 +55,32 @@ class CommonUser extends \common\models\base\BaseUser implements IdentityInterfa
     /**
      * @inheritdoc
      */
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if(!$this->is_encrypted) {
+                $this->email = HashHelper::encrypt($this->email);
+                $this->first_name = HashHelper::encrypt($this->first_name);
+                $this->last_name = HashHelper::encrypt($this->last_name);
+            }
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    /**
+     * Decrypt data to view on backend
+     */
+    public function afterFind() {
+        parent::afterFind();
+        if ($this->is_encrypted) {
+            $this->email =  HashHelper::decrypt($this->email);
+            $this->first_name =  HashHelper::decrypt($this->first_name);
+            $this->last_name =  HashHelper::decrypt($this->last_name);
+        }
+    }
 
 
     /**

@@ -27,6 +27,7 @@ use yii;
  * @property integer $is_winner
  * @property integer $locale_id
  * @property integer $is_grand_prize
+ * @property integer $is_encrypted
  *
  * @property BaseAttachment $attachment
  * @property BaseContestItem $contestItem
@@ -48,7 +49,7 @@ class BaseContestSession extends \common\enpii\components\NpActiveRecord
     public function rules()
     {
         return [
-            [['contest_item_id', 'user_id', 'attachment_id', 'creator_id', 'is_deleted', 'is_enabled', 'ordering_weight', 'accepted', 'is_winner', 'locale_id', 'is_grand_prize'], 'integer'],
+            [['contest_item_id', 'user_id', 'attachment_id', 'creator_id', 'is_deleted', 'is_enabled', 'ordering_weight', 'accepted', 'is_winner', 'locale_id', 'is_grand_prize', 'is_encrypted'], 'integer'],
             [['birth_year', 'created_at', 'updated_at', 'published_at'], 'safe'],
             [['created_at', 'updated_at', 'creator_id'], 'required'],
             [['params'], 'string'],
@@ -82,6 +83,7 @@ class BaseContestSession extends \common\enpii\components\NpActiveRecord
             'is_winner' => Yii::t('app', 'Is Winner'),
             'locale_id' => Yii::t('app', 'Locale ID'),
             'is_grand_prize' => Yii::t('app', 'Is Grand Prize'),
+            'is_encrypted' => Yii::t('app', 'Is Encrypted'),
         ];
     }
 

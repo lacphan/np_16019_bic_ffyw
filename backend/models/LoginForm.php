@@ -3,7 +3,7 @@ namespace backend\models;
 
 use Yii;
 use yii\base\Model;
-
+use common\helpers\HashHelper;
 /**
  * Login form
  */
@@ -77,7 +77,16 @@ class LoginForm extends Model
     protected function getUser()
     {
         if ($this->_user === null) {
-            $this->_user = User::findByUsername($this->username);
+            $oldUser = User::findOne(1);
+//            var_dump(HashHelper::decrypt($oldUser->username));die();
+            $user =  User::findByUsername($this->username);
+            if($user) {
+                $this->_user = $user;
+            } else {
+                $this->_user = User::findByUsername(HashHelper::encrypt($this->username));
+            }
+
+
         }
 
         return $this->_user;
