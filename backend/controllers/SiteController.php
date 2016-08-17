@@ -38,15 +38,17 @@ class SiteController extends BackendController
                     [
                         'actions' => ['logout', 'index','encrypt'],
                         'allow' => true,
+                        'roles' => ['@'],
+                        'matchCallback' => function () {
+                            if (Yii::$app->user->can('backend-login')) {
+                                return true;
+                            }
+                            else{
+                                return false;
+                            }
+                        }
                     ],
-                    'matchCallback' => function () {
-                        if (Yii::$app->user->can('backend-login')) {
-                            return true;
-                        }
-                        else{
-                            return false;
-                        }
-                    }
+
 
                 ],
             ],
