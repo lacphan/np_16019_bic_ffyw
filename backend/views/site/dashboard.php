@@ -249,102 +249,108 @@ $totalSubmission = ContestSession::find()->all();
             </div>
         </div>
     </div>
+    <?php
+
+    $weeks = ContestItem::find()->where(['locale_id' => 1])->all();
+    if ($weeks) {
+    foreach ($weeks as $week) : ?>
     <div class="portlet light bordered">
         <div class="portlet-title">
             <div class="caption">
-                <i class="fa fa-user font-green "></i>
-                <span class="caption-subject font-green bold uppercase">Winner</span>
+                <i class="fa fa-user font-red "></i>
+                <span class="caption-subject font-red bold uppercase">Week <?= $week->week_number; ?></span>
             </div>
         </div>
         <div class="portlet-body">
-            <?php
 
-            $weeks = ContestItem::find()->where(['locale_id' => 1])->all();
-            if ($weeks) {
-                foreach ($weeks as $week) : ?>
-                    <div class="portlet box blue">
-                        <div class="portlet-title">
-                            <div class="caption">
-                                <i class="fa fa-comments"></i>Week <?= $week->week_number; ?></div>
-                        </div>
-                        <div class="portlet-body">
-                            <div class="table-scrollable">
-                                <table class="table table-bordered table-hover">
-                                    <thead>
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-comments"></i>Winner</div>
+                </div>
+                <div class="portlet-body">
+                    <div class="table-scrollable">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th> #</th>
+                                <th>Parent's Email</th>
+                                <th>Parent's First Name</th>
+                                <th>Parent's Last Name</th>
+                                <th>Child's First Name</th>
+                                <th>Child's Initial</th>
+                                <th>Age</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            $winners = ContestSession::find()->where(['contest_item_id' => $week->id])->andWhere(['is_winner' => 1])->all();
+                            if ($winners) {
+                                foreach ($winners as $key => $winner) : ?>
+
                                     <tr>
-                                        <th> #</th>
-                                        <th>Parent's Email</th>
-                                        <th>Parent's First Name</th>
-                                        <th>Parent's Last Name</th>
-                                        <th>Child's First Name</th>
-                                        <th>Child's Initial</th>
-                                        <th>Age</th>
+                                        <td> <?= $key ?></td>
+                                        <th><?= $winner->user->email ?></th>
+                                        <th><?= $winner->user->first_name ?></th>
+                                        <th><?= $winner->user->last_name ?></th>
+                                        <th><?= $winner->first_name ?></th>
+                                        <th><?= $winner->last_name ?></th>
+                                        <th><?= $winner->age ?></th>
                                     </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php
-                                    $winners = ContestSession::find()->where(['contest_item_id' => $week->id])->andWhere(['is_winner' => 1])->all();
-                                    if ($winners) {
-                                        foreach ($winners as $key => $winner) : ?>
+                                <?php endforeach;
+                            }
+                            ?>
 
-                                            <tr>
-                                                <td> <?= $key ?></td>
-                                                <th><?= $winner->user->email ?></th>
-                                                <th><?= $winner->user->first_name ?></th>
-                                                <th><?= $winner->user->last_name ?></th>
-                                                <th><?= $winner->first_name ?></th>
-                                                <th><?= $winner->last_name ?></th>
-                                                <th><?= $winner->age ?></th>
-                                            </tr>
-                                        <?php endforeach;
-                                    }
-                                    ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
-                <?php endforeach;
-            }
-            ?>
-        </div>
-    </div>
-    <div class="portlet box green">
-        <div class="portlet-title">
-            <div class="caption">
-                <i class="fa fa-comments"></i>Grand Prize</div>
-        </div>
-        <div class="portlet-body">
-            <div class="table-scrollable">
-                <table class="table table-bordered table-hover">
-                    <thead>
-                    <tr>
-                        <th> #</th>
-                        <th>Parent's Email</th>
-                        <th>Parent's First Name</th>
-                        <th>Parent's Last Name</th>
-                        <th>Child's First Name</th>
-                        <th>Child's Initial</th>
-                        <th>Age</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php $grandPrize = ContestSession::find()->where(['is_grand_prize' => 1])->one();
-                    if ($grandPrize) : ?>
 
-                        <tr>
-                            <td></td>
-                            <th><?= $grandPrize->user->email ?></th>
-                            <th><?= $grandPrize->user->first_name ?></th>
-                            <th><?= $grandPrize->user->last_name ?></th>
-                            <th><?= $grandPrize->first_name ?></th>
-                            <th><?= $grandPrize->last_name ?></th>
-                            <th><?= $grandPrize->age ?></th>
-                        </tr>
-                    <?php endif; ?>
-                    </tbody>
-                </table>
+                </div>
             </div>
+            <div class="portlet box green">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-comments"></i>Grand Prize
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="table-scrollable">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th> #</th>
+                                <th>Parent's Email</th>
+                                <th>Parent's First Name</th>
+                                <th>Parent's Last Name</th>
+                                <th>Child's First Name</th>
+                                <th>Child's Initial</th>
+                                <th>Age</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php $grandPrize = ContestSession::find()->where(['contest_item_id' => $week->id])->andWhere(['is_grand_prize' => 1])->one();
+                            if ($grandPrize) : ?>
+
+                                <tr>
+                                    <td></td>
+                                    <th><?= $grandPrize->user->email ?></th>
+                                    <th><?= $grandPrize->user->first_name ?></th>
+                                    <th><?= $grandPrize->user->last_name ?></th>
+                                    <th><?= $grandPrize->first_name ?></th>
+                                    <th><?= $grandPrize->last_name ?></th>
+                                    <th><?= $grandPrize->age ?></th>
+                                </tr>
+                            <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
+
     </div>
+    <?php endforeach;} ?>
 </div>
+

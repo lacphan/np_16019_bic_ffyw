@@ -64,8 +64,8 @@ class ContestSessionController extends BackendController
 
         if(Yii::$app->request->post() && Yii::$app->request->post('pick-grand-prize')) {
             $week = Yii::$app->request->post('week');
-            $this->pickGrandPrize();
-            $dataProvider = $searchModel->searchGrandPrize(Yii::$app->request->queryParams);
+            $this->pickGrandPrize($week);
+            $dataProvider = $searchModel->searchGrandPrize(Yii::$app->request->queryParams,$week);
         }
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -260,8 +260,8 @@ class ContestSessionController extends BackendController
     /*
      * pick grand prize
      */
-    public function pickGrandPrize() {
-        $contestSessions = ContestSession::find()->all();
+    public function pickGrandPrize($week) {
+        $contestSessions = ContestSession::find()->where(['contest_item_id' => $week])->all();
         if($contestSessions) {
             foreach ($contestSessions as $contestSession) {
                 $contestSession->is_grand_prize = 0;

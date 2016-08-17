@@ -100,7 +100,7 @@ class SearchContestSession extends ContestSession
 
         return $dataProvider;
     }
-    public function searchGrandPrize($params)
+    public function searchGrandPrize($params,$week = null)
     {
         $query = ContestSession::find();
 
