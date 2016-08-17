@@ -6,4 +6,4 @@
  * Time: 3:53 PM
  */
 ?>
-tmp
+encrypted
