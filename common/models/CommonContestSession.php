@@ -6,6 +6,7 @@ use common\enpii\components\NpItemDataSub;
 use yii;
 use common\models\base\BaseContestSession;
 use common\helpers\HashHelper;
+
 /**
  * This is the model class for table "bic_ffyw_contest_session".
  * @property CommonContestItem $week ;
@@ -22,27 +23,29 @@ class CommonContestSession extends BaseContestSession
     public function beforeSave($insert)
     {
         if (parent::beforeSave($insert)) {
-            if(!$this->is_encrypted) {
-                $this->user_email = HashHelper::encrypt($this->user_email);
-                $this->first_name = HashHelper::encrypt($this->first_name);
-                $this->last_name = HashHelper::encrypt($this->last_name);
-            }
+            $this->user_email = HashHelper::encrypt($this->user_email);
+            $this->first_name = HashHelper::encrypt($this->first_name);
+            $this->last_name = HashHelper::encrypt($this->last_name);
+
             return true;
         } else {
             return false;
         }
 
+
     }
+
 
     /**
      * Decrypt data to view on backend
      */
-    public function afterFind() {
+    public function afterFind()
+    {
         parent::afterFind();
-        if ($this->is_encrypted) {
-            $this->user_email =  HashHelper::decrypt($this->user_email);
-            $this->first_name =  HashHelper::decrypt($this->first_name);
-            $this->last_name =  HashHelper::decrypt($this->last_name);
+        if($this->is_encrypted) {
+            $this->user_email = HashHelper::decrypt($this->user_email);
+            $this->first_name = HashHelper::decrypt($this->first_name);
+            $this->last_name = HashHelper::decrypt($this->last_name);
         }
 
     }
@@ -68,6 +71,6 @@ class CommonContestSession extends BaseContestSession
     {
         return $this->hasOne(CommonAttachment::className(), ['id' => 'attachment_id']);
     }
-    
+
 
 }

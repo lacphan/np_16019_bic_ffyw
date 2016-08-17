@@ -17,6 +17,7 @@ class CommonUser extends \common\models\base\BaseUser implements IdentityInterfa
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
     use NpItemDataSub;
+
     /**
      * @inheritdoc
      */
@@ -32,11 +33,13 @@ class CommonUser extends \common\models\base\BaseUser implements IdentityInterfa
             [['params'], 'string'],
             [['username', 'email', 'password_hash', 'password_reset_token'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
-            [['username'], 'unique','when' => function ($model) {
-                return CommonUser::validateUserNameIsDeleted($model->email); }
+            [['username'], 'unique', 'when' => function ($model) {
+                return CommonUser::validateUserNameIsDeleted($model->email);
+            }
             ],
-            [['email'], 'unique','when' => function ($model) {
-                return CommonUser::validateUserNameIsDeleted($model->email); }
+            [['email'], 'unique', 'when' => function ($model) {
+                return CommonUser::validateUserNameIsDeleted($model->email);
+            }
             ],
             ['email', 'email'],
             [['password_reset_token'], 'unique'],
@@ -58,11 +61,11 @@ class CommonUser extends \common\models\base\BaseUser implements IdentityInterfa
     public function beforeSave($insert)
     {
         if (parent::beforeSave($insert)) {
-            if(!$this->is_encrypted) {
-                $this->email = HashHelper::encrypt($this->email);
-                $this->first_name = HashHelper::encrypt($this->first_name);
-                $this->last_name = HashHelper::encrypt($this->last_name);
-            }
+
+            $this->email = HashHelper::encrypt($this->email);
+            $this->first_name = HashHelper::encrypt($this->first_name);
+            $this->last_name = HashHelper::encrypt($this->last_name);
+
             return true;
         } else {
             return false;
@@ -73,12 +76,13 @@ class CommonUser extends \common\models\base\BaseUser implements IdentityInterfa
     /**
      * Decrypt data to view on backend
      */
-    public function afterFind() {
+    public function afterFind()
+    {
         parent::afterFind();
         if ($this->is_encrypted) {
-            $this->email =  HashHelper::decrypt($this->email);
-            $this->first_name =  HashHelper::decrypt($this->first_name);
-            $this->last_name =  HashHelper::decrypt($this->last_name);
+            $this->email = HashHelper::decrypt($this->email);
+            $this->first_name = HashHelper::decrypt($this->first_name);
+            $this->last_name = HashHelper::decrypt($this->last_name);
         }
     }
 
@@ -140,7 +144,7 @@ class CommonUser extends \common\models\base\BaseUser implements IdentityInterfa
             return false;
         }
 
-        $timestamp = (int) substr($token, strrpos($token, '_') + 1);
+        $timestamp = (int)substr($token, strrpos($token, '_') + 1);
         $expire = Yii::$app->params['user.passwordResetTokenExpire'];
         return $timestamp + $expire >= time();
     }
@@ -205,6 +209,7 @@ class CommonUser extends \common\models\base\BaseUser implements IdentityInterfa
     {
         $this->password_reset_token = Yii::$app->security->generateRandomString() . '_' . time();
     }
+
     /**
      * Removes password reset token
      */
@@ -218,29 +223,31 @@ class CommonUser extends \common\models\base\BaseUser implements IdentityInterfa
         $hasLogin = Yii::$app->session->setName('_backendID');
         return $hasLogin;
     }
+
     public function getProfile()
     {
         return $this->hasOne(CommonUserProfile::className(), ['id' => 'profile_id']);
     }
 
-    public static function validateUserNameIsDeleted($username) {
+    public static function validateUserNameIsDeleted($username)
+    {
         $user = self::findByUsername($username);
-        
-        if($user && $user->is_deleted == 1) {
+
+        if ($user && $user->is_deleted == 1) {
             return true;
         }
         return false;
     }
 
-    public function getWeeklySubmission() {
+    public function getWeeklySubmission()
+    {
         $contestItem = CommonContestItem::getWeek();
         $contestSessions = CommonContestSession::find()
             ->where(['user_id' => $this->id])
-            ->andWhere(['>=','created_at',$contestItem->start_date])
-            ->andWhere(['<=','created_at',$contestItem->end_date])
-            ->all()
-        ;
-        if($contestSessions) {
+            ->andWhere(['>=', 'created_at', $contestItem->start_date])
+            ->andWhere(['<=', 'created_at', $contestItem->end_date])
+            ->all();
+        if ($contestSessions) {
             return $contestSessions;
         }
         return null;

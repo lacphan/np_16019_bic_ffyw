@@ -5,6 +5,7 @@ namespace common\models;
 use Yii;
 use DateTime;
 use common\helpers\HashHelper;
+
 /**
  * This is the model class for table "kelle_user_profile".
  * @property CommonUser $user
@@ -12,7 +13,6 @@ use common\helpers\HashHelper;
 class CommonUserProfile extends \common\models\base\BaseUserProfile
 {
 
-   
 
     public function rules()
     {
@@ -31,47 +31,51 @@ class CommonUserProfile extends \common\models\base\BaseUserProfile
     public function beforeSave($insert)
     {
         if (parent::beforeSave($insert)) {
-            if(!$this->user->is_encrypted) {
-                $this->parent_first_name = HashHelper::encrypt($this->parent_first_name);
-                $this->parent_last_name = HashHelper::encrypt($this->parent_last_name);
-                $this->phone_number = HashHelper::encrypt($this->phone_number);
-            }
+            $this->parent_first_name = HashHelper::encrypt($this->parent_first_name);
+            $this->parent_last_name = HashHelper::encrypt($this->parent_last_name);
+            $this->phone_number = HashHelper::encrypt($this->phone_number);
 
             return true;
         } else {
             return false;
         }
 
+
     }
 
     /**
      * Decrypt data to view on backend
      */
-    public function afterFind() {
+    public function afterFind()
+    {
         parent::afterFind();
-        if($this->user->is_encrypted) {
-            $this->parent_first_name =  HashHelper::decrypt($this->parent_first_name);
-            $this->parent_last_name =  HashHelper::decrypt($this->parent_last_name);
-            $this->phone_number =  HashHelper::decrypt($this->phone_number);
+        if ($this->user->is_encrypted) {
+            $this->parent_first_name = HashHelper::decrypt($this->parent_first_name);
+            $this->parent_last_name = HashHelper::decrypt($this->parent_last_name);
+            $this->phone_number = HashHelper::decrypt($this->phone_number);
         }
 
     }
+
     /**
      * @return \yii\db\ActiveQuery
      */
     public static function findByProfileId($id)
     {
         $profile = static::findOne(['id' => $id]);
-        if($profile) {
+        if ($profile) {
             return $profile;
         }
         return new CommonUserProfile();
     }
 
-    public function getAge() {
+    public function getAge()
+    {
         return date_diff(date_create($this->date_of_birth), date_create('today'))->y;
     }
-    public function setAge($age) {
+
+    public function setAge($age)
+    {
         $date = new DateTime("today -{$age} years");
         $this->date_of_birth = $date->format('Y-m-d');
     }

@@ -275,9 +275,9 @@ class ContestSessionController extends BackendController
                 $contestSession->is_grand_prize = 0;
                 $contestSession->save();
             }
-            $winner = array_rand($contestSessions,1);
-            $contestSessions[$winner]->is_grand_prize = 1;
-            $contestSessions[$winner]->save();
+            $grandPrize =  ContestSession::find()->where(['contest_item_id' => $week])->orderBy(['rand()' => SORT_DESC])->limit(1)->one();
+            $grandPrize->is_grand_prize = 1;
+            $grandPrize->save();
         }
     }
 

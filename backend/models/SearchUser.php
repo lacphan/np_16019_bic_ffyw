@@ -7,7 +7,7 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\enpii\components\widget\datepicker\DateRangePicker;
 use backend\models\User;
-
+use common\helpers\HashHelper;
 /**
  * SearchUser represents the model behind the search form about `backend\models\User`.
  * @property  $globalSearch
@@ -82,9 +82,9 @@ class SearchUser extends User
         ]);
 
         $query->andFilterWhere(['like', 'username', $this->username])
-            ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'first_name', $this->first_name])
-            ->andFilterWhere(['like', 'last_name', $this->last_name])
+            ->andFilterWhere(['like', 'email', HashHelper::encrypt($this->email)])
+            ->andFilterWhere(['like', 'first_name', HashHelper::encrypt($this->first_name)])
+            ->andFilterWhere(['like', 'last_name', HashHelper::encrypt($this->last_name)])
             ->andFilterWhere(['like', 'password_hash', $this->password_hash])
             ->andFilterWhere(['like', 'password_reset_token', $this->password_reset_token])
             ->andFilterWhere(['like', 'auth_key', $this->auth_key])

@@ -118,11 +118,7 @@ class SiteController extends BackendController
         foreach ($users as $user) {
             if($user->is_encrypted == 0) {
                 $user->is_encrypted = 1;
-                $user->email = HashHelper::encrypt($user->email);
-                $user->first_name = HashHelper::encrypt($user->first_name);
-                $user->last_name = HashHelper::encrypt($user->last_name);
                 if($user->profile) {
-                    $user->profile->phone_number =  HashHelper::encrypt( $user->profile->phone_number);
                     $user->profile->save(false);
                 }
                 $user->save(false);
@@ -137,9 +133,6 @@ class SiteController extends BackendController
         foreach ($contestSessions as $contestSession) {
             if($contestSession->is_encrypted == 0) {
                 $contestSession->is_encrypted = 1;
-                $contestSession->user_email =  HashHelper::encrypt($contestSession->user_email);
-                $contestSession->first_name =  HashHelper::encrypt($contestSession->first_name);
-                $contestSession->last_name =  HashHelper::encrypt($contestSession->last_name);
                 $contestSession->save(false);
             }
         }

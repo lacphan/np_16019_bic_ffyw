@@ -7,6 +7,7 @@ use yii\widgets\ActiveForm;
 use kartik\export\ExportMenu;
 use yii\helpers\ArrayHelper;
 use backend\models\ContestItem;
+use common\helpers\HashHelper;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\SearchContestSession */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -69,7 +70,9 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                             [
                                 'attribute' => 'parent_last_name',
-                                'value' => 'user.last_name',
+                                'value' => function($model) {
+                                  return HashHelper::decrypt($model->user->last_name);
+                                },
                                 'label' => "Parent's Last Name"
                             ],
                             [
@@ -201,17 +204,23 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ],
                                 [
                                     'attribute' => 'userEmail',
-                                    'value' => 'user.email',
+                                    'value' => function($model) {
+                                        return HashHelper::decrypt($model->user->email);
+                                    },
                                     'label' => 'Parent\'s Email'
                                 ],
                                 [
                                     'attribute' => 'userFirstName',
-                                    'value' => 'user.first_name',
+                                    'value' => function($model) {
+                                        return HashHelper::decrypt($model->user->first_name);
+                                    },
                                     'label' => "Parent's First Name"
                                 ],
                                 [
                                     'attribute' => 'userLastName',
-                                    'value' => 'user.last_name',
+                                    'value' => function($model) {
+                                        return HashHelper::decrypt($model->user->last_name);
+                                    },
                                     'label' => "Parent's Last Name"
                                 ],
                                 [

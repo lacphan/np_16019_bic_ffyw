@@ -4,7 +4,7 @@ use yii\widgets\Breadcrumbs;
 use backend\models\ContestSession;
 use backend\models\ContestItem;
 use backend\models\User;
-
+use common\helpers\HashHelper;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
@@ -290,12 +290,12 @@ $totalSubmission = ContestSession::find()->all();
 
                                     <tr>
                                         <td> <?= $key ?></td>
-                                        <th><?= $winner->user->email ?></th>
-                                        <th><?= $winner->user->first_name ?></th>
-                                        <th><?= $winner->user->last_name ?></th>
+                                        <th><?= HashHelper::decrypt($winner->user->email) ?></th>
+                                        <th><?=  HashHelper::decrypt($winner->user->first_name) ?></th>
+                                        <th><?=  HashHelper::decrypt($winner->user->last_name) ?></th>
                                         <th><?= $winner->first_name ?></th>
                                         <th><?= $winner->last_name ?></th>
-                                        <th><?= $winner->age ?></th>
+                                        <th><?=  $winner->age ?></th>
                                     </tr>
                                 <?php endforeach;
                             }
@@ -333,9 +333,9 @@ $totalSubmission = ContestSession::find()->all();
 
                                 <tr>
                                     <td></td>
-                                    <th><?= $grandPrize->user->email ?></th>
-                                    <th><?= $grandPrize->user->first_name ?></th>
-                                    <th><?= $grandPrize->user->last_name ?></th>
+                                    <th><?=  HashHelper::decrypt($grandPrize->user->email) ?></th>
+                                    <th><?=  HashHelper::decrypt($grandPrize->user->first_name) ?></th>
+                                    <th><?=  HashHelper::decrypt($grandPrize->user->last_name) ?></th>
                                     <th><?= $grandPrize->first_name ?></th>
                                     <th><?= $grandPrize->last_name ?></th>
                                     <th><?= $grandPrize->age ?></th>

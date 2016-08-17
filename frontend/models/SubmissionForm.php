@@ -98,6 +98,7 @@ class SubmissionForm extends Model
             $contestSession->setCreatedDate();
             $contestSession->setUpdatedDate();
             $contestSession->creator_id = 1;
+            $contestSession->is_encrypted = 1;
             $contestSession->setAge($this->age);
             if(Yii::$app->language == 'fr_FR') {
                 $contestSession->locale_id = 3;

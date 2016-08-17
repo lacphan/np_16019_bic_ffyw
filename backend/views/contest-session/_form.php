@@ -32,6 +32,8 @@ use kartik\file\FileInput;
 
                         <?= $form->field($model, 'last_name')->textInput(['maxlength' => true]) ?>
 
+                        <?= $form->field($model, 'user_email')->textInput(['maxlength' => true]) ?>
+
                         <?= $form->field($model, 'age')->textInput() ?>
 
                         <?php
