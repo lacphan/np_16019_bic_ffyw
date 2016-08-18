@@ -32,7 +32,7 @@ use yii\helpers\ArrayHelper;
                                 <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
                             </div>
                             <div class="col-md-6">
-                                <?= $form->field($profile, 'age')->textInput(['maxlength' => true]) ?>
+                                <?= $form->field($profile, 'date_of_birth')->textInput(['maxlength' => true]) ?>
 
                             </div>
                         </div>

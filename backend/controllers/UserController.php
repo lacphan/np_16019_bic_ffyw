@@ -135,8 +135,7 @@ class UserController extends NpController
             }
 
             $model->save();
-
-            $profile->setAge($profile->age);
+            
             $profile->save();
             
             $auth = Yii::$app->authManager;
