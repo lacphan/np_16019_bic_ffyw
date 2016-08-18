@@ -135,7 +135,7 @@ class UserController extends NpController
             }
 
             $model->save();
-            
+
             $profile->save();
             
             $auth = Yii::$app->authManager;
