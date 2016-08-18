@@ -17,4 +17,5 @@ return [
             'timeFormat' => 'php:H:i A',
             'defaultTimeZone' OR 'timeZone' => 'Asia/Ho_Chi_Minh', //global date formats for display for your locale.
         ],
+    'encryptKey' => 'eNpii@123'
 ];
