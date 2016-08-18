@@ -34,6 +34,7 @@ class CommonUserProfile extends \common\models\base\BaseUserProfile
             $this->parent_first_name = HashHelper::encrypt($this->parent_first_name);
             $this->parent_last_name = HashHelper::encrypt($this->parent_last_name);
             $this->phone_number = HashHelper::encrypt($this->phone_number);
+            $this->date_of_birth = HashHelper::encrypt($this->date_of_birth);
 
             return true;
         } else {
@@ -53,6 +54,7 @@ class CommonUserProfile extends \common\models\base\BaseUserProfile
             $this->parent_first_name = HashHelper::decrypt($this->parent_first_name);
             $this->parent_last_name = HashHelper::decrypt($this->parent_last_name);
             $this->phone_number = HashHelper::decrypt($this->phone_number);
+            $this->date_of_birth = HashHelper::decrypt($this->date_of_birth);
         }
 
     }

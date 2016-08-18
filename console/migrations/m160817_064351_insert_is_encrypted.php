@@ -16,6 +16,7 @@ class m160817_064351_insert_is_encrypted extends Migration
         $this->db->createCommand('ALTER TABLE `bic_ffyw_contest_session` MODIFY COLUMN `first_name` text')->execute();
         $this->db->createCommand('ALTER TABLE `bic_ffyw_contest_session` MODIFY COLUMN `last_name` text')->execute();
         $this->db->createCommand('ALTER TABLE `bic_ffyw_user_profile` MODIFY COLUMN `phone_number` text')->execute();
+        $this->db->createCommand('ALTER TABLE `bic_ffyw_user_profile` MODIFY COLUMN `date_of_birth` text')->execute();
 
     }
 
