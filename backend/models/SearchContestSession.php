@@ -82,15 +82,15 @@ class SearchContestSession extends ContestSession
             'birth_year' => $this->birth_year,
             'attachment_id' => $this->attachment_id,
             'contest_item_id' => $this->contest_item_id ? $this->contest_item_id : 1,
-            '{{%contest_session}}.first_name' => HashHelper::encrypt($this->first_name),
-            '{{%contest_session}}.last_name' => HashHelper::encrypt($this->last_name),
         ]);
         if($winner) {
             $query->andFilterWhere(['is_winner' => $winner]);
         }
         $query->andFilterWhere(['like', '{{%user}}.email', HashHelper::encrypt($this->userEmail)])
             ->andFilterWhere(['like', '{{%user}}.first_name', HashHelper::encrypt($this->userFirstName)])
-            ->andFilterWhere(['like', '{{%user}}.last_name', HashHelper::encrypt($this->userLastName)]);
+            ->andFilterWhere(['like', '{{%user}}.last_name', HashHelper::encrypt($this->userLastName)])
+            ->andFilterWhere(['like', '{{%contest_session}}.first_name', HashHelper::encrypt($this->first_name)])
+            ->andFilterWhere(['like', '{{%contest_session}}.last_name', HashHelper::encrypt($this->last_name)]);
 
         if($this->globalSearch) {
             $query->filterWhere(['like','first_name', $this->globalSearch]);
