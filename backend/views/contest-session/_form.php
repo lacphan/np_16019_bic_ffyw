@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use kartik\file\FileInput;
 use yii\helpers\ArrayHelper;
 use backend\models\ContestItem;
+
 /* @var $this yii\web\View */
 /* @var $model backend\models\ContestSession */
 /* @var $form yii\widgets\ActiveForm */
@@ -24,7 +25,6 @@ use backend\models\ContestItem;
                 </div>
                 <div class="portlet-body form">
                     <div class="contest-session-form">
-
                         <?php $form = ActiveForm::begin(['options' => ['class' => 'form-body', 'enctype' => 'multipart/form-data']]); ?>
 
                         <?= $form->field($model, 'user_id')->textInput() ?>
@@ -45,6 +45,7 @@ use backend\models\ContestItem;
                                 'prompt' => sprintf('- %s -', Yii::t('app', 'Select Fa Yin Kong')),
                             ])->label(Yii::t('app','Week'));
                         ?>
+
                         <?php
                         $initialPreview = [];
                         if ($model->attachment) {
@@ -73,7 +74,6 @@ use backend\models\ContestItem;
                                         'image' => ['width' => '138px', 'height' => 'auto']
                                     ],
                                     'initialPreview' => $initialPreview,
-
                                 ]
                             ]); ?>
                         <?php if ($model->attachment): ?>
@@ -92,7 +92,7 @@ use backend\models\ContestItem;
                         </div>
                         <?= $form->field($model, 'attachment_id')->hiddenInput(['id' => 'attachment-id'])->label(false) ?>
                         <?php ActiveForm::end(); ?>
-
+                        
                     </div>
                     <!-- END FORM-->
                 </div>
