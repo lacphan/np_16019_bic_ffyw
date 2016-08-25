@@ -95,7 +95,7 @@ class SiteController extends FrontendController
         Yii::$app->session->remove('registerEmail');
         Yii::$app->session->remove('submissionEmail');
         $locale = Yii::$app->request->get('locale');
-        $contestSessions = ContestSession::find()->where(['accepted' => 1])->orderBy(new Expression('rand()'))->limit(9)->all();
+        $contestSessions = ContestSession::find()->where(['accepted' => 1])->orderBy(['created_at' => SORT_DESC])->limit(9)->all();
 
         if ($emailSubmission->load(Yii::$app->request->post()) && $emailSubmission->isEmailExists()) {
 

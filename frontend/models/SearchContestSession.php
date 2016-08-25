@@ -47,7 +47,7 @@ class SearchContestSession extends ContestSession
      */
     public function search($params)
     {
-        $query = ContestSession::find()->where(['accepted' => 1])->orderBy(new Expression('rand()'));;
+        $query = ContestSession::find()->where(['accepted' => 1])->orderBy(['created_at' => SORT_DESC]);;
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
