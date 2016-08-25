@@ -3,7 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\file\FileInput;
-
+use yii\helpers\ArrayHelper;
+use backend\models\ContestItem;
 /* @var $this yii\web\View */
 /* @var $model backend\models\ContestSession */
 /* @var $form yii\widgets\ActiveForm */
@@ -35,7 +36,15 @@ use kartik\file\FileInput;
                         <?= $form->field($model, 'user_email')->textInput(['maxlength' => true]) ?>
 
                         <?= $form->field($model, 'age')->textInput() ?>
-
+                        <?= $form->field($model, 'contest_item_id')->dropDownList(
+                            ArrayHelper::map(ContestItem::find()->where(['locale_id' => 1])->all(),
+                                'id',
+                                'week_number'),
+                            [
+                                'class' => 'form-control select2',
+                                'prompt' => sprintf('- %s -', Yii::t('app', 'Select Fa Yin Kong')),
+                            ])->label(Yii::t('app','Week'));
+                        ?>
                         <?php
                         $initialPreview = [];
                         if ($model->attachment) {
@@ -77,6 +86,7 @@ use kartik\file\FileInput;
                                     <i class="fa fa-repeat" aria-hidden="true"></i></button>
                             </div>
                         <?php endif; ?>
+
                         <div class="form-group">
                             <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
                         </div>
